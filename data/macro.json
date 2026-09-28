@@ -1,117 +1,251 @@
 {
  "meta": {
-  "fetched_at": "2026-09-28 16:31",
-  "failed": {
-   "B": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "I": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "J": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "K": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "^IXIC": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "CL=F": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all()."
-  }
+  "fetched_at": "2026-09-28 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
+  "failed": {}
  },
+ "scored_at": "2026-09-28",
+ "summary": "Tổng điểm -5: Fed tăng lãi suất, dầu trên 100 USD, khối ngoại bán ròng và thanh khoản căng; giải ngân đầu tư công và chính sách mới là điểm sáng.",
  "criteria": {
   "A": {
    "name": "Lãi suất điều hành NHNN",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": 0,
+   "reason": "NHNN giữ lãi suất chào thầu OMO ở 4,5%/năm, không đổi so với các phiên trước.",
+   "url": "https://cafef.vn/nhnn-bom-thanh-khoan-vnd-dai-han-hon-188260915103255251.chn",
+   "previous": {
+    "value": 4.5,
+    "unit": "%/năm (OMO)",
+    "date": "2026-09-14",
+    "source": "NHNN qua CafeF"
+   },
+   "current": {
+    "value": 4.5,
+    "unit": "%/năm (OMO)",
+    "date": "2026-09-21",
+    "source": "NHNN qua CafeBiz"
+   }
   },
   "B": {
    "name": "Tỷ giá USD/VND",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": 0,
+   "reason": "Tỷ giá trung tâm 25.632 đồng/USD, giảm 9 đồng; thị trường ổn định dù USD thế giới mạnh.",
+   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-289-ty-gia-trung-tam-giam-con-25632-dongusd-post1336448.vov",
+   "previous": {
+    "value": 25641,
+    "unit": "VND/USD (tỷ giá trung tâm)",
+    "date": "2026-09-25",
+    "source": "NHNN qua VOH/BNEWS"
+   },
+   "current": {
+    "value": 25632,
+    "unit": "VND/USD (tỷ giá trung tâm)",
+    "date": "2026-09-28",
+    "source": "NHNN qua VOV"
+   }
   },
   "C": {
-   "name": "CPI/lạm phát",
+   "name": "CPI / lạm phát",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": -1,
+   "reason": "CPI tháng 8 tăng 4,89% so với cùng kỳ, cao hơn mục tiêu bình quân 4,5% do giá xăng dầu tăng.",
+   "url": "https://cafebiz.vn/cpi-thang-8-2026-tang-047-176260903133717366.chn",
+   "previous": {
+    "value": 4.45,
+    "unit": "% so cùng kỳ (tháng 7)",
+    "date": "2026-08-03",
+    "source": "Cục Thống kê"
+   },
+   "current": {
+    "value": 4.89,
+    "unit": "% so cùng kỳ (tháng 8)",
+    "date": "2026-09-03",
+    "source": "Cục Thống kê"
+   }
   },
   "D": {
    "name": "Tiến độ giải ngân đầu tư công",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": 1,
+   "reason": "Giải ngân đến 17/9 đạt 52,9% kế hoạch, cao hơn cùng kỳ, dù còn nhiều đơn vị dưới mức bình quân.",
+   "url": "https://baodauthau.vn/hon-540000-ty-dong-von-dau-tu-cong-duoc-giai-ngan-sau-8-thang-post208057.html",
+   "previous": {
+    "value": 48.9,
+    "unit": "% kế hoạch (hết tháng 8)",
+    "date": "2026-09-03",
+    "source": "Bộ Tài chính"
+   },
+   "current": {
+    "value": 52.9,
+    "unit": "% kế hoạch (đến 17/9)",
+    "date": "2026-09-17",
+    "source": "Bộ Tài chính qua Báo Đầu tư"
+   }
   },
   "E": {
-   "name": "Thanh khoản/room tín dụng",
+   "name": "Thanh khoản / room tín dụng",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": -1,
+   "reason": "Lãi suất liên ngân hàng qua đêm tăng 2,5 điểm lên 7,0%; NHNN phải bơm ròng gần 48.000 tỷ đồng qua OMO.",
+   "url": "https://cafebiz.vn/lai-suat-lien-ngan-hang-bat-tang-ngan-hang-nha-nuoc-cap-tap-bom-thanh-khoan-176260922112717451.chn",
+   "previous": {
+    "value": 4.5,
+    "unit": "%/năm (liên NH qua đêm, suy ra từ mức tăng 2,5 điểm)",
+    "date": "2026-09-18",
+    "source": "CafeBiz theo An ninh tiền tệ"
+   },
+   "current": {
+    "value": 7.0,
+    "unit": "%/năm (liên NH qua đêm)",
+    "date": "2026-09-21",
+    "source": "CafeBiz theo An ninh tiền tệ"
+   }
   },
   "F": {
    "name": "Chính sách/luật mới ảnh hưởng ngành",
    "quantitative": false,
+   "score": 1,
+   "reason": "Nhiều luật, nghị định mới có hiệu lực từ tháng 10/2026 (đô thị TOD, PPP, xuất khẩu gạo), hỗ trợ hạ tầng.",
+   "url": "https://www.vietnamplus.vn/loat-chinh-sach-kinh-te-noi-bat-co-hieu-luc-tu-thang-10-nam-2026-post1138784.vnp",
    "previous": null,
-   "current": null,
-   "score": 0
+   "current": null
   },
   "G": {
    "name": "Ổn định chính trị – xã hội",
    "quantitative": false,
+   "score": 0,
+   "reason": "Chưa thấy diễn biến bất thường; ADB đánh giá kinh tế kiên cường (23/9) nên giữ trung lập.",
+   "url": "https://www.vietnamplus.vn/adb-nang-du-bao-tang-truong-viet-nam-luu-y-rui-ro-tin-dung-va-lam-phat-post1137929.vnp",
    "previous": null,
-   "current": null,
-   "score": 0
+   "current": null
   },
   "H": {
    "name": "Lãi suất Fed",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": -1,
+   "reason": "Fed tăng lãi suất 25 điểm cơ bản lên 3,75–4,00% ngày 16/9, lần đầu từ 2023 và còn dự báo tăng thêm.",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+   "previous": {
+    "value": 3.75,
+    "unit": "% (cận trên biên 3,50–3,75%)",
+    "date": "2025-12",
+    "source": "Cục Dự trữ Liên bang (federalreserve.gov)"
+   },
+   "current": {
+    "value": 4.0,
+    "unit": "% (cận trên biên 3,75–4,00%)",
+    "date": "2026-09-16",
+    "source": "federalreserve.gov"
+   }
   },
   "I": {
    "name": "Chỉ số DXY",
    "quantitative": true,
+   "score": -1,
+   "reason": "DXY quanh 101 điểm, cao nhất 2 tháng và tăng hai tuần liên tiếp.",
+   "url": "https://baovanhoa.vn/kinh-te/ti-gia-usd-hom-nay-289-fed-co-the-tang-tiep-lai-suat-usdvnd-se-ra-sao-269388.html",
    "previous": null,
-   "current": null,
-   "score": 0
+   "current": {
+    "value": 101.04,
+    "unit": "điểm",
+    "date": "2026-09-25",
+    "source": "Báo Văn hóa"
+   }
   },
   "J": {
    "name": "Giá dầu thế giới",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": -1,
+   "reason": "Brent trên 100 USD/thùng do căng thẳng Mỹ – Iran, kéo giá xăng trong nước tăng.",
+   "url": "https://ngoisao.vn/theo-dong-su-kien/tin-nong-trong-ngay/gia-xang-dau-hom-nay-28-9-2026-do-day-binh-ton-bao-nhieu-tien-voi-gia-xang-moi-d492809.html",
+   "previous": {
+    "value": 104.32,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-09-25",
+    "source": "CNBC (giá đóng cửa)"
+   },
+   "current": {
+    "value": 105.8,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-09-28",
+    "source": "Oilprice qua Ngôi sao"
+   }
   },
   "K": {
    "name": "Chứng khoán Mỹ (S&P500/Nasdaq)",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": 0,
+   "reason": "S&P 500 tăng 1,21% tuần qua nhưng lợi suất trái phiếu 10 năm lên 5,18%, cao nhất từ 2007 nên giữ trung lập.",
+   "url": "https://portfolio-terminal.com/blog/stock-market-week-in-review-september-25-2026",
+   "previous": {
+    "value": 7704.13,
+    "unit": "điểm (S&P 500, suy ra từ mức tăng 39,28)",
+    "date": "2026-09-24",
+    "source": "Yahoo Finance"
+   },
+   "current": {
+    "value": 7743.41,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-09-25",
+    "source": "Yahoo Finance"
+   }
   },
   "L": {
    "name": "Căng thẳng thương mại/địa chính trị",
    "quantitative": false,
+   "score": -1,
+   "reason": "Xung đột Mỹ – Iran và rủi ro eo biển Hormuz chưa dứt, dù hai bên còn đàm phán.",
+   "url": "https://www.cnbc.com/2026/09/24/stock-market-today-live-updates.html",
    "previous": null,
-   "current": null,
-   "score": 0
+   "current": null
   },
   "M": {
-   "name": "Dòng vốn khối ngoại",
+   "name": "Dòng vốn khối ngoại tại VN",
    "quantitative": true,
-   "previous": null,
-   "current": null,
-   "score": 0
+   "score": -1,
+   "reason": "Khối ngoại bán ròng khoảng 2.865 tỷ đồng trên HoSE tuần 21–25/9 và tiếp tục bán ròng phiên 28/9.",
+   "url": "https://nhandan.vn/infographic-thi-truong-tuan-21-259-vn-index-phuc-hoi-phien-cuoi-tuan-khoi-ngoai-tiep-tuc-ban-rong-post991132.html",
+   "previous": {
+    "value": 2638,
+    "unit": "tỷ đồng (mua ròng, tuần 14–18/9)",
+    "date": "2026-09-18",
+    "source": "AWM Fund tổng hợp (chưa đối chiếu nguồn gốc)"
+   },
+   "current": {
+    "value": -2865,
+    "unit": "tỷ đồng (bán ròng HoSE, tuần 21–25/9)",
+    "date": "2026-09-25",
+    "source": "Nhân Dân"
+   }
   },
   "N": {
    "name": "Tin tức riêng của 5 nhóm ngành",
    "quantitative": false,
+   "score": 0,
+   "reason": "Bán lẻ và cao su tích cực; ngân hàng chịu áp lực chi phí vốn; xây dựng phân hóa lợi nhuận; CNTT vững nhưng cổ phiếu chịu áp lực.",
+   "url": "https://mekongasean.vn/du-bao-ket-qua-kinh-doanh-quy-32026-cua-nhom-tieu-dung-ban-le-60040.html",
    "previous": null,
-   "current": null,
-   "score": 0
+   "current": null
   }
  },
- "reference": {},
- "history": [],
+ "reference": {
+  "^IXIC": {
+   "name": "Nasdaq",
+   "value": 27068.72,
+   "date": "2026-09-25"
+  },
+  "CL=F": {
+   "name": "Dầu WTI",
+   "value": 92.41,
+   "date": "2026-09-25"
+  }
+ },
+ "history": [
+  {
+   "date": "2026-09-28",
+   "total": -5
+  }
+ ],
  "thresholds": {
   "sell": -4,
   "buy": 4
