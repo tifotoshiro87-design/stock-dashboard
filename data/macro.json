@@ -1,0 +1,119 @@
+{
+ "meta": {
+  "fetched_at": "2026-09-28 16:31",
+  "failed": {
+   "B": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "I": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "J": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "K": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "^IXIC": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "CL=F": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all()."
+  }
+ },
+ "criteria": {
+  "A": {
+   "name": "Lãi suất điều hành NHNN",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "B": {
+   "name": "Tỷ giá USD/VND",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "C": {
+   "name": "CPI/lạm phát",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "D": {
+   "name": "Tiến độ giải ngân đầu tư công",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "E": {
+   "name": "Thanh khoản/room tín dụng",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "F": {
+   "name": "Chính sách/luật mới ảnh hưởng ngành",
+   "quantitative": false,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "G": {
+   "name": "Ổn định chính trị – xã hội",
+   "quantitative": false,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "H": {
+   "name": "Lãi suất Fed",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "I": {
+   "name": "Chỉ số DXY",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "J": {
+   "name": "Giá dầu thế giới",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "K": {
+   "name": "Chứng khoán Mỹ (S&P500/Nasdaq)",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "L": {
+   "name": "Căng thẳng thương mại/địa chính trị",
+   "quantitative": false,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "M": {
+   "name": "Dòng vốn khối ngoại",
+   "quantitative": true,
+   "previous": null,
+   "current": null,
+   "score": 0
+  },
+  "N": {
+   "name": "Tin tức riêng của 5 nhóm ngành",
+   "quantitative": false,
+   "previous": null,
+   "current": null,
+   "score": 0
+  }
+ },
+ "reference": {},
+ "history": [],
+ "thresholds": {
+  "sell": -4,
+  "buy": 4
+ }
+}
