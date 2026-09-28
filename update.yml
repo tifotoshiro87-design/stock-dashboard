@@ -1,0 +1,24 @@
+# Tự động lấy dữ liệu giá và commit vào repo -> trang web luôn có số liệu mới
+name: Cap nhat du lieu
+on:
+  schedule:
+    - cron: "*/15 2-8 * * 1-5"   # mỗi 15 phút, 09:00–15:59 giờ VN, thứ 2–6
+    - cron: "30 9 * * 1-5"       # 16:30 giờ VN: chốt phiên
+  workflow_dispatch: {}          # cho phép bấm chạy tay
+permissions:
+  contents: write
+concurrency: cap-nhat
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - run: python fetch_data.py
+      - name: Commit du lieu
+        run: |
+          git config user.name "bot"; git config user.email "bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || (git commit -m "cap nhat du lieu" && git push)

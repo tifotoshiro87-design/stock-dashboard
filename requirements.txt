@@ -1,0 +1,4 @@
+yfinance>=0.2.40
+pandas>=2.0
+# vnstock là tùy chọn: nếu cài lỗi, script vẫn chạy bằng Yahoo (IDC có thể thiếu dữ liệu)
+# pip install vnstock
