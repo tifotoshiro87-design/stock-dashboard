@@ -184,12 +184,14 @@ function detail(){
 
 // ===== Tab 2 =====
 function t2(){
- const sc=ls.get("sc",{}),th=ls.get("th",M&&M.thresholds||{sell:-4,buy:4}),mc=M&&M.criteria||{};
+ const mc=M&&M.criteria||{};
+ if(M&&M.scored_at&&ls.get("scst","")!==M.scored_at){const n={};CR.forEach(c=>{if(mc[c[0]]&&typeof mc[c[0]].score==="number")n[c[0]]=mc[c[0]].score});ls.set("sc",n);ls.set("scst",M.scored_at)}
+ const sc=ls.get("sc",{}),th=ls.get("th",M&&M.thresholds||{sell:-4,buy:4});
  let h='<div class="card"><h3>Bảng chấm điểm tín hiệu vĩ mô – địa chính trị</h3><p class="mu">Chấm −1 (tiêu cực) · 0 (trung lập) · +1 (tích cực) cho cổ phiếu Việt Nam. Điểm bạn chọn được lưu ngay trên trình duyệt này.</p>';
  GH.forEach((gh,gi)=>{h+=`<div class="rf" style="margin-top:12px">${gh}</div>`;
   CR.filter(c=>c[3]==gi).forEach(c=>{const m=mc[c[0]]||{};
-   const bx=(lb,o)=>`<span class="bx"><i>${lb}</i>${o&&o.value!=null?fmt(o.value,o.value>=1000?0:2)+" "+esc(o.unit||""):""}${o&&o.date?`<i>${esc(o.date)} · ${esc(o.source||"")}</i>`:""}</span>`;
-   h+=`<div class="cr"><div><b>${c[0]}. ${c[1]}</b><em>${c[2]}</em>${c[4]?bx("KỲ TRƯỚC",m.previous)+bx("HIỆN TẠI",m.current):""}</div>
+   const bx=(lb,o)=>`<span class="bx"><i>${lb}</i>${o&&o.value!=null?fmt(o.value,Number.isInteger(o.value)||Math.abs(o.value)>=1000?0:2)+" "+esc(o.unit||""):""}${o&&o.date?`<i>${esc(o.date)} · ${esc(o.source||"")}</i>`:""}</span>`;
+   h+=`<div class="cr"><div><b>${c[0]}. ${c[1]}</b><em>${c[2]}</em>${m.reason?`<div style="font-size:12px;margin:4px 0">${esc(m.reason)} ${/^https?:\/\//.test(m.url||"")?`<a class="rf" target="_blank" rel="noopener" href="${esc(m.url)}">Nguồn →</a>`:""}</div>`:""}${c[4]?bx("KỲ TRƯỚC",m.previous)+bx("HIỆN TẠI",m.current):""}</div>
    <select data-c="${c[0]}">${[-1,0,1].map(v=>`<option value="${v}" ${(sc[c[0]]||0)==v?"selected":""}>${v>0?"+"+v:v}</option>`).join("")}</select></div>`})});
  h+=`</div><div class="card"><h3>Tổng điểm</h3><div id="tot"></div><p>Ngưỡng BÁN ≤ <input id="ths" type="number" value="${th.sell}"> · Ngưỡng MUA ≥ <input id="thb" type="number" value="${th.buy}"></p><div id="hs"></div></div>
  <div class="card"><h3>Tác động theo ngành</h3><div id="imp"></div></div>`;
@@ -197,7 +199,7 @@ function t2(){
 function sum(){
  const sc=ls.get("sc",{}),s=+$("#ths").value,b=+$("#thb").value;ls.set("th",{sell:s,buy:b});
  const tot=CR.reduce((a,c)=>a+(sc[c[0]]||0),0),v=tot<=s?"BÁN":tot>=b?"MUA":"TRUNG LẬP";
- const H=ls.get("hist",{}),day=new Date().toISOString().slice(0,10);H[day]=tot;ls.set("hist",H);
+ const H={},day=new Date().toISOString().slice(0,10);((M&&M.history)||[]).forEach(x=>{if(x&&x.date)H[x.date]=x.total});Object.assign(H,ls.get("hist",{}));H[day]=tot;ls.set("hist",H);
  const days=Object.keys(H).sort(),prev=days.length>1?H[days[days.length-2]]:null;
  const xu=prev==null?"chưa đủ dữ liệu so sánh":tot>prev?"đang cải thiện ▲":tot<prev?"đang xấu đi ▼":"đi ngang ►";
  $("#tot").innerHTML=`<span class="sig ${v=="BÁN"?"BAN":v=="MUA"?"MUA":""}">${v}</span> <b>${tot>0?"+"+tot:tot}</b> điểm — xu hướng: ${xu}`;

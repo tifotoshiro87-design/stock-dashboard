@@ -170,6 +170,7 @@ def lay_macro():
             loi[ma_yf] = str(e)
     return {"meta": {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "failed": loi},
             "criteria": tc, "reference": tham_khao,
+            "scored_at": cu.get("scored_at"), "summary": cu.get("summary"),
             "history": cu.get("history", []),
             "thresholds": cu.get("thresholds", {"sell": -4, "buy": 4})}
 
