@@ -43,6 +43,11 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 .nw{padding:10px 0;border-bottom:1px solid #21262d}.nw a{color:#e3b341;font-size:12px}
 .tag{font-size:11px;background:#1f2a44;color:#79c0ff;border-radius:10px;padding:1px 8px}
 .hide{display:none}
+.dt{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.tvb{background:#0d1117;color:#8b949e;border:1px solid #30363d;border-radius:5px;padding:5px 10px;margin-right:6px;font-size:13px}
+.tvb.on{color:#e6edf3;border-color:#d29922}
+.pi{padding:8px;border:1px solid #30363d;border-radius:6px;margin-top:8px;cursor:pointer}
+.pi.on{border-color:#d29922;background:#1c2330}
 </style></head><body>
 <div id="top">
  <h1>Bảng theo dõi cổ phiếu — 17 mã, 5 nhóm ngành</h1>
@@ -59,26 +64,26 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 <script>
 "use strict";
 // ===== Danh mục cố định (mã, tên, nhóm, sàn) — dùng khi chưa có prices.json =====
-const G=["Ngân hàng","Bán lẻ – Tiêu dùng","Cao su – KCN","Công nghệ thông tin","Xây dựng – Đầu tư công"];
-const ST=[["VCB","NH TMCP Ngoại thương Việt Nam",0,"HOSE"],["VPB","NH TMCP Việt Nam Thịnh Vượng",0,"HOSE"],["HDB","NH TMCP Phát triển TP.HCM",0,"HOSE"],
-["MWG","CTCP Đầu tư Thế Giới Di Động",1,"HOSE"],["MSN","CTCP Tập đoàn Masan",1,"HOSE"],["DGW","CTCP Thế Giới Số",1,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",1,"HOSE"],
-["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",2,"HOSE"],["PHR","CTCP Cao su Phước Hòa",2,"HOSE"],["IDC","Tổng Công ty IDICO – CTCP",2,"HNX"],
-["FPT","CTCP FPT",3,"HOSE"],["CMG","CTCP Tập đoàn Công nghệ CMC",3,"HOSE"],
-["VCG","Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)",4,"HOSE"],["HHV","CTCP Đầu tư Hạ tầng Giao thông Đèo Cả",4,"HOSE"],["LCG","CTCP Lizen",4,"HOSE"],["FCN","CTCP FECON",4,"HOSE"],["CTD","CTCP Xây dựng Coteccons",4,"HOSE"]].map(a=>({s:a[0],n:a[1],g:a[2],x:a[3]}));
+const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức"];
+const ST=[["VCB","NH TMCP Ngoại thương Việt Nam",1,"HOSE"],["VPB","NH TMCP Việt Nam Thịnh Vượng",1,"HOSE"],["HDB","NH TMCP Phát triển TP.HCM",1,"HOSE"],
+["MWG","CTCP Đầu tư Thế Giới Di Động",2,"HOSE"],["MSN","CTCP Tập đoàn Masan",3,"HOSE"],["DGW","CTCP Thế Giới Số",2,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",4,"HOSE"],
+["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",0,"HOSE"],["PHR","CTCP Cao su Phước Hòa",0,"HOSE"],["IDC","Tổng Công ty IDICO – CTCP",0,"HNX"],
+["FPT","CTCP FPT",2,"HOSE"],["CMG","CTCP Tập đoàn Công nghệ CMC",2,"HOSE"],
+["VCG","Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)",0,"HOSE"],["HHV","CTCP Đầu tư Hạ tầng Giao thông Đèo Cả",0,"HOSE"],["LCG","CTCP Lizen",0,"HOSE"],["FCN","CTCP FECON",0,"HOSE"],["CTD","CTCP Xây dựng Coteccons",0,"HOSE"]].map(a=>({s:a[0],n:a[1],g:a[2],x:a[3]}));
 // 14 tiêu chí: [ký hiệu, tên, giải thích, nhóm, có số liệu?, ngành hưởng lợi khi +1, ngành bất lợi khi -1]
 const CR=[
-["A","Lãi suất điều hành NHNN","Lãi suất thấp giúp doanh nghiệp vay rẻ; tăng lãi suất kiềm chế lạm phát nhưng làm chi phí vốn cao hơn.",0,1,"Xây dựng, Bán lẻ, Ngân hàng","Xây dựng, Bán lẻ (chi phí vốn cao)"],
-["B","Tỷ giá USD/VND","VND mất giá có lợi cho xuất khẩu nhưng bất lợi cho doanh nghiệp vay nợ hoặc nhập khẩu bằng USD.",0,1,"Bán lẻ, Xây dựng (ổn định tỷ giá)","Bán lẻ, Xây dựng (nợ/nhập khẩu USD); có lợi cho Cao su xuất khẩu"],
-["C","CPI / lạm phát","Giá tiêu dùng tăng nhanh làm giảm sức mua và có thể buộc NHNN thắt chặt tiền tệ.",0,1,"Bán lẻ, Ngân hàng","Bán lẻ (sức mua), Xây dựng (giá vật liệu)"],
-["D","Tiến độ giải ngân đầu tư công","Giải ngân nhanh tạo doanh thu trực tiếp cho nhóm xây dựng, vật liệu, hạ tầng.",0,1,"Xây dựng – Đầu tư công, KCN","Xây dựng – Đầu tư công"],
-["E","Thanh khoản / room tín dụng","Vốn dễ vay giúp doanh nghiệp và nhà đầu tư dễ tiếp cận vốn hơn.",0,1,"Ngân hàng, Xây dựng, Bán lẻ","Ngân hàng, Xây dựng"],
+["A","Lãi suất điều hành NHNN","Lãi suất thấp giúp doanh nghiệp vay rẻ; tăng lãi suất kiềm chế lạm phát nhưng làm chi phí vốn cao hơn.",0,1,"Xây dựng, Ngân hàng, Vàng bạc","Xây dựng, Thép (chi phí vốn cao)"],
+["B","Tỷ giá USD/VND","VND mất giá có lợi cho xuất khẩu nhưng bất lợi cho doanh nghiệp vay nợ hoặc nhập khẩu bằng USD.",0,1,"Xây dựng, CNTT/bán lẻ (nhập khẩu, vay USD)","Xây dựng, Thép, CNTT/bán lẻ (nợ, nhập khẩu USD); có lợi cho doanh nghiệp xuất khẩu"],
+["C","CPI / lạm phát","Giá tiêu dùng tăng nhanh làm giảm sức mua và có thể buộc NHNN thắt chặt tiền tệ.",0,1,"Ngân hàng, CNTT/bán lẻ","Vàng bạc, CNTT/bán lẻ (sức mua), Xây dựng (giá vật liệu)"],
+["D","Tiến độ giải ngân đầu tư công","Giải ngân nhanh tạo doanh thu trực tiếp cho nhóm xây dựng, vật liệu, hạ tầng.",0,1,"Xây dựng – Đầu tư công, Thép","Xây dựng – Đầu tư công, Thép"],
+["E","Thanh khoản / room tín dụng","Vốn dễ vay giúp doanh nghiệp và nhà đầu tư dễ tiếp cận vốn hơn.",0,1,"Ngân hàng, Xây dựng, Thép","Ngân hàng, Xây dựng, Thép"],
 ["F","Chính sách / luật mới ảnh hưởng ngành","Thay đổi pháp lý (thuế, đất đai, đầu tư…) tác động trực tiếp đến kinh doanh của ngành.",1,0,"Ngành được chính sách hỗ trợ","Ngành bị siết quy định"],
 ["G","Ổn định chính trị – xã hội","Môi trường ổn định giúp duy trì niềm tin nhà đầu tư trong và ngoài nước.",1,0,"Toàn thị trường","Toàn thị trường"],
-["H","Lãi suất Fed","Fed tăng lãi suất thường hút dòng vốn về Mỹ, gây áp lực lên tỷ giá và thị trường mới nổi.",2,1,"Toàn thị trường, Ngân hàng","CNTT (định giá), toàn thị trường"],
-["I","Chỉ số DXY","USD mạnh lên thường gây áp lực lên VND, vàng và dòng vốn vào thị trường mới nổi.",2,1,"Toàn thị trường, Bán lẻ","Bán lẻ, Xây dựng (nhập khẩu, tỷ giá)"],
-["J","Giá dầu thế giới","Giá dầu tăng làm chi phí vận chuyển, sản xuất tăng.",2,1,"Xây dựng, Bán lẻ (chi phí thấp)","Xây dựng, KCN, logistics, vật liệu"],
+["H","Lãi suất Fed","Fed tăng lãi suất thường hút dòng vốn về Mỹ, gây áp lực lên tỷ giá và thị trường mới nổi.",2,1,"Toàn thị trường, Ngân hàng","CNTT (định giá), Vàng bạc (giá vàng chịu áp lực)"],
+["I","Chỉ số DXY","USD mạnh lên thường gây áp lực lên VND, vàng và dòng vốn vào thị trường mới nổi.",2,1,"Toàn thị trường","Vàng bạc (giá vàng giảm khi USD mạnh), Xây dựng, Thép (nhập khẩu)"],
+["J","Giá dầu thế giới","Giá dầu tăng làm chi phí vận chuyển, sản xuất tăng.",2,1,"Xây dựng, Thép (chi phí thấp)","Xây dựng, Thép, vật liệu (chi phí năng lượng)"],
 ["K","Chứng khoán Mỹ (S&P500/Nasdaq)","Xu hướng thị trường Mỹ tác động tâm lý và dòng vốn toàn cầu.",2,1,"Toàn thị trường, CNTT","Toàn thị trường, CNTT"],
-["L","Căng thẳng thương mại / địa chính trị","Xung đột, cạnh tranh thương mại làm rủi ro chuỗi cung ứng và biến động giá hàng hóa.",2,0,"Cao su, KCN, CNTT xuất khẩu","Cao su, KCN, CNTT xuất khẩu"],
+["L","Căng thẳng thương mại / địa chính trị","Xung đột, cạnh tranh thương mại làm rủi ro chuỗi cung ứng và biến động giá hàng hóa.",2,0,"Xây dựng (KCN, FDI), CNTT xuất khẩu, Thép","Thép, CNTT xuất khẩu, KCN"],
 ["M","Dòng vốn khối ngoại tại VN","Khối ngoại mua ròng thể hiện niềm tin vào thị trường và hỗ trợ giá cổ phiếu.",3,1,"Toàn thị trường, nhóm vốn hóa lớn","Toàn thị trường, nhóm vốn hóa lớn"],
 ["N","Tin tức riêng của 5 nhóm ngành","Tin về hoạt động kinh doanh, đơn hàng, dự án của các nhóm ngành trong danh mục.",3,0,"Nhóm có tin tốt (xem tab Tin tức)","Nhóm có tin xấu (xem tab Tin tức)"]];
 const GH=["Vĩ mô trong nước","Chính trị – chính sách","Quốc tế – địa chính trị","Dòng tiền & tin ngành"];
@@ -86,7 +91,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt=(v,d=2)=>(v==null||typeof v!=="number"||!isFinite(v))?"—":v.toLocaleString("vi-VN",{minimumFractionDigits:d,maximumFractionDigits:d});
 const ls={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let P=null,M=null,N=null,ERR=[],sel=null,grp=0,stamp="",charts=[];
+let P=null,M=null,N=null,ERR=[],sel=null,grp=0,stamp="",charts=[],tvOn=false,c4=null,curC=[],curPats=[];
 
 // ===== Nạp dữ liệu online, tự làm mới mỗi 60 giây và khi mở lại app =====
 async function getJ(f){const r=await fetch("data/"+f+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(f+" "+r.status);return r.json()}
@@ -120,7 +125,7 @@ function cards(){
  $("#grp").innerHTML=G.map((g,i)=>`<span class="${i==grp?"on":""}" data-g="${i}">${g}</span>`).join("");
  $("#cards").innerHTML=ST.filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
   if(C.length>1){const a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100;c=ch>0?"up":ch<0?"dn":"rf";p=`${fmt(a)} (${ch>0?"+":""}${fmt(ch,1)}%)`}
-  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b><span class="${c}" style="font-size:12px">${p}</span></div>`}).join("")}
+  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b><span class="${c}" style="font-size:12px">${p}</span>${bdg(C)}</div>`}).join("")}
 const TIPS={
  close:"Giá đóng cửa: giá chốt phiên gần nhất.",
  ema20:"EMA20: đường giá trung bình 20 phiên, nhạy với giá mới. Giá nằm trên EMA20 là xu hướng ngắn hạn tốt.",
@@ -130,7 +135,7 @@ const TIPS={
  sig:"Signal: đường trung bình 9 phiên của MACD. MACD cắt lên Signal là tín hiệu tốt, cắt xuống là tín hiệu xấu.",
  hist:"Histogram = MACD − Signal. Cột dương và tăng dần: đà tăng mạnh lên.",
  vol:"Khối lượng so với trung bình 20 phiên. Trên 1,5 lần là dòng tiền bất thường."};
-function kill(){charts.forEach(c=>{try{c.remove()}catch(e){}});charts=[]}
+function kill(){charts.forEach(c=>{try{c.remove()}catch(e){}});charts=[];c4=null}
 function mk(el,h){const c=LightweightCharts.createChart(el,{autoSize:true,height:h,layout:{background:{color:"#161b22"},textColor:"#8b949e"},grid:{vertLines:{color:"#21262d"},horzLines:{color:"#21262d"}},rightPriceScale:{borderColor:"#30363d"},timeScale:{borderColor:"#30363d"}});charts.push(c);return c}
 const line=(c,color,t,v,o={})=>{const s=c.addLineSeries({color,lineWidth:1,priceLineVisible:false,lastValueVisible:false,...o});s.setData(t.map((x,i)=>v[i]==null?null:{time:x,value:v[i]}).filter(Boolean));return s};
 function detail(){
@@ -140,13 +145,13 @@ function detail(){
  if(C.length<30){box.innerHTML=`<div class="card"><h3>${s.s} — ${esc(s.n)} (${s.x})</h3><p class="mu">Chưa có dữ liệu giá (cần ít nhất 30 phiên). ${esc(P&&P.meta.failed&&P.meta.failed[sel]||"")}</p>${lk}</div>`;return}
  const T=C.map(x=>x.t),cl=C.map(x=>x.c),vo=C.map(x=>x.v),e20=ema(cl,20),e50=ema(cl,50),B=bb(cl),R=rsi(cl),X=macd(cl),vm=sma(vo,20),n=C.length-1;
  box.innerHTML=`<div class="g2"><div>
- <div class="card"><h3>Nến, EMA20, EMA50, Bollinger(20,2), khối lượng — ${s.s}</h3><div id="c1" class="ch"></div>
-  <div class="mu" style="font-size:12px">Vàng: EMA20 · Xanh: EMA50 · Xám nét đứt: Bollinger · Cột dưới: khối lượng và MA20 khối lượng. Mỗi nhóm một chỉ báo (xu hướng, động lượng, biến động, khối lượng) để tránh trùng lặp.</div></div>
+ <div class="card"><h3>Nến, EMA20, EMA50, Bollinger(20,2), khối lượng — ${s.s}</h3><div style="margin-bottom:8px"><button class="tvb on" data-v="app">Biểu đồ của app</button><button class="tvb" data-v="tv">TradingView (vẽ, chỉ báo)</button> <a class="rf" style="font-size:12px" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=${s.x}%3A${s.s}">Mở trên TradingView →</a></div><div id="c1" class="ch"></div><div id="tv" class="hide" style="height:520px"></div>
+  <div class="mu" style="font-size:12px">Vàng: EMA20 · Xanh: EMA50 · Xám nét đứt: Bollinger · Vàng nhạt (dưới): MA20 khối lượng · Cột dưới: khối lượng và MA20 khối lượng. Mỗi nhóm một chỉ báo (xu hướng, động lượng, biến động, khối lượng) để tránh trùng lặp.</div></div>
  <div class="card"><h3>RSI(14)</h3><div id="c2" class="ch s"></div></div>
  <div class="card"><h3>MACD(12, 26, 9)</h3><div id="c3" class="ch s"></div></div></div>
  <div><div class="card"><h3>Tín hiệu tổng hợp</h3><div id="sg"></div></div>
  <div class="card"><h3>Cảnh báo</h3><div id="al"></div></div>
- <div class="card"><h3>Chỉ báo hiện tại</h3><div id="iv"></div><p>${lk}</p></div></div></div>`;
+ <div class="card"><h3>Chỉ báo hiện tại</h3><div id="iv"></div><p>${lk}</p></div></div></div><div class="card"><h3>Mẫu hình giá (Harmonic và cổ điển) — ${s.s}</h3><div id="c4" class="ch" style="height:320px"></div><div id="pl"></div><div class="mu" style="font-size:11px;margin-top:6px">Nhận diện tự động theo tỷ lệ Fibonacci gần đúng (sai số khoảng ±5%), có thể sai hoặc trễ. Chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</div></div>`;
  const c1=mk($("#c1"),280),cs=c1.addCandlestickSeries({upColor:"#3fb950",downColor:"#f85149",borderVisible:false,wickUpColor:"#3fb950",wickDownColor:"#f85149"});
  cs.setData(C.map(x=>({time:x.t,open:x.o,high:x.h,low:x.l,close:x.c})));
  line(c1,"#d29922",T,e20);line(c1,"#58a6ff",T,e50);
@@ -179,8 +184,93 @@ function detail(){
  $("#sg").innerHTML=`<span class="sig ${v=="BÁN"?"BAN":v=="MUA"?"MUA":""}">${v}</span><ul class="mu" style="padding-left:18px">${W.map(w=>`<li>${w}</li>`).join("")}</ul><div class="mu" style="font-size:11px">Chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</div>`;
  // Bảng chỉ báo + tooltip (bấm ⓘ để xem, dùng được trên iPhone)
  const rows=[["Giá đóng cửa",fmt(cl[n]),"close"],["EMA20",fmt(e20[n]),"ema20"],["EMA50",fmt(e50[n]),"ema50"],["RSI (14)",fmt(r,1),"rsi"],["MACD",fmt(X.ln[n],3),"macd"],["Signal",fmt(X.sg[n],3),"sig"],["Histogram",fmt(X.h[n],3),"hist"],["Khối lượng / TB 20 phiên",vr==null?"—":fmt(vr,2)+" lần","vol"]];
- $("#iv").innerHTML=rows.map(x=>`<div class="row"><span>${x[0]}<span class="i" data-tip="${x[2]}">i</span></span><b>${x[1]}</b></div><div class="tip" id="tp-${x[2]}">${TIPS[x[2]]}</div>`).join("");
+ $("#iv").innerHTML=rows.map(x=>`<div class="row"><span><i class="dt" style="background:${DC[x[2]]}"></i>${x[0]}<span class="i" data-tip="${x[2]}">i</span></span><b>${x[1]}</b></div><div class="tip" id="tp-${x[2]}">${TIPS[x[2]]}</div>`).join("");
+ curC=C;curPats=detectPatterns(C);renderPat();showTV(s);
 }
+
+// ===== Nhận diện mẫu hình =====
+const DC={close:"linear-gradient(90deg,#3fb950 50%,#f85149 50%)",ema20:"#d29922",ema50:"#58a6ff",rsi:"#a371f7",macd:"#58a6ff",sig:"#d29922",hist:"linear-gradient(90deg,#3fb950 50%,#f85149 50%)",vol:"#e3b341"};
+const PC={bull:"#3fb950",bear:"#f85149",neu:"#d29922"};
+const INFO={
+gartley:"Điểm D nằm ở mức hồi khoảng 78,6% của sóng XA. Dạng tăng: vùng D có thể là đáy đảo chiều đi lên. Dạng giảm thì ngược lại.",
+bat:"Điểm D ở mức hồi khoảng 88,6% của XA, sâu hơn Gartley. Vùng D là điểm đảo chiều tiềm năng.",
+butterfly:"Điểm D vượt qua X (mở rộng 127,2%–161,8% của XA). Đảo chiều có thể mạnh nhưng rủi ro cao.",
+crab:"Điểm D mở rộng khoảng 161,8% của XA, là cực trị sâu nhất trong nhóm harmonic.",
+cypher:"Điểm C vượt qua A (113%–141,4% của XA), điểm D hồi khoảng 78,6% của XC.",
+abcd:"Hai sóng AB và CD dài xấp xỉ nhau. D là vùng đảo chiều tiềm năng.",
+dtop:"Hai đỉnh gần bằng nhau. Nếu giá thủng đáy ở giữa, thường báo hiệu đảo chiều giảm.",
+dbot:"Hai đáy gần bằng nhau. Nếu giá vượt đỉnh ở giữa, thường báo hiệu đảo chiều tăng.",
+hs:"Vai – đầu – vai: giá thủng đường cổ thường báo hiệu đảo chiều giảm.",
+ihs:"Vai – đầu – vai ngược: giá vượt đường cổ thường báo hiệu đảo chiều tăng.",
+asc:"Tam giác tăng: đỉnh đi ngang, đáy nâng dần. Thường phá vỡ lên trên.",
+desc:"Tam giác giảm: đáy đi ngang, đỉnh hạ dần. Thường phá vỡ xuống dưới.",
+sym:"Tam giác cân: đỉnh hạ, đáy nâng. Giá thường bứt phá theo hướng của xu hướng trước đó.",
+rwedge:"Nêm tăng: hai đường cùng dốc lên và thu hẹp. Thường báo hiệu giảm.",
+fwedge:"Nêm giảm: hai đường cùng dốc xuống và thu hẹp. Thường báo hiệu tăng.",
+rect:"Hình chữ nhật: giá đi ngang giữa hỗ trợ và kháng cự. Chờ phá vỡ để xác định hướng."};
+function pivots(C,k=4){
+ const P=[];
+ for(let i=k;i<C.length-k;i++){let hi=true,lo=true;
+  for(let j=i-k;j<=i+k;j++){if(C[j].h>C[i].h)hi=false;if(C[j].l<C[i].l)lo=false}
+  if(hi)P.push({i,t:C[i].t,p:C[i].h,y:"H"});else if(lo)P.push({i,t:C[i].t,p:C[i].l,y:"L"})}
+ const Z=[]; // gộp đỉnh/đáy liên tiếp cùng loại, giữ điểm cực trị
+ P.forEach(q=>{const l=Z[Z.length-1];if(l&&l.y==q.y){if((q.y=="H"&&q.p>l.p)||(q.y=="L"&&q.p<l.p))Z[Z.length-1]=q}else Z.push(q)});
+ const l=Z[Z.length-1]; // điểm tạm cho sóng đang chạy (chưa đủ k phiên xác nhận)
+ if(l){const g=C.slice(l.i+1);if(g.length>2){let m=0;g.forEach((c,j)=>{if(l.y=="H"?c.l<g[m].l:c.h>g[m].h)m=j});Z.push({i:l.i+1+m,t:g[m].t,p:l.y=="H"?g[m].l:g[m].h,y:l.y=="H"?"L":"H"})}}
+ return Z}
+function detectPatterns(C){
+ if(!C||C.length<60)return [];
+ const Z=pivots(C),n=C.length,out=[],near=q=>q.i>=n-15,d=(a,b)=>Math.abs(a-b);
+ const ok=(v,a,b)=>v>=a-.05&&v<=b+.05;
+ const mkp=(k,name,dir,lines,pts,lb)=>({k,name,dir,lines,marks:pts.map((q,j)=>({t:q.t,up:q.y=="H",l:lb?lb[j]:""}))});
+ if(Z.length>=5){const s5=Z.slice(-5),[x,a,b,c,e]=s5;
+  if(near(e)){const XA=d(a.p,x.p),AB=d(b.p,a.p),BC=d(c.p,b.p);
+   if(XA>0&&AB>0){const ab=AB/XA,bc=BC/AB,ad=d(e.p,a.p)/XA,dir=e.y=="L"?"bull":"bear",L="XABCD".split("");
+    [["gartley","Gartley",.618,.618,.786,.786],["bat","Bat",.382,.5,.886,.886],["butterfly","Butterfly",.786,.786,1.272,1.618],["crab","Crab",.382,.618,1.618,1.618]]
+     .forEach(r=>{if(ok(ab,r[2],r[3])&&ok(bc,.382,.886)&&ok(ad,r[4],r[5]))out.push(mkp(r[0],r[1],dir,[s5],s5,L))});
+    const xc=d(c.p,x.p)/XA,cd=d(c.p,e.p)/d(c.p,x.p),beyond=dir=="bull"?c.p>a.p:c.p<a.p;
+    if(beyond&&ok(ab,.382,.618)&&ok(xc,1.13,1.414)&&ok(cd,.786,.786))out.push(mkp("cypher","Cypher",dir,[s5],s5,L))}}}
+ if(!out.length&&Z.length>=4){const s4=Z.slice(-4),[a,b,c,e]=s4;
+  if(near(e)){const AB=d(b.p,a.p),BC=d(c.p,b.p),CD=d(e.p,c.p);
+   if(AB>0&&ok(BC/AB,.382,.886)&&CD/AB>.85&&CD/AB<1.15)out.push(mkp("abcd","ABCD",e.y=="L"?"bull":"bear",[s4],s4,["A","B","C","D"]))}}
+ if(Z.length>=3){const s3=Z.slice(-3),[a,b,c]=s3;
+  if(near(c)&&d(a.p,c.p)/a.p<.03&&d(a.p,b.p)/a.p>.05){
+   if(a.y=="H")out.push(mkp("dtop","Hai đỉnh (Double Top)","bear",[s3],s3));else out.push(mkp("dbot","Hai đáy (Double Bottom)","bull",[s3],s3))}}
+ if(Z.length>=5){const s5=Z.slice(-5),[ls,,h,,rs]=s5;
+  if(near(rs)&&d(ls.p,rs.p)/h.p<.08){
+   if(ls.y=="H"&&h.p>ls.p&&h.p>rs.p&&(h.p-Math.max(ls.p,rs.p))/h.p>.02)out.push(mkp("hs","Vai đầu vai","bear",[s5],s5,["Vai","","Đầu","","Vai"]));
+   if(ls.y=="L"&&h.p<ls.p&&h.p<rs.p&&(Math.min(ls.p,rs.p)-h.p)/h.p>.02)out.push(mkp("ihs","Vai đầu vai ngược","bull",[s5],s5,["Vai","","Đầu","","Vai"]))}}
+ const R=Z.slice(-8),H=R.filter(q=>q.y=="H").slice(-3),Lw=R.filter(q=>q.y=="L").slice(-3);
+ if(H.length==3&&Lw.length==3&&near(Z[Z.length-1])&&Math.min(H[0].i,Lw[0].i)>n-120){
+  const hs=(H[2].p-H[0].p)/H[0].p,ls=(Lw[2].p-Lw[0].p)/Lw[0].p,w0=H[0].p-Lw[0].p,w1=H[2].p-Lw[2].p;
+  const fl=x=>Math.abs(x)<.025,up=x=>x>=.025,dn=x=>x<=-.025,cv=w1>0&&w0>0&&w1<.85*w0,all=H.concat(Lw);
+  let r=null;
+  if(cv){if(fl(hs)&&up(ls))r=["asc","Tam giác tăng","bull"];else if(dn(hs)&&fl(ls))r=["desc","Tam giác giảm","bear"];else if(dn(hs)&&up(ls))r=["sym","Tam giác cân","neu"];else if(up(hs)&&up(ls))r=["rwedge","Nêm tăng (Rising Wedge)","bear"];else if(dn(hs)&&dn(ls))r=["fwedge","Nêm giảm (Falling Wedge)","bull"]}
+  else if(fl(hs)&&fl(ls)&&w0/H[0].p>.04)r=["rect","Hình chữ nhật","neu"];
+  if(r)out.push(mkp(r[0],r[1],r[2],[H,Lw],all.sort((p,q)=>p.i-q.i)))}
+ return out.slice(0,5)}
+function bdg(C){const p=detectPatterns(C)[0];return p?`<span class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}" style="font-size:10px;display:block;white-space:nowrap;overflow:hidden">◆ ${p.name}</span>`:""}
+// ===== Vẽ mẫu hình, TradingView =====
+function renderPat(){
+ $("#pl").innerHTML=curPats.length?curPats.map((p,j)=>`<div class="pi ${j==0?"on":""}" data-p="${j}"><b class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}">${p.name} — ${p.dir=="bull"?"dạng tăng":p.dir=="bear"?"dạng giảm":"trung tính"}</b><div class="mu" style="font-size:12px">${INFO[p.k]}</div></div>`).join(""):'<div class="mu" style="margin-top:8px">Chưa phát hiện mẫu hình nào khớp ở các phiên gần đây.</div>';
+ showPat(0)}
+function showPat(i){
+ if(c4){try{c4.remove()}catch(e){}charts=charts.filter(x=>x!==c4)}
+ const c=mk($("#c4"),320);c4=c;
+ const cs=c.addCandlestickSeries({upColor:"#3fb950",downColor:"#f85149",borderVisible:false,wickUpColor:"#3fb950",wickDownColor:"#f85149"});
+ cs.setData(curC.map(x=>({time:x.t,open:x.o,high:x.h,low:x.l,close:x.c})));
+ const p=curPats[i];
+ if(p){p.lines.forEach(L=>{const ls=c.addLineSeries({color:PC[p.dir],lineWidth:2,priceLineVisible:false,lastValueVisible:false});ls.setData(L.map(q=>({time:q.t,value:q.p})))});
+  cs.setMarkers(p.marks.slice().sort((a,b)=>a.t<b.t?-1:1).map(m=>({time:m.t,position:m.up?"aboveBar":"belowBar",color:PC[p.dir],shape:"circle",text:m.l||""})))}
+ c.timeScale().setVisibleLogicalRange({from:Math.max(0,curC.length-140),to:curC.length+3});
+ document.querySelectorAll("#pl .pi").forEach((e,j)=>e.classList.toggle("on",j==i))}
+function showTV(s){
+ const el=$("#tv");if(!el||!s)return;
+ $("#c1").classList.toggle("hide",tvOn);el.classList.toggle("hide",!tvOn);
+ document.querySelectorAll(".tvb").forEach(b=>b.classList.toggle("on",(b.dataset.v=="tv")==tvOn));
+ if(!tvOn)return;
+ const go=()=>{try{el.innerHTML="";new TradingView.widget({autosize:true,symbol:s.x+":"+s.s,interval:"D",timezone:"Asia/Ho_Chi_Minh",theme:"dark",style:"1",locale:"vi_VN",toolbar_bg:"#161b22",enable_publishing:false,allow_symbol_change:true,hide_side_toolbar:false,studies:["MAExp@tv-basicstudies","BB@tv-basicstudies","RSI@tv-basicstudies","MACD@tv-basicstudies"],container_id:"tv"})}catch(e){el.innerHTML='<p class="mu">Không mở được TradingView trong app. Hãy dùng liên kết "Mở trên TradingView →".</p>'}};
+ if(window.TradingView)go();else{const sc=document.createElement("script");sc.src="https://s3.tradingview.com/tv.js";sc.onload=go;sc.onerror=()=>{el.innerHTML='<p class="mu">Không tải được TradingView (mất mạng?). Hãy dùng liên kết "Mở trên TradingView →".</p>'};document.head.appendChild(sc)}}
 
 // ===== Tab 2 =====
 function t2(){
@@ -220,7 +310,7 @@ document.addEventListener("click",e=>{const t=e.target;
  if(t.closest("#tabs button")){const k=t.dataset.t;document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b==t));[1,2,3].forEach(i=>$("#t"+i).classList.toggle("hide",i!=k));$("#bar").classList.toggle("hide",k!="1")}
  else if(t.dataset.g!=null&&t.closest("#grp")){grp=+t.dataset.g;cards()}
  else if(t.closest(".sc")){sel=t.closest(".sc").dataset.s;cards();detail()}
- else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
+ else if(t.closest(".tvb")){tvOn=t.closest(".tvb").dataset.v=="tv";showTV(ST.find(x=>x.s==sel))}else if(t.closest(".pi")){showPat(+t.closest(".pi").dataset.p)}else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
