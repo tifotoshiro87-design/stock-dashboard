@@ -12,10 +12,10 @@ body{margin:0;background:#0d1117;color:#e6edf3;font:14px/1.45 -apple-system,"Seg
 h1{font-size:16px;margin:8px 0 2px}
 #ban{font-size:12px;background:#2a2110;border:1px solid #5a4514;color:#e3b341;border-radius:6px;padding:6px 8px;margin:6px 0}
 #tabs{display:flex;gap:4px}
-#tabs button{background:none;border:0;border-bottom:2px solid transparent;color:#8b949e;padding:8px 10px;font-size:14px}
+#tabs button{background:none;border:0;border-bottom:2px solid transparent;color:#8b949e;padding:10px 10px;font-size:14px}
 #tabs button.on{color:#e6edf3;border-color:#d29922}
-#grp{display:flex;gap:12px;overflow-x:auto;padding:6px 0;white-space:nowrap}
-#grp span{color:#8b949e;font-size:13px;cursor:pointer}#grp span.on{color:#d29922;font-weight:600}
+#grp{display:flex;gap:14px;overflow-x:auto;padding:12px 0 10px;margin-top:2px;border-top:1px solid #21262d;white-space:nowrap}
+#grp span{display:inline-block;color:#8b949e;font-size:13px;cursor:pointer;padding:6px 2px}#grp span.on{color:#d29922;font-weight:600}
 #cards{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px}
 .sc{flex:0 0 118px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:6px 8px;cursor:pointer}
 .sc.on{border-color:#8b949e;background:#1c2330}
@@ -50,7 +50,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 .pi.on{border-color:#d29922;background:#1c2330}
 </style></head><body>
 <div id="top">
- <h1>Bảng theo dõi cổ phiếu — 17 mã, 5 nhóm ngành</h1>
+ <h1>Bảng theo dõi cổ phiếu — 16 mã, 5 nhóm ngành</h1>
  <div id="ban">Đang tải dữ liệu…</div>
  <div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button></div>
  <div id="bar"><div id="grp"></div><div id="cards"></div></div>
@@ -67,7 +67,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức"];
 const ST=[["VCB","NH TMCP Ngoại thương Việt Nam",1,"HOSE"],["VPB","NH TMCP Việt Nam Thịnh Vượng",1,"HOSE"],["HDB","NH TMCP Phát triển TP.HCM",1,"HOSE"],
 ["MWG","CTCP Đầu tư Thế Giới Di Động",2,"HOSE"],["MSN","CTCP Tập đoàn Masan",3,"HOSE"],["DGW","CTCP Thế Giới Số",2,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",4,"HOSE"],
-["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",0,"HOSE"],["PHR","CTCP Cao su Phước Hòa",0,"HOSE"],["IDC","Tổng Công ty IDICO – CTCP",0,"HNX"],
+["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",0,"HOSE"],["PHR","CTCP Cao su Phước Hòa",0,"HOSE"],
 ["FPT","CTCP FPT",2,"HOSE"],["CMG","CTCP Tập đoàn Công nghệ CMC",2,"HOSE"],
 ["VCG","Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)",0,"HOSE"],["HHV","CTCP Đầu tư Hạ tầng Giao thông Đèo Cả",0,"HOSE"],["LCG","CTCP Lizen",0,"HOSE"],["FCN","CTCP FECON",0,"HOSE"],["CTD","CTCP Xây dựng Coteccons",0,"HOSE"]].map(a=>({s:a[0],n:a[1],g:a[2],x:a[3]}));
 // 14 tiêu chí: [ký hiệu, tên, giải thích, nhóm, có số liệu?, ngành hưởng lợi khi +1, ngành bất lợi khi -1]
@@ -105,7 +105,7 @@ async function load(){
 function banner(){
  const b=$("#ban");let t="";
  if(P&&P.meta){const m=P.meta,miss=ST.filter(s=>{const d=P.stocks.find(x=>x.symbol==s.s);return !d||!d.candles||!d.candles.length}).map(s=>s.s);
-  t=`✓ Dữ liệu giá (Yahoo Finance/vnstock) — phiên gần nhất <b>${esc(m.latest_session||"chưa rõ")}</b>, lấy lúc ${esc(m.fetched_at||"?")}. ${m.sample?"<b>DỮ LIỆU MẪU.</b> ":""}Mã chưa có dữ liệu thật: <b>${miss.length?miss.join(", "):"không"}</b>. `}
+  t=`<svg width="13" height="13" viewBox="0 0 16 16" style="vertical-align:-2px;margin-right:2px" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg> Dữ liệu giá (Yahoo Finance/vnstock) — phiên gần nhất <b>${esc(m.latest_session||"chưa rõ")}</b>, lấy lúc ${esc(m.fetched_at||"?")}. ${m.sample?"<b>DỮ LIỆU MẪU.</b> ":""}Mã chưa có dữ liệu thật: <b>${miss.length?miss.join(", "):"không"}</b>. `}
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
@@ -145,7 +145,10 @@ function detail(){
  if(C.length<30){box.innerHTML=`<div class="card"><h3>${s.s} — ${esc(s.n)} (${s.x})</h3><p class="mu">Chưa có dữ liệu giá (cần ít nhất 30 phiên). ${esc(P&&P.meta.failed&&P.meta.failed[sel]||"")}</p>${lk}</div>`;return}
  const T=C.map(x=>x.t),cl=C.map(x=>x.c),vo=C.map(x=>x.v),e20=ema(cl,20),e50=ema(cl,50),B=bb(cl),R=rsi(cl),X=macd(cl),vm=sma(vo,20),n=C.length-1;
  box.innerHTML=`<div class="g2"><div>
- <div class="card"><h3>Nến, EMA20, EMA50, Bollinger(20,2), khối lượng — ${s.s}</h3><div style="margin-bottom:8px"><button class="tvb on" data-v="app">Biểu đồ của app</button><button class="tvb" data-v="tv">TradingView (vẽ, chỉ báo)</button> <a class="rf" style="font-size:12px" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=${s.x}%3A${s.s}">Mở trên TradingView →</a></div><div id="c1" class="ch"></div><div id="tv" class="hide" style="height:520px"></div>
+ <div class="card"><h3>Nến, EMA20, EMA50, Bollinger(20,2), khối lượng — ${s.s}</h3><div style="margin-bottom:8px"><button class="tvb on" data-v="app">Biểu đồ của app</button><button class="tvb" data-v="tv">TradingView (vẽ, chỉ báo)</button></div>
+ <div id="c1" class="ch"></div>
+ <div id="tv" class="hide" style="height:520px"></div>
+ <div id="tvmsg" class="hide mu" style="font-size:12px;margin-top:6px">TradingView báo mã này chưa hỗ trợ xem trực tiếp trong khung nhúng. <a class="rf" target="_blank" rel="noopener" href="https://www.tradingview.com/chart/?symbol=${s.x}%3A${s.s}">Bấm vào đây để mở đúng mã trên trang TradingView →</a>, hoặc bấm "Biểu đồ của app" để quay lại.</div>
   <div class="mu" style="font-size:12px">Vàng: EMA20 · Xanh: EMA50 · Xám nét đứt: Bollinger · Vàng nhạt (dưới): MA20 khối lượng · Cột dưới: khối lượng và MA20 khối lượng. Mỗi nhóm một chỉ báo (xu hướng, động lượng, biến động, khối lượng) để tránh trùng lặp.</div></div>
  <div class="card"><h3>RSI(14)</h3><div id="c2" class="ch s"></div></div>
  <div class="card"><h3>MACD(12, 26, 9)</h3><div id="c3" class="ch s"></div></div></div>
@@ -222,7 +225,10 @@ function detectPatterns(C){
  if(!C||C.length<60)return [];
  const Z=pivots(C),n=C.length,out=[],near=q=>q.i>=n-15,d=(a,b)=>Math.abs(a-b);
  const ok=(v,a,b)=>v>=a-.05&&v<=b+.05;
- const mkp=(k,name,dir,lines,pts,lb)=>({k,name,dir,lines,marks:pts.map((q,j)=>({t:q.t,up:q.y=="H",l:lb?lb[j]:""}))});
+ const mkp=(k,name,dir,lines,pts,lb)=>{
+  const P=pts.map(q=>q.p),hi=Math.max(...P),lo=Math.min(...P),amp=hi-lo,zone=pts[pts.length-1].p;
+  const target=dir=="bull"?zone+amp:dir=="bear"?zone-amp:null;
+  return {k,name,dir,lines,zone,target,marks:pts.map((q,j)=>({t:q.t,up:q.y=="H",l:lb?lb[j]:"",p:q.p}))}};
  if(Z.length>=5){const s5=Z.slice(-5),[x,a,b,c,e]=s5;
   if(near(e)){const XA=d(a.p,x.p),AB=d(b.p,a.p),BC=d(c.p,b.p);
    if(XA>0&&AB>0){const ab=AB/XA,bc=BC/AB,ad=d(e.p,a.p)/XA,dir=e.y=="L"?"bull":"bear",L="XABCD".split("");
@@ -251,8 +257,20 @@ function detectPatterns(C){
  return out.slice(0,5)}
 function bdg(C){const p=detectPatterns(C)[0];return p?`<span class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}" style="font-size:10px;display:block;white-space:nowrap;overflow:hidden">◆ ${p.name}</span>`:""}
 // ===== Vẽ mẫu hình, TradingView =====
+function showTV(s){
+ const el=$("#tv"),msg=$("#tvmsg");if(!el||!s)return;
+ $("#c1").classList.toggle("hide",tvOn);el.classList.toggle("hide",!tvOn);msg.classList.add("hide");
+ document.querySelectorAll(".tvb").forEach(b=>b.classList.toggle("on",(b.dataset.v=="tv")==tvOn));
+ if(!tvOn)return;
+ const go=()=>{try{
+   el.innerHTML="";
+   new TradingView.widget({autosize:true,symbol:s.x+":"+s.s,interval:"D",timezone:"Asia/Ho_Chi_Minh",theme:"dark",style:"1",locale:"vi_VN",toolbar_bg:"#161b22",enable_publishing:false,allow_symbol_change:false,hide_side_toolbar:false,studies:["MAExp@tv-basicstudies","BB@tv-basicstudies","RSI@tv-basicstudies","MACD@tv-basicstudies"],container_id:"tv"});
+   // TradingView tự hiện hộp thoại riêng nếu mã không hỗ trợ; ta không chặn được hộp đó, chỉ gợi ý lối ra sau vài giây
+   setTimeout(()=>{if(el.querySelector("iframe")==null)msg.classList.remove("hide")},4000);
+  }catch(e){msg.classList.remove("hide")}};
+ if(window.TradingView)go();else{const sc=document.createElement("script");sc.src="https://s3.tradingview.com/tv.js";sc.onload=go;sc.onerror=()=>msg.classList.remove("hide");document.head.appendChild(sc)}}
 function renderPat(){
- $("#pl").innerHTML=curPats.length?curPats.map((p,j)=>`<div class="pi ${j==0?"on":""}" data-p="${j}"><b class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}">${p.name} — ${p.dir=="bull"?"dạng tăng":p.dir=="bear"?"dạng giảm":"trung tính"}</b><div class="mu" style="font-size:12px">${INFO[p.k]}</div></div>`).join(""):'<div class="mu" style="margin-top:8px">Chưa phát hiện mẫu hình nào khớp ở các phiên gần đây.</div>';
+ $("#pl").innerHTML=curPats.length?curPats.map((p,j)=>`<div class="pi ${j==0?"on":""}" data-p="${j}"><b class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}">${p.name} — ${p.dir=="bull"?"dạng tăng":p.dir=="bear"?"dạng giảm":"trung tính"}</b><div class="mu" style="font-size:12px">${INFO[p.k]}</div><div class="mu" style="font-size:12px;margin-top:4px">📍 Vùng theo dõi quanh <b>${fmt(p.zone)}</b>.${p.target!=null?` Nếu ${p.dir=="bull"?"giá bật tăng từ đây":"giá đảo chiều giảm từ đây"} và xác nhận, mục tiêu tham khảo quanh <b>${fmt(p.target)}</b> (theo biên độ mẫu hình).`:""}</div></div>`).join(""):'<div class="mu" style="margin-top:8px">Chưa phát hiện mẫu hình nào khớp ở các phiên gần đây.</div>';
  showPat(0)}
 function showPat(i){
  if(c4){try{c4.remove()}catch(e){}charts=charts.filter(x=>x!==c4)}
@@ -261,17 +279,11 @@ function showPat(i){
  cs.setData(curC.map(x=>({time:x.t,open:x.o,high:x.h,low:x.l,close:x.c})));
  const p=curPats[i];
  if(p){p.lines.forEach(L=>{const ls=c.addLineSeries({color:PC[p.dir],lineWidth:2,priceLineVisible:false,lastValueVisible:false});ls.setData(L.map(q=>({time:q.t,value:q.p})))});
-  cs.setMarkers(p.marks.slice().sort((a,b)=>a.t<b.t?-1:1).map(m=>({time:m.t,position:m.up?"aboveBar":"belowBar",color:PC[p.dir],shape:"circle",text:m.l||""})))}
+  cs.setMarkers(p.marks.slice().sort((a,b)=>a.t<b.t?-1:1).map(m=>({time:m.t,position:m.up?"aboveBar":"belowBar",color:PC[p.dir],shape:"circle",text:m.l||""})));
+  cs.createPriceLine({price:p.zone,color:"#8b949e",lineWidth:1,lineStyle:2,axisLabelVisible:true,title:"Vùng theo dõi"});
+  if(p.target!=null)cs.createPriceLine({price:p.target,color:PC[p.dir],lineWidth:1,lineStyle:3,axisLabelVisible:true,title:(p.dir=="bull"?"Mục tiêu tăng (dự kiến)":"Mục tiêu giảm (dự kiến)")})}
  c.timeScale().setVisibleLogicalRange({from:Math.max(0,curC.length-140),to:curC.length+3});
  document.querySelectorAll("#pl .pi").forEach((e,j)=>e.classList.toggle("on",j==i))}
-function showTV(s){
- const el=$("#tv");if(!el||!s)return;
- $("#c1").classList.toggle("hide",tvOn);el.classList.toggle("hide",!tvOn);
- document.querySelectorAll(".tvb").forEach(b=>b.classList.toggle("on",(b.dataset.v=="tv")==tvOn));
- if(!tvOn)return;
- const go=()=>{try{el.innerHTML="";new TradingView.widget({autosize:true,symbol:s.x+":"+s.s,interval:"D",timezone:"Asia/Ho_Chi_Minh",theme:"dark",style:"1",locale:"vi_VN",toolbar_bg:"#161b22",enable_publishing:false,allow_symbol_change:true,hide_side_toolbar:false,studies:["MAExp@tv-basicstudies","BB@tv-basicstudies","RSI@tv-basicstudies","MACD@tv-basicstudies"],container_id:"tv"})}catch(e){el.innerHTML='<p class="mu">Không mở được TradingView trong app. Hãy dùng liên kết "Mở trên TradingView →".</p>'}};
- if(window.TradingView)go();else{const sc=document.createElement("script");sc.src="https://s3.tradingview.com/tv.js";sc.onload=go;sc.onerror=()=>{el.innerHTML='<p class="mu">Không tải được TradingView (mất mạng?). Hãy dùng liên kết "Mở trên TradingView →".</p>'};document.head.appendChild(sc)}}
-
 // ===== Tab 2 =====
 function t2(){
  const mc=M&&M.criteria||{};
