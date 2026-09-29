@@ -105,7 +105,7 @@ async function load(){
 function banner(){
  const b=$("#ban");let t="";
  if(P&&P.meta){const m=P.meta,miss=ST.filter(s=>{const d=P.stocks.find(x=>x.symbol==s.s);return !d||!d.candles||!d.candles.length}).map(s=>s.s);
-  t=`<svg width="13" height="13" viewBox="0 0 16 16" style="vertical-align:-2px;margin-right:2px" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg> Dữ liệu giá (Yahoo Finance/vnstock) — phiên gần nhất <b>${esc(m.latest_session||"chưa rõ")}</b>, lấy lúc ${esc(m.fetched_at||"?")}. ${m.sample?"<b>DỮ LIỆU MẪU.</b> ":""}Mã chưa có dữ liệu thật: <b>${miss.length?miss.join(", "):"không"}</b>. `}
+  t=`<svg width="13" height="13" viewBox="0 0 16 16" style="vertical-align:-2px;margin-right:2px" fill="none" stroke="#3fb950" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg> Dữ liệu giá (Yahoo Finance/vnstock) — phiên gần nhất <b>${esc(m.latest_session||"chưa rõ")}</b>, lấy lúc ${esc(m.fetched_at||"?")}. ${m.sample?"<b>DỮ LIỆU MẪU.</b> ":""}Mã chưa có dữ liệu thật: <b>${miss.length?miss.join(", "):"không"}</b>. `}
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
@@ -125,7 +125,7 @@ function cards(){
  $("#grp").innerHTML=G.map((g,i)=>`<span class="${i==grp?"on":""}" data-g="${i}">${g}</span>`).join("");
  $("#cards").innerHTML=ST.filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
   if(C.length>1){const a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100;c=ch>0?"up":ch<0?"dn":"rf";p=`${fmt(a)} (${ch>0?"+":""}${fmt(ch,1)}%)`}
-  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b><span class="${c}" style="font-size:12px">${p}</span>${bdg(C)}</div>`}).join("")}
+  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b><span class="${c}" style="font-size:12px">${p}</span>${bdg(C,c)}</div>`}).join("")}
 const TIPS={
  close:"Giá đóng cửa: giá chốt phiên gần nhất.",
  ema20:"EMA20: đường giá trung bình 20 phiên, nhạy với giá mới. Giá nằm trên EMA20 là xu hướng ngắn hạn tốt.",
@@ -255,7 +255,7 @@ function detectPatterns(C){
   else if(fl(hs)&&fl(ls)&&w0/H[0].p>.04)r=["rect","Hình chữ nhật","neu"];
   if(r)out.push(mkp(r[0],r[1],r[2],[H,Lw],all.sort((p,q)=>p.i-q.i)))}
  return out.slice(0,5)}
-function bdg(C){const p=detectPatterns(C)[0];return p?`<span class="${p.dir=="bull"?"up":p.dir=="bear"?"dn":"rf"}" style="font-size:10px;display:block;white-space:nowrap;overflow:hidden">◆ ${p.name}</span>`:""}
+function bdg(C,c){const p=detectPatterns(C)[0];return p?`<span class="${c}" style="font-size:10px;display:block;white-space:nowrap;overflow:hidden">◆ ${p.name}</span>`:""}
 // ===== Vẽ mẫu hình, TradingView =====
 function showTV(s){
  const el=$("#tv"),msg=$("#tvmsg");if(!el||!s)return;
