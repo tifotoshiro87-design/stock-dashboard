@@ -1,10 +1,15 @@
 {
  "meta": {
-  "fetched_at": "2026-09-29 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
-  "failed": {}
+  "fetched_at": "2026-09-29 07:42",
+  "failed": {
+   "B": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "I": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "J": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "K": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "^IXIC": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
+   "CL=F": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all()."
+  }
  },
- "scored_at": "2026-09-29",
- "summary": "Tổng điểm -4: điểm sáng lớn là FTSE Russell chính thức nâng hạng VN lên Thị trường Mới nổi thứ cấp (21/9) và thanh khoản liên ngân hàng hạ nhiệt mạnh; điểm trừ đến từ S&P 500 đảo chiều giảm, giá dầu tăng trở lại do căng thẳng Mỹ–Iran, và khối ngoại vẫn bán ròng nhiều phiên liên tiếp.",
  "criteria": {
   "A": {
    "name": "Lãi suất điều hành NHNN",
@@ -233,18 +238,9 @@
    "current": null
   }
  },
- "reference": {
-  "^IXIC": {
-   "name": "Nasdaq",
-   "value": 27068.72,
-   "date": "2026-09-25"
-  },
-  "CL=F": {
-   "name": "Dầu WTI",
-   "value": 92.41,
-   "date": "2026-09-25"
-  }
- },
+ "reference": {},
+ "scored_at": "2026-09-29",
+ "summary": "Tổng điểm -4: điểm sáng lớn là FTSE Russell chính thức nâng hạng VN lên Thị trường Mới nổi thứ cấp (21/9) và thanh khoản liên ngân hàng hạ nhiệt mạnh; điểm trừ đến từ S&P 500 đảo chiều giảm, giá dầu tăng trở lại do căng thẳng Mỹ–Iran, và khối ngoại vẫn bán ròng nhiều phiên liên tiếp.",
  "history": [
   {
    "date": "2026-09-28",
