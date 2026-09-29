@@ -1,10 +1,10 @@
 {
  "meta": {
-  "fetched_at": "2026-09-28 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
+  "fetched_at": "2026-09-29 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
   "failed": {}
  },
- "scored_at": "2026-09-28",
- "summary": "Tổng điểm -5: Fed tăng lãi suất, dầu trên 100 USD, khối ngoại bán ròng và thanh khoản căng; giải ngân đầu tư công và chính sách mới là điểm sáng.",
+ "scored_at": "2026-09-29",
+ "summary": "Tổng điểm -4: điểm sáng lớn là FTSE Russell chính thức nâng hạng VN lên Thị trường Mới nổi thứ cấp (21/9) và thanh khoản liên ngân hàng hạ nhiệt mạnh; điểm trừ đến từ S&P 500 đảo chiều giảm, giá dầu tăng trở lại do căng thẳng Mỹ–Iran, và khối ngoại vẫn bán ròng nhiều phiên liên tiếp.",
  "criteria": {
   "A": {
    "name": "Lãi suất điều hành NHNN",
@@ -29,18 +29,18 @@
    "name": "Tỷ giá USD/VND",
    "quantitative": true,
    "score": 0,
-   "reason": "Tỷ giá trung tâm 25.632 đồng/USD, giảm 9 đồng; thị trường ổn định dù USD thế giới mạnh.",
-   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-289-ty-gia-trung-tam-giam-con-25632-dongusd-post1336448.vov",
+   "reason": "Tỷ giá trung tâm giữ nguyên 25.632 đồng/USD hai phiên liền, thị trường trong nước ổn định dù USD thế giới nhích lên.",
+   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 25641,
+    "value": 25632,
     "unit": "VND/USD (tỷ giá trung tâm)",
-    "date": "2026-09-25",
-    "source": "NHNN qua VOH/BNEWS"
+    "date": "2026-09-28",
+    "source": "NHNN qua VOV"
    },
    "current": {
     "value": 25632,
     "unit": "VND/USD (tỷ giá trung tâm)",
-    "date": "2026-09-28",
+    "date": "2026-09-29",
     "source": "NHNN qua VOV"
    }
   },
@@ -85,28 +85,28 @@
   "E": {
    "name": "Thanh khoản / room tín dụng",
    "quantitative": true,
-   "score": -1,
-   "reason": "Lãi suất liên ngân hàng qua đêm tăng 2,5 điểm lên 7,0%; NHNN phải bơm ròng gần 48.000 tỷ đồng qua OMO.",
-   "url": "https://cafebiz.vn/lai-suat-lien-ngan-hang-bat-tang-ngan-hang-nha-nuoc-cap-tap-bom-thanh-khoan-176260922112717451.chn",
+   "score": 1,
+   "reason": "Thanh khoản hạ nhiệt mạnh: lãi suất liên ngân hàng qua đêm giảm từ 6,84% đầu tuần xuống 1,1%/năm, thấp nhất từ 30/7; NHNN hút ròng gần 45.000 tỷ đồng.",
+   "url": "https://nguoiquansat.vn/phien-28-9-ngan-hang-nha-nuoc-hut-rong-gan-45-000-ty-dong-lai-suat-qua-dem-ha-nhiet-318985.html",
    "previous": {
-    "value": 4.5,
-    "unit": "%/năm (liên NH qua đêm, suy ra từ mức tăng 2,5 điểm)",
-    "date": "2026-09-18",
-    "source": "CafeBiz theo An ninh tiền tệ"
-   },
-   "current": {
     "value": 7.0,
     "unit": "%/năm (liên NH qua đêm)",
     "date": "2026-09-21",
     "source": "CafeBiz theo An ninh tiền tệ"
+   },
+   "current": {
+    "value": 1.1,
+    "unit": "%/năm (liên NH qua đêm)",
+    "date": "2026-09-28",
+    "source": "Người Quan Sát (Vietstock)"
    }
   },
   "F": {
    "name": "Chính sách/luật mới ảnh hưởng ngành",
    "quantitative": false,
    "score": 1,
-   "reason": "Nhiều luật, nghị định mới có hiệu lực từ tháng 10/2026 (đô thị TOD, PPP, xuất khẩu gạo), hỗ trợ hạ tầng.",
-   "url": "https://www.vietnamplus.vn/loat-chinh-sach-kinh-te-noi-bat-co-hieu-luc-tu-thang-10-nam-2026-post1138784.vnp",
+   "reason": "FTSE Russell chính thức nâng hạng Việt Nam từ Thị trường Cận biên lên Thị trường Mới nổi thứ cấp, có hiệu lực từ 21/9/2026 — cột mốc lớn sau 26 năm.",
+   "url": "https://congluan.vn/chung-khoan-hom-nay-2892026-vn-index-suy-yeu-diem-sang-co-phieu-nang-luong-post362161.html",
    "previous": null,
    "current": null
   },
@@ -142,60 +142,65 @@
    "name": "Chỉ số DXY",
    "quantitative": true,
    "score": -1,
-   "reason": "DXY quanh 101 điểm, cao nhất 2 tháng và tăng hai tuần liên tiếp.",
-   "url": "https://baovanhoa.vn/kinh-te/ti-gia-usd-hom-nay-289-fed-co-the-tang-tiep-lai-suat-usdvnd-se-ra-sao-269388.html",
-   "previous": null,
-   "current": {
+   "reason": "DXY neo quanh 101,1–101,2 điểm, tiếp tục vùng cao nhất khoảng hai tháng.",
+   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
+   "previous": {
     "value": 101.04,
     "unit": "điểm",
     "date": "2026-09-25",
     "source": "Báo Văn hóa"
+   },
+   "current": {
+    "value": 101.2,
+    "unit": "điểm",
+    "date": "2026-09-29",
+    "source": "VOV / Báo Văn hóa"
    }
   },
   "J": {
    "name": "Giá dầu thế giới",
    "quantitative": true,
    "score": -1,
-   "reason": "Brent trên 100 USD/thùng do căng thẳng Mỹ – Iran, kéo giá xăng trong nước tăng.",
-   "url": "https://ngoisao.vn/theo-dong-su-kien/tin-nong-trong-ngay/gia-xang-dau-hom-nay-28-9-2026-do-day-binh-ton-bao-nhieu-tien-voi-gia-xang-moi-d492809.html",
+   "reason": "Brent bật lên 108,3 USD/thùng chiều 28/9 sau khi Tổng thống Mỹ bác bỏ sáng kiến hòa bình của Iran, làm dấy lại lo ngại gián đoạn nguồn cung.",
+   "url": "http://vov.vn/thi-truong/gia-xang-dau-hom-nay-299-gia-dau-brent-tang-len-muc-10830-usdthung-post1336708.vov",
    "previous": {
-    "value": 104.32,
-    "unit": "USD/thùng (Brent)",
-    "date": "2026-09-25",
-    "source": "CNBC (giá đóng cửa)"
-   },
-   "current": {
     "value": 105.8,
     "unit": "USD/thùng (Brent)",
     "date": "2026-09-28",
     "source": "Oilprice qua Ngôi sao"
+   },
+   "current": {
+    "value": 108.3,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-09-28",
+    "source": "Reuters qua Báo Lào Cai/VOV"
    }
   },
   "K": {
    "name": "Chứng khoán Mỹ (S&P500/Nasdaq)",
    "quantitative": true,
-   "score": 0,
-   "reason": "S&P 500 tăng 1,21% tuần qua nhưng lợi suất trái phiếu 10 năm lên 5,18%, cao nhất từ 2007 nên giữ trung lập.",
-   "url": "https://portfolio-terminal.com/blog/stock-market-week-in-review-september-25-2026",
+   "score": -1,
+   "reason": "S&P 500 giảm 0,77% phiên 28/9 xuống 7.683,69 điểm khi lợi suất trái phiếu Mỹ tăng vọt lên khoảng 5,24%, đảo chiều so với đà tăng cuối tuần trước.",
+   "url": "https://www.cnbc.com/2026/09/27/stock-market-today-live-updates.html",
    "previous": {
-    "value": 7704.13,
-    "unit": "điểm (S&P 500, suy ra từ mức tăng 39,28)",
-    "date": "2026-09-24",
-    "source": "Yahoo Finance"
-   },
-   "current": {
     "value": 7743.41,
     "unit": "điểm (S&P 500)",
     "date": "2026-09-25",
     "source": "Yahoo Finance"
+   },
+   "current": {
+    "value": 7683.69,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-09-28",
+    "source": "CNBC/Yahoo Finance"
    }
   },
   "L": {
    "name": "Căng thẳng thương mại/địa chính trị",
    "quantitative": false,
    "score": -1,
-   "reason": "Xung đột Mỹ – Iran và rủi ro eo biển Hormuz chưa dứt, dù hai bên còn đàm phán.",
-   "url": "https://www.cnbc.com/2026/09/24/stock-market-today-live-updates.html",
+   "reason": "Mỹ bác bỏ sáng kiến hòa bình của Iran, khiến giá dầu bật tăng và rủi ro gián đoạn nguồn cung/eo biển Hormuz còn treo lơ lửng.",
+   "url": "http://vov.vn/thi-truong/gia-xang-dau-hom-nay-299-gia-dau-brent-tang-len-muc-10830-usdthung-post1336708.vov",
    "previous": null,
    "current": null
   },
@@ -203,26 +208,26 @@
    "name": "Dòng vốn khối ngoại tại VN",
    "quantitative": true,
    "score": -1,
-   "reason": "Khối ngoại bán ròng khoảng 2.865 tỷ đồng trên HoSE tuần 21–25/9 và tiếp tục bán ròng phiên 28/9.",
-   "url": "https://nhandan.vn/infographic-thi-truong-tuan-21-259-vn-index-phuc-hoi-phien-cuoi-tuan-khoi-ngoai-tiep-tuc-ban-rong-post991132.html",
+   "reason": "Khối ngoại bán ròng phiên thứ 4 liên tiếp (khoảng 220–293 tỷ đồng ngày 28/9, tập trung VPB, BVH, CTG); tuy vậy thị trường vừa chính thức được FTSE nâng hạng lên Mới nổi thứ cấp từ 21/9, yếu tố tích cực trong trung hạn.",
+   "url": "https://nhandan.vn/chung-khoan-ngay-289-vn-index-giam-diem-do-ap-luc-ban-tu-nhom-co-phieu-ngan-hang-va-chung-khoan-post991537.html",
    "previous": {
-    "value": 2638,
-    "unit": "tỷ đồng (mua ròng, tuần 14–18/9)",
-    "date": "2026-09-18",
-    "source": "AWM Fund tổng hợp (chưa đối chiếu nguồn gốc)"
-   },
-   "current": {
     "value": -2865,
     "unit": "tỷ đồng (bán ròng HoSE, tuần 21–25/9)",
     "date": "2026-09-25",
     "source": "Nhân Dân"
+   },
+   "current": {
+    "value": -220,
+    "unit": "tỷ đồng (bán ròng 3 sàn, phiên 28/9)",
+    "date": "2026-09-28",
+    "source": "Nhân Dân / Thời báo Tài chính"
    }
   },
   "N": {
    "name": "Tin tức riêng của 5 nhóm ngành",
    "quantitative": false,
    "score": 0,
-   "reason": "Bán lẻ và cao su tích cực; ngân hàng chịu áp lực chi phí vốn; xây dựng phân hóa lợi nhuận; CNTT vững nhưng cổ phiếu chịu áp lực.",
+   "reason": "Ngân hàng chịu bán ròng khối ngoại nhiều phiên (VPB, CTG); xây dựng có FTSE nâng hạng và đầu tư công hỗ trợ; CNTT, thép, vàng bạc chưa có tin mới nổi bật trong 24–72 giờ qua.",
    "url": "https://mekongasean.vn/du-bao-ket-qua-kinh-doanh-quy-32026-cua-nhom-tieu-dung-ban-le-60040.html",
    "previous": null,
    "current": null
@@ -244,6 +249,10 @@
   {
    "date": "2026-09-28",
    "total": -5
+  },
+  {
+   "date": "2026-09-29",
+   "total": -4
   }
  ],
  "thresholds": {
