@@ -1,11 +1,9 @@
 {
  "meta": {
-  "fetched_at": "2026-09-29 07:41",
+  "fetched_at": "2026-09-29 08:14",
   "latest_session": "2026-09-28",
   "unit": "nghìn đồng",
-  "failed": {
-   "IDC": "vnstock: No module named 'vnstock' | yahoo: Nguồn trả về rỗng"
-  },
+  "failed": {},
   "sample": false,
   "disclaimer": "Chỉ mang tính tham khảo, không phải khuyến nghị đầu tư."
  },
@@ -18908,17 +18906,6 @@
    ],
    "links": {
     "yahoo": "https://finance.yahoo.com/quote/PHR.VN"
-   }
-  },
-  {
-   "symbol": "IDC",
-   "name": "Tổng Công ty IDICO – CTCP",
-   "group": "Xây dựng – Đầu tư công",
-   "exchange": "HNX",
-   "source": null,
-   "candles": [],
-   "links": {
-    "yahoo": "https://finance.yahoo.com/quote/IDC.VN"
    }
   },
   {
