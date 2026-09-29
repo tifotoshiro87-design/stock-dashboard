@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-fetch_data.py - Lấy giá 17 mã cổ phiếu + số liệu vĩ mô quốc tế, ghi ra data/*.json
+fetch_data.py - Lấy giá 16 mã cổ phiếu + số liệu vĩ mô quốc tế, ghi ra data/*.json
 Chạy: python fetch_data.py
 Nguyên tắc: không bịa số liệu. Không lấy được thì để null / ghi vào danh sách lỗi.
 """
@@ -29,7 +29,6 @@ CO_PHIEU = [
     ("PNJ", "CTCP Vàng bạc Đá quý Phú Nhuận", "Vàng bạc trang sức", "HOSE"),
     ("GVR", "Tập đoàn Công nghiệp Cao su Việt Nam", "Xây dựng – Đầu tư công", "HOSE"),
     ("PHR", "CTCP Cao su Phước Hòa", "Xây dựng – Đầu tư công", "HOSE"),
-    ("IDC", "Tổng Công ty IDICO – CTCP", "Xây dựng – Đầu tư công", "HNX"),
     ("FPT", "CTCP FPT", "Công nghệ thông tin", "HOSE"),
     ("CMG", "CTCP Tập đoàn Công nghệ CMC", "Công nghệ thông tin", "HOSE"),
     ("VCG", "Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)", "Xây dựng – Đầu tư công", "HOSE"),
