@@ -1,0 +1,266 @@
+{
+ "meta": {
+  "fetched_at": "2026-09-30 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
+  "failed": {}
+ },
+ "scored_at": "2026-09-30",
+ "summary": "Tổng điểm -4 (không đổi so với hôm qua): giá dầu và DXY vẫn ở vùng cao nhưng dầu đã hạ nhiệt nhẹ sau khi Saudi Arabia khôi phục một phần xuất khẩu; S&P 500 giảm phiên thứ ba liên tiếp; khối ngoại bán ròng phiên thứ 5 liên tiếp, tập trung VPB. Điểm sáng: NHNN tiếp tục bơm thanh khoản mạnh, và Bộ Xây dựng vừa công bố kêu gọi đầu tư PPP hơn 923.000 tỷ đồng cho 29 dự án cao tốc, hỗ trợ nhóm Xây dựng – Đầu tư công.",
+ "criteria": {
+  "A": {
+   "name": "Lãi suất điều hành NHNN",
+   "quantitative": true,
+   "score": 0,
+   "reason": "NHNN giữ lãi suất chào thầu OMO ở 4,5%/năm, không đổi so với các phiên trước.",
+   "url": "https://cafef.vn/nhnn-bom-thanh-khoan-vnd-dai-han-hon-188260915103255251.chn",
+   "previous": {
+    "value": 4.5,
+    "unit": "%/năm (OMO)",
+    "date": "2026-09-14",
+    "source": "NHNN qua CafeF"
+   },
+   "current": {
+    "value": 4.5,
+    "unit": "%/năm (OMO)",
+    "date": "2026-09-21",
+    "source": "NHNN qua CafeBiz"
+   }
+  },
+  "B": {
+   "name": "Tỷ giá USD/VND",
+   "quantitative": true,
+   "score": 0,
+   "reason": "Tỷ giá trung tâm tiếp tục ổn định quanh 25.630 đồng/USD, dù USD thế giới (DXY) tăng lên vùng cao mới.",
+   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-309-chi-so-usd-index-tang-len-10145-diem-post1337016.vov",
+   "previous": {
+    "value": 25632,
+    "unit": "VND/USD (tỷ giá trung tâm)",
+    "date": "2026-09-29",
+    "source": "NHNN qua VOV"
+   },
+   "current": {
+    "value": 25630,
+    "unit": "VND/USD (tỷ giá trung tâm)",
+    "date": "2026-09-30",
+    "source": "NHNN qua VOV"
+   }
+  },
+  "C": {
+   "name": "CPI / lạm phát",
+   "quantitative": true,
+   "score": -1,
+   "reason": "CPI tháng 8 tăng 4,89% so với cùng kỳ, cao hơn mục tiêu bình quân 4,5% do giá xăng dầu tăng.",
+   "url": "https://cafebiz.vn/cpi-thang-8-2026-tang-047-176260903133717366.chn",
+   "previous": {
+    "value": 4.45,
+    "unit": "% so cùng kỳ (tháng 7)",
+    "date": "2026-08-03",
+    "source": "Cục Thống kê"
+   },
+   "current": {
+    "value": 4.89,
+    "unit": "% so cùng kỳ (tháng 8)",
+    "date": "2026-09-03",
+    "source": "Cục Thống kê"
+   }
+  },
+  "D": {
+   "name": "Tiến độ giải ngân đầu tư công",
+   "quantitative": true,
+   "score": 1,
+   "reason": "Ngoài mốc giải ngân 52,9% (đến 17/9), sáng 29/9 Bộ Xây dựng vừa công bố kêu gọi đầu tư PPP cho 29 dự án cao tốc giai đoạn 2026–2030, tổng vốn sơ bộ hơn 923.000 tỷ đồng — tín hiệu tích cực cho nhóm xây dựng, hạ tầng.",
+   "url": "https://baotintuc.vn/diem-tin-kinh-te-viet-nam-noi-bat-ngay-2992026-post1389906.html",
+   "previous": {
+    "value": 48.9,
+    "unit": "% kế hoạch (hết tháng 8)",
+    "date": "2026-09-03",
+    "source": "Bộ Tài chính"
+   },
+   "current": {
+    "value": 52.9,
+    "unit": "% kế hoạch (đến 17/9)",
+    "date": "2026-09-17",
+    "source": "Bộ Tài chính qua Báo Đầu tư"
+   }
+  },
+  "E": {
+   "name": "Thanh khoản / room tín dụng",
+   "quantitative": true,
+   "score": 1,
+   "reason": "Thanh khoản tiếp tục được hỗ trợ: sáng 30/9 NHNN bơm ròng hơn 34.000 tỷ đồng qua OMO và duy trì kênh hoán đổi ngoại tệ kỳ hạn 7 ngày quy mô tối đa 2 tỷ USD.",
+   "url": "https://vn.investing.com/currencies/usd-vnd",
+   "previous": {
+    "value": 7.0,
+    "unit": "%/năm (liên NH qua đêm)",
+    "date": "2026-09-21",
+    "source": "CafeBiz theo An ninh tiền tệ"
+   },
+   "current": {
+    "value": 1.1,
+    "unit": "%/năm (liên NH qua đêm)",
+    "date": "2026-09-28",
+    "source": "Người Quan Sát (Vietstock)"
+   }
+  },
+  "F": {
+   "name": "Chính sách/luật mới ảnh hưởng ngành",
+   "quantitative": false,
+   "score": 1,
+   "reason": "FTSE Russell chính thức nâng hạng Việt Nam từ Thị trường Cận biên lên Thị trường Mới nổi thứ cấp, có hiệu lực từ 21/9/2026 — cột mốc lớn sau 26 năm.",
+   "url": "https://congluan.vn/chung-khoan-hom-nay-2892026-vn-index-suy-yeu-diem-sang-co-phieu-nang-luong-post362161.html",
+   "previous": null,
+   "current": null
+  },
+  "G": {
+   "name": "Ổn định chính trị – xã hội",
+   "quantitative": false,
+   "score": 0,
+   "reason": "Chưa thấy diễn biến bất thường; ADB đánh giá kinh tế kiên cường (23/9) nên giữ trung lập.",
+   "url": "https://www.vietnamplus.vn/adb-nang-du-bao-tang-truong-viet-nam-luu-y-rui-ro-tin-dung-va-lam-phat-post1137929.vnp",
+   "previous": null,
+   "current": null
+  },
+  "H": {
+   "name": "Lãi suất Fed",
+   "quantitative": true,
+   "score": -1,
+   "reason": "Fed tăng lãi suất 25 điểm cơ bản lên 3,75–4,00% ngày 16/9, lần đầu từ 2023 và còn dự báo tăng thêm.",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+   "previous": {
+    "value": 3.75,
+    "unit": "% (cận trên biên 3,50–3,75%)",
+    "date": "2025-12",
+    "source": "Cục Dự trữ Liên bang (federalreserve.gov)"
+   },
+   "current": {
+    "value": 4.0,
+    "unit": "% (cận trên biên 3,75–4,00%)",
+    "date": "2026-09-16",
+    "source": "federalreserve.gov"
+   }
+  },
+  "I": {
+   "name": "Chỉ số DXY",
+   "quantitative": true,
+   "score": -1,
+   "reason": "DXY tiếp tục nhích lên 101,45 điểm, vùng cao nhất trong khoảng hai tháng.",
+   "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-309-chi-so-usd-index-tang-len-10145-diem-post1337016.vov",
+   "previous": {
+    "value": 101.2,
+    "unit": "điểm",
+    "date": "2026-09-29",
+    "source": "VOV / Báo Văn hóa"
+   },
+   "current": {
+    "value": 101.45,
+    "unit": "điểm",
+    "date": "2026-09-30",
+    "source": "VOV"
+   }
+  },
+  "J": {
+   "name": "Giá dầu thế giới",
+   "quantitative": true,
+   "score": -1,
+   "reason": "Brent hạ nhiệt còn 105,28 USD/thùng (từ đỉnh 108,3) sau khi Saudi Arabia khôi phục đường ống dẫn dầu Đông–Tây, nhưng vẫn neo cao do căng thẳng Mỹ–Iran và nguy cơ Mỹ nối lại không kích Iran sau bầu cử giữa kỳ tháng 11 chưa được gỡ bỏ.",
+   "url": "https://vn.investing.com/news/commodities-news/gia-dau-roi-dinh-sau-khi-arap-saudi-khoi-phuc-duong-ong-dan-dau-quan-trong-2722487",
+   "previous": {
+    "value": 108.3,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-09-28",
+    "source": "Reuters qua Báo Lào Cai/VOV"
+   },
+   "current": {
+    "value": 105.28,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-09-29",
+    "source": "Vietstock/Investing.com"
+   }
+  },
+  "K": {
+   "name": "Chứng khoán Mỹ (S&P500/Nasdaq)",
+   "quantitative": true,
+   "score": -1,
+   "reason": "S&P 500 giảm phiên thứ ba liên tiếp, còn 7.670,84 điểm, khi lợi suất trái phiếu Mỹ kỳ hạn 10 năm vượt 5,26%.",
+   "url": "https://www.cnbc.com/2026/09/28/stock-market-today-live-updates.html",
+   "previous": {
+    "value": 7683.69,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-09-28",
+    "source": "CNBC/Yahoo Finance"
+   },
+   "current": {
+    "value": 7670.84,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-09-29",
+    "source": "CNBC"
+   }
+  },
+  "L": {
+   "name": "Căng thẳng thương mại/địa chính trị",
+   "quantitative": false,
+   "score": -1,
+   "reason": "Saudi Arabia đã khôi phục một phần xuất khẩu qua đường ống Đông–Tây, giảm bớt rủi ro nguồn cung trước mắt, nhưng Mỹ vẫn bác bỏ sáng kiến hòa bình của Iran và được cho là có thể nối lại không kích sau bầu cử giữa kỳ tháng 11 — căng thẳng chưa chấm dứt.",
+   "url": "https://vn.investing.com/news/commodities-news/gia-dau-roi-dinh-sau-khi-arap-saudi-khoi-phuc-duong-ong-dan-dau-quan-trong-2722487",
+   "previous": null,
+   "current": null
+  },
+  "M": {
+   "name": "Dòng vốn khối ngoại tại VN",
+   "quantitative": true,
+   "score": -1,
+   "reason": "Khối ngoại bán ròng phiên thứ 5 liên tiếp trên HoSE (khoảng 396 tỷ đồng ngày 29/9, riêng VPB gần 249 tỷ đồng); tính 3 sàn bán ròng khoảng 377 tỷ đồng.",
+   "url": "https://vtv.vn/vn-index-giam-phien-thu-hai-lien-tiep-100260929190215404.htm",
+   "previous": {
+    "value": -220,
+    "unit": "tỷ đồng (bán ròng 3 sàn, phiên 28/9)",
+    "date": "2026-09-28",
+    "source": "Nhân Dân / Thời báo Tài chính"
+   },
+   "current": {
+    "value": -377,
+    "unit": "tỷ đồng (bán ròng 3 sàn, phiên 29/9)",
+    "date": "2026-09-29",
+    "source": "VTV/Bnews"
+   }
+  },
+  "N": {
+   "name": "Tin tức riêng của 5 nhóm ngành",
+   "quantitative": false,
+   "score": 0,
+   "reason": "Xây dựng – Đầu tư công có tin tích cực (Bộ Xây dựng kêu gọi PPP 29 dự án cao tốc); Ngân hàng tiếp tục là tâm điểm bán ròng khối ngoại (VPB); CNTT, Thép, Vàng bạc chưa có tin mới nổi bật trong 24–72 giờ qua.",
+   "url": "https://mekongasean.vn/du-bao-ket-qua-kinh-doanh-quy-32026-cua-nhom-tieu-dung-ban-le-60040.html",
+   "previous": null,
+   "current": null
+  }
+ },
+ "reference": {
+  "^IXIC": {
+   "name": "Nasdaq",
+   "value": 27068.72,
+   "date": "2026-09-25"
+  },
+  "CL=F": {
+   "name": "Dầu WTI",
+   "value": 92.41,
+   "date": "2026-09-25"
+  }
+ },
+ "history": [
+  {
+   "date": "2026-09-28",
+   "total": -5
+  },
+  {
+   "date": "2026-09-29",
+   "total": -4
+  },
+  {
+   "date": "2026-09-30",
+   "total": -4
+  }
+ ],
+ "thresholds": {
+  "sell": -4,
+  "buy": 4
+ }
+}
