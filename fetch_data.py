@@ -6,6 +6,10 @@ Nguyên tắc: không bịa số liệu. Không lấy được thì để null /
 """
 import json
 import time
+import urllib.request
+import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
+from urllib.parse import quote
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -174,15 +178,61 @@ def lay_macro():
             "thresholds": cu.get("thresholds", {"sell": -4, "buy": 4})}
 
 
+# ===== Tin tự động theo từng mã (Google News RSS, miễn phí, không cần API key) =====
+# Đây CHỈ là tin thô, chưa qua chọn lọc của người/AI — hiển thị riêng ở tab Tin tức,
+# tách biệt với 3 mục (Chính sách/Pháp luật/Tin ngành) do lệnh "cập nhật" chọn lọc thủ công.
+SO_TIN_MOI_MOI_MA = 3        # lấy tối đa mấy tin mới nhất cho mỗi mã
+TONG_TIN_TOI_DA = 60         # tổng số tin giữ lại (mã mới hơn ưu tiên)
+
+def lay_rss_ma(ma, ten):
+    """Google News RSS tìm theo tên công ty. Lỗi/rỗng thì trả về danh sách rỗng, không chặn các mã khác."""
+    q = quote(f'"{ten}"')
+    url = f"https://news.google.com/rss/search?q={q}&hl=vi&gl=VN&ceid=VN:vi"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=15) as r:
+        cay = ET.fromstring(r.read())
+    tin = []
+    for item in cay.findall(".//item")[:SO_TIN_MOI_MOI_MA]:
+        tieu_de = (item.findtext("title") or "").strip()
+        link = (item.findtext("link") or "").strip()
+        ngay_tho = item.findtext("pubDate")
+        nguon_el = item.find("source")
+        nguon = nguon_el.text.strip() if nguon_el is not None and nguon_el.text else ""
+        if not tieu_de or not link:
+            continue
+        try:
+            ngay = parsedate_to_datetime(ngay_tho).strftime("%Y-%m-%d") if ngay_tho else None
+        except (TypeError, ValueError):
+            ngay = None
+        tin.append({"symbol": ma, "date": ngay, "title": tieu_de, "source": nguon, "url": link})
+    return tin
+
+
+def lay_tin_tu_dong():
+    tin_tat_ca, loi = [], {}
+    for ma, ten, _nhom, _san in CO_PHIEU:
+        try:
+            tin_tat_ca += thu_lai(lambda ma=ma, ten=ten: lay_rss_ma(ma, ten) or None, so_lan=2, cho=3)
+        except Exception as e:  # noqa: BLE001
+            loi[ma] = f"{type(e).__name__}: {e}"
+        time.sleep(0.5)  # tránh gửi quá dồn dập tới Google News
+    tin_tat_ca.sort(key=lambda x: x["date"] or "", reverse=True)
+    print(f"Tin tự động: lấy được {len(tin_tat_ca)} tin, lỗi {len(loi)} mã: {list(loi)[:5]}")
+    return {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "failed": loi,
+            "items": tin_tat_ca[:TONG_TIN_TOI_DA]}
+
+
 def main():
     (THU_MUC / "prices.json").write_text(
         json.dumps(lay_gia(), ensure_ascii=False, indent=1), encoding="utf-8")
     (THU_MUC / "macro.json").write_text(
         json.dumps(lay_macro(), ensure_ascii=False, indent=1), encoding="utf-8")
-    if not (THU_MUC / "news.json").exists():  # tin tức do lệnh "cập nhật" ghi, script không đè
-        (THU_MUC / "news.json").write_text(json.dumps(
-            {"meta": {"updated_at": None}, "policy": [], "law": [], "industry": {}},
-            ensure_ascii=False, indent=1), encoding="utf-8")
+    # Tin tự động: chỉ ghi đè mục "auto" trong news.json, GIỮ NGUYÊN policy/law/industry
+    # (những mục đó do lệnh "cập nhật" chọn lọc thủ công, script không được đụng vào).
+    tin_cu = doc_json("news.json", {"meta": {"updated_at": None}, "policy": [], "law": [], "industry": {}})
+    tin_cu["auto"] = lay_tin_tu_dong()
+    (THU_MUC / "news.json").write_text(
+        json.dumps(tin_cu, ensure_ascii=False, indent=1), encoding="utf-8")
     print("Xong. Xem data/prices.json (meta.failed) để biết mã nào lỗi.")
 
 

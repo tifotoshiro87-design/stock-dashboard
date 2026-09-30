@@ -315,7 +315,12 @@ function t3(){
  const it=a=>(a||[]).map(x=>`<div class="nw"><span class="mu" style="font-size:12px">${esc(x.date||"")}</span> <span class="tag">${esc(x.label||"")}</span><div><b>${esc(x.title)}</b></div><div class="mu">${esc(x.summary||"")}</div>${/^https?:\/\//.test(x.url||"")?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Đọc bài gốc →</a>`:""}</div>`).join("")||'<div class="mu">Chưa có dữ liệu.</div>';
  const sec=(t,a)=>`<div class="card"><h3>${t}</h3>${it(a)}</div>`;
  const ind=N&&N.industry||{};
- $("#t3").innerHTML=sec("Chính sách nhà nước thúc đẩy tăng trưởng",N&&N.policy)+sec("Pháp luật kinh tế",N&&N.law)+G.map(g=>sec("Tin tức liên quan — "+g,ind[g])).join("")}
+ const au=N&&N.auto,items=(au&&au.items)||[];
+ const autoHtml=`<div class="card"><h3>Tin mới nhất về các mã trong danh mục (tự động)</h3>
+  <div class="mu" style="font-size:12px;margin-bottom:6px">Lấy tự động qua Google News theo tên từng công ty, cập nhật cùng lúc với giá cổ phiếu — CHƯA qua chọn lọc, có thể lẫn tin không thật sự liên quan. 3 mục bên dưới do chọn lọc thủ công mỗi khi gõ "cập nhật" mới là nội dung chính.</div>
+  ${items.length?items.map(x=>`<div class="nw"><span class="mu" style="font-size:12px">${esc(x.date||"")}${x.source?" · "+esc(x.source):""}</span> <span class="tag">${esc(x.symbol)}</span><div><b>${esc(x.title)}</b></div>${/^https?:\/\//.test(x.url||"")?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Đọc bài gốc →</a>`:""}</div>`).join(""):'<div class="mu">Chưa có dữ liệu (chờ bot chạy lần đầu, hoặc mất mạng).</div>'}
+  </div>`;
+ $("#t3").innerHTML=autoHtml+sec("Chính sách nhà nước thúc đẩy tăng trưởng",N&&N.policy)+sec("Pháp luật kinh tế",N&&N.law)+G.map(g=>sec("Tin tức liên quan — "+g,ind[g])).join("")}
 
 // ===== Sự kiện =====
 document.addEventListener("click",e=>{const t=e.target;
