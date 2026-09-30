@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-09-30 16:41",
+  "fetched_at": "2026-09-30 22:56",
   "latest_session": "2026-09-30",
   "unit": "nghìn đồng",
   "failed": {},
@@ -33736,5 +33736,12 @@
     "yahoo": "https://finance.yahoo.com/quote/CTD.VN"
    }
   }
- ]
+ ],
+ "vn30": {
+  "candles": [],
+  "members": [],
+  "source": null,
+  "error_gia": "ModuleNotFoundError: No module named 'vnstock'",
+  "error_thanh_phan": "ModuleNotFoundError: No module named 'vnstock'"
+ }
 }
