@@ -5,6 +5,7 @@ Chạy: python fetch_data.py
 Nguyên tắc: không bịa số liệu. Không lấy được thì để null / ghi vào danh sách lỗi.
 """
 import json
+import re
 import time
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -132,6 +133,32 @@ def lay_gia():
     return {"meta": meta, "stocks": ds}
 
 
+def lay_vn30():
+    """Điểm chỉ số VN30 (nến ngày) + danh sách 30 mã thành phần, qua vnstock — không cần API key.
+    Lưu ý: chưa kiểm thử được với dữ liệu thật (môi trường viết code không có mạng), nên nếu tên hàm/API
+    của vnstock đã đổi, phần này sẽ báo lỗi rõ trong "error" chứ không làm hỏng phần giá 16 mã ở trên."""
+    kq = {"candles": [], "members": [], "source": None, "error_gia": None, "error_thanh_phan": None}
+    try:
+        from vnstock import Vnstock
+        den = datetime.now(VN).date(); tu = den - timedelta(days=400)
+        df = Vnstock().stock(symbol="VN30", source="VCI").quote.history(
+            start=str(tu), end=str(den), interval="1D")
+        for _, r in df.iterrows():
+            kq["candles"].append({"t": str(r["time"])[:10], "o": round(float(r["open"]), 2),
+                                  "h": round(float(r["high"]), 2), "l": round(float(r["low"]), 2),
+                                  "c": round(float(r["close"]), 2), "v": int(r["volume"])})
+        kq["source"] = "vnstock"
+    except Exception as e:  # noqa: BLE001
+        kq["error_gia"] = f"{type(e).__name__}: {e}"
+    try:
+        from vnstock import Listing
+        kq["members"] = sorted(str(m) for m in Listing().symbols_by_group("VN30"))
+    except Exception as e:  # noqa: BLE001
+        kq["error_thanh_phan"] = f"{type(e).__name__}: {e}"
+    print("VN30:", "OK" if kq["candles"] else "LỖI giá", "|", "OK" if kq["members"] else "LỖI thành phần")
+    return kq
+
+
 def doc_json(ten, mac_dinh):
     """Đọc file JSON cũ (giữ điểm số, số liệu nhập tay); lỗi thì dùng mặc định."""
     try:
@@ -208,23 +235,47 @@ def lay_rss_ma(ma, ten):
     return tin
 
 
+def chuan_hoa_tieu_de(t):
+    """Chuẩn hoá tiêu đề để so khớp tin trùng (khác hoa/thường, khác khoảng trắng)."""
+    return re.sub(r"\s+", " ", t or "").strip().lower()
+
+
 def lay_tin_tu_dong():
-    tin_tat_ca, loi = [], {}
+    tin_tho, loi = [], {}
     for ma, ten, _nhom, _san in CO_PHIEU:
         try:
-            tin_tat_ca += thu_lai(lambda ma=ma, ten=ten: lay_rss_ma(ma, ten) or None, so_lan=2, cho=3)
+            tin_tho += thu_lai(lambda ma=ma, ten=ten: lay_rss_ma(ma, ten) or None, so_lan=2, cho=3)
         except Exception as e:  # noqa: BLE001
             loi[ma] = f"{type(e).__name__}: {e}"
         time.sleep(0.5)  # tránh gửi quá dồn dập tới Google News
-    tin_tat_ca.sort(key=lambda x: x["date"] or "", reverse=True)
-    print(f"Tin tự động: lấy được {len(tin_tat_ca)} tin, lỗi {len(loi)} mã: {list(loi)[:5]}")
+
+    # Gộp tin trùng nhau: cùng 1 bài có thể ra ở nhiều mã (VD tin nhắc cả FPT lẫn CMG),
+    # hoặc Google News trả về cùng bài với link theo dõi khác nhau -> so khớp theo TIÊU ĐỀ đã chuẩn hoá,
+    # gộp các mã liên quan vào 1 dòng thay vì lặp lại nhiều lần.
+    gop = {}
+    for t in tin_tho:
+        khoa = chuan_hoa_tieu_de(t["title"])
+        if not khoa:
+            continue
+        if khoa in gop:
+            if t["symbol"] not in gop[khoa]["symbols"]:
+                gop[khoa]["symbols"].append(t["symbol"])
+            if t["date"] and (not gop[khoa]["date"] or t["date"] < gop[khoa]["date"]):
+                gop[khoa]["date"] = t["date"]  # giữ ngày sớm nhất bài này từng xuất hiện
+        else:
+            gop[khoa] = {"symbols": [t["symbol"]], "date": t["date"], "title": t["title"],
+                         "source": t["source"], "url": t["url"]}
+    tin_gop = sorted(gop.values(), key=lambda x: x["date"] or "", reverse=True)
+    print(f"Tin tự động: {len(tin_tho)} tin thô -> {len(tin_gop)} sau khi gộp trùng, lỗi {len(loi)} mã: {list(loi)[:5]}")
     return {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "failed": loi,
-            "items": tin_tat_ca[:TONG_TIN_TOI_DA]}
+            "items": tin_gop[:TONG_TIN_TOI_DA]}
 
 
 def main():
+    gia = lay_gia()
+    gia["vn30"] = lay_vn30()
     (THU_MUC / "prices.json").write_text(
-        json.dumps(lay_gia(), ensure_ascii=False, indent=1), encoding="utf-8")
+        json.dumps(gia, ensure_ascii=False, indent=1), encoding="utf-8")
     (THU_MUC / "macro.json").write_text(
         json.dumps(lay_macro(), ensure_ascii=False, indent=1), encoding="utf-8")
     # Tin tự động: chỉ ghi đè mục "auto" trong news.json, GIỮ NGUYÊN policy/law/industry
