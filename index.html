@@ -52,6 +52,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 <div id="top">
  <h1>Bảng theo dõi cổ phiếu — 16 mã, 5 nhóm ngành</h1>
  <div id="ban">Đang tải dữ liệu…</div>
+ <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
  <div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button></div>
  <div id="bar"><div id="grp"></div><div id="cards"></div></div>
 </div>
@@ -109,7 +110,12 @@ function banner(){
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
-function renderAll(){cards();detail();t2();t3()}
+function renderAll(){cards();detail();t2();t3();renderVn30()}
+function renderVn30(){
+ const el=$("#vn30"),v=P&&P.vn30;if(!el)return;
+ if(!v||!v.candles||v.candles.length<2){el.textContent="VN30: chưa có dữ liệu."+(v&&v.error_gia?" ("+v.error_gia+")":"");return}
+ const C=v.candles,a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100,cl=ch>0?"up":ch<0?"dn":"rf";
+ el.innerHTML=`VN30: <b class="${cl}">${fmt(a,1)} (${ch>0?"+":""}${fmt(ch,1)}%)</b>${v.members&&v.members.length?` · ${v.members.length} mã thành phần`:""}`}
 
 // ===== Chỉ báo kỹ thuật (công thức chuẩn) =====
 function sma(a,n){return a.map((_,i)=>i<n-1?null:a.slice(i-n+1,i+1).reduce((x,y)=>x+y,0)/n)}
@@ -125,7 +131,8 @@ function cards(){
  $("#grp").innerHTML=G.map((g,i)=>`<span class="${i==grp?"on":""}" data-g="${i}">${g}</span>`).join("");
  $("#cards").innerHTML=ST.filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
   if(C.length>1){const a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100;c=ch>0?"up":ch<0?"dn":"rf";p=`${fmt(a)} (${ch>0?"+":""}${fmt(ch,1)}%)`}
-  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b><span class="${c}" style="font-size:12px">${p}</span>${bdg(C,c)}</div>`}).join("")}
+  const inVn30=P&&P.vn30&&P.vn30.members&&P.vn30.members.includes(s.s);
+  return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b>${inVn30?' <span style="font-size:9px;color:#d29922;border:1px solid #d29922;border-radius:3px;padding:0 3px">VN30</span>':""}<span class="${c}" style="font-size:12px;display:block">${p}</span>${bdg(C,c)}</div>`}).join("")}
 const TIPS={
  close:"Giá đóng cửa: giá chốt phiên gần nhất.",
  ema20:"EMA20: đường giá trung bình 20 phiên, nhạy với giá mới. Giá nằm trên EMA20 là xu hướng ngắn hạn tốt.",
@@ -296,8 +303,15 @@ function t2(){
    h+=`<div class="cr"><div><b>${c[0]}. ${c[1]}</b><em>${c[2]}</em>${m.reason?`<div style="font-size:12px;margin:4px 0">${esc(m.reason)} ${/^https?:\/\//.test(m.url||"")?`<a class="rf" target="_blank" rel="noopener" href="${esc(m.url)}">Nguồn →</a>`:""}</div>`:""}${c[4]?bx("KỲ TRƯỚC",m.previous)+bx("HIỆN TẠI",m.current):""}</div>
    <select data-c="${c[0]}">${[-1,0,1].map(v=>`<option value="${v}" ${(sc[c[0]]||0)==v?"selected":""}>${v>0?"+"+v:v}</option>`).join("")}</select></div>`})});
  h+=`</div><div class="card"><h3>Tổng điểm</h3><div id="tot"></div><p>Ngưỡng BÁN ≤ <input id="ths" type="number" value="${th.sell}"> · Ngưỡng MUA ≥ <input id="thb" type="number" value="${th.buy}"></p><div id="hs"></div></div>
- <div class="card"><h3>Tác động theo ngành</h3><div id="imp"></div></div>`;
- $("#t2").innerHTML=h;sum()}
+ <div class="card"><h3>Tác động theo ngành</h3><div id="imp"></div></div>
+ <div class="card"><h3>Tham khảo trong nước</h3><div id="vn30ref"></div></div>`;
+ $("#t2").innerHTML=h;sum();renderVn30Ref()}
+function renderVn30Ref(){
+ const el=$("#vn30ref"),v=P&&P.vn30;if(!el)return;
+ if(!v||!v.candles||v.candles.length<2){el.innerHTML='<span class="mu">Chưa có dữ liệu VN30.</span>';return}
+ const C=v.candles,a=C[C.length-1],b=C[C.length-2].c,ch=(a.c/b-1)*100,cl=ch>0?"up":ch<0?"dn":"rf";
+ el.innerHTML=`<div class="row"><span>VN30 (${esc(a.t)})</span><b class="${cl}">${fmt(a.c,1)} (${ch>0?"+":""}${fmt(ch,1)}%)</b></div>
+ <div class="mu" style="font-size:11px;margin-top:4px">Chỉ mang tính tham khảo, không tính vào tổng điểm 14 tiêu chí ở trên.</div>`}
 function sum(){
  const sc=ls.get("sc",{}),s=+$("#ths").value,b=+$("#thb").value;ls.set("th",{sell:s,buy:b});
  const tot=CR.reduce((a,c)=>a+(sc[c[0]]||0),0),v=tot<=s?"BÁN":tot>=b?"MUA":"TRUNG LẬP";
@@ -331,7 +345,7 @@ document.addEventListener("click",e=>{const t=e.target;
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
-cards();detail();t2();t3();load();
+cards();detail();t2();t3();renderVn30();load();
 setInterval(load,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script></body></html>
