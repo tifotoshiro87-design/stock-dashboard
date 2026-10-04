@@ -29,7 +29,7 @@ CO_PHIEU = [
     ("VPB", "NH TMCP Việt Nam Thịnh Vượng", "Ngân hàng", "HOSE"),
     ("HDB", "NH TMCP Phát triển TP.HCM", "Ngân hàng", "HOSE"),
     ("MWG", "CTCP Đầu tư Thế Giới Di Động", "Công nghệ thông tin", "HOSE"),
-    ("MSN", "CTCP Tập đoàn Masan", "Thép", "HOSE"),
+    ("MSN", "CTCP Tập đoàn Masan", "Hỗn hợp", "HOSE"),
     ("DGW", "CTCP Thế Giới Số", "Công nghệ thông tin", "HOSE"),
     ("PNJ", "CTCP Vàng bạc Đá quý Phú Nhuận", "Vàng bạc trang sức", "HOSE"),
     ("GVR", "Tập đoàn Công nghiệp Cao su Việt Nam", "Xây dựng – Đầu tư công", "HOSE"),
@@ -41,6 +41,9 @@ CO_PHIEU = [
     ("LCG", "CTCP Lizen", "Xây dựng – Đầu tư công", "HOSE"),
     ("FCN", "CTCP FECON", "Xây dựng – Đầu tư công", "HOSE"),
     ("CTD", "CTCP Xây dựng Coteccons", "Xây dựng – Đầu tư công", "HOSE"),
+    ("HPG", "CTCP Tập đoàn Hòa Phát", "Thép", "HOSE"),
+    ("HSG", "CTCP Tập đoàn Hoa Sen", "Thép", "HOSE"),
+    ("NKG", "CTCP Thép Nam Kim", "Thép", "HOSE"),
 ]
 
 # 14 tiêu chí vĩ mô: (ký hiệu, tên, có số liệu định lượng?)
@@ -65,7 +68,7 @@ def thu_lai(ham, so_lan=3, cho=2):
     for i in range(so_lan):
         try:
             kq = ham()
-            if kq:
+            if kq is not None and len(kq) > 0:  # an toàn cho cả list lẫn pandas Series
                 return kq
         except ImportError:  # thư viện tùy chọn chưa cài: bỏ qua ngay, không chờ thử lại
             raise
@@ -108,9 +111,9 @@ def lay_vnstock(ma):
 HAM_NGUON = {"vnstock": lay_vnstock, "yahoo": lay_yahoo}
 
 
-def lay_gia():
+def lay_gia(danh_sach=None):
     ds, loi = [], {}
-    for ma, ten, nhom, san in CO_PHIEU:
+    for ma, ten, nhom, san in (danh_sach or CO_PHIEU):
         nen, nguon_dung = [], None
         chi_tiet_loi = []
         for nguon in NGUON_UU_TIEN:  # fallback sang nguồn thứ hai
@@ -209,11 +212,11 @@ def lay_macro():
 # Đây CHỈ là tin thô, chưa qua chọn lọc của người/AI — hiển thị riêng ở tab Tin tức,
 # tách biệt với 3 mục (Chính sách/Pháp luật/Tin ngành) do lệnh "cập nhật" chọn lọc thủ công.
 SO_TIN_MOI_MOI_MA = 3        # lấy tối đa mấy tin mới nhất cho mỗi mã
-TONG_TIN_TOI_DA = 60         # tổng số tin giữ lại (mã mới hơn ưu tiên)
+TONG_TIN_TOI_DA = 150        # tổng số tin giữ lại (mã mới hơn ưu tiên)
 
 def lay_rss_ma(ma, ten):
     """Google News RSS tìm theo tên công ty. Lỗi/rỗng thì trả về danh sách rỗng, không chặn các mã khác."""
-    q = quote(f'"{ten}"')
+    q = quote(f'cổ phiếu {ten}' if len(ten) <= 4 else f'"{ten}"')  # chưa có tên công ty thì tìm theo mã
     url = f"https://news.google.com/rss/search?q={q}&hl=vi&gl=VN&ceid=VN:vi"
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=15) as r:
@@ -240,9 +243,9 @@ def chuan_hoa_tieu_de(t):
     return re.sub(r"\s+", " ", t or "").strip().lower()
 
 
-def lay_tin_tu_dong():
+def lay_tin_tu_dong(danh_sach=None):
     tin_tho, loi = [], {}
-    for ma, ten, _nhom, _san in CO_PHIEU:
+    for ma, ten, _nhom, _san in (danh_sach or CO_PHIEU):
         try:
             tin_tho += thu_lai(lambda ma=ma, ten=ten: lay_rss_ma(ma, ten) or None, so_lan=2, cho=3)
         except Exception as e:  # noqa: BLE001
@@ -271,9 +274,35 @@ def lay_tin_tu_dong():
             "items": tin_gop[:TONG_TIN_TOI_DA]}
 
 
+def lay_ten_cong_ty():
+    """Tên công ty theo mã (vnstock). Lỗi thì trả {} và app hiện mã thay cho tên."""
+    try:
+        from vnstock import Listing
+        df = Listing().all_symbols()
+        cot = next((c for c in ("organ_name", "company_name", "ten_cong_ty") if c in df.columns), None)
+        return {str(r["symbol"]): str(r[cot]) for _, r in df.iterrows()} if cot else {}
+    except Exception as e:  # noqa: BLE001
+        print("Không lấy được tên công ty VN30:", type(e).__name__, e)
+        return {}
+
+
+def ghep_hon_hop(gia):
+    """Thêm các mã VN30 chưa nằm trong 5 nhóm vào vùng "Hỗn hợp". Trả về danh sách mã đã thêm."""
+    co = {m[0] for m in CO_PHIEU}
+    ten = lay_ten_cong_ty()
+    them = [(m, ten.get(m, m), "Hỗn hợp", "HOSE")
+            for m in gia.get("vn30", {}).get("members", []) if m not in co]
+    if them:
+        g2 = lay_gia(them)
+        gia["stocks"] += g2["stocks"]
+        gia["meta"]["failed"].update(g2["meta"]["failed"])
+    return them
+
+
 def main():
     gia = lay_gia()
     gia["vn30"] = lay_vn30()
+    them = ghep_hon_hop(gia)
     (THU_MUC / "prices.json").write_text(
         json.dumps(gia, ensure_ascii=False, indent=1), encoding="utf-8")
     (THU_MUC / "macro.json").write_text(
@@ -281,7 +310,7 @@ def main():
     # Tin tự động: chỉ ghi đè mục "auto" trong news.json, GIỮ NGUYÊN policy/law/industry
     # (những mục đó do lệnh "cập nhật" chọn lọc thủ công, script không được đụng vào).
     tin_cu = doc_json("news.json", {"meta": {"updated_at": None}, "policy": [], "law": [], "industry": {}})
-    tin_cu["auto"] = lay_tin_tu_dong()
+    tin_cu["auto"] = lay_tin_tu_dong(CO_PHIEU + them)
     (THU_MUC / "news.json").write_text(
         json.dumps(tin_cu, ensure_ascii=False, indent=1), encoding="utf-8")
     print("Xong. Xem data/prices.json (meta.failed) để biết mã nào lỗi.")

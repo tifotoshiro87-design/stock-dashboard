@@ -65,12 +65,12 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 <script>
 "use strict";
 // ===== Danh mục cố định (mã, tên, nhóm, sàn) — dùng khi chưa có prices.json =====
-const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức"];
+const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức","Hỗn hợp"];
 const ST=[["VCB","NH TMCP Ngoại thương Việt Nam",1,"HOSE"],["VPB","NH TMCP Việt Nam Thịnh Vượng",1,"HOSE"],["HDB","NH TMCP Phát triển TP.HCM",1,"HOSE"],
-["MWG","CTCP Đầu tư Thế Giới Di Động",2,"HOSE"],["MSN","CTCP Tập đoàn Masan",3,"HOSE"],["DGW","CTCP Thế Giới Số",2,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",4,"HOSE"],
+["MWG","CTCP Đầu tư Thế Giới Di Động",2,"HOSE"],["MSN","CTCP Tập đoàn Masan",5,"HOSE"],["DGW","CTCP Thế Giới Số",2,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",4,"HOSE"],
 ["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",0,"HOSE"],["PHR","CTCP Cao su Phước Hòa",0,"HOSE"],
 ["FPT","CTCP FPT",2,"HOSE"],["CMG","CTCP Tập đoàn Công nghệ CMC",2,"HOSE"],
-["VCG","Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)",0,"HOSE"],["HHV","CTCP Đầu tư Hạ tầng Giao thông Đèo Cả",0,"HOSE"],["LCG","CTCP Lizen",0,"HOSE"],["FCN","CTCP FECON",0,"HOSE"],["CTD","CTCP Xây dựng Coteccons",0,"HOSE"]].map(a=>({s:a[0],n:a[1],g:a[2],x:a[3]}));
+["VCG","Tổng CTCP XNK và Xây dựng Việt Nam (Vinaconex)",0,"HOSE"],["HHV","CTCP Đầu tư Hạ tầng Giao thông Đèo Cả",0,"HOSE"],["LCG","CTCP Lizen",0,"HOSE"],["FCN","CTCP FECON",0,"HOSE"],["CTD","CTCP Xây dựng Coteccons",0,"HOSE"],["HPG","CTCP Tập đoàn Hòa Phát",3,"HOSE"],["HSG","CTCP Tập đoàn Hoa Sen",3,"HOSE"],["NKG","CTCP Thép Nam Kim",3,"HOSE"]].map(a=>({s:a[0],n:a[1],g:a[2],x:a[3]}));
 // 14 tiêu chí: [ký hiệu, tên, giải thích, nhóm, có số liệu?, ngành hưởng lợi khi +1, ngành bất lợi khi -1]
 const CR=[
 ["A","Lãi suất điều hành NHNN","Lãi suất thấp giúp doanh nghiệp vay rẻ; tăng lãi suất kiềm chế lạm phát nhưng làm chi phí vốn cao hơn.",0,1,"Xây dựng, Ngân hàng, Vàng bạc","Xây dựng, Thép (chi phí vốn cao)"],
@@ -99,6 +99,7 @@ async function getJ(f){const r=await fetch("data/"+f+"?t="+Date.now(),{cache:"no
 async function load(){
  const r=await Promise.allSettled([getJ("prices.json"),getJ("macro.json"),getJ("news.json")]);
  if(r[0].status=="fulfilled")P=r[0].value;if(r[1].status=="fulfilled")M=r[1].value;if(r[2].status=="fulfilled")N=r[2].value;
+ if(P&&P.stocks)P.stocks.filter(x=>x.group=="Hỗn hợp"&&!ST.some(t=>t.s==x.symbol)).forEach(x=>ST.push({s:x.symbol,n:x.name||x.symbol,g:5,x:x.exchange||"HOSE"}));
  ERR=["prices","macro","news"].filter((_,i)=>r[i].status=="rejected");
  const st=JSON.stringify([P&&P.meta,M&&M.meta,N&&N.meta,ERR]);
  banner();if(st!==stamp){stamp=st;renderAll()}
@@ -334,7 +335,8 @@ function t3(){
   <div class="mu" style="font-size:12px;margin-bottom:6px">Lấy tự động qua Google News theo tên từng công ty, cập nhật cùng lúc với giá cổ phiếu — CHƯA qua chọn lọc, có thể lẫn tin không thật sự liên quan. 3 mục bên dưới do chọn lọc thủ công mỗi khi gõ "cập nhật" mới là nội dung chính.</div>
   ${items.length?items.map(x=>`<div class="nw"><span class="mu" style="font-size:12px">${esc(x.date||"")}${x.source?" · "+esc(x.source):""}</span> ${(x.symbols||[]).map(s=>`<span class="tag">${esc(s)}</span>`).join(" ")}<div><b>${esc(x.title)}</b></div>${/^https?:\/\//.test(x.url||"")?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Đọc bài gốc →</a>`:""}</div>`).join(""):'<div class="mu">Chưa có dữ liệu (chờ bot chạy lần đầu, hoặc mất mạng).</div>'}
   </div>`;
- $("#t3").innerHTML=autoHtml+sec("Chính sách nhà nước thúc đẩy tăng trưởng",N&&N.policy)+sec("Pháp luật kinh tế",N&&N.law)+G.map(g=>sec("Tin tức liên quan — "+g,ind[g])).join("")}
+ const hh=ST.filter(s=>s.g==5).map(s=>s.s),hhNews=items.filter(x=>(x.symbols||[]).some(y=>hh.includes(y))).map(x=>({date:x.date,label:(x.symbols||[]).join(", "),title:x.title,summary:x.source||"",url:x.url}));
+ $("#t3").innerHTML=autoHtml+sec("Chính sách nhà nước thúc đẩy tăng trưởng",N&&N.policy)+sec("Pháp luật kinh tế",N&&N.law)+G.map((g,i)=>sec("Tin tức liên quan — "+g,i==5?hhNews:ind[g])).join("")}
 
 // ===== Sự kiện =====
 document.addEventListener("click",e=>{const t=e.target;
