@@ -1,14 +1,7 @@
 {
  "meta": {
-  "fetched_at": "2026-10-02 17:22",
-  "failed": {
-   "B": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "I": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "J": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "K": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "^IXIC": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().",
-   "CL=F": "ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all()."
-  }
+  "fetched_at": "2026-10-04 11:31",
+  "failed": {}
  },
  "criteria": {
   "A": {
@@ -37,16 +30,16 @@
    "reason": "Tỷ giá trung tâm giữ nguyên 25.632 đồng/USD hai phiên liền, thị trường trong nước ổn định dù USD thế giới nhích lên.",
    "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 25632,
-    "unit": "VND/USD (tỷ giá trung tâm)",
-    "date": "2026-09-28",
-    "source": "NHNN qua VOV"
+    "value": 25959.0,
+    "unit": "VND/USD",
+    "date": "2026-10-01",
+    "source": "Yahoo Finance (USDVND=X)"
    },
    "current": {
-    "value": 25632,
-    "unit": "VND/USD (tỷ giá trung tâm)",
-    "date": "2026-09-29",
-    "source": "NHNN qua VOV"
+    "value": 25984.0,
+    "unit": "VND/USD",
+    "date": "2026-10-02",
+    "source": "Yahoo Finance (USDVND=X)"
    }
   },
   "C": {
@@ -150,16 +143,16 @@
    "reason": "DXY neo quanh 101,1–101,2 điểm, tiếp tục vùng cao nhất khoảng hai tháng.",
    "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 101.04,
+    "value": 102.1,
     "unit": "điểm",
-    "date": "2026-09-25",
-    "source": "Báo Văn hóa"
+    "date": "2026-10-01",
+    "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 101.2,
+    "value": 101.93,
     "unit": "điểm",
-    "date": "2026-09-29",
-    "source": "VOV / Báo Văn hóa"
+    "date": "2026-10-02",
+    "source": "Yahoo Finance (DX-Y.NYB)"
    }
   },
   "J": {
@@ -169,16 +162,16 @@
    "reason": "Brent bật lên 108,3 USD/thùng chiều 28/9 sau khi Tổng thống Mỹ bác bỏ sáng kiến hòa bình của Iran, làm dấy lại lo ngại gián đoạn nguồn cung.",
    "url": "http://vov.vn/thi-truong/gia-xang-dau-hom-nay-299-gia-dau-brent-tang-len-muc-10830-usdthung-post1336708.vov",
    "previous": {
-    "value": 105.8,
+    "value": 102.31,
     "unit": "USD/thùng (Brent)",
-    "date": "2026-09-28",
-    "source": "Oilprice qua Ngôi sao"
+    "date": "2026-10-01",
+    "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 108.3,
+    "value": 102.25,
     "unit": "USD/thùng (Brent)",
-    "date": "2026-09-28",
-    "source": "Reuters qua Báo Lào Cai/VOV"
+    "date": "2026-10-02",
+    "source": "Yahoo Finance (BZ=F)"
    }
   },
   "K": {
@@ -188,16 +181,16 @@
    "reason": "S&P 500 giảm 0,77% phiên 28/9 xuống 7.683,69 điểm khi lợi suất trái phiếu Mỹ tăng vọt lên khoảng 5,24%, đảo chiều so với đà tăng cuối tuần trước.",
    "url": "https://www.cnbc.com/2026/09/27/stock-market-today-live-updates.html",
    "previous": {
-    "value": 7743.41,
+    "value": 7666.45,
     "unit": "điểm (S&P 500)",
-    "date": "2026-09-25",
-    "source": "Yahoo Finance"
+    "date": "2026-10-01",
+    "source": "Yahoo Finance (^GSPC)"
    },
    "current": {
-    "value": 7683.69,
+    "value": 7722.72,
     "unit": "điểm (S&P 500)",
-    "date": "2026-09-28",
-    "source": "CNBC/Yahoo Finance"
+    "date": "2026-10-02",
+    "source": "Yahoo Finance (^GSPC)"
    }
   },
   "L": {
@@ -238,7 +231,18 @@
    "current": null
   }
  },
- "reference": {},
+ "reference": {
+  "^IXIC": {
+   "name": "Nasdaq",
+   "value": 27190.86,
+   "date": "2026-10-02"
+  },
+  "CL=F": {
+   "name": "Dầu WTI",
+   "value": 91.11,
+   "date": "2026-10-02"
+  }
+ },
  "scored_at": "2026-09-29",
  "summary": "Tổng điểm -4: điểm sáng lớn là FTSE Russell chính thức nâng hạng VN lên Thị trường Mới nổi thứ cấp (21/9) và thanh khoản liên ngân hàng hạ nhiệt mạnh; điểm trừ đến từ S&P 500 đảo chiều giảm, giá dầu tăng trở lại do căng thẳng Mỹ–Iran, và khối ngoại vẫn bán ròng nhiều phiên liên tiếp.",
  "history": [
