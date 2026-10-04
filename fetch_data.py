@@ -21,7 +21,7 @@ THU_MUC.mkdir(exist_ok=True)
 VN = timezone(timedelta(hours=7))
 
 # Thứ tự thử nguồn cho từng mã. Đổi thành ["yahoo", "vnstock"] nếu vnstock hay lỗi.
-NGUON_UU_TIEN = ["vnstock", "yahoo"]
+NGUON_UU_TIEN = ["yahoo"]  # vnstock đang bị PyPI cách ly (quarantine) từ 24/9/2026 nên không dùng
 
 # (mã, tên đầy đủ, nhóm ngành, sàn)
 CO_PHIEU = [
@@ -136,30 +136,22 @@ def lay_gia(danh_sach=None):
     return {"meta": meta, "stocks": ds}
 
 
+def doc_vn30_file():
+    """Đọc vn30_list.json (cập nhật tay 2 lần/năm theo kỳ rà soát của HoSE: tháng 1 và tháng 7)."""
+    try:
+        return json.loads((Path(__file__).parent / "vn30_list.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        print("Không đọc được vn30_list.json:", e)
+        return {}
+
+
 def lay_vn30():
-    """Điểm chỉ số VN30 (nến ngày) + danh sách 30 mã thành phần, qua vnstock — không cần API key.
-    Lưu ý: chưa kiểm thử được với dữ liệu thật (môi trường viết code không có mạng), nên nếu tên hàm/API
-    của vnstock đã đổi, phần này sẽ báo lỗi rõ trong "error" chứ không làm hỏng phần giá 16 mã ở trên."""
-    kq = {"candles": [], "members": [], "source": None, "error_gia": None, "error_thanh_phan": None}
-    try:
-        from vnstock import Vnstock
-        den = datetime.now(VN).date(); tu = den - timedelta(days=400)
-        df = Vnstock().stock(symbol="VN30", source="VCI").quote.history(
-            start=str(tu), end=str(den), interval="1D")
-        for _, r in df.iterrows():
-            kq["candles"].append({"t": str(r["time"])[:10], "o": round(float(r["open"]), 2),
-                                  "h": round(float(r["high"]), 2), "l": round(float(r["low"]), 2),
-                                  "c": round(float(r["close"]), 2), "v": int(r["volume"])})
-        kq["source"] = "vnstock"
-    except Exception as e:  # noqa: BLE001
-        kq["error_gia"] = f"{type(e).__name__}: {e}"
-    try:
-        from vnstock import Listing
-        kq["members"] = sorted(str(m) for m in Listing().symbols_by_group("VN30"))
-    except Exception as e:  # noqa: BLE001
-        kq["error_thanh_phan"] = f"{type(e).__name__}: {e}"
-    print("VN30:", "OK" if kq["candles"] else "LỖI giá", "|", "OK" if kq["members"] else "LỖI thành phần")
-    return kq
+    """Danh sách thành phần VN30 lấy từ file vn30_list.json. Chưa có nguồn miễn phí ổn định cho điểm chỉ số VN30."""
+    d = doc_vn30_file()
+    mem = sorted({str(m).strip().upper() for m in d.get("members", []) if str(m).strip()})
+    print("VN30:", len(mem), "mã thành phần (từ vn30_list.json), cập nhật:", d.get("updated"))
+    return {"candles": [], "members": mem, "source": "vn30_list.json", "updated": d.get("updated"),
+            "error_gia": "chưa có nguồn điểm chỉ số VN30", "error_thanh_phan": None if mem else "vn30_list.json trống"}
 
 
 def doc_json(ten, mac_dinh):
@@ -275,15 +267,8 @@ def lay_tin_tu_dong(danh_sach=None):
 
 
 def lay_ten_cong_ty():
-    """Tên công ty theo mã (vnstock). Lỗi thì trả {} và app hiện mã thay cho tên."""
-    try:
-        from vnstock import Listing
-        df = Listing().all_symbols()
-        cot = next((c for c in ("organ_name", "company_name", "ten_cong_ty") if c in df.columns), None)
-        return {str(r["symbol"]): str(r[cot]) for _, r in df.iterrows()} if cot else {}
-    except Exception as e:  # noqa: BLE001
-        print("Không lấy được tên công ty VN30:", type(e).__name__, e)
-        return {}
+    """Tên công ty theo mã, lấy từ mục "names" trong vn30_list.json. Thiếu thì app hiện mã thay cho tên."""
+    return {str(k).upper(): str(v) for k, v in doc_vn30_file().get("names", {}).items()}
 
 
 def ghep_hon_hop(gia):
