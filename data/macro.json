@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-04 11:31",
+  "fetched_at": "2026-10-05 07:41",
   "failed": {}
  },
  "criteria": {
@@ -30,15 +30,15 @@
    "reason": "Tỷ giá trung tâm giữ nguyên 25.632 đồng/USD hai phiên liền, thị trường trong nước ổn định dù USD thế giới nhích lên.",
    "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 25959.0,
+    "value": 25979.0,
     "unit": "VND/USD",
-    "date": "2026-10-01",
+    "date": "2026-10-02",
     "source": "Yahoo Finance (USDVND=X)"
    },
    "current": {
     "value": 25984.0,
     "unit": "VND/USD",
-    "date": "2026-10-02",
+    "date": "2026-10-05",
     "source": "Yahoo Finance (USDVND=X)"
    }
   },
@@ -143,15 +143,15 @@
    "reason": "DXY neo quanh 101,1–101,2 điểm, tiếp tục vùng cao nhất khoảng hai tháng.",
    "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 102.1,
-    "unit": "điểm",
-    "date": "2026-10-01",
-    "source": "Yahoo Finance (DX-Y.NYB)"
-   },
-   "current": {
     "value": 101.93,
     "unit": "điểm",
     "date": "2026-10-02",
+    "source": "Yahoo Finance (DX-Y.NYB)"
+   },
+   "current": {
+    "value": 101.94,
+    "unit": "điểm",
+    "date": "2026-10-04",
     "source": "Yahoo Finance (DX-Y.NYB)"
    }
   },
@@ -162,15 +162,15 @@
    "reason": "Brent bật lên 108,3 USD/thùng chiều 28/9 sau khi Tổng thống Mỹ bác bỏ sáng kiến hòa bình của Iran, làm dấy lại lo ngại gián đoạn nguồn cung.",
    "url": "http://vov.vn/thi-truong/gia-xang-dau-hom-nay-299-gia-dau-brent-tang-len-muc-10830-usdthung-post1336708.vov",
    "previous": {
-    "value": 102.31,
-    "unit": "USD/thùng (Brent)",
-    "date": "2026-10-01",
-    "source": "Yahoo Finance (BZ=F)"
-   },
-   "current": {
     "value": 102.25,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-02",
+    "source": "Yahoo Finance (BZ=F)"
+   },
+   "current": {
+    "value": 102.0,
+    "unit": "USD/thùng (Brent)",
+    "date": "2026-10-04",
     "source": "Yahoo Finance (BZ=F)"
    }
   },
@@ -239,8 +239,8 @@
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 91.11,
-   "date": "2026-10-02"
+   "value": 90.64,
+   "date": "2026-10-04"
   }
  },
  "scored_at": "2026-09-29",
