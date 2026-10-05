@@ -111,6 +111,16 @@ def lay_vnstock(ma):
 HAM_NGUON = {"vnstock": lay_vnstock, "yahoo": lay_yahoo}
 
 
+def lay_von_hoa(ma):
+    """Vốn hóa (đồng), dùng cho tab Tổng hợp. Yahoo không phải lúc nào cũng có cho mã .VN -> trả None thì để trống."""
+    try:
+        fi = yf.Ticker(f"{ma}.VN").fast_info
+        mc = fi.get("market_cap") if hasattr(fi, "get") else getattr(fi, "market_cap", None)
+        return float(mc) if mc else None
+    except Exception:  # noqa: BLE001 - chỉ là dữ liệu phụ, lỗi thì bỏ qua, không chặn giá
+        return None
+
+
 def lay_gia(danh_sach=None):
     ds, loi = [], {}
     for ma, ten, nhom, san in (danh_sach or CO_PHIEU):
@@ -127,7 +137,7 @@ def lay_gia(danh_sach=None):
             loi[ma] = " | ".join(chi_tiet_loi)
         print(("OK  " if nen else "LỖI"), ma, nguon_dung or loi[ma][:80])
         ds.append({"symbol": ma, "name": ten, "group": nhom, "exchange": san,
-                   "source": nguon_dung, "candles": nen,
+                   "source": nguon_dung, "candles": nen, "market_cap": lay_von_hoa(ma) if nen else None,
                    "links": {"yahoo": f"https://finance.yahoo.com/quote/{ma}.VN"}})
     phien = max((s["candles"][-1]["t"] for s in ds if s["candles"]), default=None)
     meta = {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "latest_session": phien,
