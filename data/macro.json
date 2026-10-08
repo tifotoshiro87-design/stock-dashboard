@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-07 16:42",
+  "fetched_at": "2026-10-08 09:12",
   "failed": {}
  },
  "criteria": {
@@ -30,15 +30,15 @@
    "reason": "Tỷ giá trung tâm giữ nguyên 25.632 đồng/USD hai phiên liền, thị trường trong nước ổn định dù USD thế giới nhích lên.",
    "url": "http://vov.vn/thi-truong/ty-gia-usd-hom-nay-299-gia-ban-usd-ha-xuong-con-26235-dongusd-post1336689.vov",
    "previous": {
-    "value": 25991.0,
-    "unit": "VND/USD",
-    "date": "2026-10-06",
-    "source": "Yahoo Finance (USDVND=X)"
-   },
-   "current": {
     "value": 25989.0,
     "unit": "VND/USD",
     "date": "2026-10-07",
+    "source": "Yahoo Finance (USDVND=X)"
+   },
+   "current": {
+    "value": 25975.0,
+    "unit": "VND/USD",
+    "date": "2026-10-08",
     "source": "Yahoo Finance (USDVND=X)"
    }
   },
@@ -149,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.32,
+    "value": 102.17,
     "unit": "điểm",
     "date": "2026-10-07",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -168,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 101.7,
+    "value": 101.88,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-07",
     "source": "Yahoo Finance (BZ=F)"
@@ -181,15 +181,15 @@
    "reason": "S&P 500 giảm 0,77% phiên 28/9 xuống 7.683,69 điểm khi lợi suất trái phiếu Mỹ tăng vọt lên khoảng 5,24%, đảo chiều so với đà tăng cuối tuần trước.",
    "url": "https://www.cnbc.com/2026/09/27/stock-market-today-live-updates.html",
    "previous": {
-    "value": 7773.95,
-    "unit": "điểm (S&P 500)",
-    "date": "2026-10-05",
-    "source": "Yahoo Finance (^GSPC)"
-   },
-   "current": {
     "value": 7818.93,
     "unit": "điểm (S&P 500)",
     "date": "2026-10-06",
+    "source": "Yahoo Finance (^GSPC)"
+   },
+   "current": {
+    "value": 7801.77,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-10-07",
     "source": "Yahoo Finance (^GSPC)"
    }
   },
@@ -234,12 +234,12 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 27599.79,
-   "date": "2026-10-06"
+   "value": 27538.69,
+   "date": "2026-10-07"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 89.77,
+   "value": 89.62,
    "date": "2026-10-07"
   }
  },
