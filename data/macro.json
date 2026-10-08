@@ -1,10 +1,8 @@
 {
  "meta": {
-  "fetched_at": "2026-10-08 (cập nhật thủ công bằng lệnh CẬP NHẬT)",
+  "fetched_at": "2026-10-09 06:40",
   "failed": {}
  },
- "scored_at": "2026-10-08",
- "summary": "Tổng điểm -3 (từ -4 ngày 30/9), thay đổi duy nhất là K: S&P 500 và Nasdaq lập đỉnh kỷ lục 6/10 nên K từ -1 lên 0. Vẫn bất lợi: CPI tháng 9 tăng 5,08% (cao nhất cùng kỳ 10 năm), Fed tăng lãi suất và biên bản họp báo hiệu còn tăng thêm, Brent quanh 100–104 USD, khối ngoại bán ròng 946 tỷ đồng phiên 7/10 (phiên 6/10: 2.614 tỷ). Điểm sáng: giải ngân đầu tư công đạt 62,9% kế hoạch, thanh khoản qua đêm hạ về 0,6%, loạt nghị định mới có hiệu lực từ 1/10. Tổng -3 cách ngưỡng BÁN (-4) đúng 1 điểm.",
  "criteria": {
   "A": {
    "name": "Lãi suất điều hành NHNN",
@@ -151,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.33,
+    "value": 102.11,
     "unit": "điểm",
     "date": "2026-10-08",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -170,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 104.07,
+    "value": 103.8,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-08",
     "source": "Yahoo Finance (BZ=F)"
@@ -183,15 +181,15 @@
    "reason": "S&P 500 và Nasdaq lập đỉnh kỷ lục ngày 6/10 (S&P 7.818,93) nhưng giảm 0,22% phiên 7/10 xuống 7.801,77 khi lợi suất 10 năm vọt lên 5,365% và Fed phát tín hiệu còn tăng lãi suất — tín hiệu lẫn lộn nên chấm trung tính.",
    "url": "https://dttc.sggp.org.vn/pho-wall-lai-mat-diem-vi-trai-phieu-post138192.html",
    "previous": {
-    "value": 7818.93,
-    "unit": "điểm (S&P 500)",
-    "date": "2026-10-06",
-    "source": "Yahoo Finance (^GSPC)"
-   },
-   "current": {
     "value": 7801.77,
     "unit": "điểm (S&P 500)",
     "date": "2026-10-07",
+    "source": "Yahoo Finance (^GSPC)"
+   },
+   "current": {
+    "value": 7765.36,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-10-08",
     "source": "Yahoo Finance (^GSPC)"
    }
   },
@@ -236,15 +234,17 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 27538.69,
-   "date": "2026-10-07"
+   "value": 27193.34,
+   "date": "2026-10-08"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 91.7,
+   "value": 91.16,
    "date": "2026-10-08"
   }
  },
+ "scored_at": "2026-10-08",
+ "summary": "Tổng điểm -3 (từ -4 ngày 30/9), thay đổi duy nhất là K: S&P 500 và Nasdaq lập đỉnh kỷ lục 6/10 nên K từ -1 lên 0. Vẫn bất lợi: CPI tháng 9 tăng 5,08% (cao nhất cùng kỳ 10 năm), Fed tăng lãi suất và biên bản họp báo hiệu còn tăng thêm, Brent quanh 100–104 USD, khối ngoại bán ròng 946 tỷ đồng phiên 7/10 (phiên 6/10: 2.614 tỷ). Điểm sáng: giải ngân đầu tư công đạt 62,9% kế hoạch, thanh khoản qua đêm hạ về 0,6%, loạt nghị định mới có hiệu lực từ 1/10. Tổng -3 cách ngưỡng BÁN (-4) đúng 1 điểm.",
  "history": [
   {
    "date": "2026-09-28",
