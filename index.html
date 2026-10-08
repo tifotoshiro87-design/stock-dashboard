@@ -107,7 +107,7 @@ async function load(){
 }
 function banner(){
  const b=$("#ban");let t="";
- if(P&&P.meta){const m=P.meta,miss=ST.filter(s=>{const d=P.stocks.find(x=>x.symbol==s.s);return !d||!d.candles||!d.candles.length}).map(s=>s.s);
+ if(P&&P.meta){const m=P.meta,miss=tatCaMa().filter(s=>{const d=P.stocks.find(x=>x.symbol==s.s);return !d||!d.candles||!d.candles.length}).map(s=>s.s);
   t=`<svg width="13" height="13" viewBox="0 0 16 16" style="vertical-align:-2px;margin-right:2px" fill="none" stroke="#3fb950" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg> Dữ liệu giá (Yahoo Finance/vnstock) — phiên gần nhất <b>${esc(m.latest_session||"chưa rõ")}</b>, lấy lúc ${esc(m.fetched_at||"?")}. ${m.sample?"<b>DỮ LIỆU MẪU.</b> ":""}Mã chưa có dữ liệu thật: <b>${miss.length?miss.join(", "):"không"}</b>. `}
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
@@ -155,7 +155,7 @@ function macd(a){const e1=ema(a,12),e2=ema(a,26),ln=a.map((_,i)=>e2[i]==null?nul
 // ===== Tab 1 =====
 function cards(){
  $("#grp").innerHTML=G.map((g,i)=>`<span class="${i==grp?"on":""}" data-g="${i}">${g}</span>`).join("");
- $("#cards").innerHTML=ST.filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
+ $("#cards").innerHTML=tatCaMa().filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
   if(C.length>1){const a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100;c=ch>0?"up":ch<0?"dn":"rf";p=`${fmt(a)} (${ch>0?"+":""}${fmt(ch,1)}%)`}
   const inVn30=P&&P.vn30&&P.vn30.members&&P.vn30.members.includes(s.s);
   return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b>${inVn30?' <span style="font-size:9px;color:#d29922;border:1px solid #d29922;border-radius:3px;padding:0 3px">VN30</span>':""}<span class="${c}" style="font-size:12px;display:block">${p}</span>${bdg(C,c)}</div>`}).join("")}
@@ -172,7 +172,7 @@ function kill(){charts.forEach(c=>{try{c.remove()}catch(e){}});charts=[];c4=null
 function mk(el,h){const c=LightweightCharts.createChart(el,{autoSize:true,height:h,layout:{background:{color:"#161b22"},textColor:"#8b949e"},grid:{vertLines:{color:"#21262d"},horzLines:{color:"#21262d"}},rightPriceScale:{borderColor:"#30363d"},timeScale:{borderColor:"#30363d"}});charts.push(c);return c}
 const line=(c,color,t,v,o={})=>{const s=c.addLineSeries({color,lineWidth:1,priceLineVisible:false,lastValueVisible:false,...o});s.setData(t.map((x,i)=>v[i]==null?null:{time:x,value:v[i]}).filter(Boolean));return s};
 function detail(){
- const box=$("#detail");kill();const s=ST.find(x=>x.s==sel);
+ const box=$("#detail");kill();const s=tatCaMa().find(x=>x.s==sel);
  if(!s){box.innerHTML='<div class="card mu">Chọn một mã ở thanh phía trên để xem biểu đồ và tín hiệu.</div>';return}
  const d=P&&P.stocks.find(x=>x.symbol==sel),C=d&&d.candles||[],lk=`<a class="rf" target="_blank" rel="noopener" href="https://finance.yahoo.com/quote/${s.s}.VN">Tra cứu gốc trên Yahoo Finance →</a>`;
  if(C.length<30){box.innerHTML=`<div class="card"><h3>${s.s} — ${esc(s.n)} (${s.x})</h3><p class="mu">Chưa có dữ liệu giá (cần ít nhất 30 phiên). ${esc(P&&P.meta.failed&&P.meta.failed[sel]||"")}</p>${lk}</div>`;return}
@@ -360,7 +360,7 @@ function t3(){
   <div class="mu" style="font-size:12px;margin-bottom:6px">Lấy tự động qua Google News theo tên từng công ty, cập nhật cùng lúc với giá cổ phiếu — CHƯA qua chọn lọc, có thể lẫn tin không thật sự liên quan. 3 mục bên dưới do chọn lọc thủ công mỗi khi gõ "cập nhật" mới là nội dung chính.</div>
   ${items.length?items.map(x=>`<div class="nw"><span class="mu" style="font-size:12px">${esc(x.date||"")}${x.source?" · "+esc(x.source):""}</span> ${(x.symbols||[]).map(s=>`<span class="tag">${esc(s)}</span>`).join(" ")}<div><b>${esc(x.title)}</b></div>${/^https?:\/\//.test(x.url||"")?`<a target="_blank" rel="noopener" href="${esc(x.url)}">Đọc bài gốc →</a>`:""}</div>`).join(""):'<div class="mu">Chưa có dữ liệu (chờ bot chạy lần đầu, hoặc mất mạng).</div>'}
   </div>`;
- const hh=ST.filter(s=>s.g==5).map(s=>s.s),hhNews=items.filter(x=>(x.symbols||[]).some(y=>hh.includes(y))).map(x=>({date:x.date,label:(x.symbols||[]).join(", "),title:x.title,summary:x.source||"",url:x.url}));
+ const hh=tatCaMa().filter(s=>s.g==5).map(s=>s.s),hhNews=items.filter(x=>(x.symbols||[]).some(y=>hh.includes(y))).map(x=>({date:x.date,label:(x.symbols||[]).join(", "),title:x.title,summary:x.source||"",url:x.url}));
  $("#t3").innerHTML=autoHtml+sec("Chính sách nhà nước thúc đẩy tăng trưởng",N&&N.policy)+sec("Pháp luật kinh tế",N&&N.law)+G.map((g,i)=>sec("Tin tức liên quan — "+g,i==5?hhNews:ind[g])).join("")}
 
 // ===== Sự kiện =====
@@ -370,7 +370,7 @@ document.addEventListener("click",e=>{const t=e.target;
  else if(t.closest(".sc")){sel=t.closest(".sc").dataset.s;cards();detail()}
  else if(t.closest("tr[data-s4]")){const tr=t.closest("tr[data-s4]");sel=tr.dataset.s4;grp=+tr.dataset.g4;cards();detail();
   document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t=="1"));[1,2,3,4].forEach(i=>$("#t"+i).classList.toggle("hide",i!=1));$("#bar").classList.remove("hide")}
- else if(t.closest(".tvb")){tvOn=t.closest(".tvb").dataset.v=="tv";showTV(ST.find(x=>x.s==sel))}else if(t.closest(".pi")){showPat(+t.closest(".pi").dataset.p)}else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
+ else if(t.closest(".tvb")){tvOn=t.closest(".tvb").dataset.v=="tv";showTV(tatCaMa().find(x=>x.s==sel))}else if(t.closest(".pi")){showPat(+t.closest(".pi").dataset.p)}else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
