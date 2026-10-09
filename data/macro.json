@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-09 06:40",
+  "fetched_at": "2026-10-09 09:12",
   "failed": {}
  },
  "criteria": {
@@ -30,15 +30,15 @@
    "reason": "Tỷ giá ổn định quanh 25.975 VND/USD; chỉ số giá USD trong nước tháng 9 giảm 0,69% so với tháng trước (Cục Thống kê), chưa có áp lực mất giá đáng kể.",
    "url": "https://doanhnhan.baophapluat.vn/cpi-thang-9-tang-cao-do-gia-xang-dau-va-hoc-phi-tang.html",
    "previous": {
-    "value": 25989.0,
-    "unit": "VND/USD",
-    "date": "2026-10-07",
-    "source": "Yahoo Finance (USDVND=X)"
-   },
-   "current": {
     "value": 25975.0,
     "unit": "VND/USD",
     "date": "2026-10-08",
+    "source": "Yahoo Finance (USDVND=X)"
+   },
+   "current": {
+    "value": 25889.0,
+    "unit": "VND/USD",
+    "date": "2026-10-09",
     "source": "Yahoo Finance (USDVND=X)"
    }
   },
@@ -149,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.11,
+    "value": 102.0,
     "unit": "điểm",
     "date": "2026-10-08",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -168,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 103.8,
+    "value": 103.39,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-08",
     "source": "Yahoo Finance (BZ=F)"
@@ -239,7 +239,7 @@
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 91.16,
+   "value": 90.8,
    "date": "2026-10-08"
   }
  },
