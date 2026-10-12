@@ -313,18 +313,11 @@
   ]
  },
  "auto": {
-  "fetched_at": "2026-10-12 14:02",
-  "failed": {},
+  "fetched_at": "2026-10-12 14:38",
+  "failed": {
+   "VIC": "RuntimeError: Nguồn trả về rỗng"
+  },
   "items": [
-   {
-    "symbols": [
-     "PNJ"
-    ],
-    "date": "2026-10-12",
-    "title": "Thêm một quỹ ngoại bán ra gần 6,6 triệu cổ phiếu PNJ trong phiên khớp lệnh kỷ lục ngày 2/10 - Tin nhanh chứng khoán",
-    "source": "Tin nhanh chứng khoán",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPa2JDUEVoa3RZSXZIdWRVWmQ3dUc0Qk5vQ1VRTm5kQ0lRWGd1dDhEaGRydjVPbHl6WmlFSndjZGJNR19reERUcEhXVmVZM3FkS2lYOXkwSWR4QUdFSmlzeEZQVE9HeU1KRVdKc1RPYS0wSkI1ZFczZE9KVk9BUkRwNVhUcEVzdXlseHBvbmUzamFXa3BEYWNsTXk1SThzYnhQcmE3cE1ScWljc0d6a0d6eDVUMUdQUzkxVzJGamFqcGZ2bmtfN19hR3FWYXJjWUt5cVkyeUt30gHSAUFVX3lxTE01SmRNT1VYdWl4S2J4T01rNGNGYUdtTElSbkZWLTVCa25jWGdfY1QxNjRQOGlyUEFxdG5aTnI4M2xjekNubUJCbjZRWm91NlhYM1N3VVZ5WWlHbFN5aFVOOFZSVWhZRlJyeVBHZXJub0wzVDgwbUIwUTBfOVA5VERselZYZ0JZZWlqbUtqT0FZWjI5elZ4UnNrU1lMbGx4RTZkRVI4MThNYnFPYS00UFVUZmEwUURwZ1BTUnhKWGJRMHpsbVd2LVpYX1N5WU9YQzEwUQ?oc=5"
-   },
    {
     "symbols": [
      "PNJ"
@@ -333,15 +326,6 @@
     "title": "Giá vàng trong nước diễn biến lạ - Znews",
     "source": "Znews",
     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBmTVpZdTI0NVgxZGtpdzhDcmpxZVdSS2EwUThZV3lYdWk0endQb2R2UE5wWVozdUtWTTg5ODRtTEs1SkFhbTZVT0hDY2dBMGk1MksyQjg0OHFTSUNSSEdFWHczVEpHT2RHclBUODZfYXZOYVZp?oc=5"
-   },
-   {
-    "symbols": [
-     "VIC"
-    ],
-    "date": "2026-10-12",
-    "title": "VinFast bàn giao 23.624 ô tô điện tại Việt Nam trong tháng 9 - 24HMoney",
-    "source": "24HMoney",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNTWZSY0ZEaGYwZWt3bW1pY3lOMGZDd3ZCSkExak5vZWxCdDAzMDRzM0p5ZHE4YVFKd1pDSkNaTlJYTHBfMHprbzZGWmszU2VuRENkbnkyWS1JUmN5ZmVEZHBCRlhLMVlpVUloWVgyYW1TZm4wV1p5QlVkOE5KRGZobW1Tb2h0OWpTQUdzNXU2Y1lhb2VnMzM1OXVlVkZ2MW43VFB0a2xkeDY0LU1L?oc=5"
    },
    {
     "symbols": [
@@ -384,18 +368,18 @@
      "VPB"
     ],
     "date": "2026-10-10",
-    "title": "Một công ty chứng khoán nắm hơn 1% vốn VPBank - An ninh Tiền tệ",
-    "source": "An ninh Tiền tệ",
-    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOczVjZVJkbUd3SHlzZTdzTXJqTVNNYklZZG9qMDFZUEZ0OUlINFRkeWwybEdhejJDUkN6OWY1OW5UX3NtSm9PLUZFVXd0WWFPVVhycklSYkZ6MUVxUmVFTVUwdjB6amRFcjE0RFFjQVA4cUJ5cDRqbzllUjF1Z0I2Mm0tREVfX0RwRURsMGxlR1BCeWY1NDNkWS1rSQ?oc=5"
+    "title": "Đồng Tháp bước vào mùa hội, hơn 15.500 runner đổ về check- in VPBank Đất Sen Hồng Music Marathon 2026 - 24HMoney",
+    "source": "24HMoney",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQQU5zSThubHN2SGhzWGd5Y0ZITlNRRU8yZUZUaUVhcWtfZE9HMVFEb0hvWGJ4OEpYS1ZxVkNBc05WWWJIQ21oaThzSUxIN3dGZUcyb0dyTm52bzExbEZiczZaTjVMSWhUdFc0MUlOaWhLcE9fVG9tTllzSVFXMThwWmhOemJ1NWNTRHBUcE9CeEZsdXBMZUlWN0lWX2VLd1B1Q252X1VqSlBTYldMdHZ5U3JhQXFiNDNSTkU1a3lEZzZHcnpDa1NWVlpreURCUkhvaVpmSXJwZVNCWVJSS3VBSQ?oc=5"
    },
    {
     "symbols": [
-     "VIC"
+     "PNJ"
     ],
-    "date": "2026-10-10",
-    "title": "Vingroup sắp thu tiền từ 'siêu' đô thị hơn 925.000 tỷ ở Hà Nội - Znews",
-    "source": "Znews",
-    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNy1LU3U2RlpvSG1sMnkzTTh0NXlKS0Z0Yl9xUm12TTcyYmFocFVvOG90eHB4cUh1b1lLY2JRdnJ6bDR6d2tJWjcwVlFiblU1cnV5ZFg2VWxZZG4xdVhrcHBkZVlSYVBoaDI5QS1NdExDX2FBVC1idHlqRmVmdHZtemxwRlZjUzhIN1M4eUwwWkxDY1V6NnVpTQ?oc=5"
+    "date": "2026-10-09",
+    "title": "Cổ phiếu PNJ bất ngờ có sắc tím sau chuỗi ngày \"dò đáy\" - Laodong.vn",
+    "source": "Laodong.vn",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeEQ4MV83THgzcmRsaW1BalJOVHpZUW8tbWctQ1NiX0JWX3l4Zi1OY2V3UVFoRVJoeUd4OGxjX01DX0ViLTk4NmZZWE5SQmEtOGpKX2wtWUZkdmkyelBrQzh1bl9SMVl2cGxPLVppdFBPSjAyOUxlMkdOWnBWVzlleVM0MS1pR0tNc3plczYtTjRGaEJvWXhpWkVLVQ?oc=5"
    },
    {
     "symbols": [
@@ -624,15 +608,6 @@
    },
    {
     "symbols": [
-     "VIC"
-    ],
-    "date": "2026-09-27",
-    "title": "Nhường đất cho dự án đường sắt 5,6 tỷ USD của Vingroup, nhiều hộ dân nhận về 155 tỷ đồng tiền đền bù - nguoiquansat.vn",
-    "source": "nguoiquansat.vn",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ2VaQUgxSDFFckxEUW94cWxnZWFVTmZLLVh4MzFLQ2hTdkh3N3llRjN4TzJLSWVNSnZJcnNpYzd1cmdaSXBRMHhmTy0yVV90a2s4R1dtM3lkcU4tSk5wcVZuVHVIUUt4a0YzRkZQN1JlUEFLcGRoVlpKb1Y1Z09GdXdDaWpKMTFsRXBBWF96b3U0RjNlWV9GVjhWQ2NaSWRtM3dnY2pDcGhyeHNVLXBQRks1aU5zd3FVU0VmcWNKMFl5VkRUVnVONTZhTmptNl9o?oc=5"
-   },
-   {
-    "symbols": [
      "HSG"
     ],
     "date": "2026-09-26",
@@ -669,15 +644,6 @@
    },
    {
     "symbols": [
-     "VJC"
-    ],
-    "date": "2026-09-21",
-    "title": "Một ngày sau chuyến bay đặc biệt, tỷ phú Nguyễn Thị Phương Thảo có thêm 5.000 tỷ đồng, trở thành người giàu thứ 2 Việt Nam - CafeF",
-    "source": "CafeF",
-    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPc3dzeW1KaXZjYUN1akdYVDFrc3MtWVFraXJITW1YRElwU2F0ck8zVkxrdU52Z3A0aW5IM0VYZXVLZEcyc2ZxOEJZVlozVWFOZDVUYnpya3U1ei1RUVl4WkFIcDgwTlpZWlg5V0o0ZEdBTW9STkJhOFdGR0djU1RGQUpmMG0xYWpMbDZwcVhUOG9hYzhvby03Wlh0bEh5ZW1OZUs1aUlhQkRMandYOGVEcEZibkpOTkxZVnFpdnNqWnZiSkV6RlJMcW1qbU5tUmc3QWJ2RG1FNDJJSEdfSUN4Zy1jbzZqWFlWb1RQSlpfWHo?oc=5"
-   },
-   {
-    "symbols": [
      "PHR"
     ],
     "date": "2026-09-17",
@@ -693,15 +659,6 @@
     "title": "Hạ tầng Giao thông Đèo Cả giải ngân xong hơn 497 tỷ đồng huy động từ cổ phiếu - CafeF",
     "source": "CafeF",
     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQNjBvX0I3ZnhJdE51XzVZakNsVWJkOFlvbi1uOWZsTGdNN0tlVFlUNW5pNUxCa2tHMEl5dUVmb1lLbVFPcWNXeVZYZXFtTk9TbnVFdC11eHBMYmVyR2ZzQ1N6REpLQUJJd1c2WndxZW9HZ2RXWnVUVWFxSWt0RVNnNmkxVy1KRGNxdDlFaERNclFNM3VqVTBZSkZ4ZGl2d0hOZkc5OTNvY2IyVVhydk4ySm9VZXZPX1VL?oc=5"
-   },
-   {
-    "symbols": [
-     "FPT"
-    ],
-    "date": "2026-09-15",
-    "title": "Shinhan nhận định FPT có dư địa tăng 28%, bất chấp đà hụt hơi của chuỗi bán lẻ FPT Shop và viễn thông - nguoiquansat.vn",
-    "source": "nguoiquansat.vn",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNcW5xNFZUQTVUNEZ5YUF4WnQyTGVpVy1idHYxXzNlckI5SkxMeXI4ZTR6cDg4NGxjOVJhV1NFWWRQU05IRFdyTDEtSTJFVVMxY1UzenVabkNuSjlRbENScFFVRklfRjI2bklqTnd3c1gwVFQ5SVFVcTlsUjJWa01CX3dzZzU4V0ZlaWNEd0U2T0ZSOXFCTTNUT242OU9pWmNnT2tkdG5CMkFvS2tyWk9uM2k1ajFuWVpJeGQyX2VORkJnMTNTdHR2aFF2a3FucERh?oc=5"
    },
    {
     "symbols": [
@@ -765,6 +722,15 @@
     "title": "Vietjet (VJC) góp vốn thành lập công ty dịch vụ hàng không quy mô 300 tỷ đồng - nguoiquansat.vn",
     "source": "nguoiquansat.vn",
     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOLXpObDB6WEtRc3h6TkJYZENsV3YwYlpSazNObWQtWV9taUlWbktIdGdPN3FSZVdEVFRoQWYzd1F4NV9jbDJKMTBDUnZZUUs5cjEzMkJTU0czamJlRmw0RGlhZXIycXFLYkswd05MTktMYm5vUjdGeFRpM0JFODIxOTVjTnNpN1NwZWZRV3FiVjhhTVprNHNSQnk4QXVNWW5CSGJSa1VsaU16ODBKYTB1Vw?oc=5"
+   },
+   {
+    "symbols": [
+     "VJC"
+    ],
+    "date": "2026-08-20",
+    "title": "Vietjet góp vốn lập công ty mới ngay sau thương vụ tăng vốn tại Galaxy Pay - Mekong ASEAN",
+    "source": "Mekong ASEAN",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPRE1rR1NBTmV3d1ZfV0lWZmFvQV92bmE3V2dHTjFNMEt5bk9HdmdLRWlSMEp1ZExtMEpiMm9nSHB6YWZVRWxHRGVMX1dqN1VHa2xtczFJM0tvS1FPWl9NV1lrcDNqQTNGSkpBNnBIQV9OYTNfa3JQckhSQVJxaHlmaUs2cldFeEdPZ3pUeGQ0SFhoU1Q2RHAzRGFoRlhNdFBWYm5PaEVZbjc5YlQ5?oc=5"
    },
    {
     "symbols": [
@@ -984,6 +950,15 @@
    },
    {
     "symbols": [
+     "FPT"
+    ],
+    "date": "2026-05-21",
+    "title": "FPT phát hành gần 11 triệu cổ phiếu cho nhân viên và lãnh đạo - Mekong ASEAN",
+    "source": "Mekong ASEAN",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQNW5QTUJuOGk0U0k0MFdKUndaM0lKanI3TlNyS3o2QVQ1ZElENnhsZi1qYVZYMHZYYU0wa3RGSF9GMEdKWktXNmpUbUd5ajkwSnNDTzdTQU1tTmpaOHZGTjFOaUZsM1NLbHBkWExqb1A0RXVVQkhhTXplYlRnUzZiUVA3SkJQbTBCUFNFem0tR05LdlV1WWFNNFliRQ?oc=5"
+   },
+   {
+    "symbols": [
      "CTG"
     ],
     "date": "2026-05-16",
@@ -1110,12 +1085,31 @@
    },
    {
     "symbols": [
-     "HDB"
+     "MBB"
+    ],
+    "date": "2025-04-29",
+    "title": "Chặn đứng lừa đảo từ 'tài khoản đen' - Báo Thanh Niên",
+    "source": "Báo Thanh Niên",
+    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPWnlnWmFyZjBUSDVtOUFpMmlGSkwwZG05bzg3Ri1OXzBoQjZETWZLemN1SDUwS1o2X2JaeUJhQUtldjlTR2xhMU9PRTZMSGJBTUpWWFA2WEVHSU80b190a2lBTnE2ZWVQR1FsUDh0c0NueUpIdnY1ZXQwZU9iVkhQd1ZmeTQ?oc=5"
+   },
+   {
+    "symbols": [
+     "HDB",
+     "STB"
     ],
     "date": "2025-02-15",
     "title": "Vì sao ngân hàng cắt giảm nhân sự dù lãi lớn? - Thanh Niên",
     "source": "Thanh Niên",
     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOV0tMZTVUZ21aUEc5dDd4SjdZd1Q1OVBXZ2szY19QcWVpbmlaa2ZhYW1iUGxQZVJxQm91OEVJM2dma0p0emEwcWRwWUVYQjBDZW85d2pwMFJwbTh5MXNrYTJCeTBySFBRLVNDT2xrMGNLbklKbmNPTUFmUmlCb0g5cTJMVGR3eFh4SkpKZzBQcENXZw?oc=5"
+   },
+   {
+    "symbols": [
+     "ACB"
+    ],
+    "date": "2024-12-18",
+    "title": "Từ Tiến Phát - CafeF",
+    "source": "CafeF",
+    "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1PUTZDdzBWcjJlT0hwT1VwaTFPNkYzUEsxMk5kb0tISjVpU0tBNVJTSVBmMGZwSG1VMkh4V3lCeWFrTUZjdjJNMXQtSFFzZnI1TDF0blFUNWYtRmdHWEZHTERpdWJaQQ?oc=5"
    },
    {
     "symbols": [
@@ -1134,15 +1128,6 @@
     "title": "TRẦN THỊ MỸ TRANG - VietstockFinance",
     "source": "VietstockFinance",
     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPMWViTEtfT1djUjZKaTZaWThNQ3p1UHVQdG0wQ3VHd0RuTjlLVmZhQ3NUbFFVeWtTRXpLeEpoOU1CZWpBTVNLdDBOYXo5S3g0bmlCLVlBTjdOV3NsMXlpelp1cEpGRkgzdlFMdTJaYUhYTVkyVVpieEVpNm8tNDVIMHpQbDk?oc=5"
-   },
-   {
-    "symbols": [
-     "MBB"
-    ],
-    "date": "2024-03-20",
-    "title": "Kho bạc Nhà nước Ninh Thuận nâng cao chất lượng phục vụ giao dịch thanh toán - bnews.vn",
-    "source": "bnews.vn",
-    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUm4wZm11UGprQVdHSkhqOGx4UXN2elYxTFFHSFZPMUF0WFprSlFUZ1I4cE01SzJtV0x0X0tJUHQxSW5zUkE4UGRXWnhMMU9GRGxFLWM1WkNyREV1R0ROZDM3aEpieTBad2g4Q1ZPQk5qYWlMQnlONmlZdkhfMGdXYmwzcmlVWXhvQy1UU1A3X045UlRsdEVOT2VsanBMend6TU5FRG1NdDI?oc=5"
    },
    {
     "symbols": [
@@ -1245,15 +1230,6 @@
    },
    {
     "symbols": [
-     "STB"
-    ],
-    "date": "2021-03-23",
-    "title": "Lãi suất sẽ tăng trở lại? - Báo Tuổi Trẻ",
-    "source": "Báo Tuổi Trẻ",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNMjdRSlZobkJINW1lSUcwSTFRajJZV0FyanN4X0dkVm10bWgwNFl2RmZMNjFLanNiem85ZGNncmg3MTBtZUVpYm1McU5iSE4yQU9qZUwxeFN1aWRnRlM5MXpTNG1Nck1DSGJEamhnZjZGY2FhNFR1NEpMNG9WdC01VVhOSQ?oc=5"
-   },
-   {
-    "symbols": [
      "HDB"
     ],
     "date": "2020-10-30",
@@ -1333,15 +1309,6 @@
     "title": "Vietnam Airlines và Vietjet ồ ạt mua máy bay, ngân hàng tài trợ được gì? - Tin nhanh chứng khoán",
     "source": "Tin nhanh chứng khoán",
     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNaWFpWGFsM2t6VzItaFp6NjRPSGFOS21PZ2c3cFgwWF9Zdk9QLUhlNEFCR21hbkh0QWgyXy1ZMWEweG9XQXRHeExsRVBITVdmakQzaUJhR3ZUU0tmSjZZYW1yYlloMEZHM0dBcHd4ZldvXy1kYUVSN1plRTgxc29ua3M2dzRNcXdzc2dnWnZLY2NoaE00cmlDUV9XNXdXYWQ4LXRfRktCbXYxLTU1VHZ1TWlPVE8tSGpsdnFkSdIBuAFBVV95cUxPZjloQmwyNTAzNzgyU0VDZU1FQ1RNUDNwdDczSDRYLWFyVU1mQkhCdkkycXJGWkxhTlVJTVd5Q0llVmMtQTZYeUhPTTZHV2VFRTY4cE9QY2pWbGF5ZUk0bnRnNHo5bi1RTHJQTTJ0dFp4U0wwT2p2aldSZGNUOTd0SmNZd3k4RlFfWV9mTkg2SU9mek0zTElTVXU5RDlhUmhPamlLMGVqVEd3M0NUUEt2U18yZHB0Q2cx?oc=5"
-   },
-   {
-    "symbols": [
-     "ACB"
-    ],
-    "date": "2014-02-18",
-    "title": "Bầu Kiên có bao nhiêu tài sản? - Báo Dân trí",
-    "source": "Báo Dân trí",
-    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPVXF3S0E1NW5OX0RzdVZtQmwzSldVN2ZraDBnV3kxVEhaYkJBWVJsaENUZE5FWS1oZ21Sc00xVWN5NGZsYzBZbk5XcGp3QkFIMWR0a2VlaTZ1RDF1RFRXbnJwQWhOLVRtX2VBUUM2dTRSUkNHM29IRWc2VXBvcnUwY2Vscw?oc=5"
    }
   ]
  }
