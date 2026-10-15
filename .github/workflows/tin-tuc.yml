@@ -1,0 +1,32 @@
+name: Cap nhat tin tuc
+# Gom tin cho 3 tab (Nha Trang, Chung khoan, Cong nghe) -> data/tin.json (+ data/nguon_rss.json: nho cac kenh RSS chay tot)
+on:
+  schedule:
+    - cron: "5 */2 * * *"          # 2 giờ một lần, cả tuần (kể cả thứ 7, CN)
+  workflow_dispatch: {}            # bấm chạy tay trong tab Actions
+  push:
+    branches: [main, master]
+    paths: ["fetch_news.py", ".github/workflows/tin-tuc.yml"]   # vừa cập nhật app -> chạy ngay
+permissions:
+  contents: write
+concurrency: tin-tuc
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python fetch_news.py
+      - name: Commit tin tuc
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/tin.json
+          test -f data/nguon_rss.json && git add data/nguon_rss.json
+          git diff --cached --quiet && exit 0
+          git commit -m "cap nhat tin tuc"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done
+          exit 1
