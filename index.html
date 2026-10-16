@@ -385,19 +385,22 @@ function tin(x){const u=URL_OK(x.url)?esc(x.url):"";
  ${x.summary?`<div class="ns">${esc(x.summary)}</div>`:""}
  <div class="nm">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}${u?`<a href="${u}" target="_blank" rel="noopener">Đọc bài →</a>`:""}</div></div>`}
 function khoi(id,ten,items,extra="",cls=""){
- items=items||[];const mo=OPEN.has(id),dau=items.slice(0,3),sau=items.slice(3);
+ items=items||[];const HS=Math.min(15,Math.max(1,(T&&T.meta&&+T.meta.hien_san)||3)),mo=OPEN.has(id),dau=items.slice(0,HS),sau=items.slice(HS);
  return `<div class="card ${cls}"><div class="nh"><h3>${esc(ten)}</h3><span class="mu" style="font-size:12px">${items.length?items.length+" tin":""}</span></div>${extra}
  ${items.length?dau.map(tin).join(""):'<div class="mu" style="padding:8px 0">Chưa có tin (chờ bot chạy lần đầu hoặc nguồn tạm lỗi).</div>'}
  ${sau.length?`<div class="${mo?"":"hide"}" id="x-${id}">${sau.map(tin).join("")}</div><button class="more" data-more="${id}">${mo?"Thu gọn ▲":`Xem thêm ${sau.length} tin ▼`}</button>`:""}</div>`}
 function nguonTin(d){const n=d&&d.meta&&d.meta.nguon;return n?` (${n.bao_co_kenh}/${n.bao_tong} báo có kênh RSS, ${n.kenh_tot} kênh đang hoạt động)`:""}
-function ghiChu(d){return `<div class="mu" style="font-size:12px;margin:0 0 10px">Tin tự động từ RSS các báo chính thống, Bing News và Google News (không cần đăng nhập, không cần API key), lấy lúc <b>${esc(d&&d.meta&&d.meta.fetched_at||"chưa có")}</b>${nguonTin(d)}. Đã lọc trùng lặp: mỗi tin chỉ xuất hiện ở một mục. Bấm tiêu đề để đọc bài gốc.</div>`}
+function ghiChu(d){return `<div class="mu" style="font-size:12px;margin:0 0 10px">Tin tự động từ RSS các báo chính thống, Bing News và Google News (không cần đăng nhập, không cần API key), lấy lúc <b>${esc(d&&d.meta&&d.meta.fetched_at||"chưa có")}</b>${nguonTin(d)}. Đã lọc trùng lặp: mỗi tin chỉ xuất hiện ở một mục. Bấm tiêu đề để đọc bài gốc.</div>`+loiCH(d)}
 function secs(tab){return (T&&T[tab]&&T[tab].sections)||[]}
+// Mục có sẵn theo thứ tự cố định + mục do bạn tự thêm trong cau_hinh_tin.txt (hiện ở cuối)
+function dsMuc(tab,ORDER){const co=new Set(ORDER.map(o=>o[0]));return ORDER.concat(secs(tab).filter(s=>!co.has(s.key)).map(s=>[s.key,s.name||s.key]))}
+function loiCH(d){const l=d&&d.meta&&d.meta.cau_hinh_loi;return l&&l.length?`<div style="font-size:12px;color:#f0883e;margin:0 0 8px">⚠ File cau_hinh_tin.txt có ${l.length} dòng chưa đúng (bot đã bỏ qua các dòng đó): ${l.slice(0,3).map(esc).join(" · ")}</div>`:""}
 
 // ===== Tab chính 1: Tin nhanh Nha Trang =====
 const NT_ORDER=[["ha_tang","Hạ tầng giao thông"],["quy_hoach","Quy hoạch đô thị – Bất động sản & dự án"],["kinh_te_vh","Môi trường kinh tế – văn hóa"],["du_lich","Thị trường du lịch – dịch vụ"],["giao_duc","Giáo dục"],["phap_luat","Pháp luật"],["thoi_tiet","Dự báo thời tiết"]];
 function renderNT(){
  const S=secs("nha_trang");
- $("#m1").innerHTML=ghiChu(T)+`<div class="ng">`+NT_ORDER.map(([k,t])=>{const x=S.find(s=>s.key==k)||{};
+ $("#m1").innerHTML=ghiChu(T)+`<div class="ng">`+dsMuc("nha_trang",NT_ORDER).map(([k,t])=>{const x=S.find(s=>s.key==k)||{};
   return k=="thoi_tiet"?khoi("nt-"+k,t,x.items,`<div id="wxbox">${wxHtml()}</div>`,"full"):khoi("nt-"+k,x.name||t,x.items)}).join("")+`</div>`}
 // Thời tiết: lấy trực tiếp Open-Meteo (miễn phí, không cần key); lỗi thì dùng bản lưu trong tin.json
 const WXC={0:["☀️","Trời quang"],1:["🌤️","Ít mây"],2:["⛅","Có mây"],3:["☁️","Nhiều mây"],45:["🌫️","Sương mù"],48:["🌫️","Sương mù"],51:["🌦️","Mưa phùn nhẹ"],53:["🌦️","Mưa phùn"],55:["🌦️","Mưa phùn dày"],56:["🌧️","Mưa phùn lạnh"],57:["🌧️","Mưa phùn lạnh"],61:["🌧️","Mưa nhẹ"],63:["🌧️","Mưa vừa"],65:["🌧️","Mưa to"],66:["🌧️","Mưa lạnh"],67:["🌧️","Mưa lạnh to"],80:["🌦️","Mưa rào nhẹ"],81:["🌧️","Mưa rào"],82:["⛈️","Mưa rào rất to"],95:["⛈️","Dông"],96:["⛈️","Dông, mưa đá"],99:["⛈️","Dông, mưa đá"]};
@@ -416,13 +419,14 @@ function wxHtml(){
 // ===== Tab chính 3: Công nghệ =====
 function renderCN(){
  const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{};
- $("#m3").innerHTML=ghiChu(T)+`<div class="ng">${khoi("cn-o_to","Xe ô tô – dòng xe mới, thiết kế",f("o_to").items,'<div class="mu" style="font-size:12px;margin-bottom:4px">Mẫu xe mới, thiết kế, cấu trúc xe. Đã loại trừ xe Trung Quốc.</div>')}${khoi("cn-ai","Công nghệ AI",f("ai").items)}</div>`}
+ const CN_ORDER=[["o_to","Xe ô tô – dòng xe mới, thiết kế"],["ai","Công nghệ AI"]];
+ $("#m3").innerHTML=ghiChu(T)+`<div class="ng">`+dsMuc("cong_nghe",CN_ORDER).map(([k,t])=>khoi("cn-"+k,t,f(k).items,k=="o_to"?'<div class="mu" style="font-size:12px;margin-bottom:4px">Mẫu xe mới, thiết kế, cấu trúc xe. Đã loại trừ xe Trung Quốc.</div>':"")).join("")+`</div>`}
 
 // ===== Tab 3 (trong Chứng khoán): Tin tức theo 5 nhóm ngành =====
 const CK_ORDER=[["xay_dung","Xây dựng – Đầu tư công"],["ngan_hang","Ngân hàng"],["cntt","Công nghệ thông tin"],["thep","Thép"],["vang_bac","Vàng bạc trang sức"]];
 function t3(){
  const S=secs("chung_khoan");
- $("#t3").innerHTML=ghiChu(T)+`<div class="ng">`+CK_ORDER.map(([k,t])=>{const x=S.find(s=>s.key==k)||{};return khoi("ck-"+k,t,x.items)}).join("")+`</div>`}
+ $("#t3").innerHTML=ghiChu(T)+`<div class="ng">`+dsMuc("chung_khoan",CK_ORDER).map(([k,t])=>{const x=S.find(s=>s.key==k)||{};return khoi("ck-"+k,t,x.items)}).join("")+`</div>`}
 
 // ===== Sự kiện =====
 function chonM(m){ls.set("mtab",m);document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}

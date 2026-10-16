@@ -15,6 +15,7 @@ Nguyên tắc: không bịa nội dung. Tóm tắt lấy từ chính nguồn tin
 Chỉ dùng thư viện chuẩn của Python, không cần cài thêm.
 """
 import base64
+import gzip
 import html
 import json
 import re
@@ -43,7 +44,8 @@ NGUONG_TRUNG = 0.65     # 2 tiêu đề giống nhau >= 65% số từ -> coi là
 # ===================== CẤU HÌNH NỘI DUNG (sửa ở đây khi muốn đổi) =====================
 # Mỗi mục: key, tên hiển thị, câu tìm kiếm (Bing/Google), từ khóa nhận diện, từ khóa loại trừ.
 # Từ khóa là biểu thức chính quy, không phân biệt hoa/thường.
-DIA_PHUONG = r"nha trang|khánh hòa|khánh hoà|cam ranh|ninh hòa|ninh hoà|vạn ninh|diên khánh|cam lâm|khánh vĩnh|khánh sơn|vịnh nha trang|hòn tre|trường sa"
+DIA_PHUONG = (r"\b(?:nha trang|khánh hòa|khánh hoà|cam ranh|ninh hòa|ninh hoà|vạn ninh|vạn giã|diên khánh|cam lâm|"
+               r"khánh vĩnh|khánh sơn|vịnh nha trang|hòn tre)\b")
 
 XE_TRUNG_QUOC = (r"\bbyd\b|chery|omoda|jaecoo|geely|\bmg\s?\d|\bmg\b|wuling|haval|\bgwm\b|great wall|\btank\s?\d|"
                  r"\bora\b|lynk|zeekr|xpeng|\bnio\b|li auto|xiaomi|\bsu7\b|\byu7\b|\baito\b|seres|changan|deepal|avatr|"
@@ -100,9 +102,9 @@ TAB = {
              "loai_tru": r""},
             {"key": "thoi_tiet", "ten": "Dự báo thời tiết",
              "tim": ["thời tiết Khánh Hòa", "Nha Trang mưa bão", "Khánh Hòa áp thấp nhiệt đới", "Khánh Hòa ngập lụt"],
-             "tu_khoa": r"thời tiết|mưa|bão|áp thấp|lũ|ngập|nắng nóng|triều cường|sạt lở|gió mùa|không khí lạnh|"
-                        r"dự báo|biển động|sóng lớn|thiên tai",
-             "loai_tru": r""},
+             "tu_khoa": r"thời tiết|\bmưa\b|\bbão\b|áp thấp|\blũ\b|ngập|nắng nóng|triều cường|sạt lở|gió mùa|không khí lạnh|"
+                        r"khí tượng|biển động|sóng lớn|thiên tai|\bdông\b|lốc xoáy|hạn hán|nước dâng",
+             "loai_tru": r"áo mưa|manchester|bóng đá|premier league|champions league"},
         ],
     },
     "chung_khoan": {
@@ -130,17 +132,20 @@ TAB = {
             {"key": "cntt", "ten": "Công nghệ thông tin",
              "tim": ["cổ phiếu công nghệ FPT", "CMC CMG", "Thế Giới Di Động MWG", "Digiworld DGW",
                      "doanh nghiệp công nghệ thông tin Việt Nam"],
-             "tu_khoa": r"\bfpt\b|\bcmc\b|\bcmg\b|thế giới di động|\bmwg\b|digiworld|\bdgw\b|công nghệ|phần mềm|"
-                        r"chuyển đổi số|bán dẫn|chip|trung tâm dữ liệu|viễn thông|bán lẻ",
+             "tu_khoa": r"\bfpt\b|\bcmc\b|\bcmg\b|thế giới di động|\bmwg\b|digiworld|\bdgw\b|công nghệ thông tin|\bcntt\b|"
+                        r"phần mềm|chuyển đổi số|bán dẫn|trung tâm dữ liệu|viễn thông|an ninh mạng|điện toán đám mây|"
+                        r"dịch vụ số|viettel|vnpt",
              "loai_tru": r""},
             {"key": "thep", "ten": "Thép",
              "tim": ["cổ phiếu thép", "giá thép", "Hòa Phát HPG", "Hoa Sen HSG", "Nam Kim NKG", "chống bán phá giá thép"],
-             "tu_khoa": r"thép|hòa phát|\bhpg\b|hoa sen|\bhsg\b|nam kim|\bnkg\b|quặng sắt|tôn |phôi|luyện kim|dung quất",
+             "tu_khoa": r"thép|hòa phát|\bhpg\b|hoa sen|\bhsg\b|nam kim|\bnkg\b|quặng sắt|tôn mạ|tôn lạnh|phôi thép|luyện kim|dung quất",
              "loai_tru": r""},
             {"key": "vang_bac", "ten": "Vàng bạc trang sức",
              "tim": ["giá vàng hôm nay", "PNJ cổ phiếu", "thị trường vàng", "giá bạc", "trang sức"],
-             "tu_khoa": r"vàng|\bsjc\b|\bpnj\b|trang sức|kim cương|giá bạc|\bbạc\b|nhẫn trơn|đá quý",
-             "loai_tru": r"vàng da|lá vàng|thời kỳ vàng|cơ hội vàng|giờ vàng|ngôi sao vàng|cờ vàng"},
+             "tu_khoa": r"giá vàng|vàng sjc|vàng miếng|vàng nhẫn|vàng 9999|vàng 24k|vàng trang sức|thị trường vàng|vàng thế giới|"
+                        r"vàng trong nước|mua vàng|bán vàng|tiệm vàng|vàng bạc|\bsjc\b|\bpnj\b|doji|bảo tín|phú quý|trang sức|"
+                        r"kim cương|giá bạc|bạc thế giới|ounce|nhẫn trơn|đá quý",
+             "loai_tru": r"vàng da|lá vàng|thời kỳ vàng|cơ hội vàng|giờ vàng|ngôi sao vàng|cờ vàng|huy chương|sea games|olympic|asiad|bóng đá"},
         ],
     },
     "cong_nghe": {
@@ -158,9 +163,9 @@ TAB = {
              "tim": ["ô tô mới ra mắt", "mẫu xe mới thiết kế", "xe thế hệ mới ra mắt", "ô tô nâng cấp facelift",
                      "concept xe hơi", "nội thất ngoại thất xe mới", "Toyota Honda Hyundai Kia Mazda ra mắt",
                      "Mercedes BMW Audi Porsche mẫu mới", "VinFast mẫu xe mới"],
-             "tu_khoa": r"ra mắt|mẫu xe|thế hệ mới|thiết kế|nâng cấp|phiên bản|concept|trình làng|facelift|lộ diện|"
-                        r"nội thất|ngoại thất|khung gầm|động cơ|hybrid|xe điện|suv|sedan|crossover|bán tải|"
-                        r"\bô tô\b|\bxe hơi\b",
+             "tu_khoa": r"ra mắt|trình làng|lộ diện|lộ trang bị|lộ ảnh|thế hệ mới|thiết kế|nâng cấp|phiên bản|bản mới|"
+                        r"mẫu xe mới|mẫu mới|dòng xe mới|concept|facelift|nội thất|ngoại thất|khung gầm|diện mạo|"
+                        r"đầu xe|đuôi xe|ngôn ngữ thiết kế|nền tảng mới|giới thiệu mẫu",
              # ngoài xe Trung Quốc còn loại xe máy và tin tai nạn/giao thông
              "loai_tru": XE_TRUNG_QUOC + r"|xe máy|xe tay ga|mô tô|môtô|xe số|xe đạp|tai nạn|phạt|csgt|"
                                          r"đăng kiểm|biển số|tài xế|vi phạm|bằng lái|giấy phép lái",
@@ -235,7 +240,7 @@ CHU_DE_DIA_PHUONG = {"ha_tang": "giao thông", "quy_hoach": "quy hoạch dự á
 
 # Chỉ nhận tin từ báo chính thống: các báo trong BAO, báo/tạp chí có tên miền bắt đầu bằng "bao"/"tapchi",
 # cổng thông tin *.gov.vn / *.edu.vn và danh sách dưới đây. Tin từ nguồn lạ (blog, trang rác) bị loại,
-# tên miền bị loại được liệt kê ở meta.nguon.mien_bi_loai trong data/tin.json để bạn bổ sung nếu cần.
+# (baomoi.com, msn.com là trang tổng hợp lại tin của báo khác nên không nhận - link sẽ dẫn về trang tổng hợp). Tên miền bị loại được liệt kê ở meta.nguon.mien_bi_loai trong data/tin.json để bạn bổ sung nếu cần.
 CHI_BAO_CHINH_THONG = True
 THEM_BAO_CHINH_THONG = [
     "zingnews.vn", "kenh14.vn", "soha.vn", "afamily.vn", "vnanet.vn", "dantocmiennui.vn", "bnews.vn", "bizhub.vn",
@@ -243,7 +248,8 @@ THEM_BAO_CHINH_THONG = [
     "tapchicongsan.org.vn", "vtc.vn", "vtcnews.vn", "kienthuc.net.vn", "nguoiduatin.vn", "vietnamnews.vn",
     "thanhtra.com.vn", "giaoducthoidai.vn", "vov.gov.vn", "nhandan.org.vn", "vneconomy.vn", "ndh.vn", "tinnhanhchungkhoan.vn",
     "doisongphapluat.com", "baophapluat.vn", "vietnamdaily.vn", "toquoc.vn", "congly.vn", "phunuonline.com.vn",
-    "tuoitrethudo.vn", "nongnghiepmoitruong.vn", "vietq.vn", "dienanhvietnam.vn", "tiepthigiadinh.vn", "motgoc.vn",
+    "tuoitrethudo.vn", "24h.com.vn", "vietnambiz.vn", "nguoiquansat.vn", "nhadautu.vn", "thuonghieucongluan.com.vn",
+    "cafeland.vn", "24hmoney.vn", "xedoisong.vn", "techz.vn", "oto.com.vn", "vietnam.vn", "danviet.vn", "petrotimes.vn", "nongnghiep.vn", "nongnghiepmoitruong.vn", "vietq.vn", "dienanhvietnam.vn", "tiepthigiadinh.vn", "motgoc.vn",
 ]
 TOI_DA_KENH_MOI_BAO = 14   # mỗi báo, mỗi tab lấy tối đa bao nhiêu kênh RSS liên quan
 TIM_KIEM_SONG_SONG = 6     # số luồng tìm kiếm Bing/Google (giữ thấp để không bị chặn)
@@ -278,7 +284,10 @@ def tai(url, timeout=15):
         raise TimeoutError("hết thời gian chạy của bot")
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "vi-VN,vi;q=0.9"})
     with urllib.request.urlopen(req, timeout=timeout) as r:
-        return r.read()
+        du_lieu = r.read()
+    if du_lieu[:2] == b"\x1f\x8b":   # một số báo nén gzip dù không được yêu cầu
+        du_lieu = gzip.decompress(du_lieu)
+    return du_lieu
 
 
 def lam_sach(s):
@@ -316,9 +325,13 @@ def co_tieng_viet(s):
 def doc_ngay(chuoi):
     try:
         d = parsedate_to_datetime(chuoi)
-        if d.tzinfo is None:
-            d = d.replace(tzinfo=timezone.utc)
-        return d.astimezone(VN)
+        if d.tzinfo is None:   # báo Việt Nam ghi giờ không kèm múi giờ = giờ địa phương (UTC+7), không phải UTC
+            d = d.replace(tzinfo=VN)
+        d = d.astimezone(VN)
+        bay_gio = datetime.now(VN)
+        if d > bay_gio + timedelta(minutes=10):   # ngày giờ ở tương lai: nhiều báo ghi giờ VN nhưng gắn nhầm +0000
+            d = d - timedelta(hours=7) if d - timedelta(hours=7) <= bay_gio + timedelta(minutes=10) else bay_gio
+        return d
     except (TypeError, ValueError, IndexError):
         return None
 
@@ -392,10 +405,14 @@ def ten_nguon(t):
 
 def doc_rss(du_lieu, nguon_mac_dinh=""):
     """Đọc RSS 2.0 -> danh sách tin thô."""
-    cay = ET.fromstring(du_lieu)
+    try:
+        cay = ET.fromstring(du_lieu)
+    except ET.ParseError:   # RSS lỗi nhẹ (ký tự & trần, ký tự điều khiển): sửa rồi đọc lại
+        sua = re.sub(r"&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)", "&amp;", du_lieu.decode("utf-8", "ignore"))
+        cay = ET.fromstring(re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", sua).encode("utf-8"))
     ds = []
     for it in cay.iter("item"):
-        tieu_de = lam_sach(it.findtext("title"))
+        tieu_de = re.sub(r"^[/\s]+", "", lam_sach(it.findtext("title")))
         link = (it.findtext("link") or "").strip()
         mo_ta = lam_sach(it.findtext("description"))
         ngay = doc_ngay(it.findtext("pubDate"))
@@ -503,9 +520,13 @@ def kham_pha_kenh(bao):
             re.findall(r"https?://[^\s\"'<>]+\.rss\b", txt, re.I)
         kenh = []
         for h in thu_duoc:
-            u = urljoin(trang, html.unescape(h).strip())
-            if la_kenh_rss(u, mien) and u not in kenh:
-                kenh.append(u)
+            h = html.unescape(h).strip()
+            ung_vien_u = [urljoin(trang, h)]
+            if not re.match(r"(https?:)?//|/", h):   # link tương đối không bắt đầu bằng "/": thử thêm từ gốc trang chủ
+                ung_vien_u.append(urljoin(f"https://{mien}/", h))
+            for u in ung_vien_u:
+                if la_kenh_rss(u, mien) and u not in kenh:
+                    kenh.append(u)
         if kenh:
             return kenh, ""
         loi = loi or "không thấy link RSS trong trang"
@@ -555,8 +576,9 @@ def cham_diem(tin, muc):
     if muc.get("bat_buoc") and not re.search(muc["bat_buoc"], toan_bo, re.I):
         return -1
     diem = 2 * dem(muc["tu_khoa"], tieu_de) + dem(muc["tu_khoa"], mo_ta)
-    if diem == 0:
+    if diem == 0 or diem < muc.get("toi_thieu", 1):
         return 0
+    diem += muc.get("uu_tien", 0)   # mục do bạn tự thêm (cau_hinh_tin.txt) thắng khi bằng điểm với mục có sẵn
     if muc["key"] in tin.get("goi_y", ()):
         diem += 1.5  # tin tìm ra từ chính câu tìm kiếm của mục này
     return diem
@@ -585,7 +607,7 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
 
     viec = [(m, c) for m in cau_hinh["muc"] for c in m["tim"]]
     if ma_tab == NT:   # báo địa phương không có RSS: tìm trực tiếp theo tên miền
-        viec += [(m, f"site:{d} {CHU_DE_DIA_PHUONG[m['key']]}") for m in cau_hinh["muc"] for d in BAO_DIA_PHUONG]
+        viec += [(m, f"site:{d} {CHU_DE_DIA_PHUONG.get(m['key'], m['ten'])}") for m in cau_hinh["muc"] for d in BAO_DIA_PHUONG]
     with ThreadPoolExecutor(max_workers=TIM_KIEM_SONG_SONG) as ex:
         for kq in ex.map(lambda mc: lay_tim_kiem(*mc), viec):
             ung_vien += kq
@@ -615,7 +637,7 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
     for t in ung_vien:
         if t["dt"] is None or t["dt"] < moc:
             continue
-        if not co_tieng_viet(t["title"]):
+        if not co_tieng_viet(t["title"]) or re.match(r"\s*(thông tin liên hệ|liên hệ|trang chủ|sơ đồ trang)", t["title"], re.I):
             continue
         t["mien"] = ten_mien(t.get("nguon_url") or t["url"])
         if CHI_BAO_CHINH_THONG and not t.get("tin_cay") and not la_bao_chinh_thong(t["mien"]):
@@ -665,7 +687,7 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
         da_co_toan_cuc += ket_qua[k]
 
     # Bổ sung tóm tắt từ bài gốc cho tin chưa có
-    thieu = [t for k in ket_qua for t in ket_qua[k] if not t["summary"]][:80]
+    thieu = [t for k in ket_qua for t in ket_qua[k] if not t["summary"]][:150]
     with ThreadPoolExecutor(max_workers=8) as ex:
         for t, mo_ta in zip(thieu, ex.map(lambda t: mo_ta_bai_goc(t["url"]), thieu)):
             t["summary"] = mo_ta
@@ -706,8 +728,154 @@ def doc_json(ten):
         return {}
 
 
+# ===================== FILE CẤU HÌNH cau_hinh_tin.txt (sửa trực tiếp trên GitHub) =====================
+FILE_CAU_HINH = Path(__file__).parent / "cau_hinh_tin.txt"
+
+
+def dat_toi_thieu():
+    """Tab Chứng khoán & Công nghệ: cần từ khóa ở TIÊU ĐỀ hoặc >= 2 lần ở tóm tắt (giảm tin lạc đề)."""
+    for t in (CK, CN):
+        for m in TAB[t]["muc"]:
+            m["toi_thieu"] = 2
+
+
+def tu_thanh_regex(ds):
+    """Danh sách từ/cụm từ thường -> biểu thức chính quy (khớp nguyên từ, không phân biệt hoa thường)."""
+    ds = sorted({w.strip().lower() for w in ds if w.strip()}, key=len, reverse=True)
+    return r"(?<!\w)(?:" + "|".join(re.escape(w) for w in ds) + r")(?!\w)" if ds else ""
+
+
+def _noi_regex(cu, moi):
+    return (cu + "|" + moi) if (cu and moi) else (cu or moi)
+
+
+def doc_cau_hinh(van_ban):
+    """Đọc cấu hình dạng văn bản đơn giản. Trả về (danh sách phần, danh sách lỗi). Dòng bắt đầu bằng # là ghi chú."""
+    phan, loi, hien = [], [], None
+    for so, dong in enumerate(van_ban.splitlines(), 1):
+        d = re.split(r"\s+#", dong.strip(), maxsplit=1)[0].strip()
+        if not d or d.startswith("#"):
+            continue
+        m = re.fullmatch(r"\[\s*([^\]]+?)\s*\]", d)
+        if m:
+            kh = m.group(1).split()
+            hien = {"loai": kh[0].lower(), "tham_so": [x.lower() for x in kh[1:]], "dong": [], "dong_so": so}
+            phan.append(hien)
+        elif hien is None:
+            loi.append(f"dòng {so}: nằm ngoài mục nào (thiếu dòng tiêu đề dạng [tên])")
+        else:
+            hien["dong"].append((so, d))
+    return phan, loi
+
+
+def ap_dung_cau_hinh(phan, loi):
+    """Áp cấu hình vào các biến của bot. Dòng sai bị bỏ qua và ghi vào `loi`, không bao giờ làm bot dừng."""
+    global SO_TIN_MOI_MUC
+    tat_ca_muc = lambda: {m["key"]: (tab, m) for tab, c in TAB.items() for m in c["muc"]}
+    gom = lambda p: [x.strip() for so, d in p["dong"] for x in d.split("|") if x.strip()]
+    ghi = {"hien_san": 3, "muc_moi": [], "bao_moi": [], "bo_bao": []}
+
+    for p in phan:   # 1) mục mới trước (để các phần sau có thể dùng)
+        if p["loai"] != "muc_moi":
+            continue
+        if len(p["tham_so"]) != 1 or not re.fullmatch(r"[a-z0-9_]+", p["tham_so"][0]):
+            loi.append(f"dòng {p['dong_so']}: [muc_moi ...] cần đúng 1 tên khóa viết liền không dấu, ví dụ [muc_moi cam_ranh]")
+            continue
+        khoa, kv = p["tham_so"][0], {}
+        for so, d in p["dong"]:
+            if "=" not in d:
+                loi.append(f"dòng {so}: cần dạng 'tên = giá trị'")
+                continue
+            k, v = d.split("=", 1)
+            kv[k.strip().lower()] = [x.strip() for x in v.split("|") if x.strip()]
+        tab = (kv.get("tab") or [""])[0].lower()
+        if khoa in tat_ca_muc():
+            loi.append(f"dòng {p['dong_so']}: khóa mục '{khoa}' đã tồn tại, hãy đặt tên khác")
+        elif tab not in TAB:
+            loi.append(f"dòng {p['dong_so']}: 'tab' phải là một trong: {', '.join(TAB)}")
+        elif not kv.get("ten") or not kv.get("tu_khoa"):
+            loi.append(f"dòng {p['dong_so']}: mục mới cần có 'ten' và 'tu_khoa'")
+        else:
+            TAB[tab]["muc"].append({"key": khoa, "ten": kv["ten"][0], "tim": kv.get("tim") or [kv["ten"][0]],
+                                    "tu_khoa": tu_thanh_regex(kv["tu_khoa"]), "loai_tru": tu_thanh_regex(kv.get("loai_tru", [])),
+                                    "uu_tien": 1})
+            ghi["muc_moi"].append(kv["ten"][0])
+
+    TRUONG = {"them_tu_khoa": "tu_khoa", "them_loai_tru": "loai_tru", "them_bat_buoc": "bat_buoc"}
+    for p in phan:
+        l = p["loai"]
+        if l == "muc_moi":
+            continue
+        if l == "chung":
+            for so, d in p["dong"]:
+                k, _, v = d.partition("=")
+                k, v = k.strip().lower(), v.strip()
+                if k in ("hien_san", "toi_da") and v.isdigit():
+                    n = int(v)
+                    if k == "hien_san" and 1 <= n <= 15:
+                        ghi["hien_san"] = n
+                    elif k == "toi_da" and 3 <= n <= 30:
+                        SO_TIN_MOI_MUC = n
+                    else:
+                        loi.append(f"dòng {so}: '{k}' ngoài khoảng cho phép (hien_san 1-15, toi_da 3-30)")
+                else:
+                    loi.append(f"dòng {so}: không hiểu '{d}' (chỉ có hien_san và toi_da, giá trị là số)")
+        elif l in TRUONG or l == "them_tim":
+            if len(p["tham_so"]) != 1 or p["tham_so"][0] not in tat_ca_muc():
+                loi.append(f"dòng {p['dong_so']}: [{l} {' '.join(p['tham_so'])}] không có mục tên đó. "
+                           f"Khóa mục hợp lệ: {', '.join(sorted(tat_ca_muc()))}")
+                continue
+            m = tat_ca_muc()[p["tham_so"][0]][1]
+            if l == "them_tim":
+                m["tim"] = list(m["tim"]) + gom(p)
+            else:
+                m[TRUONG[l]] = _noi_regex(m.get(TRUONG[l], ""), tu_thanh_regex(gom(p)))
+        elif l == "them_bao":
+            for so, d in p["dong"]:
+                c = [x.strip() for x in d.split("|")]
+                if len(c) < 2 or not re.fullmatch(r"[a-z0-9.-]+\.[a-z]{2,}", c[1].lower()):
+                    loi.append(f"dòng {so}: cần dạng 'Tên báo | tenmien.vn | trang RSS (có thể để trống) | tab'")
+                    continue
+                tabs = tuple(t for t in (c[3].split() if len(c) > 3 else list(TAB)) if t in TAB) or tuple(TAB)
+                BAO["tuy_chinh_" + re.sub(r"\W", "_", c[1].lower())] = (c[0], c[1].lower().replace("www.", ""),
+                                                                       c[2].split() if len(c) > 2 else [], tabs)
+                THEM_BAO_CHINH_THONG.append(c[1].lower())
+                ghi["bao_moi"].append(c[0])
+        elif l == "bo_bao":
+            for so, d in p["dong"]:
+                for k in (x.strip().lower() for x in d.split("|") if x.strip()):
+                    if k in BAO:
+                        del BAO[k]
+                        ghi["bo_bao"].append(k)
+                    else:
+                        loi.append(f"dòng {so}: không có báo '{k}' (tên khóa hợp lệ: {', '.join(BAO)})")
+        elif l in ("them_ten_mien_chinh_thong", "bao_dia_phuong"):
+            for d in gom(p):
+                (THEM_BAO_CHINH_THONG if l != "bao_dia_phuong" else BAO_DIA_PHUONG).append(d.lower().replace("www.", ""))
+        else:
+            loi.append(f"dòng {p['dong_so']}: không hiểu mục [{l}] (hợp lệ: chung, muc_moi, them_tu_khoa, them_loai_tru, "
+                       f"them_tim, them_bao, bo_bao, them_ten_mien_chinh_thong, bao_dia_phuong)")
+    dat_toi_thieu()
+    return ghi
+
+
+def nap_cau_hinh():
+    """Đọc cau_hinh_tin.txt nếu có. Hỏng thì bỏ qua phần hỏng và dùng cấu hình sẵn trong code. Trả về (ghi chú, lỗi)."""
+    loi = []
+    if not FILE_CAU_HINH.exists():
+        return {"hien_san": 3, "muc_moi": [], "bao_moi": [], "bo_bao": []}, loi
+    try:
+        phan, loi = doc_cau_hinh(FILE_CAU_HINH.read_text(encoding="utf-8-sig"))
+        return ap_dung_cau_hinh(phan, loi), loi
+    except Exception as e:  # noqa: BLE001 - cấu hình hỏng nặng thì dùng mặc định, bot vẫn chạy
+        return {"hien_san": 3, "muc_moi": [], "bao_moi": [], "bo_bao": []}, loi + [f"không đọc được file cấu hình: {type(e).__name__}: {e}"]
+
+
 def main():
     bat_dau = time.time()
+    cau_hinh_ghi, cau_hinh_loi = nap_cau_hinh()
+    if cau_hinh_loi:
+        print("CẢNH BÁO cau_hinh_tin.txt:", *cau_hinh_loi, sep="\n  ")
     da_biet = doc_json("nguon_rss.json").get("tot", {})
     kenh_bao, ghi_bao = tong_hop_kenh(da_biet)
     co_kenh = sum(1 for v in kenh_bao.values() if v)
@@ -719,7 +887,9 @@ def main():
 
     da_co = []  # dùng chung cho cả 3 tab -> một tin không xuất hiện ở 2 tab
     ket_qua = {"meta": {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"),
-                        "note": "Tin tự động từ RSS các báo chính thống, Bing News, Google News. Không cần API key."}}
+                        "note": "Tin tự động từ RSS các báo chính thống, Bing News, Google News. Không cần API key.",
+                        "hien_san": cau_hinh_ghi["hien_san"], "cau_hinh_loi": cau_hinh_loi[:10],
+                        "cau_hinh": {"muc_moi": cau_hinh_ghi["muc_moi"], "bao_moi": cau_hinh_ghi["bao_moi"], "bo_bao": cau_hinh_ghi["bo_bao"]}}}
     for ma_tab, cau_hinh in TAB.items():
         ket_qua[ma_tab] = xu_ly_tab(ma_tab, cau_hinh, da_co, kenh_theo_tab[ma_tab])
     ket_qua["weather"] = lay_thoi_tiet()
@@ -741,7 +911,7 @@ def main():
         "bao_co_kenh": co_kenh, "bao_tong": len(BAO),
         "kenh_tot": sum(1 for v in GHI_KENH.values() if v >= 0), "kenh_loi": sum(1 for v in GHI_KENH.values() if v < 0),
         "bing": NK["bing"], "google": NK["google"],
-        "bao_khong_co_kenh": [BAO[k][0] for k, v in kenh_bao.items() if not v],
+        "bao_khong_co_kenh": {BAO[k][0]: ghi_bao[k]["loi"] for k, v in kenh_bao.items() if not v},
         "mien_bi_loai": [f"{m} ({n})" for m, n in NK["mien_bi_loai"].most_common(12)],
     }
     (THU_MUC / "tin.json").write_text(json.dumps(ket_qua, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -749,6 +919,9 @@ def main():
         (THU_MUC / "nguon_rss.json").write_text(json.dumps(
             {"updated": ket_qua["meta"]["fetched_at"], "tot": tot}, ensure_ascii=False, indent=0), encoding="utf-8")
     print(f"Xong sau {time.time() - bat_dau:.0f} giây. Xem data/tin.json (meta.nguon cho biết nguồn nào hoạt động)")
+
+
+dat_toi_thieu()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,62 @@
+# =====================================================================================
+#  CẤU HÌNH TIN CỦA APP BẢNG TIN  -  sửa file này trực tiếp trên GitHub, không cần zip
+# =====================================================================================
+#  CÁCH SỬA (máy tính hoặc iPhone):
+#    1) Mở file này trên GitHub, bấm biểu tượng cây bút chì (Edit this file).
+#    2) Xóa dấu "# " ở đầu các dòng của ví dụ muốn dùng, sửa nội dung theo ý anh.
+#    3) Bấm "Commit changes". Bot tự chạy lại sau vài phút, app cập nhật theo.
+#
+#  QUY TẮC:
+#    - Dòng bắt đầu bằng dấu # chỉ là ghi chú, bot bỏ qua.
+#    - Mỗi phần bắt đầu bằng dòng tiêu đề trong ngoặc vuông, ví dụ [chung].
+#    - Nhiều giá trị trên cùng 1 dòng thì cách nhau bằng dấu |
+#    - Dòng nào viết sai thì bot bỏ qua dòng đó và báo lỗi bằng chữ màu cam ở đầu tab tin trong app.
+#      Bot vẫn chạy bình thường, không bị hỏng.
+#    - Chưa bỏ dấu # dòng nào = giữ nguyên cấu hình mặc định.
+# =====================================================================================
+
+# ---- 1. SỐ TIN HIỂN THỊ -------------------------------------------------------------
+# [chung]
+# hien_san = 5     # số tin hiện sẵn ở mỗi mục (1-15)
+# toi_da = 15      # số tin tối đa mỗi mục (3-30)
+
+# ---- 2. THÊM MỘT MỤC TIN MỚI (hiện ở cuối tab, tin của mục này được ưu tiên) --------------
+# [muc_moi cam_ranh]          # tên khóa: viết liền, không dấu, không trùng mục khác
+# tab = nha_trang             # nha_trang, chung_khoan hoặc cong_nghe
+# ten = Tin Cam Ranh          # tên hiển thị trong app
+# tu_khoa = cam ranh | sân bay cam ranh   # tin chứa 1 trong các từ này sẽ vào mục (cách nhau bằng dấu |)
+# tim = Cam Ranh tin mới | Cam Ranh dự án # câu tìm trên Bing/Google (cách nhau bằng dấu |)
+# loai_tru = quảng cáo        # (không bắt buộc) tin chứa từ này bị loại khỏi mục
+
+# ---- 3. THÊM TỪ KHÓA VÀO MỤC CÓ SẴN -------------------------------------------------
+#  Khóa các mục có sẵn:
+#   Nha Trang: ha_tang, quy_hoach, kinh_te_vh, du_lich, giao_duc, phap_luat, thoi_tiet
+#   Chứng khoán: xay_dung, ngan_hang, cntt, thep, vang_bac
+#   Công nghệ: o_to, ai
+# [them_loai_tru o_to]    # mỗi dòng bên dưới là 1 từ/cụm từ bị loại khỏi mục Xe ô tô
+# zeekr
+# avatr
+#
+# [them_tu_khoa vang_bac] # mỗi dòng bên dưới là 1 từ/cụm từ được nhận vào mục Vàng bạc
+# vàng 9999
+#
+# [them_tim ai]           # mỗi dòng bên dưới là 1 câu tìm thêm trên Bing/Google cho mục AI
+# tin AI mới nhất
+
+# ---- 4. BÁO VÀ NGUỒN -----------------------------------------------------------------
+#  Khóa các báo có sẵn (dùng cho [bo_bao]):
+#   vnexpress, tuoitre, thanhnien, dantri, vietnamnet, tienphong, znews, nld, laodong
+#   vov, vtv, vietnamplus, baotintuc, baochinhphu, nhandan, sggp, plo, baokhanhhoa
+#   khanhhoa_gov, cafef, cafebiz, vietstock, vneconomy, baodautu, thesaigontimes, tinnhanhchungkhoan, nhipcaudautu
+#   baoxaydung, congthuong, thoibaotaichinh, genk, tinhte, ictnews, vnreview, autopro
+# [them_bao]       # Tên báo | tên miền | trang RSS (để trống nếu không biết) | tab (để trống = cả 3 tab)
+# Báo Ví Dụ | baovidu.vn | https://baovidu.vn/rss | nha_trang chung_khoan
+#
+# [bo_bao]         # tắt một báo: ghi tên khóa (xem danh sách bên dưới)
+# znews
+#
+# [them_ten_mien_chinh_thong]   # nhận thêm tin từ trang này khi tìm qua Bing/Google
+# tapchimoi.vn
+#
+# [bao_dia_phuong]             # báo địa phương không có RSS: bot tìm riêng bằng site:
+# baovidu.vn

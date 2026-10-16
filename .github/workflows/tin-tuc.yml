@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}            # bấm chạy tay trong tab Actions
   push:
     branches: [main, master]
-    paths: ["fetch_news.py", ".github/workflows/tin-tuc.yml"]   # vừa cập nhật app -> chạy ngay
+    paths: ["fetch_news.py", ".github/workflows/tin-tuc.yml", "cau_hinh_tin.txt"]   # vừa cập nhật app hoặc sửa cấu hình -> chạy ngay
 permissions:
   contents: write
 concurrency: tin-tuc
@@ -26,6 +26,11 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git add data/tin.json
           test -f data/nguon_rss.json && git add data/nguon_rss.json
+          # Giữ repo "có hoạt động": repo công khai bị GitHub tắt lịch chạy nếu 60 ngày không có commit nào.
+          # Bình thường bot ghi dữ liệu mỗi vài giờ nên bước này không làm gì; chỉ tạo commit rỗng nếu 30 ngày chưa có commit.
+          if [ $(( $(date +%s) - $(git log -1 --format=%ct) )) -gt 2592000 ]; then
+            git commit --allow-empty -m "giu repo hoat dong (keepalive)" && git pull --rebase -X theirs && git push
+          fi
           git diff --cached --quiet && exit 0
           git commit -m "cap nhat tin tuc"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done
