@@ -1,5 +1,5 @@
 {
-"updated": "2026-10-16 11:30",
+"updated": "2026-10-16 12:17",
 "tot": {
 "vnexpress": [
 "https://vnexpress.net/rss/thoi-su.rss",
@@ -70,7 +70,9 @@
 "https://dantri.com.vn/rss/thoi-tiet.rss"
 ],
 "vietnamnet": [],
-"tienphong": [],
+"tienphong": [
+"https://tienphong.vn/rss/home.rss"
+],
 "znews": [],
 "nld": [],
 "laodong": [],
@@ -103,12 +105,64 @@
 "https://vtv.vn/rss/cong-nghe/binh-dan-hoc-vu-so.rss",
 "https://vtv.vn/rss/cong-nghe/tri-tue-nhan-tao.rss"
 ],
-"vietnamplus": [],
-"baotintuc": [],
+"vietnamplus": [
+"https://www.vietnamplus.vn/rss/home.rss",
+"https://www.vietnamplus.vn/rss/kinhte-311.rss",
+"https://www.vietnamplus.vn/rss/kinhte/kinhdoanh-342.rss",
+"https://www.vietnamplus.vn/rss/kinhte/taichinh-343.rss",
+"https://www.vietnamplus.vn/rss/kinhte/tindung-385.rss",
+"https://www.vietnamplus.vn/rss/kinhte/chungkhoan-344.rss",
+"https://www.vietnamplus.vn/rss/kinhte/batdongsan-372.rss",
+"https://www.vietnamplus.vn/rss/kinhte/doanhnghiep-345.rss",
+"https://www.vietnamplus.vn/rss/xahoi-314.rss",
+"https://www.vietnamplus.vn/rss/xahoi/giaoduc-316.rss",
+"https://www.vietnamplus.vn/rss/xahoi/yte-325.rss",
+"https://www.vietnamplus.vn/rss/xahoi/phapluat-327.rss",
+"https://www.vietnamplus.vn/rss/khoahoc-213.rss",
+"https://www.vietnamplus.vn/rss/khoahoc/ungdung-371.rss",
+"https://www.vietnamplus.vn/rss/congnghe-212.rss",
+"https://www.vietnamplus.vn/rss/congnghe/sanphammoi-275.rss",
+"https://www.vietnamplus.vn/rss/otoxemay-364.rss",
+"https://www.vietnamplus.vn/rss/tinthitruong-218.rss"
+],
+"baotintuc": [
+"https://baotintuc.vn/rss/home.rss",
+"https://baotintuc.vn/rss/xay-dung-dang-1623.rss",
+"https://baotintuc.vn/rss/kinh-te-128.rss",
+"https://baotintuc.vn/rss/thi-truong-gia-ca-1637.rss",
+"https://baotintuc.vn/rss/doanh-nghiep-doanh-nhan-145.rss",
+"https://baotintuc.vn/rss/tai-chinh-ngan-hang-bat-dong-san-1639.rss",
+"https://baotintuc.vn/rss/kinh-te-so-1638.rss",
+"https://baotintuc.vn/rss/xa-hoi-129.rss",
+"https://baotintuc.vn/rss/doi-song-dan-sinh-1640.rss",
+"https://baotintuc.vn/rss/mang-xa-hoi-604.rss",
+"https://baotintuc.vn/rss/van-hoa-158.rss",
+"https://baotintuc.vn/rss/su-kien-van-hoa-1642.rss",
+"https://baotintuc.vn/rss/van-hoa-soi-duong-1643.rss",
+"https://baotintuc.vn/rss/giao-duc-135.rss",
+"https://baotintuc.vn/rss/chinh-sach-giao-duc-1645.rss",
+"https://baotintuc.vn/rss/phap-luat-475.rss",
+"https://baotintuc.vn/rss/khoa-hoc-cong-nghe-131.rss",
+"https://baotintuc.vn/rss/ai-1658.rss"
+],
 "baochinhphu": [
 "https://baochinhphu.vn/rss"
 ],
-"nhandan": [],
+"nhandan": [
+"https://nhandan.vn/rss/home.rss",
+"https://nhandan.vn/rss/xay-dung-dang-1179.rss",
+"https://nhandan.vn/rss/kinhte-1185.rss",
+"https://nhandan.vn/rss/chungkhoan-1191.rss",
+"https://nhandan.vn/rss/thong-tin-hang-hoa-1203.rss",
+"https://nhandan.vn/rss/vanhoa-1251.rss",
+"https://nhandan.vn/rss/xahoi-1211.rss",
+"https://nhandan.vn/rss/phapluat-1287.rss",
+"https://nhandan.vn/rss/du-lich-1257.rss",
+"https://nhandan.vn/rss/giaoduc-1303.rss",
+"https://nhandan.vn/rss/khoahoc-congnghe-1292.rss",
+"https://nhandan.vn/rss/phong-chong-toi-pham-cong-nghe-cao-2025-704717.rss",
+"https://nhandan.vn/rss/moi-truong-1296.rss"
+],
 "sggp": [
 "https://www.sggp.org.vn/rss/home.rss",
 "https://www.sggp.org.vn/rss/xay-dung-dang-204.rss",
@@ -181,7 +235,19 @@
 "https://vietstock.vn/737/doanh-nghiep/hoat-dong-kinh-doanh.rss",
 "https://vietstock.vn/738/doanh-nghiep/co-tuc.rss"
 ],
-"vneconomy": [],
+"vneconomy": [
+"https://vneconomy.vn/tin-moi.rss",
+"https://vneconomy.vn/kinh-te-xanh.rss",
+"https://vneconomy.vn/tai-chinh.rss",
+"https://vneconomy.vn/chung-khoan.rss",
+"https://vneconomy.vn/kinh-te-so.rss",
+"https://vneconomy.vn/dau-tu-ha-tang.rss",
+"https://vneconomy.vn/thi-truong.rss",
+"https://vneconomy.vn/kinh-te-the-gioi.rss",
+"https://vneconomy.vn/nhip-cau-doanh-nghiep.rss",
+"https://vneconomy.vn/dau-tu.rss",
+"https://vneconomy.vn/cong-nghe-startup.rss"
+],
 "baodautu": [],
 "thesaigontimes": [],
 "tinnhanhchungkhoan": [],
@@ -218,7 +284,9 @@
 "https://tinhte.vn/rss"
 ],
 "ictnews": [],
-"vnreview": [],
+"vnreview": [
+"https://vnreview.vn/forums/-/index.rss"
+],
 "autopro": [
 "https://autopro.com.vn/home.rss"
 ]
