@@ -22,7 +22,7 @@ jobs:
         run: |
           git config user.name "bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/prices.json data/macro.json data/news.json
+          git add data/prices.json data/macro.json
           git diff --cached --quiet && exit 0
           git commit -m "cap nhat du lieu"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done

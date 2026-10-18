@@ -210,72 +210,6 @@ def lay_macro():
             "thresholds": cu.get("thresholds", {"sell": -4, "buy": 4})}
 
 
-# ===== Tin tự động theo từng mã (Google News RSS, miễn phí, không cần API key) =====
-# Đây CHỈ là tin thô, chưa qua chọn lọc của người/AI — hiển thị riêng ở tab Tin tức,
-# tách biệt với 3 mục (Chính sách/Pháp luật/Tin ngành) do lệnh "cập nhật" chọn lọc thủ công.
-SO_TIN_MOI_MOI_MA = 3        # lấy tối đa mấy tin mới nhất cho mỗi mã
-TONG_TIN_TOI_DA = 150        # tổng số tin giữ lại (mã mới hơn ưu tiên)
-
-def lay_rss_ma(ma, ten):
-    """Google News RSS tìm theo tên công ty. Lỗi/rỗng thì trả về danh sách rỗng, không chặn các mã khác."""
-    q = quote(f'cổ phiếu {ten}' if len(ten) <= 4 else f'"{ten}"')  # chưa có tên công ty thì tìm theo mã
-    url = f"https://news.google.com/rss/search?q={q}&hl=vi&gl=VN&ceid=VN:vi"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=15) as r:
-        cay = ET.fromstring(r.read())
-    tin = []
-    for item in cay.findall(".//item")[:SO_TIN_MOI_MOI_MA]:
-        tieu_de = (item.findtext("title") or "").strip()
-        link = (item.findtext("link") or "").strip()
-        ngay_tho = item.findtext("pubDate")
-        nguon_el = item.find("source")
-        nguon = nguon_el.text.strip() if nguon_el is not None and nguon_el.text else ""
-        if not tieu_de or not link:
-            continue
-        try:
-            ngay = parsedate_to_datetime(ngay_tho).strftime("%Y-%m-%d") if ngay_tho else None
-        except (TypeError, ValueError):
-            ngay = None
-        tin.append({"symbol": ma, "date": ngay, "title": tieu_de, "source": nguon, "url": link})
-    return tin
-
-
-def chuan_hoa_tieu_de(t):
-    """Chuẩn hoá tiêu đề để so khớp tin trùng (khác hoa/thường, khác khoảng trắng)."""
-    return re.sub(r"\s+", " ", t or "").strip().lower()
-
-
-def lay_tin_tu_dong(danh_sach=None):
-    tin_tho, loi = [], {}
-    for ma, ten, _nhom, _san in (danh_sach or CO_PHIEU):
-        try:
-            tin_tho += thu_lai(lambda ma=ma, ten=ten: lay_rss_ma(ma, ten) or None, so_lan=2, cho=3)
-        except Exception as e:  # noqa: BLE001
-            loi[ma] = f"{type(e).__name__}: {e}"
-        time.sleep(0.5)  # tránh gửi quá dồn dập tới Google News
-
-    # Gộp tin trùng nhau: cùng 1 bài có thể ra ở nhiều mã (VD tin nhắc cả FPT lẫn CMG),
-    # hoặc Google News trả về cùng bài với link theo dõi khác nhau -> so khớp theo TIÊU ĐỀ đã chuẩn hoá,
-    # gộp các mã liên quan vào 1 dòng thay vì lặp lại nhiều lần.
-    gop = {}
-    for t in tin_tho:
-        khoa = chuan_hoa_tieu_de(t["title"])
-        if not khoa:
-            continue
-        if khoa in gop:
-            if t["symbol"] not in gop[khoa]["symbols"]:
-                gop[khoa]["symbols"].append(t["symbol"])
-            if t["date"] and (not gop[khoa]["date"] or t["date"] < gop[khoa]["date"]):
-                gop[khoa]["date"] = t["date"]  # giữ ngày sớm nhất bài này từng xuất hiện
-        else:
-            gop[khoa] = {"symbols": [t["symbol"]], "date": t["date"], "title": t["title"],
-                         "source": t["source"], "url": t["url"]}
-    tin_gop = sorted(gop.values(), key=lambda x: x["date"] or "", reverse=True)
-    print(f"Tin tự động: {len(tin_tho)} tin thô -> {len(tin_gop)} sau khi gộp trùng, lỗi {len(loi)} mã: {list(loi)[:5]}")
-    return {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "failed": loi,
-            "items": tin_gop[:TONG_TIN_TOI_DA]}
-
-
 def lay_ten_cong_ty():
     """Tên công ty theo mã, lấy từ mục "names" trong vn30_list.json. Thiếu thì app hiện mã thay cho tên."""
     return {str(k).upper(): str(v) for k, v in doc_vn30_file().get("names", {}).items()}
@@ -302,12 +236,7 @@ def main():
         json.dumps(gia, ensure_ascii=False, indent=1), encoding="utf-8")
     (THU_MUC / "macro.json").write_text(
         json.dumps(lay_macro(), ensure_ascii=False, indent=1), encoding="utf-8")
-    # Tin tự động: chỉ ghi đè mục "auto" trong news.json, GIỮ NGUYÊN policy/law/industry
-    # (những mục đó do lệnh "cập nhật" chọn lọc thủ công, script không được đụng vào).
-    tin_cu = doc_json("news.json", {"meta": {"updated_at": None}, "policy": [], "law": [], "industry": {}})
-    tin_cu["auto"] = lay_tin_tu_dong(CO_PHIEU + them)
-    (THU_MUC / "news.json").write_text(
-        json.dumps(tin_cu, ensure_ascii=False, indent=1), encoding="utf-8")
+    # Tin tức đã chuyển sang bot riêng fetch_news.py (data/tin.json); bot giá không còn đụng tới news.json.
     print("Xong. Xem data/prices.json (meta.failed) để biết mã nào lỗi.")
 
 

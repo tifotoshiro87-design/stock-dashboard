@@ -3,7 +3,7 @@
 fetch_news.py - Gom tin cho 3 tab của app, ghi ra data/tin.json
   Tab 1: Tin nhanh Nha Trang (7 mục, có dự báo thời tiết)
   Tab 2: Chứng khoán - mục Tin tức (5 nhóm ngành)
-  Tab 3: Công nghệ (Xe ô tô - loại trừ xe Trung Quốc; Công nghệ AI)
+  Tab 3: Công nghệ (Xe ô tô theo hãng: Honda, Suzuki, Toyota, Hyundai, VinFast, Khác - loại trừ xe Trung Quốc; Công nghệ AI)
 
 Chạy: python fetch_news.py
 Chỉ dùng nguồn KHÔNG cần đăng nhập, KHÔNG cần API key:
@@ -52,6 +52,19 @@ XE_TRUNG_QUOC = (r"\bbyd\b|chery|omoda|jaecoo|geely|\bmg\s?\d|\bmg\b|wuling|hava
                  r"hongqi|dongfeng|voyah|\bbaic\b|jetour|exeed|\bgac\b|\baion\b|hyptec|leapmotor|skyworth|\bjac\b|"
                  r"haima|kaiyi|saic|baojun|trumpchi|soueast|forthing|denza|fangchengbao|yangwang|\bjmc\b|"
                  r"trung quốc|tàu|china|chinese")
+# Tên hãng/dòng xe Trung Quốc (không gồm chữ "Trung Quốc"): loại cả khi chỉ xuất hiện trong tóm tắt
+HANG_XE_TQ = XE_TRUNG_QUOC.replace(r"|trung quốc|tàu|china|chinese", "")
+# Loại khỏi mọi mục xe ô tô: xe Trung Quốc, xe máy, tin tai nạn/vi phạm giao thông
+LOAI_XE = (XE_TRUNG_QUOC + r"|xe máy|xe tay ga|mô tô|môtô|xe số|xe đạp|xe điện hai bánh|tai nạn|phạt|csgt|"
+           r"đăng kiểm|biển số|tài xế|vi phạm|bằng lái|giấy phép lái|tử vong|cháy xe|"
+           r"\bvision\b|air blade|\blead\b|\bsh\b|sh mode|\bwave\b|winner|vario|raider|satria|burgman|exciter|"
+           r"\bfuture\b|\bevo\b|feliz|klara|motio|\bvero\b|theon|\bimpes\b|\bludo\b")
+
+
+def xe_hang(key, ten, tim, mau):
+    """Mục xe của 1 hãng: tiêu đề phải có tên hãng/tên dòng xe (mau); nhận mọi tin ô tô của hãng trừ tin bị loại."""
+    return {"key": key, "ten": ten, "tim": tim, "tu_khoa": mau, "tieu_de": True, "loai_tru": LOAI_XE, "loai_tru_ca_bai": HANG_XE_TQ,
+            "bat_buoc": r"ô tô|xe hơi|\bxe\b|suv|sedan|crossover|bán tải|mpv|hatchback|ra mắt|mẫu|phiên bản|giá|" + mau}
 
 TAB = {
     "nha_trang": {
@@ -71,7 +84,7 @@ TAB = {
                      "sân bay Cam Ranh", "Nha Trang nút giao cầu đường"],
              "tu_khoa": r"cao tốc|quốc lộ|tuyến đường|nút giao|cầu |hầm|sân bay|đường sắt|ga |cảng|hạ tầng|giao thông|"
                         r"mở rộng đường|nâng cấp đường|thông xe|khởi công|đường ven biển|đèo|bến xe|đường bộ",
-             "loai_tru": r"tai nạn|tông|va chạm|tử vong|bắt giữ|khởi tố"},
+             "loai_tru": r"tai nạn|tông|va chạm|tử vong|bắt giữ|khởi tố|xử lý|xử phạt|vi phạm|csgt|cảnh sát giao thông"},
             {"key": "quy_hoach", "ten": "Quy hoạch đô thị – Bất động sản & dự án",
              "tim": ["Nha Trang quy hoạch đô thị", "Khánh Hòa bất động sản", "Nha Trang dự án khu đô thị",
                      "Khánh Hòa đấu giá đất", "Nha Trang nhà ở xã hội"],
@@ -117,35 +130,42 @@ TAB = {
             "https://cafef.vn/thi-truong.rss", "https://vnexpress.net/rss/kinh-doanh.rss",
         ],
         "muc": [
-            {"key": "xay_dung", "ten": "Xây dựng – Đầu tư công",
+            # "tieu_de": True = tiêu đề phải chứa từ khóa của mục (tránh tin lạc đề chỉ nhắc từ khóa trong tóm tắt)
+            {"key": "xay_dung", "ten": "Xây dựng – Đầu tư công", "tieu_de": True,
              "tim": ["giải ngân đầu tư công", "cổ phiếu xây dựng đầu tư công", "Vinaconex VCG", "Coteccons CTD",
-                     "Đèo Cả HHV", "FECON FCN", "Lizen LCG", "cao su GVR khu công nghiệp"],
-             "tu_khoa": r"đầu tư công|giải ngân|cao tốc|hạ tầng|xây dựng|nhà thầu|vinaconex|\bvcg\b|coteccons|\bctd\b|"
-                        r"đèo cả|\bhhv\b|fecon|\bfcn\b|lizen|\blcg\b|\bgvr\b|\bphr\b|cao su|khu công nghiệp|vật liệu xây dựng",
-             "loai_tru": r""},
-            {"key": "ngan_hang", "ten": "Ngân hàng",
+                     "Đèo Cả HHV", "FECON FCN", "Lizen LCG", "cao su GVR khu công nghiệp", "nhà thầu cao tốc khởi công"],
+             "tu_khoa": r"đầu tư công|giải ngân|vốn đầu tư|nhà thầu|gói thầu|trúng thầu|vinaconex|\bvcg\b|coteccons|\bctd\b|"
+                        r"đèo cả|\bhhv\b|fecon|\bfcn\b|lizen|\blcg\b|\bgvr\b|\bphr\b|cao su|khu công nghiệp|vật liệu xây dựng|"
+                        r"xi măng|cổ phiếu xây dựng|ngành xây dựng|doanh nghiệp xây dựng|dự án cao tốc|khởi công|thông xe|"
+                        r"hoàn thành dự án|dự án giao thông|dự án hạ tầng|hạ tầng giao thông|sân bay long thành|đường sắt tốc độ cao",
+             "loai_tru": r"tai nạn|vi phạm|xử phạt|\bphạt\b|csgt|phân luồng|cước vận tải|kỷ niệm|\d+ năm xây dựng|nghị quyết|"
+                         r"dân tộc|người nghèo|học sinh|sinh viên|bóng đá"},
+            {"key": "ngan_hang", "ten": "Ngân hàng", "tieu_de": True,
              "tim": ["cổ phiếu ngân hàng", "lãi suất ngân hàng", "Vietcombank VCB", "VPBank VPB", "HDBank HDB",
                      "tín dụng ngân hàng nhà nước"],
-             "tu_khoa": r"ngân hàng|tín dụng|lãi suất|nhnn|nợ xấu|vietcombank|\bvcb\b|vpbank|\bvpb\b|hdbank|\bhdb\b|"
-                        r"huy động|cho vay|tỷ giá",
-             "loai_tru": r""},
-            {"key": "cntt", "ten": "Công nghệ thông tin",
+             "tu_khoa": r"ngân hàng|tín dụng|lãi suất|\bnhnn\b|nợ xấu|vietcombank|\bvcb\b|vpbank|\bvpb\b|hdbank|\bhdb\b|"
+                        r"huy động vốn|tiền gửi|cho vay|tỷ giá|techcombank|bidv|vietinbank|agribank|sacombank|\bmb\b|"
+                        r"\bacb\b|tpbank|\bshb\b|\bvib\b|chuyển khoản|thẻ tín dụng|trái phiếu",
+             "loai_tru": r"bóng chuyền|bóng đá|giải đấu|người nghèo|từ thiện|lừa đảo|khởi tố|bắt giữ|tử vong"},
+            {"key": "cntt", "ten": "Công nghệ thông tin", "tieu_de": True,
              "tim": ["cổ phiếu công nghệ FPT", "CMC CMG", "Thế Giới Di Động MWG", "Digiworld DGW",
-                     "doanh nghiệp công nghệ thông tin Việt Nam"],
-             "tu_khoa": r"\bfpt\b|\bcmc\b|\bcmg\b|thế giới di động|\bmwg\b|digiworld|\bdgw\b|công nghệ thông tin|\bcntt\b|"
-                        r"phần mềm|chuyển đổi số|bán dẫn|trung tâm dữ liệu|viễn thông|an ninh mạng|điện toán đám mây|"
-                        r"dịch vụ số|viettel|vnpt",
-             "loai_tru": r""},
-            {"key": "thep", "ten": "Thép",
+                     "doanh nghiệp công nghệ thông tin Việt Nam", "Viettel VNPT doanh thu"],
+             "tu_khoa": r"\bfpt\b|\bcmc\b|\bcmg\b|thế giới di động|\bmwg\b|bách hóa xanh|điện máy xanh|digiworld|\bdgw\b|"
+                        r"công nghệ thông tin|\bcntt\b|doanh nghiệp công nghệ|cổ phiếu công nghệ|bán dẫn|trung tâm dữ liệu|"
+                        r"data center|viễn thông|an ninh mạng|điện toán đám mây|viettel|vnpt|mobifone|xuất khẩu phần mềm",
+             "loai_tru": r"ma túy|học sinh|giáo dục pháp luật|lừa đảo|khởi tố|bắt giữ"},
+            {"key": "thep", "ten": "Thép", "tieu_de": True,
              "tim": ["cổ phiếu thép", "giá thép", "Hòa Phát HPG", "Hoa Sen HSG", "Nam Kim NKG", "chống bán phá giá thép"],
              "tu_khoa": r"thép|hòa phát|\bhpg\b|hoa sen|\bhsg\b|nam kim|\bnkg\b|quặng sắt|tôn mạ|tôn lạnh|phôi thép|luyện kim|dung quất",
-             "loai_tru": r""},
-            {"key": "vang_bac", "ten": "Vàng bạc trang sức",
+             "loai_tru": r"tai nạn|lật|tử vong|\bchết\b|truy nã|lá chắn thép|ý chí thép|thần kinh thép|vòm thép|lồng thép|"
+                         r"cảnh vệ|bóng đá|funiki|nông nghiệp hòa phát|\bheo\b|\blợn\b|trứng gà"},
+            {"key": "vang_bac", "ten": "Vàng bạc trang sức", "tieu_de": True,
              "tim": ["giá vàng hôm nay", "PNJ cổ phiếu", "thị trường vàng", "giá bạc", "trang sức"],
              "tu_khoa": r"giá vàng|vàng sjc|vàng miếng|vàng nhẫn|vàng 9999|vàng 24k|vàng trang sức|thị trường vàng|vàng thế giới|"
                         r"vàng trong nước|mua vàng|bán vàng|tiệm vàng|vàng bạc|\bsjc\b|\bpnj\b|doji|bảo tín|phú quý|trang sức|"
-                        r"kim cương|giá bạc|bạc thế giới|ounce|nhẫn trơn|đá quý",
-             "loai_tru": r"vàng da|lá vàng|thời kỳ vàng|cơ hội vàng|giờ vàng|ngôi sao vàng|cờ vàng|huy chương|sea games|olympic|asiad|bóng đá"},
+                        r"kim cương|giá bạc|bạc thế giới|ounce|nhẫn trơn|đá quý|\bvàng (?:đồng loạt|giảm|tăng|lao dốc|bật tăng|hồi phục|lập đỉnh|neo|đứng yên)",
+             "loai_tru": r"vàng da|lá vàng|thời kỳ vàng|cơ hội vàng|giờ vàng|ngôi sao vàng|cờ vàng|huy chương|sea games|olympic|asiad|bóng đá|"
+                         r"vững vàng|quả bóng vàng|cánh đồng vàng|mùa vàng|thẻ vàng|đèn vàng"},
         ],
     },
     "cong_nghe": {
@@ -159,19 +179,30 @@ TAB = {
             "https://dantri.com.vn/rss/o-to-xe-may.rss", "https://dantri.com.vn/rss/cong-nghe.rss",
         ],
         "muc": [
-            {"key": "o_to", "ten": "Xe ô tô – dòng xe mới, thiết kế",
+            # Xe ô tô chia theo hãng: Honda, Suzuki, Toyota, Hyundai, VinFast, Khác (hãng còn lại, trừ xe Trung Quốc).
+            # Mục hãng: tiêu đề phải có tên hãng hoặc tên dòng xe của hãng đó.
+            xe_hang("xe_honda", "Honda", ["Honda ô tô", "xe Honda mới", "Honda CR-V HR-V City Civic"],
+                    r"honda|cr-v|hr-v|br-v|wr-v|civic|accord|honda city|\bcity rs\b"),
+            xe_hang("xe_suzuki", "Suzuki", ["Suzuki ô tô", "xe Suzuki mới", "Suzuki XL7 Ertiga Jimny Swift"],
+                    r"suzuki|\bxl7\b|ertiga|jimny|\bswift\b|fronx|\bciaz\b|vitara|super carry|\bcarry pro\b"),
+            xe_hang("xe_toyota", "Toyota", ["Toyota ô tô", "xe Toyota mới", "Toyota Vios Camry Corolla Cross Fortuner"],
+                    r"toyota|\bvios\b|camry|corolla|innova|fortuner|hilux|yaris|\braize\b|veloz|avanza|land cruiser|\bprado\b|wigo"),
+            xe_hang("xe_hyundai", "Hyundai", ["Hyundai ô tô", "xe Hyundai mới", "Hyundai Santa Fe Tucson Creta Accent"],
+                    r"hyundai|santa fe|tucson|\bcreta\b|\baccent\b|palisade|stargazer|grand i10|elantra|custin|ioniq|\bkona\b|\bvenue\b"),
+            xe_hang("xe_vinfast", "VinFast", ["VinFast ô tô", "xe VinFast mới", "VinFast VF 3 VF 5 VF 6 VF 7 VF 8 VF 9"],
+                    r"vinfast|\bvf ?\d\b|limo green|minio green|herio green|nerio green|ec van"),
+            {"key": "o_to", "ten": "Xe khác (trừ xe Trung Quốc)",
              "tim": ["ô tô mới ra mắt", "mẫu xe mới thiết kế", "xe thế hệ mới ra mắt", "ô tô nâng cấp facelift",
-                     "concept xe hơi", "nội thất ngoại thất xe mới", "Toyota Honda Hyundai Kia Mazda ra mắt",
-                     "Mercedes BMW Audi Porsche mẫu mới", "VinFast mẫu xe mới"],
+                     "concept xe hơi", "Kia Mazda Ford Mitsubishi ra mắt", "Mercedes BMW Audi Porsche mẫu mới",
+                     "Lexus Volvo Volkswagen Nissan mẫu xe mới"],
              "tu_khoa": r"ra mắt|trình làng|lộ diện|lộ trang bị|lộ ảnh|thế hệ mới|thiết kế|nâng cấp|phiên bản|bản mới|"
                         r"mẫu xe mới|mẫu mới|dòng xe mới|concept|facelift|nội thất|ngoại thất|khung gầm|diện mạo|"
                         r"đầu xe|đuôi xe|ngôn ngữ thiết kế|nền tảng mới|giới thiệu mẫu",
-             # ngoài xe Trung Quốc còn loại xe máy và tin tai nạn/giao thông
-             "loai_tru": XE_TRUNG_QUOC + r"|xe máy|xe tay ga|mô tô|môtô|xe số|xe đạp|tai nạn|phạt|csgt|"
-                                         r"đăng kiểm|biển số|tài xế|vi phạm|bằng lái|giấy phép lái",
+             # ngoài xe Trung Quốc còn loại xe máy, tin tai nạn/giao thông và 5 hãng đã có mục riêng
+             "loai_tru": LOAI_XE + r"|honda|suzuki|toyota|hyundai|vinfast", "loai_tru_ca_bai": HANG_XE_TQ,
              "bat_buoc": r"ô tô|xe hơi|\bxe\b|suv|sedan|crossover|bán tải|minivan|hatchback|coupe|"
-                         r"toyota|honda|hyundai|kia|mazda|ford|mitsubishi|nissan|suzuki|subaru|lexus|mercedes|bmw|audi|"
-                         r"porsche|volkswagen|volvo|vinfast|tesla|peugeot|land rover|jeep|ferrari|lamborghini|bentley|"
+                         r"kia|mazda|ford|mitsubishi|nissan|subaru|lexus|mercedes|bmw|audi|"
+                         r"porsche|volkswagen|volvo|tesla|peugeot|land rover|jeep|ferrari|lamborghini|bentley|"
                          r"rolls|mclaren|aston|genesis|isuzu|skoda|renault|cadillac|chevrolet"},
             {"key": "ai", "ten": "Công nghệ AI",
              "tim": ["trí tuệ nhân tạo", "công nghệ AI mới", "ChatGPT OpenAI", "Google Gemini AI",
@@ -250,6 +281,7 @@ THEM_BAO_CHINH_THONG = [
     "doisongphapluat.com", "baophapluat.vn", "vietnamdaily.vn", "toquoc.vn", "congly.vn", "phunuonline.com.vn",
     "tuoitrethudo.vn", "24h.com.vn", "vietnambiz.vn", "nguoiquansat.vn", "nhadautu.vn", "thuonghieucongluan.com.vn",
     "cafeland.vn", "24hmoney.vn", "xedoisong.vn", "techz.vn", "oto.com.vn", "vietnam.vn", "danviet.vn", "petrotimes.vn", "nongnghiep.vn", "nongnghiepmoitruong.vn", "vietq.vn", "dienanhvietnam.vn", "tiepthigiadinh.vn", "motgoc.vn",
+    "dangcongsan.vn", "dangcongsan.org.vn", "vtvgo.vn", "voh.com.vn", "suckhoedoisong.vn", "doanhnghiephoinhap.vn",
 ]
 TOI_DA_KENH_MOI_BAO = 14   # mỗi báo, mỗi tab lấy tối đa bao nhiêu kênh RSS liên quan
 TIM_KIEM_SONG_SONG = 6     # số luồng tìm kiếm Bing/Google (giữ thấp để không bị chặn)
@@ -276,13 +308,15 @@ SLUG_QUAN_TAM = {
 HAN_CHOT = time.time() + 12 * 60   # sau 12 phút bot ngừng lấy thêm, ghi những gì đã có (workflow cho tối đa 20 phút)
 _KHOA = threading.Lock()
 GHI_KENH = {}                       # url kênh RSS -> số tin lấy được (-1 = lỗi)
-NK = {"bing": [0, 0], "google": [0, 0], "mien_bi_loai": Counter()}   # nhật ký chẩn đoán ghi vào tin.json
+NK = {"bing": [0, 0], "google": [0, 0], "gm": [0, 0], "mien_bi_loai": Counter()}   # nhật ký chẩn đoán ghi vào tin.json
 
 
-def tai(url, timeout=15):
+def tai(url, timeout=15, data=None, headers=None):
     if time.time() > HAN_CHOT:
         raise TimeoutError("hết thời gian chạy của bot")
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "vi-VN,vi;q=0.9"})
+    h = {"User-Agent": UA, "Accept-Language": "vi-VN,vi;q=0.9"}
+    h.update(headers or {})
+    req = urllib.request.Request(url, data=data, headers=h)
     with urllib.request.urlopen(req, timeout=timeout) as r:
         du_lieu = r.read()
     if du_lieu[:2] == b"\x1f\x8b":   # một số báo nén gzip dù không được yêu cầu
@@ -364,6 +398,70 @@ def giai_ma_google(link):
     except Exception:  # noqa: BLE001 - giải mã không được thì thôi
         pass
     return link
+
+
+# --- Link Google News kiểu MỚI (mã có chữ ký, không giải offline được) ---
+# Cách làm (giống thư viện googlenewsdecoder): đọc trang /articles/<mã> để lấy chữ ký (data-n-a-sg, data-n-a-ts),
+# rồi hỏi batchexecute (rpc Fbv4je) -> link bài gốc. Chỉ dùng cho tin ĐÃ được chọn vào app, có giới hạn và tự ngắt
+# khi Google chặn, nên lỗi cũng không làm hỏng gì: tin vẫn giữ link Google như trước.
+GIAI_MA_TOI_DA = 130          # tổng số link giải mã mỗi lần chạy (cả 3 tab)
+GIAI_MA_LOI_LIEN_TIEP = 6     # lỗi liên tiếp ngần này lần -> coi như bị chặn, ngừng giải mã
+GIAI_MA_NGHI = 0.4            # giây nghỉ giữa các lần (tránh bị Google giới hạn tốc độ)
+_GM = {"da_thu": 0, "loi_lt": 0, "dung": False}
+_GM_COOKIE = {"Cookie": "CONSENT=YES+cb.20210720-07-p0.en+FX+410; SOCS=CAI"}
+
+
+def giai_ma_google_moi(link):
+    """Trả về link bài gốc nếu giải mã được, ngược lại trả lại đúng link Google ban đầu."""
+    m = re.search(r"news\.google\.com/(?:rss/)?(?:articles|read)/([A-Za-z0-9_-]+)", link or "")
+    if not m:
+        return link
+    ma = m.group(1)
+    with _KHOA:
+        if _GM["dung"] or _GM["da_thu"] >= GIAI_MA_TOI_DA or time.time() > HAN_CHOT:
+            return link
+        _GM["da_thu"] += 1
+    ket_qua = link
+    try:
+        time.sleep(GIAI_MA_NGHI)
+        trang = tai(f"https://news.google.com/articles/{ma}", timeout=12, headers=_GM_COOKIE).decode("utf-8", "ignore")
+        sg = re.search(r"data-n-a-sg\s*=\s*[\"']([^\"']+)", trang)
+        ts = re.search(r"data-n-a-ts\s*=\s*[\"']?(\d+)", trang)
+        if not sg or not ts:
+            raise ValueError("trang Google không có chữ ký (có thể đang hiện trang đồng ý cookie/chặn)")
+        trong = json.dumps(["garturlreq", [["X", "X", ["X", "X"], None, None, 1, 1, "US:en", None, 1, None, None, None,
+                                            None, None, 0, 1], "X", "X", 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
+                            ma, int(ts.group(1)), sg.group(1)], separators=(",", ":"), ensure_ascii=False)
+        goi = "f.req=" + quote(json.dumps([[["Fbv4je", trong]]], separators=(",", ":"), ensure_ascii=False))
+        tra = tai("https://news.google.com/_/DotsSplashUi/data/batchexecute?rpcids=Fbv4je&hl=en-US&gl=US", timeout=12,
+                  data=goi.encode("utf-8"),
+                  headers={**_GM_COOKIE, "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+                           "Origin": "https://news.google.com", "Referer": "https://news.google.com/"}).decode("utf-8", "ignore")
+        for dong in tra.split("\n"):
+            dong = dong.strip()
+            if not dong.startswith("["):
+                continue
+            try:
+                cac_muc = json.loads(dong)
+            except ValueError:
+                continue
+            for muc in cac_muc:
+                if isinstance(muc, list) and len(muc) > 2 and muc[0] == "wrb.fr" and isinstance(muc[2], str):
+                    u = json.loads(muc[2])[1]
+                    if isinstance(u, str) and u.startswith("http") and "google." not in urlparse(u).netloc:
+                        ket_qua = u
+        if ket_qua == link:
+            raise ValueError("batchexecute không trả về link bài gốc")
+        with _KHOA:
+            NK["gm"][0] += 1
+            _GM["loi_lt"] = 0
+    except Exception:  # noqa: BLE001 - lỗi gì cũng giữ link Google
+        with _KHOA:
+            NK["gm"][1] += 1
+            _GM["loi_lt"] += 1
+            if _GM["loi_lt"] >= GIAI_MA_LOI_LIEN_TIEP:
+                _GM["dung"] = True
+    return ket_qua
 
 
 def ten_mien(link):
@@ -573,9 +671,14 @@ def cham_diem(tin, muc):
     toan_bo = tieu_de + " " + mo_ta
     if muc.get("loai_tru") and re.search(muc["loai_tru"], tieu_de, re.I):
         return -1
+    if muc.get("loai_tru_ca_bai") and re.search(muc["loai_tru_ca_bai"], toan_bo, re.I):
+        return -1   # vd tên hãng xe Trung Quốc nằm trong tóm tắt
     if muc.get("bat_buoc") and not re.search(muc["bat_buoc"], toan_bo, re.I):
         return -1
-    diem = 2 * dem(muc["tu_khoa"], tieu_de) + dem(muc["tu_khoa"], mo_ta)
+    trong_tieu_de = dem(muc["tu_khoa"], tieu_de)
+    if muc.get("tieu_de") and not trong_tieu_de:
+        return 0   # mục yêu cầu từ khóa phải nằm ở tiêu đề
+    diem = 2 * trong_tieu_de + dem(muc["tu_khoa"], mo_ta)
     if diem == 0 or diem < muc.get("toi_thieu", 1):
         return 0
     diem += muc.get("uu_tien", 0)   # mục do bạn tự thêm (cau_hinh_tin.txt) thắng khi bằng điểm với mục có sẵn
@@ -686,6 +789,12 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
         ket_qua[k] = ket_qua[k][:SO_TIN_MOI_MUC]
         da_co_toan_cuc += ket_qua[k]
 
+    # Giải mã link Google kiểu mới -> link bài gốc (để đọc được tóm tắt, và bấm vào là tới thẳng báo)
+    cho_giai = [t for k in ket_qua for t in ket_qua[k] if "news.google.com" in t["url"]]
+    with ThreadPoolExecutor(max_workers=3) as ex:
+        for t, u in zip(cho_giai, ex.map(lambda t: giai_ma_google_moi(t["url"]), cho_giai)):
+            t["url"] = u
+
     # Bổ sung tóm tắt từ bài gốc cho tin chưa có
     thieu = [t for k in ket_qua for t in ket_qua[k] if not t["summary"]][:150]
     with ThreadPoolExecutor(max_workers=8) as ex:
@@ -714,7 +823,7 @@ def lay_thoi_tiet():
     url = ("https://api.open-meteo.com/v1/forecast?latitude=12.2388&longitude=109.1967"
            "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m"
            "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,"
-           "precipitation_probability_max,wind_speed_10m_max&timezone=Asia%2FHo_Chi_Minh&forecast_days=7")
+           "precipitation_probability_max,wind_speed_10m_max&timezone=Asia%2FHo_Chi_Minh&forecast_days=8")
     try:
         return thu(lambda: json.loads(tai(url)))
     except Exception as e:  # noqa: BLE001
@@ -910,7 +1019,7 @@ def main():
     ket_qua["meta"]["nguon"] = {
         "bao_co_kenh": co_kenh, "bao_tong": len(BAO),
         "kenh_tot": sum(1 for v in GHI_KENH.values() if v >= 0), "kenh_loi": sum(1 for v in GHI_KENH.values() if v < 0),
-        "bing": NK["bing"], "google": NK["google"],
+        "bing": NK["bing"], "google": NK["google"], "google_giai_ma": NK["gm"],
         "bao_khong_co_kenh": {BAO[k][0]: ghi_bao[k]["loi"] for k, v in kenh_bao.items() if not v},
         "mien_bi_loai": [f"{m} ({n})" for m, n in NK["mien_bi_loai"].most_common(12)],
     }
