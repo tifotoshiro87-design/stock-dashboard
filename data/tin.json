@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-20 03:32",
+  "fetched_at": "2026-10-20 05:29",
   "note": "Tin tự động từ RSS các báo chính thống, Bing News, Google News. Không cần API key.",
   "hien_san": 3,
   "cau_hinh_loi": [],
@@ -10,10 +10,10 @@
    "bo_bao": []
   },
   "nguon": {
-   "bao_co_kenh": 24,
+   "bao_co_kenh": 25,
    "bao_tong": 35,
    "kenh_tot": 236,
-   "kenh_loi": 8,
+   "kenh_loi": 9,
    "bing": [
     106,
     0
@@ -23,14 +23,13 @@
     0
    ],
    "google_giai_ma": [
-    83,
-    9
+    76,
+    8
    ],
    "bao_khong_co_kenh": {
     "VietNamNet": "HTTPError: HTTP Error 404: Not Found",
     "Znews": "HTTPError: HTTP Error 403: Forbidden",
     "Lao Động": "không thấy link RSS trong trang",
-    "VOV": "HTTPError: HTTP Error 403: Forbidden",
     "Báo Khánh Hòa": "HTTPError: HTTP Error 404: Not Found",
     "Cổng TTĐT Khánh Hòa": "không thấy link RSS trong trang",
     "Báo Đầu tư": "HTTPError: HTTP Error 404: Not Found",
@@ -40,18 +39,18 @@
     "Thời báo Tài chính VN": "HTTPError: HTTP Error 410: Gone"
    },
    "mien_bi_loai": [
-    "baomoi.com (105)",
-    "ngoisao.vn (77)",
-    "tin.skydoor.net (61)",
-    "msn.com (55)",
-    "thethao247.vn (43)",
-    "thuongtruong.com.vn (30)",
-    "forum.autodaily.vn (29)",
+    "baomoi.com (97)",
+    "ngoisao.vn (79)",
+    "tin.skydoor.net (62)",
+    "msn.com (57)",
+    "thethao247.vn (41)",
+    "thuongtruong.com.vn (31)",
+    "forum.autodaily.vn (30)",
     "vntravel.org.vn (28)",
     "mekongasean.vn (24)",
     "fili.vn (22)",
-    "digitaltoday.co.kr (22)",
-    "daibieunhandan.vn (20)"
+    "xehay.vn (22)",
+    "whatcar.vn (20)"
    ]
   }
  },
@@ -85,7 +84,7 @@
      },
      {
       "title": "Đoạn 1 và 3 đường giao thông liên vùng Khánh Sơn - Khánh Vĩnh dự kiến hoàn thành trong quý II/2027",
-      "summary": "UBND tỉnh vừa có báo cáo gửi Thường trực Ủy ban Khoa học, Công nghệ và Môi trường của Quốc hội về tình hình thực hiện Dự án Đường giao thông từ Quốc lộ 27C đến đường tỉnh ĐT.656 tỉnh Khánh Hòa - kết n ...",
+      "summary": "UBND tỉnh Khánh Hòa vừa có báo cáo gửi Thường trực Ủy ban Khoa học, Công nghệ và Môi trường của Quốc hội về tình hình thực hiện Dự án Đường giao thông từ Quốc lộ 27C đến đường tỉnh ĐT.656 tỉnh Khánh Hòa - kết nối với tỉnh Lâm Đồng và tỉnh Ninh Thuận (Dự án Đường giao thông liên…",
       "url": "https://www.vietnam.vn/doan-1-va-3-duong-giao-thong-lien-vung-khanh-son-khanh-vinh-du-kien-hoan-thanh-trong-quy-ii-2027",
       "source": "Vietnam.vn",
       "date": "2026-10-19 20:10"
@@ -117,6 +116,13 @@
       "url": "https://khanhhoa.gov.vn/vi/tin-noi-bat-danh-cho-cong-dan/bo-xay-dung-tra-loi-ve-quy-dinh-giu-khoang-cach-an-toan-tren-cao-toc",
       "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
       "date": "2026-10-19 16:30"
+     },
+     {
+      "title": "Xã Nam Ninh Hòa quyết tâm xóa bỏ các lối đi tự mở qua đường sắt, bảo vệ tính mạng Nhân dân",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/xa-nam-ninh-hoa-quyet-tam-xoa-bo-cac-loi-di-tu-mo-qua-duong-sat-bao-ve-tinh-mang-nhan-dan",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-10-19 15:00"
      },
      {
       "title": "Học để bắt nhịp kỷ nguyên mới",
@@ -159,13 +165,6 @@
       "url": "https://thanhnien.vn/khanh-hoa-siet-thiet-bi-bay-khong-nguoi-lai-dieu-den-troi-quanh-san-bay-cam-ranh-185261018094353534.htm",
       "source": "Báo Thanh Niên",
       "date": "2026-10-18 11:15"
-     },
-     {
-      "title": "Lễ khởi công sửa chữa công trình “Ngôi nhà khăn quàng đỏ”",
-      "summary": "Sáng ngày 18/10, Đoàn Thanh niên, Hội Liên hiệp Thanh niên và Hội đồng Đội phường Nha Trang phối hợp tổ chức Lễ khởi công sửa chữa công trình “Ngôi nhà khăn quàng đỏ” dành tặng học sinh có hoàn cảnh khó khăn, nhân dịp kỷ niệm 70 năm Ngày truyền thống Hội Liên hiệp Thanh niên…",
-      "url": "https://nhatrang.khanhhoa.gov.vn/tin-bai/mttq-doanthe/le-khoi-cong-sua-chua-cong-trinh-%E2%80%9Cngoi-nha-khan-quang-do%E2%80%9D-2582",
-      "source": "Cổng TTĐT Khánh Hòa",
-      "date": "2026-10-18 05:19"
      }
     ]
    },
@@ -216,25 +215,18 @@
       "date": "2026-10-19 05:00"
      },
      {
-      "title": "bất động sản Nha Trang",
-      "summary": "Bất động sản Nha Trang - Sau sáp nhập, lõi trung tâm Nha Trang được dự báo tăng sức hút an cư với lao động trẻ nhờ động lực từ kinh tế, du lịch, cơ hội việc làm. - VnExpress.",
-      "url": "https://vnexpress.net/tag/bat-dong-san-nha-trang-721480",
-      "source": "VnExpress",
-      "date": "2026-10-18 23:59"
-     },
-     {
       "title": "Khánh Hòa giảm tiền thuê lại đất trong 5 năm với nhiều nhóm doanh nghiệp",
       "summary": "Khánh Hòa sẽ giảm 30% tiền thuê lại đất trong 5 năm đầu cho một số doanh nghiệp công nghiệp, doanh nhỏ và vừa...",
       "url": "https://tuoitre.vn/khanh-hoa-giam-tien-thue-lai-dat-trong-5-nam-voi-nhieu-nhom-doanh-nghiep-100261018114233058.htm",
-      "source": "Báo Tuổi Trẻ",
+      "source": "Tuổi Trẻ",
       "date": "2026-10-18 12:10"
      },
      {
       "title": "Hé lộ danh sách 10 dự án sắp thu hồi đất tại Khánh Hòa",
-      "summary": "Khánh Hòa đã thông qua nghị quyết về danh mục các dự án phải thu hồi đất để phát triển kinh tế - xã hội vì lợi ích quốc gia, công cộng. Theo hồ sơ trình, 10 dự án có tổng diện tích 823,89ha, nổi bật là khu đô thị hỗn hợp Vĩnh Lương gần 49.005 tỷ đồng và hai khu công nghiệp rộng…",
+      "summary": "Khánh Hòa đã thông qua nghị quyết về danh mục các dự án phải thu hồi đất để phát triển kinh tế - xã hội vì lợi ích quốc gia, công cộng. Theo hồ sơ trình, 10 dự án có tổng diện tích 823,89ha, nổi bật l ...",
       "url": "https://cafeland.vn/tin-tuc/he-lo-danh-sach-10-du-an-sap-thu-hoi-dat-tai-khanh-hoa-155970.html",
       "source": "CafeLand",
-      "date": "2026-10-18 06:12"
+      "date": "2026-10-18 06:13"
      },
      {
       "title": "bất động sản Khánh Hòa",
@@ -277,6 +269,13 @@
       "url": "https://namnhatrang.khanhhoa.gov.vn/vi/tin-noi-bat/hoi-hoa-xuan-nam-2027-se-dien-ra-tai-khu-do-thi-thai-hung-my-gia",
       "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
       "date": "2026-10-16 20:18"
+     },
+     {
+      "title": "Ngày 26/10/2026, đấu giá 02 quyền sử dụng đất và tài sản gắn liền với đất tại xã Nam Cam Ranh, tỉnh Khánh Hòa",
+      "summary": "(BĐT) - Công ty Đấu giá Hợp danh Vạn Thành An thông báo bán đấu giá ngày 26/10/2026 như sau: Tổ chức hành nghề đấu giá tài sản: Công ty Đấu giá Hợp danh Vạn Thành An - địa chỉ: Số 03 Lý Văn Phức, P.Tâ ...",
+      "url": "https://baodauthau.vn/ngay-26102026-dau-gia-02-quyen-su-dung-dat-va-tai-san-gan-lien-voi-dat-tai-xa-nam-cam-ranh-tinh-khanh-hoa-post210235.html",
+      "source": "Báo Đấu thầu",
+      "date": "2026-10-16 14:57"
      }
     ]
    },
@@ -284,6 +283,13 @@
     "key": "kinh_te_vh",
     "name": "Môi trường kinh tế – văn hóa",
     "items": [
+     {
+      "title": "Nuôi dưỡng văn hóa đọc từ gia đình",
+      "summary": "Gia đình là nơi trẻ bắt đầu làm quen với sách và hình thành những thói quen đầu tiên. Từ việc cùng con đọc sách mỗi tối đến khuyến khích trẻ tự lựa chọn, chia sẻ điều đã đọc, sự đồng hành của cha mẹ góp phần nuôi dưỡng tình yêu sách, bồi đắp tri thức và những giá trị sống tốt…",
+      "url": "https://baokhanhhoa.vn/van-hoa/202610/nuoi-duong-van-hoa-doc-tu-gia-dinh-5411b42/",
+      "source": "Báo Khánh Hòa",
+      "date": "2026-10-20 05:01"
+     },
      {
       "title": "Danh sách thôn vùng đồng bào dân tộc thiểu số và miền núi, thôn đặc biệt khó khăn giai đoạn 2026-2030 tại 5 tỉnh",
       "summary": "Bộ Dân tộc và Tôn giáo công bố danh sách thôn vùng đồng bào dân tộc thiểu số và miền núi, thôn đặc biệt khó khăn giai đoạn 2026-2030 (đợt 2) tại 5 tỉnh gồm Lào Cai, Hà Tĩnh, Quảng Trị, Khánh Hòa và An Giang. Quy chế hoạt động của Ban Chỉ đạo Trung ương xây dựng nông thôn mới,…",
@@ -297,6 +303,13 @@
       "url": "https://baotintuc.vn/nxb-thong-tan-ra-mat-sach-anh-huyen-thoai-duong-ho-chi-minh-tren-bien-post1395577.html",
       "source": "Báo Tin tức (TTXVN)",
       "date": "2026-10-19 16:46"
+     },
+     {
+      "title": "Festival Island: Lời giải cho bài toán kinh tế đêm và cuộc giữ chân khách quốc tế tại Nha Trang",
+      "summary": "Một gia đình Nga sẵn sàng ở lại “trú đông” từ 1-2 tháng, nhóm du khách Hàn Quốc có thể đã đến Nha Trang lần thứ năm, nhưng vẫn muốn quay lại. Lý do không hẳn là để khám phá thêm một bãi biển bí ẩn, khách sạn hay nhà hàng mới, mà họ mong chờ một trải nghiệm đủ khác biệt để biến…",
+      "url": "https://www.vietnam.vn/festival-island-loi-giai-cho-bai-toan-kinh-te-dem-va-cuoc-giu-chan-khach-quoc-te-tai-nha-trang",
+      "source": "Vietnam.vn",
+      "date": "2026-10-19 13:03"
      },
      {
       "title": "Kiến tạo những giá trị mới của di sản",
@@ -374,20 +387,6 @@
       "url": "https://baokhanhhoa.vn/chinh-tri/quoc-hoi-hdnd/202610/quoc-hoi-thao-luan-ve-kinh-te-xa-hoi-ngan-sach-nha-nuoc-va-dau-tu-cong-4812570/",
       "source": "Báo Khánh Hòa",
       "date": "2026-10-18 09:33"
-     },
-     {
-      "title": "Phường Ninh Phước của Khánh Hòa có gì khi trở thành đô thị di sản?",
-      "summary": "Sau khi đề án thành lập được thông qua, phường Ninh Phước (Khánh Hòa) được định hướng phát triển thành đô thị di sản văn hóa dân tộc, lấy văn hóa Chăm, làng nghề và lễ hội làm lợi thế phát triển du lịch, dịch vụ.",
-      "url": "https://thanhnien.vn/phuong-ninh-phuoc-cua-khanh-hoa-co-gi-khi-tro-thanh-do-thi-di-san-185261017170105947.htm",
-      "source": "Thanh Niên",
-      "date": "2026-10-18 05:00"
-     },
-     {
-      "title": "Lan tỏa vẻ đẹp và sức sáng tạo của phụ nữ Việt Nam",
-      "summary": "Hướng tới kỷ niệm 96 năm Ngày thành lập Hội Liên hiệp Phụ nữ Việt Nam (20/10/1930 - 20/10/2026), thành phố Đà Nẵng đã tổ chức nhiều hoạt động văn hóa, nghệ thuật với nội dung đa dạng, từ diễu hành áo dài, triển lãm mỹ thuật đến gặp gỡ, giao lưu nữ văn nghệ sĩ, góp phần tôn vinh…",
-      "url": "https://baotintuc.vn/lan-toa-ve-dep-va-suc-sang-tao-cua-phu-nu-viet-nam-post1395218.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-10-17 22:54"
      }
     ]
    },
@@ -403,17 +402,10 @@
       "date": "2026-10-19 20:25"
      },
      {
-      "title": "Festival Island: Lời giải cho bài toán kinh tế đêm và cuộc giữ chân khách quốc tế tại Nha Trang",
-      "summary": "Một gia đình Nga sẵn sàng ở lại “trú đông” từ 1-2 tháng, nhóm du khách Hàn Quốc có thể đã đến Nha Trang lần thứ năm, nhưng vẫn muốn quay lại. Lý do không hẳn là để khám phá thêm một bãi biển bí ẩn, khách sạn hay nhà hàng mới, mà họ mong chờ một trải nghiệm đủ khác biệt để biến…",
-      "url": "https://tienphong.vn/festival-island-loi-giai-cho-bai-toan-kinh-te-dem-va-cuoc-giu-chan-khach-quoc-te-tai-nha-trang-post1886697.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-10-19 17:36"
-     },
-     {
       "title": "Nha Trang xử phạt nhiều hàng quán nổi tiếng chuyên phục vụ khách du lịch",
       "summary": "Đón hơn 16,4 triệu lượt khách trong năm 2025, Khánh Hòa đang tìm động lực mới để chuyển từ tăng trưởng về số lượng sang nâng cao chất lượng, hướng tới mục tiêu trở thành trung tâm du lịch biển ...",
       "url": "https://tuoitre.vn/nha-trang-xu-phat-nhieu-hang-quan-noi-tieng-chuyen-phuc-vu-khach-du-lich-100261019155919237.htm",
-      "source": "Báo Tuổi Trẻ",
+      "source": "Tuổi Trẻ",
       "date": "2026-10-19 17:05"
      },
      {
@@ -431,13 +423,6 @@
       "date": "2026-10-19 15:15"
      },
      {
-      "title": "Cảnh báo những thủ đoạn lừa đảo mới liên quan đến BHXH, BHYT",
-      "summary": "Thông tin chính thống hoạt động, quyết định, chỉ đạo của tỉnh Khánh Hòa về kinh tế, xã hội, quốc phòng, an ninh, ngoại giao; và thế giới...",
-      "url": "https://khanhhoa.gov.vn/vi/tin-noi-bat-danh-cho-cong-dan/canh-bao-nhung-thu-doan-lua-dao-moi-lien-quan-den-bhxh-bhyt",
-      "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
-      "date": "2026-10-19 08:19"
-     },
-     {
       "title": "Trang ẩm thực Mỹ gợi ý 10 món Việt hấp dẫn cho bữa ăn tối",
       "summary": "Trang ẩm thực nổi tiếng của Mỹ Serious Eats vừa đăng tải bài viết giới thiệu 10 món ăn Việt Nam được đánh giá là thơm ngon, thanh mát, có thể làm mới thực đơn hằng ngày. Không chỉ dừng lại ở việc gợi ý món ăn, bài viết còn chia sẻ công thức chế biến chi tiết để độc giả có thể dễ…",
       "url": "https://baokhanhhoa.vn/du-lich/202610/trang-am-thuc-my-goi-y-10-mon-viet-hap-dan-cho-bua-an-toi-9f50ed9/",
@@ -445,11 +430,32 @@
       "date": "2026-10-18 19:04"
      },
      {
+      "title": "Khen thưởng đột xuất trong triển khai Hệ thống hỗ trợ pháp lý và an toàn cho khách du lịch quốc tế trên địa bàn tỉnh Khánh Hòa - Khanh Hoa Travel Assistance",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/khen-thuong-dot-xuat-trong-trien-khai-he-thong-ho-tro-phap-ly-va-an-toan-cho-khach-du-lich-quoc-te",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-10-18 14:00"
+     },
+     {
+      "title": "Tin tức",
+      "summary": "Du lịch Nha Trang - Cập nhập tin tức, hình ảnh, video mới nhất. Kinh nghiệm, mẹo đi du lịch Nha Trang, những địa điểm check in đẹp tại Nha Trang.",
+      "url": "https://congan.khanhhoa.gov.vn/vi/tin-tuc-pho-bien-phap-luat",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-10-18 14:00"
+     },
+     {
       "title": "Cảnh báo: Sập bẫy lừa đảo đặt phòng khách sạn giá rẻ tại Khánh Hòa",
       "summary": "",
       "url": "https://congan.khanhhoa.gov.vn/vi/canh-bao-sap-bay-lua-dao-dat-phong-khach-san-gia-re-tai-khanh-hoa",
       "source": "Công An Tỉnh Khánh Hòa",
       "date": "2026-10-18 08:56"
+     },
+     {
+      "title": "Quyết định bổ nhiệm chức vụ Phó Giám đốc Trung tâm Dịch vụ, sự nghiệp công xã Khánh Sơn",
+      "summary": "Thông tin chính thống hoạt động, quyết định, chỉ đạo của tỉnh Khánh Hòa về kinh tế, xã hội, quốc phòng, an ninh, ngoại giao; và thế giới...",
+      "url": "https://khanhson.khanhhoa.gov.vn/vi/cong-khai-cac-van-ban-thu-tuc-hanh-chinh/quyet-dinh-bo-nhiem-chuc-vu-pho-giam-doc-trung-tam-dich-vu-su-nghiep-cong-xa-khanh-son",
+      "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
+      "date": "2026-10-17 19:04"
      },
      {
       "title": "Festival Island: Mở rộng trải nghiệm về đêm, tăng sức hút cho du lịch Nha Trang",
@@ -492,13 +498,6 @@
       "url": "https://vneconomy.vn/khanh-hoa-ky-vong-khai-thac-hieu-qua-thi-truong-khach-trung-quoc.htm",
       "source": "VnEconomy",
       "date": "2026-10-15 08:44"
-     },
-     {
-      "title": "Miễn thị thực cho 12 nước châu Âu: Cơ hội mới cho du lịch Khánh Hòa",
-      "summary": "",
-      "url": "https://congan.khanhhoa.gov.vn/vi/mien-thi-thuc-cho-12-nuoc-chau-au-co-hoi-moi-cho-du-lich-khanh-hoa",
-      "source": "Công An Tỉnh Khánh Hòa",
-      "date": "2026-10-15 07:33"
      }
     ]
    },
@@ -522,7 +521,7 @@
      },
      {
       "title": "Trường Đại học Nha Trang tổ chức định hướng cho 21 lưu học sinh Vanuatu khóa mới",
-      "summary": "<p style=\"text-align: justify;\">Ngày 19/10, Trường Đại học Nha Trang tổ chức buổi định hướng dành cho 21 lưu học sinh (LHS) Vanuatu khóa mới, nhằm hỗ trợ sinh viên làm quen với môi trường học tập, sinh hoạt tại Việt Nam, đồng thời phổ biến các quy định cần thiết trong quá trình…",
+      "summary": "",
       "url": "https://ntu.edu.vn/tin-tuc/truong-dai-hoc-nha-trang-to-chuc-dinh-huong-cho-21-luu-hoc-sinh-vanuatu-khoa-moi",
       "source": "Trường Đại học Nha Trang",
       "date": "2026-10-19 16:38"
@@ -536,7 +535,7 @@
      },
      {
       "title": "Trường Đại học Nha Trang làm việc với CSIRO Aquaculture, thúc đẩy hợp tác nghiên cứu nuôi trồng thủy sản",
-      "summary": "<p class=\"MsoNormal\" style=\"text-align: justify;\">Ngày 19/10, Trường Đại học Nha Trang (NTU) đã có buổi tiếp và làm việc với đoàn công tác Cơ quan Khoa học và Công nghệ Quốc gia Úc (CSIRO), đại diện Viện Khoa học Thủy sản Việt Nam cùng các doanh nghiệp đối tác, nhằm trao đổi cơ…",
+      "summary": "",
       "url": "https://ntu.edu.vn/tin-tuc/truong-dai-hoc-nha-trang-lam-viec-voi-csiro-aquaculture--thuc-day-hop-tac-nghien-cuu-nuoi-trong-thuy-san",
       "source": "Trường Đại học Nha Trang",
       "date": "2026-10-19 15:55"
@@ -577,13 +576,6 @@
       "date": "2026-10-19 06:00"
      },
      {
-      "title": "HƯỞNG ỨNG CUỘC THI TRỰC TUYẾN TRÊN CỔNG PHÁP LUẬT QUỐC GIA TÌM HIỂU HIẾN PHÁP VÀ PHÁP LUẬT",
-      "summary": "Thông tin chính thống hoạt động, quyết định, chỉ đạo của tỉnh Khánh Hòa về kinh tế, xã hội, quốc phòng, an ninh, ngoại giao; và thế giới...",
-      "url": "https://khanhson.khanhhoa.gov.vn/vi/tuyen-truyen-giao-duc-phap-luat/huong-ung-cuoc-thi-truc-tuyen-tren-cong-phap-luat-quoc-gia-tim-hieu-hien-phap-va-phap-luat",
-      "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
-      "date": "2026-10-18 23:19"
-     },
-     {
       "title": "Hơn 70 cán bộ, giáo viên, học sinh Trường THCS Tây Nha Trang tham gia “Hành trình đến địa chỉ đỏ”",
       "summary": "Nhân kỷ niệm 81 năm ngày Nha Trang - Khánh Hòa kháng chiến (23-10-1945 - 23-10-2026), ngày 18-10, Trường THCS Tây Nha Trang tổ chức chương trình “Hành trình đến địa chỉ đỏ” với sự tham gia của hơn 70 ...",
       "url": "https://www.vietnam.vn/hon-70-can-bo-giao-vien-hoc-sinh-truong-thcs-tay-nha-trang-tham-gia-hanh-trinh-den-dia-chi-do",
@@ -610,6 +602,13 @@
       "url": "https://baokhanhhoa.vn/thong-tin-xa-phuoc-hau/202610/mat-tran-xa-phuoc-hau-ra-quan-ve-sinh-moi-truong-trong-cay-xanh-hoa-vien-2e502ff/",
       "source": "Báo Khánh Hòa",
       "date": "2026-10-18 10:22"
+     },
+     {
+      "title": "Công khai Giấy phép môi trường của cơ sở “Nhà máy nước Võ Cạnh”",
+      "summary": "",
+      "url": "https://snnmt.khanhhoa.gov.vn/noi-dung/id/12270/Cong-khai-Giay-phep-moi-truong-cua-co-so-%E2%80%9CNha-may-nuoc-Vo-Canh%E2%80%9D",
+      "source": "Cổng Thông tin điện tử tỉnh Khánh Hòa",
+      "date": "2026-10-17 16:48"
      }
     ]
    },
@@ -681,6 +680,13 @@
       "date": "2026-10-19 14:57"
      },
      {
+      "title": "Phòng Cảnh sát giao thông, Công an tỉnh Khánh Hòa triển khai công tác năm 2025.",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/phong-canh-sat-giao-thong-cong-an-tinh-khanh-hoa-trien-khai-cong-tac-nam-2025",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-10-19 13:29"
+     },
+     {
       "title": "Ngày 19-10, Quốc hội tiếp tục thảo luận về các dự án luật",
       "summary": "Theo chương trình Kỳ họp thứ 2 Quốc hội khóa XVI, ngày 19-10, Quốc hội tiếp tục làm việc tại hội trường và thảo luận ở tổ về các dự án luật liên quan đến lĩnh vực kinh tế xã hội.",
       "url": "https://baokhanhhoa.vn/chinh-tri/202610/ngay-19-10-quoc-hoi-tiep-tuc-thao-luan-ve-cac-du-an-luat-0dc4cc5/",
@@ -714,13 +720,6 @@
       "url": "https://congan.khanhhoa.gov.vn/vi/tong-hop-cac-muc-phat-loi-vuot-den-do-doi-voi-o-to-xe-may-va-cac-loai-xe-khac",
       "source": "Công An Tỉnh Khánh Hòa",
       "date": "2026-10-18 16:05"
-     },
-     {
-      "title": "Công an tỉnh Khánh Hòa tổng rà soát, làm sạch dữ liệu và số hóa hồ sơ quản lý giấy phép lái xe",
-      "summary": "",
-      "url": "https://congan.khanhhoa.gov.vn/vi/cong-an-tinh-khanh-hoa-tong-ra-soat-lam-sach-du-lieu-va-so-hoa-ho-so-quan-ly-giay-phep-lai-xe",
-      "source": "Công An Tỉnh Khánh Hòa",
-      "date": "2026-10-18 14:56"
      }
     ]
    },
@@ -729,18 +728,18 @@
     "name": "Dự báo thời tiết",
     "items": [
      {
+      "title": "Thời tiết Khánh Hòa hôm nay 20/10, ngày mai 21/10, 7 ngày tới",
+      "summary": "Hôm nay thứ Ba 20/10/2026, Khánh Hòa 24–28°C, có mưa rào, khả năng mưa cả ngày 85%. Dự báo thời tiết Khánh Hòa 7 ngày tới.",
+      "url": "https://baolamdong.vn/thoi-tiet/tinh-khanh-hoa",
+      "source": "Báo Lâm Đồng",
+      "date": "2026-10-20 03:26"
+     },
+     {
       "title": "Xã Vạn Ninh họp triển khai công tác phòng, chống lụt bão",
       "summary": "Cập nhật tin tức thông tin của xã Vạn Ninh",
       "url": "https://vanninh.khanhhoa.gov.vn/vi/tin-noi-bat/xa-van-ninh-hop-trien-khai-cong-tac-phong-chong-lut-bao",
       "source": "Xã Vạn Ninh",
       "date": "2026-10-19 21:46"
-     },
-     {
-      "title": "Thời tiết Khánh Hòa hôm nay 19/10, ngày mai 20/10, 7 ngày tới",
-      "summary": "Hôm nay thứ Ba 20/10/2026, Khánh Hòa 24–28°C, có mưa rào, khả năng mưa cả ngày 85%. Dự báo thời tiết Khánh Hòa 7 ngày tới.",
-      "url": "https://baolamdong.vn/thoi-tiet/tinh-khanh-hoa",
-      "source": "Báo Lâm Đồng",
-      "date": "2026-10-19 20:34"
      },
      {
       "title": "Điện lực Trung tâm Nha Trang khẩn trương khắc phục cáp ngầm hạ áp bị mất cắp, đảm bảo an toàn điện trước mùa mưa bão",
@@ -851,6 +850,34 @@
     "name": "Xây dựng – Đầu tư công",
     "items": [
      {
+      "title": "TP.HCM tổng lực giải ngân vốn đầu tư công và tư",
+      "summary": "TP.HCM đặt mục tiêu giải ngân 100% vốn đầu tư công, vốn FDI đạt 40% và vốn doanh nghiệp trong nước đạt 30% để thúc đẩy tăng trưởng 2 con số năm 2026.",
+      "url": "https://thanhnien.vn/tphcm-tong-luc-giai-ngan-von-dau-tu-cong-va-tu-185261019172842883.htm",
+      "source": "Thanh Niên",
+      "date": "2026-10-20 05:25"
+     },
+     {
+      "title": "Thiếu vật liệu xây dựng, TP.HCM tính khai thác sâu mỏ đá, dùng cát biển thay thế",
+      "summary": "Quy hoạch tăng độ sâu khai thác mỏ đá, rút ngắn thủ tục cấp phép và nghiên cứu sử dụng cát biển là những giải pháp TP. Hồ Chí Minh đang triển khai nhằm giảm áp lực thiếu hụt vật liệu cho các công trình hạ tầng.",
+      "url": "https://vneconomy.vn/thieu-vat-lieu-xay-dung-tphcm-tinh-khai-thac-sau-mo-da-dung-cat-bien-thay-the.htm",
+      "source": "VnEconomy",
+      "date": "2026-10-20 05:01"
+     },
+     {
+      "title": "Điện Biên mở rộng không gian hợp tác, đón dòng vốn đầu tư quốc tế",
+      "summary": "VTV.vn - Điện Biên kết nối nhà đầu tư Việt Nam, Lào, Trung Quốc, trao 20 quyết định chấp thuận nhà đầu tư với tổng vốn hơn 7.500 tỷ đồng, mở rộng cơ hội hợp tác quốc tế.",
+      "url": "https://vtv.vn/dien-bien-mo-rong-khong-gian-hop-tac-don-dong-von-dau-tu-quoc-te-100261019192841991.htm",
+      "source": "VTV",
+      "date": "2026-10-20 04:41"
+     },
+     {
+      "title": "Phú Thọ: Siết chặt quản lý giá vật liệu xây dựng, kiểm soát biến động bất thường",
+      "summary": "UBND tỉnh Phú Thọ yêu cầu tăng cường kiểm tra, kiểm soát thị trường vật liệu xây dựng, kịp thời công bố giá sát thực tế, làm rõ các yếu tố hình thành giá đối với cát, đá, đất đắp có dấu hiệu tăng cao bất thường.",
+      "url": "https://baoxaydung.vn/phu-tho-siet-chat-quan-ly-gia-vat-lieu-xay-dung-kiem-soat-bien-dong-bat-thuong-192261019193222333.htm",
+      "source": "Báo Xây dựng",
+      "date": "2026-10-20 03:58"
+     },
+     {
       "title": "Bổ sung tiêu chí xếp loại \"giải ngân rất tốt\" vốn đầu tư công",
       "summary": "VTV.vn - Điều kiện xếp loại \"Giải ngân rất tốt\" là một trong những cách chấm điểm giải ngân vốn đầu tư công vừa mới được bổ sung.",
       "url": "https://vtv.vn/bo-sung-tieu-chi-xep-loai-giai-ngan-rat-tot-von-dau-tu-cong-100261019154439658.htm",
@@ -894,16 +921,9 @@
      },
      {
       "title": "Hà Nội thí điểm chấm điểm giải ngân vốn đầu tư công",
-      "summary": "Hà Nội thí điểm chấm điểm giải ngân vốn đầu tư công trong quý IV/2026, sử dụng kết quả cả năm làm căn cứ xem xét, đánh giá, xếp loại chất lượng tập thể, cá nhân.",
-      "url": "https://www.tinnhanhchungkhoan.vn/ha-noi-thi-diem-cham-diem-giai-ngan-von-dau-tu-cong-post399791.html",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVXFWWEZ3QnZid1JBalR5d0QxYU1aVk01Z0RuenhtbkJXMFlXbV9kVm0wT3pNbFFvTmsxeUVhOEt3ZGdVUGFibU9LSVBweVd3SGE2LXdvNWxsbXNISVhwYXFZc3lVZ3lrU2F3NEI2VHctMzdVMF9XTkJzODRGSlBOX3c1S0luX2ZHRnJLUWttcWkxRi16U0stbzlkOHVPeTTSAZ8BQVVfeXFMT1VxVlhGd0J2YndSQWpUeXdEMWFNWlZNNWdEbnp4bW5CVzBZV21fZFZtME96TWxRb05rMXlFYThLd2RnVVBhYm1PS0lQcHlXd0hhNi13bzVsbG1zSElYcGFxWXN5VWd5a1NhdzRCNlR3LTM3VTBfV05Cczg0RkpQTl93NUtJbl9mR0ZyS1FrbXFpMUYtelNLLW85ZDh1T3k0?oc=5",
       "source": "Tin nhanh chứng khoán",
-      "date": "2026-10-19 21:41"
-     },
-     {
-      "title": "Điện Biên mở rộng không gian hợp tác, đón dòng vốn đầu tư quốc tế",
-      "summary": "VTV.vn - Điện Biên kết nối nhà đầu tư Việt Nam, Lào, Trung Quốc, trao 20 quyết định chấp thuận nhà đầu tư với tổng vốn hơn 7.500 tỷ đồng, mở rộng cơ hội hợp tác quốc tế.",
-      "url": "https://vtv.vn/dien-bien-mo-rong-khong-gian-hop-tac-don-dong-von-dau-tu-quoc-te-100261019192841991.htm",
-      "source": "VTV",
       "date": "2026-10-19 21:41"
      },
      {
@@ -928,32 +948,11 @@
       "date": "2026-10-19 21:16"
      },
      {
-      "title": "Phú Thọ: Siết chặt quản lý giá vật liệu xây dựng, kiểm soát biến động bất thường",
-      "summary": "UBND tỉnh Phú Thọ yêu cầu tăng cường kiểm tra, kiểm soát thị trường vật liệu xây dựng, kịp thời công bố giá sát thực tế, làm rõ các yếu tố hình thành giá đối với cát, đá, đất đắp có dấu hiệu tăng cao bất thường.",
-      "url": "https://baoxaydung.vn/phu-tho-siet-chat-quan-ly-gia-vat-lieu-xay-dung-kiem-soat-bien-dong-bat-thuong-192261019193222333.htm",
-      "source": "Báo Xây dựng",
-      "date": "2026-10-19 20:58"
-     },
-     {
       "title": "Khẩn trương điều chuyển nhà thầu không đủ năng lực thi công mở rộng cao tốc Cam Lộ - La Sơn",
       "summary": "(Chinhphu.vn) - Bộ Xây dựng vừa có văn bản chỉ đạo Ban QLDA đường Hồ Chí Minh (chủ đầu tư) có giải pháp làm việc với các ngân hàng để xem xét xử lý đối với các nhà thầu không đáp ứng nguồn lực tài chí ...",
       "url": "https://baochinhphu.vn/khan-truong-dieu-chuyen-nha-thau-khong-du-nang-luc-thi-cong-mo-rong-cao-toc-cam-lo-la-son-102261019184404085.htm",
       "source": "Báo Điện Tử Chính Phủ Nước CHXHCN Việt Nam",
       "date": "2026-10-19 19:51"
-     },
-     {
-      "title": "Tổ chức cuộc thi viết “Phát triển kinh tế có vốn đầu tư nước ngoài”",
-      "summary": "Cuộc thi viết “Phát triển kinh tế có vốn đầu tư nước ngoài” nhằm lan tỏa Nghị quyết 10-NQ/TW, góp phần nâng cao chất lượng thu hút vốn FDI và tăng cường liên kết giữa doanh nghiệp FDI với doanh nghiệp trong nước. Phát động cuộc thi “Đại sứ OCOP TPHCM” Trao giải cuộc thi chính…",
-      "url": "https://www.sggp.org.vn/to-chuc-cuoc-thi-viet-phat-trien-kinh-te-co-von-dau-tu-nuoc-ngoai-post877375.html",
-      "source": "Sài Gòn Giải Phóng",
-      "date": "2026-10-19 19:44"
-     },
-     {
-      "title": "Tuyên Quang tăng tốc giải ngân vốn đầu tư công",
-      "summary": "Năm 2026, tỉnh Tuyên Quang được giao nguồn vốn đầu tư công hơn 17.189 tỷ đồng. Đến trung tuần tháng 9, giá trị giải ngân đạt hơn 6.364 tỷ đồng, bằng 37% kế hoạch. Tăng tốc giải ngân vốn đầu tư công Tuyên Quang điều chỉnh kế hoạch giải ngân hơn 1.831 tỷ đồng vốn đầu tư công Tuyên…",
-      "url": "https://nhandan.vn/tuyen-quang-tang-toc-giai-ngan-von-dau-tu-cong-post996497.html",
-      "source": "Báo Nhân Dân",
-      "date": "2026-10-19 16:55"
      }
     ]
    },
@@ -962,11 +961,32 @@
     "name": "Ngân hàng",
     "items": [
      {
-      "title": "Nhiều ngân hàng đồng loạt giảm lãi suất",
-      "summary": "VTV.vn - Sau yêu cầu của Ngân hàng Nhà nước, nhiều ngân hàng đồng loạt giảm lãi suất huy động và lãi suất cho vay, hỗ trợ doanh nghiệp và người dân tiếp cận vốn.",
-      "url": "https://vtv.vn/nhieu-ngan-hang-dong-loat-giam-lai-suat-100261019172900854.htm",
-      "source": "VTV",
-      "date": "2026-10-20 03:26"
+      "title": "Cập nhật tình hình giảm lãi suất cho vay đến tối 19/10: Thêm MB, VietinBank, SHB, TPBank, OCB tham gia",
+      "summary": "Nhiều ngân hàng như SHB, MB, VietinBank, TPBank và OCB vừa công bố giảm lãi suất cho vay, nối tiếp Agribank, Vietcombank, BIDV, ACB, LPBank và VietBank. Mức giảm phổ biến từ 1,5-2%/năm, riêng OCB ưu đãi tới 2,25%/năm đối với một số khoản vay trung, dài hạn.",
+      "url": "https://cafef.vn/cap-nhat-tinh-hinh-giam-lai-suat-cho-vay-den-toi-19-10-them-mb-vietinbank-shb-ocb-tham-gia-188261019215501635.chn",
+      "source": "CafeF",
+      "date": "2026-10-20 04:45"
+     },
+     {
+      "title": "SHB công bố giảm lãi suất cho vay tới 2%/năm, triển khai gói tín dụng mới với lãi suất chỉ từ 5%/năm",
+      "summary": "Hưởng ứng định hướng của Chính phủ và Ngân hàng Nhà nước về giảm mặt bằng lãi suất cho vay, SHB vừa công bố gói tín dụng ưu đãi dành cho khách hàng hoạt động sản xuất kinh doanh bao gồm hộ kinh doanh, doanh nghiệp... với mức lãi suất cho vay giảm 1,5–2%/năm, chỉ từ 5%/năm.",
+      "url": "https://cafef.vn/shb-cong-bo-giam-lai-suat-cho-vay-toi-2-nam-trien-khai-goi-tin-dung-moi-voi-lai-suat-chi-tu-5-nam-188261019212653253.chn",
+      "source": "CafeF",
+      "date": "2026-10-20 04:19"
+     },
+     {
+      "title": "Giảm lãi suất không cào bằng, nhiều ngân hàng tung gói vay ưu đãi chỉ từ 6%/năm",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOV0Vqb08takh3SGdzX3N0T0E4T0g3elZhRFJKTGVKNVF1a2YxR282NDlTbElQa2N4YkoyWGpEaXBzV0libTdJaFVLaklfWFpsMXhJUlM0VXo4S05xdkY5bkZ2VzFOd3g2ZVBLb0NEa0hYME00aUhFUHh2b0c2WnQzS2FZNE9rOFpVS0JNNzZpOGo1RGs4U1JYTVFXNGxHVVlUamk4ekRpaTg2QVZ0QWtWZ2VRblA2a29ZbUJTdmwyNHY?oc=5",
+      "source": "Thời báo Tài chính Việt Nam",
+      "date": "2026-10-20 03:59"
+     },
+     {
+      "title": "Công ty lớn nhất ngành chứng khoán cho vay hơn 2 tỷ USD",
+      "summary": "TCBS, công ty chứng khoán lớn nhất trên thị trường, ghi nhận các khoản cho vay khoảng 54.739 tỷ đồng, tăng 25,6% so với đầu năm.",
+      "url": "https://vnexpress.net/cong-ty-lon-nhat-nganh-chung-khoan-cho-vay-hon-2-ty-usd-5134410.html",
+      "source": "VnExpress",
+      "date": "2026-10-20 03:50"
      },
      {
       "title": "Thống đốc yêu cầu xem xét giảm lãi suất với dư nợ hiện hữu và các khoản vay mới",
@@ -976,11 +996,18 @@
       "date": "2026-10-20 03:16"
      },
      {
-      "title": "MB chính thức giảm lãi suất cho vay tới 2%/năm",
-      "summary": "Ngày 19/10, Ngân hàng TMCP Quân đội (MB) công bố giảm lãi suất cho vay tới 2%/năm, đồng hành cùng doanh nghiệp và người dân thúc đẩy tăng trưởng kinh tế.",
-      "url": "https://cafebiz.vn/mb-chinh-thuc-giam-lai-suat-cho-vay-toi-2-nam-176261019200711999.chn",
-      "source": "CafeBiz",
-      "date": "2026-10-20 03:00"
+      "title": "VietinBank triển khai các giải pháp giảm lãi suất cho vay tới 2%/năm, tiếp sức tăng trưởng kinh tế",
+      "summary": "VTV.vn - Giảm lãi suất đến 2%/năm, VietinBank triển khai đồng bộ các giải pháp hỗ trợ hoạt động sản xuất kinh doanh của doanh nghiệp và người dân.",
+      "url": "https://vtv.vn/vietinbank-trien-khai-cac-giai-phap-giam-lai-suat-cho-vay-toi-2-nam-tiep-suc-tang-truong-kinh-te-100261019163724361.htm",
+      "source": "VTV",
+      "date": "2026-10-20 01:53"
+     },
+     {
+      "title": "Các ngân hàng đồng thuận giảm lãi suất",
+      "summary": "VTV.vn - Nếu không tuân thủ chỉ đạo, NHNN sẽ xem xét điều chỉnh chỉ tiêu tăng trưởng tín dụng trong năm nay và giao chỉ tiêu thấp hơn trong năm sau.",
+      "url": "https://vtv.vn/cac-ngan-hang-dong-thuan-giam-lai-suat-100261019153716372.htm",
+      "source": "VTV",
+      "date": "2026-10-20 01:00"
      },
      {
       "title": "Ông Hoàng Đăng Thúy chuyển khoản 220.000.000 đồng cho anh Phạm Văn Định SN 1982: Công an rà soát giao dịch",
@@ -1004,6 +1031,20 @@
       "date": "2026-10-19 23:26"
      },
      {
+      "title": "Loạt ngân hàng \"nhanh tay\" giảm lãi suất",
+      "summary": "Loạt ngân hàng vừa tung ra chương trình giảm lãi suất cho vay vốn phục vụ sản xuất kinh doanh với mức giảm 1,5-2% tùy kỳ hạn. Mặt bằng lãi suất huy động cũng \"hạ nhiệt\" theo.",
+      "url": "https://baoxaydung.vn/loat-ngan-hang-nhanh-tay-giam-lai-suat-192261019134614302.htm",
+      "source": "Báo Xây dựng",
+      "date": "2026-10-19 22:10"
+     },
+     {
+      "title": "Ngân hàng Nhà nước chi nhánh Khu vực 7 và Hội Liên hiệp Phụ nữ tỉnh ký kết chương trình phối hợp ...",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPRzB4RHZIR0lONEw4WTlUUk44Y2pHWlU3RnFJRFpURE16VUM1MmFudnQ2NnJ4Vjd1Q2d1eUlVRXdfQ1A1MWRna0VKY3JJN241cTNCTzNrYzJyU1BfX0VheHFmalVubUFBRlFSQmFvZU9mQjZWSnBGWk9QLWFkQ2kzS0syU2swOE1uVEl5cGlWc3RlT1NYa0YweWRkYnQzb0VjMXUzdG14SjFWMnlqT1RMWkxWbTFsVERzY1hWMlFyU1lheTJqLWNHams4ZWFlMEFTZzNaU2hERU1xczN3UnBjX1Y4SVRGQmFfX0VLZS1TLWhEMld3eUROY3YtRlVoRUhm?oc=5",
+      "source": "dangcongsan.vn",
+      "date": "2026-10-19 21:44"
+     },
+     {
       "title": "Thống đốc Ngân hàng Nhà nước: Giảm lãi suất cần áp dụng cả với khoản vay cũ",
       "summary": "Thống đốc Ngân hàng Nhà nước Phạm Đức Ấn yêu cầu các tổ chức tín dụng triển khai đồng bộ giải pháp giảm lãi suất cho vay, trong đó cần xem xét cả dư nợ hiện hữu và các khoản vay mới, đồng thời giảm tối thiểu 0,5 điểm %/năm lãi suất huy động ở các kỳ hạn từ 6 tháng trở lên.",
       "url": "https://cafebiz.vn/thong-doc-ngan-hang-nha-nuoc-giam-lai-suat-can-ap-dung-ca-voi-khoan-vay-cu-176261019143532037.chn",
@@ -1018,53 +1059,11 @@
       "date": "2026-10-19 21:29"
      },
      {
-      "title": "Ngân hàng đồng hành cùng phụ nữ khởi nghiệp, phát triển sinh kế",
-      "summary": "Chương trình hợp tác giữa Ngân hàng Nhà nước và Hội Liên hiệp Phụ nữ Việt Nam mở rộng hỗ trợ tài chính, nâng cao năng lực quản trị và phát triển sinh kế bền vững cho phụ nữ. Ngày Phụ nữ Việt Nam 20/10: Kiều bào hiến kế phát triển đất nước Phát huy vai trò phụ nữ trong nông…",
-      "url": "https://www.vietnamplus.vn/ngan-hang-dong-hanh-cung-phu-nu-khoi-nghiep-phat-trien-sinh-ke-post1142980.vnp",
-      "source": "Vietnam+",
-      "date": "2026-10-19 21:17"
-     },
-     {
-      "title": "Khối ngoại bán ròng gần 1.000 tỷ đồng, xả mạnh một cổ phiếu ngân hàng",
-      "summary": "Nhà đầu tư nước ngoài bán ròng 852,9 tỷ đồng. Tính riêng giao dịch khớp lệnh, khối ngoại bán ròng 954,2 tỷ đồng.",
-      "url": "https://vneconomy.vn/khoi-ngoai-ban-rong-gan-1000-ty-dong-xa-manh-mot-co-phieu-ngan-hang.htm",
-      "source": "VnEconomy",
-      "date": "2026-10-19 21:16"
-     },
-     {
-      "title": "Ngành Ngân hàng mở rộng hỗ trợ vốn cho phụ nữ khởi nghiệp, phát triển kinh tế",
-      "summary": "",
-      "url": "https://laodong.vn/kinh-doanh/nganh-ngan-hang-mo-rong-ho-tro-von-cho-phu-nu-khoi-nghiep-phat-trien-kinh-te-1785954.ldo",
-      "source": "Lao Động",
-      "date": "2026-10-19 20:27"
-     },
-     {
-      "title": "Kết quả cuộc họp của Thống đốc NHNN Phạm Đức Ấn với các lãnh đạo cấp cao nhất của ngân hàng thương mại sáng 19/10",
-      "summary": "Cuộc họp vừa kết thúc với sự đồng thuận cao của các NHTM về giảm lãi suất.",
-      "url": "https://cafebiz.vn/ket-qua-cuoc-hop-cua-thong-doc-nhnn-pham-duc-an-voi-cac-lanh-dao-cap-cao-nhat-cua-ngan-hang-thuong-mai-sang-19-10-176261019133226876.chn",
-      "source": "CafeBiz",
-      "date": "2026-10-19 20:25"
-     },
-     {
-      "title": "Nam A Bank giảm đồng loạt lãi suất, tung hơn 25,000 tỷ đồng vốn ưu đãi hỗ trợ doanh nghiệp",
-      "summary": "Hưởng ứng định hướng giảm mặt bằng lãi suất của Chính phủ và Ngân hàng Nhà nước (NHNN), Nam A Bank triển khai các chương trình giảm lãi suất cho vay lên đến 3.25%/năm, điều chỉnh giảm 0.5%/năm lãi suấ ...",
-      "url": "https://vietstock.vn/2026/10/nam-a-bank-giam-dong-loat-lai-suat-tung-hon-25000-ty-dong-von-uu-dai-ho-tro-doanh-nghiep-757-1504069.htm",
-      "source": "Vietstock",
-      "date": "2026-10-19 20:08"
-     },
-     {
-      "title": "Khách hàng Vietcombank Hà Tĩnh trúng giải đặc biệt 1 tỷ đồng",
-      "summary": "Khách hàng Vietcombank Chi nhánh Hà Tĩnh đã may mắn trúng giải đặc biệt trị giá 1 tỷ đồng trong đợt quay số lần thứ nhất của chương trình khuyến mại “Gửi an tâm - Rinh lộc tỷ”.",
-      "url": "https://baohatinh.vn/khach-hang-vietcombank-ha-tinh-trung-giai-dac-biet-1-ty-dong-post319017.html",
-      "source": "Báo Hà Tĩnh",
-      "date": "2026-10-19 19:57"
-     },
-     {
-      "title": "Ngân hàng Nhà nước và Hội Liên hiệp Phụ nữ Việt Nam hợp tác hỗ trợ phụ nữ khởi nghiệp",
-      "summary": "Ngân hàng Nhà nước và Hội Liên hiệp Phụ nữ Việt Nam hợp tác giai đoạn 2026-2030, hỗ trợ phụ nữ khởi nghiệp, tiếp cận tín dụng và dịch vụ tài chính số.",
-      "url": "https://doanhnghiephoinhap.vn/ngan-hang-nha-nuoc-va-hoi-lien-hiep-phu-nu-viet-nam-hop-tac-ho-tro-phu-nu-khoi-nghiep-151995.html",
-      "source": "Tạp chí Doanh nghiệp và Hội nhập",
-      "date": "2026-10-19 19:54"
+      "title": "MB giảm lãi suất cho vay tới 2%/năm, đồng hành cùng doanh nghiệp và người dân thúc đẩy tăng trưởng kinh tế",
+      "summary": "Ngày 19/10/2026 – Thực hiện chủ trương của Chính phủ và định hướng điều hành của Ngân hàng Nhà nước Việt Nam (NHNN), Ngân hàng TMCP Quân đội (MB) triển khai đồng bộ các giải pháp giảm lãi suất cho vay, tập trung hỗ trợ các lĩnh vực ưu tiên, góp phần giảm chi phí vốn, thúc đẩy…",
+      "url": "https://tienphong.vn/mb-giam-lai-suat-cho-vay-toi-2nam-dong-hanh-cung-doanh-nghiep-va-nguoi-dan-thuc-day-tang-truong-kinh-te-post1886755.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-10-19 21:21"
      }
     ]
    },
@@ -1072,6 +1071,13 @@
     "key": "cntt",
     "name": "Công nghệ thông tin",
     "items": [
+     {
+      "title": "V-League: CLB Công an TP.HCM thắng sát nút Thể Công Viettel",
+      "summary": "Bàn thắng của Olaha Mạnh Đức giúp CLB Công an TP.HCM đánh bại Thể Công Viettel với tỷ số 1-0 tại vòng 4 V-League 2026-2027.",
+      "url": "https://baoxaydung.vn/v-league-clb-cong-an-tphcm-thang-sat-nut-the-cong-viettel-192261019204224041.htm",
+      "source": "Báo Xây dựng",
+      "date": "2026-10-20 03:52"
+     },
      {
       "title": "HLV Popov từ chối nói về trọng tài, thừa nhận Thể Công Viettel thua vì thiếu hiệu quả",
       "summary": "VTV.vn - HLV Popov cho rằng tỷ số 0-1 trước Công an TP Hồ Chí Minh chưa phản ánh đúng màn trình diễn của đội, đồng thời thừa nhận đội bóng cần cải thiện khả năng dứt điểm.",
@@ -1101,11 +1107,11 @@
       "date": "2026-10-19 21:00"
      },
      {
-      "title": "V-League: CLB Công an TP.HCM thắng sát nút Thể Công Viettel",
-      "summary": "Bàn thắng của Olaha Mạnh Đức giúp CLB Công an TP.HCM đánh bại Thể Công Viettel với tỷ số 1-0 tại vòng 4 V-League 2026-2027.",
-      "url": "https://baoxaydung.vn/v-league-clb-cong-an-tphcm-thang-sat-nut-the-cong-viettel-192261019204224041.htm",
-      "source": "Báo Xây dựng",
-      "date": "2026-10-19 20:52"
+      "title": "Điện Máy Xanh của Thế Giới Di Động (MWG) dự kiến IPO trong năm 2026",
+      "summary": "Thế Giới Di Động kỳ vọng Điện Máy Xanh sau khi IPO sẽ thúc đẩy tăng trưởng lợi nhuận 2 chữ số và mở rộng hệ sinh thái bán lẻ.",
+      "url": "https://doanhnhan.baophapluat.vn/dien-may-xanh-cua-the-gioi-di-dong-mwg-du-kien-ipo-trong-nam-2026-89722.html",
+      "source": "Doanh Nhân - Báo Pháp Luật Việt Nam",
+      "date": "2026-10-19 20:41"
      },
      {
       "title": "Highlight CLB Công an TP.HCM 1-0 Thể Công Viettel: Olaha Mạnh Đức lập siêu phẩm",
@@ -1123,8 +1129,8 @@
      },
      {
       "title": "Một công ty chứng khoán giảm vốn tự doanh cổ phiếu FPT, VIC về mức rất thấp",
-      "summary": "CTCP Chứng khoán Kafi (mã KAI) đang thu hẹp đáng kể danh mục đầu tư tại hai cổ phiếu FPT và VIC, trong khi hoạt động kinh doanh vẫn tập trung chủ yếu vào tài sản tài chính và cho vay.",
-      "url": "https://nguoiquansat.vn/mot-cong-ty-chung-khoan-giam-von-tu-doanh-co-phieu-fpt-vic-ve-muc-rat-thap-322924.html",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNc1J4aTNHQjlTX0pGbU9yNzk5czROMmdVOTJibzJLbHhTODFkTlFyak1pTEc4Ti1UZHFvMXVqMVV6cURzZXk1djdDWFBkc1JWRW54RjhtQ2VFOTd1b1l6Q200UVJCSnlsQXVUQ084NE5kQkZMcWV4NDdzaHlPRkFHc2Raa3BvREFlWEc1N28wR0xNbnBleEVSVzFFRkI5NHN3ME9QZE1ZdThMeUxycHFN?oc=5",
       "source": "nguoiquansat.vn",
       "date": "2026-10-19 20:00"
      },
@@ -1136,25 +1142,11 @@
       "date": "2026-10-19 19:02"
      },
      {
-      "title": "FPT Play phát trực tiếp Trương Vinh Hiển đấu dàn sao pickleball thế giới tại Hồng Kông",
-      "summary": "Trương Vinh Hiển cùng các tay vợt hàng đầu Việt Nam sẽ tranh tài tại PPA Tour Asia 1.500 Hong Kong Slam 2026, nơi có sự góp mặt tranh tài của dàn sao pickleball thế giới.",
-      "url": "https://thanhnien.vn/fpt-phat-truc-tiep-truong-vinh-hien-dau-dan-sao-pickleball-the-gioi-tai-hong-kong-185261019183357353.htm",
-      "source": "Thanh Niên",
-      "date": "2026-10-19 18:41"
-     },
-     {
       "title": "Hàn Quốc đề xuất chi 40 triệu USD phát triển chip bán dẫn quốc phòng",
       "summary": "Hàn Quốc dự kiến dành 56,5 tỷ won (khoảng 40 triệu USD) trong dự toán ngân sách năm 2027 để phát triển công nghệ bán dẫn quốc phòng, nhằm giảm phụ thuộc vào linh kiện nước ngoài và củng cố khả năng tự chủ chuỗi cung ứng công nghệ chiến lược. Từng bước làm chủ công nghệ bán dẫn…",
       "url": "https://baotintuc.vn/han-quoc-de-xuat-chi-40-trieu-usd-phat-trien-chip-ban-dan-quoc-phong-post1395610.html",
       "source": "Báo Tin tức (TTXVN)",
       "date": "2026-10-19 17:42"
-     },
-     {
-      "title": "Bị vận may ngoảnh mặt, Thể Công Viettel thất bại trên sân của Công an TPHCM",
-      "summary": "Thể Công Viettel đã tạo ra nhiều pha bóng chất lượng, đã chơi hơn người trong 20 phút cuối và thậm chí còn 2 lần ở rất gần những quả penalty, nhưng cuối cùng, tất cả mọi thứ đều quay lưng với họ. Đội bóng này đã thua Công an TPHCM 0-1 sau khoảnh khắc tỏa sáng của Olaha Mạnh Đức.…",
-      "url": "https://tienphong.vn/bi-van-may-ngoanh-mat-the-cong-viettel-that-bai-tren-san-cua-cong-an-tphcm-post1886668.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-10-19 17:34"
      },
      {
       "title": "Việt Nam - Pháp hợp tác đào tạo cán bộ về công nghệ bán dẫn",
@@ -1176,6 +1168,13 @@
       "url": "https://vneconomy.vn/aep-dau-tu-4-ty-usd-xay-du-an-pin-nhien-lieu-cung-cap-dien-cho-trung-tam-du-lieu-google.htm",
       "source": "VnEconomy",
       "date": "2026-10-19 13:43"
+     },
+     {
+      "title": "Sáng chế làm rung chuyển ngành viễn thông: 7.000 km sợi quang mảnh như tóc đủ tải 25.000 bộ phim HD/giây, 75% dân số thế giới có thể cùng nghe nhạc",
+      "summary": "Một công ty công nghệ đang phát triển tuyến cáp quang xuyên Đại Tây Dương có khả năng truyền tới 1 triệu gigabit dữ liệu mỗi giây.",
+      "url": "https://cafef.vn/sang-che-lam-rung-chuyen-nganh-vien-thong-7000-km-soi-quang-manh-nhu-toc-du-tai-25000-bo-phim-hd-giay-75-dan-so-the-gioi-co-the-cung-nghe-nhac-188261019113316941.chn",
+      "source": "CafeF",
+      "date": "2026-10-19 13:32"
      }
     ]
    },
@@ -1188,14 +1187,14 @@
       "summary": "Chiều 19/10, sà lan chở nhịp chính cầu đi bộ qua sông Sài Gòn nặng khoảng 3.400 tấn đã về đến khu vực công trường và neo đậu phía bờ Thủ Thiêm, sẵn sàng cho công đoạn hợp long vào ngày 21/10.",
       "url": "https://cafebiz.vn/di-hang-tram-cay-so-xem-lai-dat-la-dua-thep-3400-tan-ve-trung-tam-tphcm-176261019215553697.chn",
       "source": "CafeBiz",
-      "date": "2026-10-19 21:48"
+      "date": "2026-10-20 04:48"
      },
      {
       "title": "Đồng ý chủ trương áp dụng cơ chế ưu đãi cao nhất cho Khu Kinh tế Dung Quất",
       "summary": "Bộ Chính trị đồng ý chủ trương áp dụng các cơ chế, chính sách đang thực hiện tại khu thương mại tự do Hải Phòng, Đà Nẵng và các chính sách ưu đãi cao nhất theo quy định của Luật Phát triển đô thị đối với Khu kinh tế Dung Quất (Quảng Ngãi).",
       "url": "https://baoxaydung.vn/dong-y-chu-truong-ap-dung-co-che-uu-dai-cao-nhat-cho-khu-kinh-te-dung-quat-192261019110818148.htm",
       "source": "Báo Xây dựng",
-      "date": "2026-10-19 20:51"
+      "date": "2026-10-20 03:51"
      },
      {
       "title": "Người dân TPHCM đội mưa đón khoảnh khắc vòm cầu thép 3.400 tấn cập Bến Bạch Đằng",
@@ -1247,16 +1246,9 @@
       "date": "2026-10-19 10:32"
      },
      {
-      "title": "Giám đốc Kinh doanh Shengli Việt Nam: Ngành thép có thể bước vào chu kỳ cạnh tranh mới – từ áp lực nguồn cung đến cuộc đua giá trị",
-      "summary": "Khi nguồn cung vượt nhu cầu, cạnh tranh về giá sẽ ngày càng gay gắt và quá trình sàng lọc doanh nghiệp có thể diễn ra nhanh hơn.",
-      "url": "https://nguoiquansat.vn/giam-doc-kinh-doanh-shengli-viet-nam-nganh-thep-co-the-buoc-vao-chu-ky-canh-tranh-moi-tu-ap-luc-nguon-cung-den-cuoc-dua-gia-tri-322785.html",
-      "source": "nguoiquansat.vn",
-      "date": "2026-10-19 09:11"
-     },
-     {
       "title": "Giá thép hôm nay 19/10/2026: Thị trường thế giới biến động trái chiều giữa các khu vực",
-      "summary": "Giá thép hôm nay 19/10, trong nước dao động 13.840 - 15.150 đồng/kg. Tại thị trường thép quốc tế ghi nhận sự phân hóa rõ nét, giá quặng sắt và thép kỳ hạn phục hồi nhẹ đầu tuần.",
-      "url": "https://doanhnghiephoinhap.vn/gia-thep-hom-nay-19102026-thi-truong-the-gioi-bien-dong-trai-chieu-giua-cac-khu-vuc-151802.html",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQLWxid3FwU204ZEVwRUlZMlBianJkUnN0VWI3UnZTZEV0dkdlZzJmc1pMRGdCdVRkUS1mOGdPd3FoV3pHcHZpdGk2MHkxTUw3QzVwc3RnZWYyYThrVGRQUXRBNXFOVkpibF9HLXIwN3VKLXJKcnBDc1RrUDJybUxZNGQzNl81RUZ2M0dycUpwdVV6T3VUUFBwVTMza0tCdWZUVm5Eb3NoZlc4YzZHaGx5TDNmZ2pfaDYzOXBReGZxbE9nM2s?oc=5",
       "source": "Tạp chí Doanh nghiệp và Hội nhập",
       "date": "2026-10-19 09:00"
      },
@@ -1275,18 +1267,25 @@
       "date": "2026-10-19 07:52"
      },
      {
-      "title": "\"Lá dừa thép\" cập bến Bạch Đằng, người dân TPHCM chờ ngày đi bộ qua sông Sài Gòn",
-      "summary": "(Dân trí) - Nhịp cầu thép hình lá dừa nặng 3.400 tấn đã được kéo về công trường cầu đi bộ vượt sông Sài Gòn. Cấu kiện sẽ được neo lại và hợp long vào ngày 21/10.",
-      "url": "https://dantri.com.vn/thoi-su/la-dua-thep-cap-ben-bach-dang-nguoi-dan-tphcm-cho-ngay-di-bo-qua-song-sai-gon-20261018210304889.htm",
-      "source": "Dân trí",
-      "date": "2026-10-19 07:41"
-     },
-     {
       "title": "Giá thép hôm nay 19/10: Thị trường thép thanh toàn cầu phân hóa",
-      "summary": "Giá thép thanh và quặng sắt kỳ hạn nhích nhẹ đầu tuần, trong khi thị trường thép thanh thế giới diễn biến trái chiều giữa các khu vực trong nửa đầu tháng 10.",
-      "url": "https://vietnambiz.vn/gia-thep-hom-nay-1910-thi-truong-thep-thanh-toan-cau-phan-hoa-20261018184243540.htm",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUFE1X3hKVmhUdFZwcWlqUkVha01pT1d4LVpwRVVCSGFqUzlpdk1jcjJYQWRaTUNLWHVxcjZObHNES1REUEs0WDIyNlZ6SVduTERfc1FDUWFJSnFHbS01N0hlSjBpano5b3RPb29uNEdyTVpMNE04VmtGb0VqYzlUMGVsUnhCUU53QjNSS1lKMGplQjJRdjBaR3h4RVpYNWp5RmxZb2drM24?oc=5",
       "source": "VietnamBiz",
       "date": "2026-10-19 07:14"
+     },
+     {
+      "title": "Sản lượng sản xuất và bán hàng của Tập đoàn Hòa Phát (HPG) sụt giảm mạnh trong tháng 1/2023",
+      "summary": "Doanh nghiệp cho biết cả kỳ tết Dương lịch và Tết Nguyên đán đều nằm trong tháng 1 nên nhu cầu thị trường vật liệu xây dựng nói chung và sắt thép nói riêng đều thấp, dẫn đến sản lượng sản xuất và bán ...",
+      "url": "https://doanhnhan.baophapluat.vn/san-luong-san-xuat-va-ban-hang-cua-tap-doan-hoa-phat-hpg-sut-giam-manh-trong-thang-12023-49959.html",
+      "source": "Doanh Nhân - Báo Pháp Luật Việt Nam",
+      "date": "2026-10-18 13:17"
+     },
+     {
+      "title": "100 người đưa khối thép 3.400 tấn, dài gần 200 m lên sà lan khổng lồ, vượt 124 km đường thủy để thực hiện công việc đặc biệt giữa TP.HCM",
+      "summary": "Đích đến của khối kết cấu khổng lồ là vị trí lắp đặt một cây cầu gần 1.000 tỷ đồng, ngay giữa trung tâm TP.HCM.",
+      "url": "https://cafef.vn/100-nguoi-dua-khoi-thep-3400-tan-dai-gan-200-m-len-sa-lan-khong-lo-vuot-124-km-duong-thuy-de-thuc-hien-cong-viec-dac-biet-giua-tphcm-188261018123648764.chn",
+      "source": "CafeF",
+      "date": "2026-10-18 12:36"
      }
     ]
    },
@@ -1294,6 +1293,13 @@
     "key": "vang_bac",
     "name": "Vàng bạc trang sức",
     "items": [
+     {
+      "title": "Kiểm tra công ty kinh doanh trang sức phát hiện nhiều hàng nhái",
+      "summary": "Lực lượng quản lý thị trường TPHCM vừa phát hiện nhiều trang sức bằng kim loại màu vàng, có dấu hiệu giả mạo nhãn hiệu đang được bảo hộ tại Việt Nam và không rõ nguồn gốc xuất xứ.",
+      "url": "https://cafebiz.vn/kiem-tra-cong-ty-kinh-doanh-trang-suc-phat-hien-nhieu-hang-nhai-176261019215436386.chn",
+      "source": "CafeBiz",
+      "date": "2026-10-20 04:46"
+     },
      {
       "title": "Một doanh nghiệp vàng bạc lớn không nhận thanh toán qua ví điện tử",
       "summary": "Ngoài tài khoản ngân hàng chính chủ, doanh nghiệp vàng bạc này cho biết không nhận chuyển khoản qua các ví điện tử, tài khoản chứng khoán …",
@@ -1309,11 +1315,18 @@
       "date": "2026-10-19 23:08"
      },
      {
-      "title": "Kiểm tra công ty kinh doanh trang sức phát hiện nhiều hàng nhái",
-      "summary": "Lực lượng quản lý thị trường TPHCM vừa phát hiện nhiều trang sức bằng kim loại màu vàng, có dấu hiệu giả mạo nhãn hiệu đang được bảo hộ tại Việt Nam và không rõ nguồn gốc xuất xứ.",
-      "url": "https://cafebiz.vn/kiem-tra-cong-ty-kinh-doanh-trang-suc-phat-hien-nhieu-hang-nhai-176261019215436386.chn",
-      "source": "CafeBiz",
-      "date": "2026-10-19 21:46"
+      "title": "Giá vàng hôm nay 20/10/2026 đồng loạt giảm, chú ý thay đổi cách thanh toán trong nước; Vàng thế giới chưa có tín hiệu kết thúc đợt điều ...",
+      "summary": "",
+      "url": "https://baoquocte.vn/gia-vang-hom-nay-20-10-2026-dong-loat-giam-chu-y-thay-doi-cach-thanh-toan-trong-nuoc-vang-the-gioi-chua-co-tin-hieu-ket-thuc-dot-dieu-chinh-458285.html",
+      "source": "Báo Đối ngoại",
+      "date": "2026-10-19 21:38"
+     },
+     {
+      "title": "Chốt giá vàng hôm nay ngày 19/10 tiếp đà giảm mạnh",
+      "summary": "Theo cập nhật giá vàng hôm nay, ngày 19/10, thị trường vàng trong nước tiếp tục giảm giá vàng miếng và giá vàng nhẫn.",
+      "url": "https://www.24h.com.vn/kinh-doanh/chot-gia-vang-hom-nay-ngay-19-10-tiep-da-giam-manh-c161a1804047.html",
+      "source": "Tin tức 24h",
+      "date": "2026-10-19 21:35"
      },
      {
       "title": "Giá vàng giảm 500.000 đồng/lượng",
@@ -1346,21 +1359,21 @@
      {
       "title": "Giá vàng thế giới hôm nay 19.10: Giữ sắc xanh, thị trường khởi sắc",
       "summary": "",
-      "url": "https://laodong.vn/ban-tin/gia-vang-the-gioi-hom-nay-1910-giu-sac-xanh-thi-truong-khoi-sac-1785833.ldo",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNcmlHYm5fekZQcEItOHlvRkNHTGVKb1hJR0tCTFZjTmlEdS1yQjJsUnBsMkVhVnNoQ0JJYmNHRC1sY1p1R3RCbFZSWVlQTzJOMVZzZkgxWXJqN0xjOTQyZ0FFMkZBZGhnZjRpSjJtZVJiTXBsdHZBd1E2YTBxSlpEOHp3aHpoRU9faEhqUDNDSFlsRURwOWF0TFlZUVZ2cG05U09VRg?oc=5",
       "source": "Lao Động",
       "date": "2026-10-19 16:52"
      },
      {
       "title": "Giá vàng thế giới tăng, thị trường đón tín hiệu tích cực từ giá dầu",
       "summary": "",
-      "url": "https://laodong.vn/tien-te-dau-tu/gia-vang-the-gioi-tang-thi-truong-don-tin-hieu-tich-cuc-tu-gia-dau-1785771.ldo",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQcnQ2T1A1eTNkeHVmWGFuVlFkMkZiWGROSjFUUjBYTFdHckdELXZmSF91M2dVZ1FSWXRJdjVnM01RWFlJY3pqX1dRblRadURFc1hPRnlqNlZ2cm94MUlKQWF2cGZaWEZtZXV4eGU1dXZHOEhKQWNva2hQa2hNTDE2cFZYc3BvZVY1SzBHRlVXVG0yNGpCTmw2cGdQRjhyNFRfbk1tZ0E4RzB0OTliQzkzOEtR?oc=5",
       "source": "Lao Động",
       "date": "2026-10-19 16:34"
      },
      {
       "title": "Thị trường vàng châu Á phản ứng tích cực khi giá dầu giảm",
       "summary": "Trong phiên giao dịch ngày 19/10, giá vàng giao ngay tăng 0,4% lên 4.181,84 USD/ounce, trong khi giá vàng kỳ hạn tháng 12/2026 tại Mỹ tăng 0,5% lên 4.202,7 USD/ounce. Giá vàng ngày 19/10: Bảng giá tại các công ty vàng bạc đá quý trong nước Giá vàng châu Á đi lên khi thị trường…",
-      "url": "https://www.vietnamplus.vn/thi-truong-vang-chau-a-phan-ung-tich-cuc-khi-gia-dau-giam-post1142899.vnp",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPcXljNllyZUNObXJWNTFCdzN2a1JOblBtUkkxTGZRc1otOGRZTmZ5eWE4ckF3MmF4eHJjR24wMjh4Yl84aDlLdE5hck9zc0pvMDZfUEp5cXl4NnVFWk5YSnY3UkFZTVIzY1ROVkVEaHBRVXI0Vm9DNmRFYTZRSnVWWjlkeTZXX2t3ZkxGeVQ4alM4R3poa2ZOdHNISURHZGd2YkE?oc=5",
       "source": "Vietnam+ (VietnamPlus)",
       "date": "2026-10-19 15:58"
      },
@@ -1384,28 +1397,14 @@
       "url": "https://cafef.vn/gia-vang-mieng-vang-nhan-tron-chieu-19-10-tai-sjc-pnj-doji-bao-tin-minh-chau-va-bao-tin-manh-hai-188261019064716526.chn",
       "source": "CafeF",
       "date": "2026-10-19 14:38"
-     },
-     {
-      "title": "Sáng 19/10, giá bạc thế giới tiếp đà phục hồi",
-      "summary": "Sáng 19/10, giá bạc thế giới tăng lên ngưỡng 57,56 USD/ounce, nối dài đà tăng gần đây trong bối cảnh những phát biểu ôn hòa của Chủ tịch Cục Dự trữ Liên bang Mỹ (FED) Kevin Warsh khiến các nhà giao dịch giảm kỳ vọng về khả năng định chế tài chính này tăng lãi suất trong tháng…",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPekNzZF8zcmNMNkdWRlItdzVsVlBZeWpxbHY5ajlPQkU2OHBMdUxHdXg0UTRTa01GbjQ3Mmd2YVQ3NEtsT1ZQeU10RGU0bk5vMFRQc3FzVzRsdEluWnJ6VjNSVFhmMWdwWEdHdkhqQUZ1eDJZb0lCU2FrZEgwWnl4X0pybmc?oc=5",
-      "source": "Báo Nhân Dân điện tử",
-      "date": "2026-10-19 12:06"
-     },
-     {
-      "title": "Giá vàng hôm nay 19/10: Tăng nhẹ sáng đầu tuần",
-      "summary": "Giá vàng thế giới tăng nhẹ trong phiên sáng ngày thứ Hai (19/10) với giới đầu tư tập trung theo dõi sức khỏe của nền kinh tế Mỹ và triển vọng lãi suất của Fed trong tuần này, khi các dữ liệu về nhà ở, ...",
-      "url": "https://vietnambiz.vn/gia-vang-hom-nay-1910-tang-nhe-sang-dau-tuan-202610197816554.htm",
-      "source": "VietnamBiz",
-      "date": "2026-10-19 11:43"
      }
     ]
    }
   ],
   "failed": {
    "https://cafef.vn/rss/home.rss": "HTTPError: HTTP Error 404: Not Found",
-   "https://www.vietnamplus.vn/rss/kinhte/thong-cao-bao-chi-426.rss": "ParseError: no element found: line 1, column 0",
    "https://www.vietnamplus.vn/rss/kinhte/thong-tin-doanh-nghiep-433.rss": "ParseError: no element found: line 1, column 0",
+   "https://www.vietnamplus.vn/rss/kinhte/thong-cao-bao-chi-426.rss": "ParseError: no element found: line 1, column 0",
    "https://congthuong.vn/rss/giai-thuong-cong-nghiep-thuong-mai-dich-vu-viet-nam-2026.rss": "HTTPError: HTTP Error 404: Not Found",
    "https://baoxaydung.vn/index.rss": "ParseError: not well-formed (invalid token): line 46, column 72",
    "https://ictnews.vietnamnet.vn/cong-nghe.rss": "ParseError: mismatched tag: line 191, column 6"
@@ -1437,7 +1436,7 @@
       "title": "Mitsubishi Outlander 2026 xuất hiện ở Việt Nam, dự kiến sớm ra mắt đấu Honda CR-V, Mazda CX-5",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNaFEzb1c1MVZtN2p0WUlDeXlaYlFZOW9xZ2hPaFVNUXZGQVRqbEo3VTNNWFYzR3FVQU5WczJYNmJCZm9EN3pTVjhCYVVzNXdJdkR1RGtIZTZ6bHpLbzJwRERLVWt0MnV3YnA4WmktTnFWREw1cHBGekNpM2tDNXUzbXo3WGJfOTNpZ29xcFRDT0JGUWhFMmFjRGp5ZG1ybHpRUkNQSEFwYTBxVmJ5VnpwNHFIS0hPWWcwb0lQVVA3ZEdTSGM5cWRmNEh5c3JzUQ?oc=5",
-      "source": "Báo Tuổi Trẻ",
+      "source": "Tuổi Trẻ",
       "date": "2026-10-19 10:00"
      },
      {
@@ -1490,13 +1489,6 @@
       "date": "2026-10-16 09:23"
      },
      {
-      "title": "Sự cố hy hữu: Hàng nghìn chủ xe Honda CR-V và Accord phải quay lại đại lý vì phụ tùng sửa chữa trong đợt triệu hồi cũng bị lỗi",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxNb2hfUEdJRGlJcTk5NEMzRERLdW5IWGdzT0pCY2ZreWhjQWdCMWk4RmN3ZFZqd29pYkM2OXRiQ19ieXlRQXhJeUYwbmVDNi1xMEFleXp1TVlST2xwbGFOZURmNGpKaWZ0ZGcyeGsyZkJtVkpnVlIyYWJLUTFNYW4zNDEydkthd1ZxZzlGTHdpNkZ5VW1Xam5PeXdFR2g5LWg4bXpxdGdzckFJQjB4ZTJHOUpXM2plMk1mTDZCZnNtU1JwaG9jWEFNeDFSYTd6R3U4UU1NdEZNWHBSNXFBaU40WWlqRHppYXRZUTZEYTVLbTNhWk0?oc=5",
-      "source": "nguoiquansat.vn",
-      "date": "2026-10-16 09:15"
-     },
-     {
       "title": "Honda kết hợp cùng Mitsubishi để phát triển dòng xe bán tải mới",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeGdpQWQwSE1CRE1QR2d4TTJqR3ZMY0FJSHIzNms1am00di1qOHRkLThMbEhXZHFERFp6aGtUdmRpYnJjUkxnQy1Ic0hYeWNmcnIzdUxXWU5NVGJhLUFJZTB0akpNMHI5VnlyUXk3RkJwS2g0VFZiVWp2N0RKeEtZTWw1S0tTcE5WdHBvNWxjTnpJWGxJNWloam1jSVdlRVI0N3M4cWQ3T0s5UWtUR2c?oc=5",
@@ -1523,6 +1515,13 @@
       "url": "https://genk.vn/honda-trinh-lang-cb750-hornet-2027-voi-ly-hop-dien-tu-cung-muc-gia-du-kien-re-giat-minh-165261014101840911.chn",
       "source": "GenK",
       "date": "2026-10-14 18:27"
+     },
+     {
+      "title": "Honda City mới thêm tiện ích, giữ nguyên giá từ 539 triệu đồng",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNRk1LY1B4WXJqeUh2Nm90aldQSVJ1SUxUWno3ZnNqb1BwTk1wZDZmMnVyTDl3RHZvdFFyVFdBZEQxWUdUY0F5Q1VXRmQtek5LeksxdXIzWFlIY0d3NS1CV1hXLXdPN1pfSXRzSDcycEY5UEhzOWdyQkN0bHNSSDg0UVdiV3JtTFQtRTRBVjZtQVQ1Tm43YmJ3SzhrTzI?oc=5",
+      "source": "Báo VietNamNet",
+      "date": "2026-10-14 16:30"
      }
     ]
    },
@@ -1678,7 +1677,7 @@
      },
      {
       "title": "Giá xe Toyota Innova Cross tháng 10/2026, ưu đãi tới 60 triệu đồng",
-      "summary": "Toyota Innova Cross tại Việt Nam được nhập khẩu nguyên chiếc từ Indonesia với 2 phiên bản máy xăng và Hybrid. Phân phối với 5 tùy chọn ngoại thất gồm: Xanh ánh đen 1H2, Trắng ngọc trai 089 (đắt hơn 8 ...",
+      "summary": "",
       "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPMmFEUkwxVjJIMi10VldsTnJXM2N2OE16akNlZVhlYjBNdXZycDFIbmUyMmx3Q0dVZjYzWjR4RWsyV0R6cU5xQkJWUVFmM1otbHFKa1VMYk5UOWZjbld3Z0RwN3B5M1RscE5IZk9MOUZuaDRMVXB4YWswc2dmZXRUVDZmM3FWUExRcG5vQlRjYXZ2WURJZ0RoNE9pblVWSTdCY2txbk9uVnlsWWQ4MFNJaQ?oc=5",
       "source": "Tin tức 24h",
       "date": "2026-10-19 10:00"
@@ -1726,13 +1725,6 @@
       "date": "2026-10-18 05:00"
      },
      {
-      "title": "Bùng nổ doanh số ô tô gầm cao cỡ B: VinFast VF 6 và Toyota Yaris Cross áp đảo",
-      "summary": "(CLO) Dù là phân khúc chật chội nhất thị trường song các mẫu gầm cao cỡ B vẫn bùng nổ doanh số với vị thế áp đảo của VinFast VF 6 và Toyota Yaris Cross.",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZU40R1hKT3VIRTZlN0hfSW8tZTZhU0JRZEVRYUJMdWtGN2VsU29Qc2M5cVNxczNrNEtDNDhJMjBraUc0RTAzeFB1bTA2RWFIWjBwdnZNcXVlcVB6azMxcXVkRWk0cXZSSEdyQlRrYUxlbjIyU0JyU196ckE2elU4YnY3WEFMeU94Vl9NQWF3cUNCaG54WWVBQkU1VnVVaFk1?oc=5",
-      "source": "Vietnam.vn",
-      "date": "2026-10-17 22:22"
-     },
-     {
       "title": "Sedan hạng B: Liên tục giảm giá Toyota Vios hút khách, doanh số Honda City vượt Mazda2",
       "summary": "Nỗ lực giảm giá thông qua chương trình ưu đãi hỗ trợ 100% lệ phí trước bạ giúp Toyota Vios tạo sức hút, tiếp tục dẫn đầu cuộc đua doanh số phân khúc sedan hạng B, trong khi đó Honda City cũng có sự cả ...",
       "url": "https://thanhnien.vn/sedan-hang-b-lien-tuc-giam-gia-toyota-vios-hut-khach-doanh-so-honda-city-vuot-mazda2-185261013142544242.htm",
@@ -1745,6 +1737,13 @@
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOcWlrWE9WNHlFNzlRb1JudEhmN3EtaWdoSkozRjBNWFVaZDhIakJpYTB6c01qcXNDTnc1UUo1Mzh1OWIyM29iVkwxVmdXMHRrTS1LZkRuQmlsWmlrcDZkMFJ2N04wcDh3RWZiYWZ4anhFYjlUM0pEem12M19pUHl1cHlnVGRMWmtOd0dFdENUOFgxSDVSc2ZFOGd6TjVwTzA?oc=5",
       "source": "Tin tức 24h",
       "date": "2026-10-17 06:00"
+     },
+     {
+      "title": "Một mẫu xe của Toyota vẫn là 'vua doanh số' sedan hạng B: Giá từ 458 triệu đồng, miễn 100% phí trước bạ",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQOEtrR3NtVDcya2c4S3FfMFR1VFY2M2c5NU9oUldFN1dOc0NhbEZ1VzBmbmxEZ2ZoZmRLamp4eWtZMDVESTZRWTAyTW1nMWdidFFrdU9UVGdFdU9neWdYcWIyeEIxN3lLd1Q0YjJ6NTQ0SVc0N0RseGZaVV9tbzJld1l4b2lZbDZiZmkyVEZ5T0RuNWt5b2hQLXZxZGkxMGNacnUwQ0p6ODJEaVp5cnhlSG9POXVrM3NfTEFQc0JPQ1dzbDZyUElNU1JBNU42VDQ?oc=5",
+      "source": "nguoiquansat.vn",
+      "date": "2026-10-16 16:07"
      }
     ]
    },
@@ -1823,13 +1822,6 @@
       "date": "2026-10-17 20:00"
      },
      {
-      "title": "Xe Hyundai bán chạy bất ngờ được nâng cấp chính hãng, ưu đãi gần 100 triệu đồng",
-      "summary": "Cụ thể, với riêng Creta, Hyundai Thành Công triển khai gói nâng cấp cốp điện, giúp người dùng sử dụng xe thuận tiện hơn. Cần nói thêm rằng Creta vẫn được áp dụng thêm ưu đãi về tiền mặt; tổng giá trị ...",
-      "url": "https://soha.vn/xe-hyundai-ban-chay-bat-ngo-duoc-nang-cap-chinh-hang-uu-dai-gan-100-trieu-dong-198261017113929709.htm",
-      "source": "SOHA",
-      "date": "2026-10-17 11:45"
-     },
-     {
       "title": "Hyundai Palisade Hybrid mới công bố giá bán tại Việt Nam",
       "summary": "Dòng xe Hyundai Palisade Hybrid chốt giá bán từ 1,499 đến 1,699 tỷ đồng tại Việt Nam. Hyundai Thành Công Việt Nam vừa công bố giá bán Palisade Hybrid hoàn toàn mới. Mẫu SUV này được phân phối với ba p ...",
       "url": "https://www.24h.com.vn/o-to/hyundai-palisade-hybrid-moi-cong-bo-gia-ban-tai-viet-nam-c747a1803310.html",
@@ -1856,6 +1848,13 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQeFdJeFBaSW8tY1BuQTVaLXByT2xBeW96RlBEOWE4Y0pQT2ZiUVVGOEUyUFUzQlNjUVhYcWstWnN3cU9waGVTaWIyRGR6VmQxZlFoNDRXYVZhd1NqSllSTjNCZkRSV1Y0bEViS1ZGLUZmdXRQZEJoWko2VXNpV2JBbXMzYWROOGVuaFJFT1lQbi13TE1QeW01akVod1AwU2RyT3dJ?oc=5",
       "source": "Vietnam.vn",
       "date": "2026-10-16 17:03"
+     },
+     {
+      "title": "Tin xe 27/6: Hyundai Elantra thế hệ mới lột xác, Vietnam Airlines tăng đội bay",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNQ3ZvQVBPUGc2enppcGh1MEpFYms4NUUtc1p5ZFJ4a2dxNERZdDI5VVEwNHZ1M2RzNXh0Q19odFcxY1BXdTZXdkdLTXhRVXQ2X3BGd29HNFlwVlhnTE82T1dmM2huRDhicjNmVlJyVGlmejVxTkJGUVpoeUg4b3ZhdHRDMzVzM016V1hEQ1dkTlFtRHB5RUlYdld6MWstRmNiYlctdGl0emdvRnA0Vmd1Vw?oc=5",
+      "source": "Baolangson.vn",
+      "date": "2026-10-16 11:22"
      }
     ]
    },
@@ -1871,6 +1870,13 @@
       "date": "2026-10-20 01:53"
      },
      {
+      "title": "Mỗi ngày VinFast bán hơn 770 ô tô điện khắp thế giới, ông Phạm Nhật Quân Anh nói gì?",
+      "summary": "Trong quý II/2026, VinFast bàn giao tổng cộng 70.085 ô tô điện trên toàn cầu, tăng 20% so với quý I/2026 và 96% so với quý II/2025.",
+      "url": "https://soha.vn/moi-ngay-vinfast-ban-hon-770-o-to-dien-khap-the-gioi-ong-pham-nhat-quan-anh-noi-gi-198261019191504572.htm",
+      "source": "SOHA",
+      "date": "2026-10-19 20:48"
+     },
+     {
       "title": "VinFast thắng lớn tại Car Choice Awards 2026: 3 mẫu xe, 1 sự kiện được xướng tên trong Gala, 9 lượt đề cử với hàng trăm nghìn lượt bình chọn",
       "summary": "Tại Gala Car Choice Awards 2026, VinFast giành 4 chiếc cúp, nhiều nhất trong số các thương hiệu tham dự, với 9 lượt đề cử và hơn 460.000 lượt bình chọn. Sức hút của hãng tiếp tục được thể hiện tại VIMS qua gian trưng bày quy mô, bài bản, thu hút đông đảo khách tham quan.",
       "url": "https://autopro.com.vn/vinfast-thang-lon-tai-car-choice-awards-2026-3-mau-xe-1-su-kien-duoc-xuong-ten-trong-gala-9-luot-de-cu-voi-hang-tram-nghin-luot-binh-chon-177261019105853651.chn",
@@ -1883,13 +1889,6 @@
       "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPUnhJSXV5TnRrME83REtiT0lSbWdMemM0VlFCNWhPZ0VucHc1UHRCcWVORXpPOXJMb0g5NEJFNVJLN2NhQWItRzZERVYwWXVUSEdhYnpaR19hMkxUY0p4VlhBLURqUXRoWFR6ZE5ibGJWS0o4aDd4d243dWd5aTZlal96Mk5EdXowNVp0Ry1XZHAzWGQzZF9xam95d2hzcmMwT0NRSGRjMU93cUg3S1dVaV9xMGFsNzZPWUd2NjZYd0Q5SE5fcVpOemZNSQ?oc=5",
       "source": "nguoiquansat.vn",
       "date": "2026-10-19 19:19"
-     },
-     {
-      "title": "Mỗi ngày VinFast bán hơn 770 ô tô điện khắp thế giới, ông Phạm Nhật Quân Anh nói gì?",
-      "summary": "Trong quý II/2026, VinFast bàn giao tổng cộng 70.085 ô tô điện trên toàn cầu, tăng 20% so với quý I/2026 và 96% so với quý II/2025.",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQOTJkZlFjb2VVR3hSa3pCdlFEbDdJWU5PMXRQbzZQM2tzSEZfektUSkdtQlFuTmVWRzJZU3FBdEI3T0xmcmVrMWhxckpTMG05WWhXNnppVThKdlRwSmxLMC1hbHE2bHE4VTBhQ2VrUlVucUh0M2ZjWURkVHEzaUVaeWF2cmlVTU82Mk5rSmJkUTBxU0I5MWRJYjE3QVg5S3NXd25ydjcxbi1VWTZWOHRlNlREbVhJVy1TdmFWVnVTdw?oc=5",
-      "source": "CafeF",
-      "date": "2026-10-19 18:28"
      },
      {
       "title": "Xe điện VinFast ngày càng hút người mê 'xê dịch'",
@@ -2086,6 +2085,20 @@
     "name": "Công nghệ AI",
     "items": [
      {
+      "title": "Hội chợ Canton thu hút với 235.000 sản phẩm AI",
+      "summary": "VTV.vn - Hơn 20.000 nhà triển lãm góp mặt tại hội chợ Canton lần thứ 140, giới thiệu các sản phẩm AI với nhiều ứng dụng trong sản xuất và đời sống.",
+      "url": "https://vtv.vn/hoi-cho-canton-thu-hut-voi-235000-san-pham-ai-100261019091402668.htm",
+      "source": "VTV",
+      "date": "2026-10-20 04:47"
+     },
+     {
+      "title": "Hạ tầng AI trước sức ép nợ vay khổng lồ",
+      "summary": "VTV.vn - Các doanh nghiệp phát triển trung tâm dữ liệu AI đang chịu sức ép tài chính khi quy mô vốn vay tăng nhanh, trong khi khả năng tạo doanh thu vẫn là dấu hỏi.",
+      "url": "https://vtv.vn/ha-tang-ai-truoc-suc-ep-no-vay-khong-lo-100261019090306438.htm",
+      "source": "VTV",
+      "date": "2026-10-20 04:42"
+     },
+     {
       "title": "Dùng Claude Opus để ‘mổ xẻ’ TV LG cũ, lập trình viên tăng tốc ứng dụng gấp 10 lần",
       "summary": "Trong khi LG không công khai bộ công cụ phát triển ứng dụng cho TV của mình, lập trình viên này phải dùng đến AI Claude để xây dựng bộ ứng dụng mới cho thiết bị.",
       "url": "https://genk.vn/dung-claude-opus-de-mo-xe-tv-lg-cu-lap-trinh-vien-tang-toc-ung-dung-gap-10-lan-165261019193600164.chn",
@@ -2156,20 +2169,6 @@
       "date": "2026-10-19 22:41"
      },
      {
-      "title": "Hội chợ Canton thu hút với 235.000 sản phẩm AI",
-      "summary": "VTV.vn - Hơn 20.000 nhà triển lãm góp mặt tại hội chợ Canton lần thứ 140, giới thiệu các sản phẩm AI với nhiều ứng dụng trong sản xuất và đời sống.",
-      "url": "https://vtv.vn/hoi-cho-canton-thu-hut-voi-235000-san-pham-ai-100261019091402668.htm",
-      "source": "VTV",
-      "date": "2026-10-19 21:47"
-     },
-     {
-      "title": "Hạ tầng AI trước sức ép nợ vay khổng lồ",
-      "summary": "VTV.vn - Các doanh nghiệp phát triển trung tâm dữ liệu AI đang chịu sức ép tài chính khi quy mô vốn vay tăng nhanh, trong khi khả năng tạo doanh thu vẫn là dấu hỏi.",
-      "url": "https://vtv.vn/ha-tang-ai-truoc-suc-ep-no-vay-khong-lo-100261019090306438.htm",
-      "source": "VTV",
-      "date": "2026-10-19 21:42"
-     },
-     {
       "title": "Chủ tịch ngân hàng lớn nhất nước Ý bị AI deepfake lừa chuyển gần 2.800 tỷ",
       "summary": "Chỉ trong 3 ngày, kẻ lừa đảo dùng AI nhái giọng luật sư, giả tin nhắn WhatsApp của CEO, kèm 11 tài liệu có chữ ký giả, rút 95 triệu euro (khoảng 2.770 tỷ đồng) từ ngân hàng tư nhân hàng đầu nước Ý.",
       "url": "https://genk.vn/chu-tich-ngan-hang-lon-nhat-nuoc-y-bi-ai-deepfake-lua-chuyen-gan-2800-ty-16526101913364763.chn",
@@ -2196,14 +2195,15 @@
   "failed": {
    "https://genk.vn/rss/cong-nghe.rss": "HTTPError: HTTP Error 404: Not Found",
    "https://autopro.com.vn/index.rss": "ParseError: not well-formed (invalid token): line 61, column 92",
+   "https://vnreview.vn/forums/-/index.rss": "TimeoutError: The read operation timed out",
    "https://ictnews.vietnamnet.vn/cong-nghe.rss": "ParseError: mismatched tag: line 191, column 6"
   },
-  "n_failed": 3
+  "n_failed": 4
  },
  "weather": {
   "latitude": 12.196836,
   "longitude": 109.19892,
-  "generationtime_ms": 0.596165657043457,
+  "generationtime_ms": 10.996460914611816,
   "utc_offset_seconds": 25200,
   "timezone": "Asia/Ho_Chi_Minh",
   "timezone_abbreviation": "GMT+7",
@@ -2218,13 +2218,13 @@
    "wind_speed_10m": "km/h"
   },
   "current": {
-   "time": "2026-10-20T03:30",
+   "time": "2026-10-20T05:30",
    "interval": 900,
-   "temperature_2m": 25.6,
-   "relative_humidity_2m": 81,
-   "apparent_temperature": 29.4,
-   "weather_code": 1,
-   "wind_speed_10m": 7.2
+   "temperature_2m": 25.4,
+   "relative_humidity_2m": 82,
+   "apparent_temperature": 29.6,
+   "weather_code": 0,
+   "wind_speed_10m": 5.1
   },
   "daily_units": {
    "time": "iso8601",
@@ -2251,40 +2251,40 @@
     53,
     51,
     3,
-    45,
-    45,
+    3,
+    3,
     51,
     51
    ],
    "temperature_2m_max": [
     30.3,
     30.3,
-    30.0,
+    29.8,
     29.7,
     29.6,
     29.8,
-    29.4,
-    29.7
+    29.3,
+    29.6
    ],
    "temperature_2m_min": [
     25.0,
     24.9,
-    24.7,
-    24.3,
-    22.5,
-    23.3,
-    22.9,
-    24.4
+    24.8,
+    24.4,
+    22.8,
+    23.5,
+    23.7,
+    24.9
    ],
    "precipitation_sum": [
-    8.4,
-    2.4,
+    8.2,
+    2.6,
     1.0,
     0.0,
     0.0,
     0.0,
-    0.5,
-    1.9
+    0.4,
+    2.0
    ],
    "precipitation_probability_max": [
     100,
