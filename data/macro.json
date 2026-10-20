@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-19 17:03",
+  "fetched_at": "2026-10-20 09:23",
   "failed": {}
  },
  "criteria": {
@@ -30,15 +30,15 @@
    "reason": "Tỷ giá ổn định quanh 25.975 VND/USD; chỉ số giá USD trong nước tháng 9 giảm 0,69% so với tháng trước (Cục Thống kê), chưa có áp lực mất giá đáng kể.",
    "url": "https://doanhnhan.baophapluat.vn/cpi-thang-9-tang-cao-do-gia-xang-dau-va-hoc-phi-tang.html",
    "previous": {
-    "value": 25872.0,
-    "unit": "VND/USD",
-    "date": "2026-10-16",
-    "source": "Yahoo Finance (USDVND=X)"
-   },
-   "current": {
     "value": 25889.0,
     "unit": "VND/USD",
     "date": "2026-10-19",
+    "source": "Yahoo Finance (USDVND=X)"
+   },
+   "current": {
+    "value": 25892.0,
+    "unit": "VND/USD",
+    "date": "2026-10-20",
     "source": "Yahoo Finance (USDVND=X)"
    }
   },
@@ -149,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 101.94,
+    "value": 101.91,
     "unit": "điểm",
     "date": "2026-10-19",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -168,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 108.43,
+    "value": 109.65,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-19",
     "source": "Yahoo Finance (BZ=F)"
@@ -181,15 +181,15 @@
    "reason": "S&P 500 và Nasdaq lập đỉnh kỷ lục ngày 6/10 (S&P 7.818,93) nhưng giảm 0,22% phiên 7/10 xuống 7.801,77 khi lợi suất 10 năm vọt lên 5,365% và Fed phát tín hiệu còn tăng lãi suất — tín hiệu lẫn lộn nên chấm trung tính.",
    "url": "https://dttc.sggp.org.vn/pho-wall-lai-mat-diem-vi-trai-phieu-post138192.html",
    "previous": {
-    "value": 7744.06,
-    "unit": "điểm (S&P 500)",
-    "date": "2026-10-15",
-    "source": "Yahoo Finance (^GSPC)"
-   },
-   "current": {
     "value": 7659.44,
     "unit": "điểm (S&P 500)",
     "date": "2026-10-16",
+    "source": "Yahoo Finance (^GSPC)"
+   },
+   "current": {
+    "value": 7690.73,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-10-19",
     "source": "Yahoo Finance (^GSPC)"
    }
   },
@@ -234,12 +234,12 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 26140.03,
-   "date": "2026-10-16"
+   "value": 26430.89,
+   "date": "2026-10-19"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 98.12,
+   "value": 98.56,
    "date": "2026-10-19"
   }
  },
