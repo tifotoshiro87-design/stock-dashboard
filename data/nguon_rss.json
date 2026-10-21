@@ -1,5 +1,5 @@
 {
-"updated": "2026-10-21 09:31",
+"updated": "2026-10-21 11:32",
 "tot": {
 "vnexpress": [
 "https://vnexpress.net/rss/thoi-su.rss",
@@ -99,6 +99,7 @@
 "https://vtv.vn/rss/van-hoa-giai-tri/am-nhac.rss",
 "https://vtv.vn/rss/van-hoa-giai-tri/sao.rss",
 "https://vtv.vn/rss/doi-song.rss",
+"https://vtv.vn/rss/doi-song/du-lich.rss",
 "https://vtv.vn/rss/cong-nghe.rss",
 "https://vtv.vn/rss/cong-nghe/cuoc-song-so.rss",
 "https://vtv.vn/rss/cong-nghe/san-pham.rss",
@@ -283,9 +284,13 @@
 "https://genk.vn/rss/xe.rss",
 "https://genk.vn/rss/ai.rss"
 ],
-"tinhte": [],
+"tinhte": [
+"https://tinhte.vn/rss"
+],
 "ictnews": [],
-"vnreview": [],
+"vnreview": [
+"https://vnreview.vn/forums/-/index.rss"
+],
 "autopro": [
 "https://autopro.com.vn/home.rss"
 ]
