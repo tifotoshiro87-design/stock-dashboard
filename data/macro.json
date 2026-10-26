@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-26 21:31",
+  "fetched_at": "2026-10-26 23:14",
   "failed": {}
  },
  "criteria": {
@@ -149,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.01,
+    "value": 102.0,
     "unit": "điểm",
     "date": "2026-10-26",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -168,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 109.99,
+    "value": 111.9,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-26",
     "source": "Yahoo Finance (BZ=F)"
@@ -187,7 +187,7 @@
     "source": "Yahoo Finance (^GSPC)"
    },
    "current": {
-    "value": 7669.38,
+    "value": 7679.52,
     "unit": "điểm (S&P 500)",
     "date": "2026-10-26",
     "source": "Yahoo Finance (^GSPC)"
@@ -234,12 +234,12 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 26116.47,
+   "value": 26209.16,
    "date": "2026-10-26"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 100.84,
+   "value": 102.81,
    "date": "2026-10-26"
   }
  },
