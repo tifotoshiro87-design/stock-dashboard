@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-10-27 20:29",
+  "fetched_at": "2026-10-27 22:28",
   "failed": {}
  },
  "criteria": {
@@ -149,7 +149,7 @@
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.21,
+    "value": 102.24,
     "unit": "điểm",
     "date": "2026-10-27",
     "source": "Yahoo Finance (DX-Y.NYB)"
@@ -168,7 +168,7 @@
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 110.17,
+    "value": 109.36,
     "unit": "USD/thùng (Brent)",
     "date": "2026-10-27",
     "source": "Yahoo Finance (BZ=F)"
@@ -181,15 +181,15 @@
    "reason": "S&P 500 và Nasdaq lập đỉnh kỷ lục ngày 6/10 (S&P 7.818,93) nhưng giảm 0,22% phiên 7/10 xuống 7.801,77 khi lợi suất 10 năm vọt lên 5,365% và Fed phát tín hiệu còn tăng lãi suất — tín hiệu lẫn lộn nên chấm trung tính.",
    "url": "https://dttc.sggp.org.vn/pho-wall-lai-mat-diem-vi-trai-phieu-post138192.html",
    "previous": {
-    "value": 7623.68,
-    "unit": "điểm (S&P 500)",
-    "date": "2026-10-23",
-    "source": "Yahoo Finance (^GSPC)"
-   },
-   "current": {
     "value": 7676.77,
     "unit": "điểm (S&P 500)",
     "date": "2026-10-26",
+    "source": "Yahoo Finance (^GSPC)"
+   },
+   "current": {
+    "value": 7720.58,
+    "unit": "điểm (S&P 500)",
+    "date": "2026-10-27",
     "source": "Yahoo Finance (^GSPC)"
    }
   },
@@ -234,12 +234,12 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 26169.38,
-   "date": "2026-10-26"
+   "value": 26444.39,
+   "date": "2026-10-27"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 101.09,
+   "value": 100.07,
    "date": "2026-10-27"
   }
  },
