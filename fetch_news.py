@@ -215,12 +215,50 @@ TAB = {
 }
 # Mục lấy được nhưng không khớp mục nào sẽ bị bỏ. Một tin chỉ thuộc DUY NHẤT 1 mục (không trùng lặp giữa các mục).
 
+# ---- Tab 4 (nút "Quốc tế"): kinh tế thế giới, chính trị – quan hệ quốc tế, tài chính – năng lượng – vàng ----
+# Chỉ lấy tin tiếng Việt từ báo chính thống, tóm tắt lấy từ chính nguồn tin. Không tự suy đoán tác động.
+# 'bat_buoc' = tin phải nhắc tới nước ngoài/tổ chức quốc tế (loại tin trong nước chỉ trùng từ "lãi suất", "xuất khẩu"...).
+TAB["quoc_te"] = {
+    "ten": "Tin quốc tế",
+    "so_ngay": 14,
+    "bat_buoc": (r"thế giới|quốc tế|toàn cầu|châu á|châu âu|châu mỹ|châu phi|đông nam á|trung đông|\basean\b|\beu\b|nato|liên hợp quốc|"
+                 r"\bfed\b|\becb\b|\bimf\b|\bwto\b|opec|world bank|ngân hàng thế giới|phố wall|wall street|nasdaq|dow jones|"
+                 r"\bmỹ\b|hoa kỳ|trump|biden|trung quốc|tập cận bình|\bnga\b|putin|ukraine|gaza|israel|iran|palestin|"
+                 r"nhật bản|hàn quốc|triều tiên|ấn độ|thái lan|indonesia|singapore|malaysia|philippines|myanmar|campuchia|"
+                 r"\bđức\b|\bpháp\b|\banh\b|\bý\b|\búc\b|canada|brazil|mexico|argentina|thổ nhĩ kỳ|ả rập|saudi|ai cập|nam phi|venezuela"),
+    "rss": ["https://vnexpress.net/rss/the-gioi.rss"],   # các báo khác: bot tự dò kênh Thế giới/Quốc tế (SLUG_QUAN_TAM)
+    "muc": [
+        {"key": "kinh_te_tg", "ten": "Kinh tế – thương mại – lãi suất",
+         "tim": ["kinh tế thế giới Fed lãi suất lạm phát", "thương mại toàn cầu thuế quan"],
+         "tu_khoa": r"\bfed\b|\becb\b|\bboj\b|ngân hàng trung ương|lãi suất|lạm phát|thuế quan|thương mại|suy thoái|\bgdp\b|"
+                    r"\bimf\b|ngân hàng thế giới|world bank|\bwto\b|thâm hụt|nợ công|đồng usd|đồng euro|nhân dân tệ|đồng yên|"
+                    r"kinh tế (?:mỹ|trung quốc|nhật|đức|toàn cầu|thế giới|châu âu)|eurozone|khu vực đồng euro",
+         "loai_tru": r""},
+        {"key": "chinh_tri", "ten": "Chính trị – địa chính trị – quan hệ quốc tế",
+         "tim": ["địa chính trị quan hệ quốc tế", "thượng đỉnh ngoại giao xung đột"],
+         "tu_khoa": r"ngoại giao|đàm phán|thượng đỉnh|hội nghị|liên hợp quốc|\bnato\b|\basean\b|\bg7\b|\bg20\b|\bbrics\b|xung đột|"
+                    r"chiến sự|chiến tranh|trừng phạt|bầu cử|tổng thống|thủ tướng|hiệp ước|hiệp định|ukraine|gaza|trung đông|"
+                    r"biển đông|triều tiên|tuyên bố chung|căng thẳng|đại sứ|quân sự",
+         "loai_tru": r""},
+        {"key": "nang_luong_vang", "ten": "Tài chính – năng lượng – vàng – hàng hóa",
+         "tim": ["giá dầu giá vàng thế giới", "Phố Wall OPEC hàng hóa"],
+         "tu_khoa": r"giá dầu|dầu thô|\bbrent\b|\bwti\b|opec|khí đốt|\blng\b|năng lượng|giá vàng|vàng thế giới|phố wall|wall street|"
+                    r"dow jones|nasdaq|s&p ?500|bitcoin|tiền số|tiền mã hóa|hàng hóa|kim loại|quặng sắt|lúa mì|cà phê|trái phiếu",
+         "loai_tru": r""},
+        {"key": "tac_dong_vn", "ten": "Tác động tới Việt Nam",
+         "tim": ["thế giới tác động đến Việt Nam xuất khẩu", "thuế quan Mỹ hàng Việt Nam"],
+         "tu_khoa": r"việt nam|doanh nghiệp việt|xuất khẩu|nhập khẩu|\bfdi\b|chuỗi cung ứng|tỷ giá|cptpp|rcep|evfta|hiệp định thương mại",
+         "loai_tru": r""},
+    ],
+}
+
+
 # ===================== DANH SÁCH BÁO: BOT TỰ DÒ KÊNH RSS =====================
 # (tên hiển thị, tên miền, [các trang liệt kê RSS - thử lần lượt, cuối cùng thử trang chủ], tab được cấp tin)
 # Bot đọc trang liệt kê RSS để tìm link kênh THẬT => báo đổi đường dẫn RSS vẫn không hỏng.
 # Các kênh chạy tốt được nhớ ở data/nguon_rss.json (lần sau dò hụt vẫn dùng lại).
 # Muốn thêm báo: thêm 1 dòng. Báo không có RSS (vd Báo Khánh Hòa) vẫn lấy được qua Bing/Google (xem BAO_DIA_PHUONG).
-NT, CK, CN = "nha_trang", "chung_khoan", "cong_nghe"
+NT, CK, CN, QT = "nha_trang", "chung_khoan", "cong_nghe", "quoc_te"
 CA_BA = (NT, CK, CN)
 BAO = {
     # --- báo tổng hợp quốc gia (cấp tin cho cả 3 tab, bot chỉ lấy các kênh liên quan) ---
@@ -264,6 +302,12 @@ BAO = {
     "autopro": ("Autopro", "autopro.com.vn", ["https://autopro.com.vn/rss.chn"], (CN,)),
 }
 
+# Tab Quốc tế: thêm vào các báo lớn có chuyên mục Thế giới/Quốc tế (bot tự dò kênh theo tên chuyên mục, xem SLUG_QUAN_TAM[QT])
+for _k in ("vnexpress", "tuoitre", "thanhnien", "dantri", "vietnamnet", "tienphong", "znews", "nld", "laodong", "vov", "vtv",
+           "vietnamplus", "baotintuc", "nhandan", "cafef", "vneconomy", "baodautu", "thesaigontimes", "congthuong"):
+    if _k in BAO:
+        BAO[_k] = BAO[_k][:3] + (tuple(BAO[_k][3]) + (QT,),)
+
 # Báo/trang địa phương không có RSS: bot tìm bằng Bing/Google với "site:" (mỗi mục Nha Trang tìm thêm theo chủ đề).
 BAO_DIA_PHUONG = ["baokhanhhoa.vn", "khanhhoa.gov.vn"]
 CHU_DE_DIA_PHUONG = {"ha_tang": "giao thông", "quy_hoach": "quy hoạch dự án", "kinh_te_vh": "kinh tế văn hóa",
@@ -302,6 +346,9 @@ SLUG_QUAN_TAM = {
                   "xe|xe-co|xeco|ai|tri-tue-nhan-tao|may-tinh|dien-thoai|mobile|internet|thi-truong|thitruong|home|trang-chu|"
                   "tin-moi-nhat|tin-moi|thiet-bi|thietbi|kham-pha|khampha|san-pham-moi|sanphammoi"),
 }
+
+
+SLUG_QUAN_TAM[QT] = _T.format("the-gioi|thegioi|quoc-te|quocte|kinh-te-the-gioi|the-gioi-kinh-te|tai-chinh-quoc-te|chinh-tri-quoc-te|world|international")
 
 
 # ===================== HÀM TIỆN ÍCH =====================
@@ -842,8 +889,8 @@ FILE_CAU_HINH = Path(__file__).parent / "cau_hinh_tin.txt"
 
 
 def dat_toi_thieu():
-    """Tab Chứng khoán & Công nghệ: cần từ khóa ở TIÊU ĐỀ hoặc >= 2 lần ở tóm tắt (giảm tin lạc đề)."""
-    for t in (CK, CN):
+    """Tab Chứng khoán, Công nghệ & Quốc tế: cần từ khóa ở TIÊU ĐỀ hoặc >= 2 lần ở tóm tắt (giảm tin lạc đề)."""
+    for t in (CK, CN, QT):
         for m in TAB[t]["muc"]:
             m["toi_thieu"] = 2
 
