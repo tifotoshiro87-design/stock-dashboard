@@ -6,11 +6,10 @@
 <title>NEWDAY</title>
 <meta name="apple-mobile-web-app-title" content="NEWDAY">
 <meta name="application-name" content="NEWDAY">
-<meta name="theme-color" content="#0d1117">
+<meta name="theme-color" content="#0a1220">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
-<script>try{if(JSON.parse(localStorage.getItem("mtab"))!=2)document.documentElement.classList.add("kem")}catch(e){document.documentElement.classList.add("kem")}</script>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#0d1117;color:#e6edf3;font:14px/1.45 -apple-system,"Segoe UI",Roboto,sans-serif}
@@ -113,10 +112,23 @@ html.kem .vt{background:var(--k-card2);border-color:var(--k-line)}html.kem .vt .
 html.kem .tag{background:#e3ebf8;color:#0b5cad}
 html.kem select,html.kem input{background:#fffdf8;color:var(--k-tx);border-color:#d6c9a9}
 html.kem [style*="#79c0ff"]{color:#0b5cad!important}html.kem [style*="#f0883e"]{color:#a04a00!important}
+/* ===== GĐ1: giao diện tối xanh đậm – xanh ngọc, thanh điều hướng dưới (máy tính: thanh trái) ===== */
+:root{--k-bg:#0a1220;--k-card:#101a2c;--k-card2:#0d1627;--k-img:#16253d;--k-line:#1b2b45;--k-line2:#1b2b45;--k-tx:#e6edf3;--k-mu:#8aa0bf;--k-ac:#2dd4bf;--k-up:#3fb950;--k-dn:#f85149;--k-warn:#e3b341;--k-ok:#3fb950;--k-okbg:#0f2a22;--k-minebg:#12363a}
+body{background:#0a1220;padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+#top{background:#0a1220;border-bottom-color:#1b2b45}
+.card{background:#101a2c;border-color:#1b2b45;border-radius:14px}
+.ni{display:flex;gap:10px;border-color:#1b2b45}.ni .nb{flex:1;min-width:0}
+.ti{flex:none;display:block;width:84px;height:64px;border-radius:10px;object-fit:cover;background:linear-gradient(135deg,#12365a,#0f766e)}
+.ni a.nt:hover,.ni .nm a,.more{color:#2dd4bf}
+#mtabs{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:0;overflow:visible;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));background:#0d1627;border-top:1px solid #1b2b45}
+#mtabs button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;border-radius:10px;padding:6px 2px;font-size:11px;color:#7f93b2;white-space:nowrap}
+#mtabs button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#mtabs button.on{background:none;color:#2dd4bf;font-weight:600}
+@media(min-width:900px){#mtabs{top:0;right:auto;width:92px;flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 4px;border-top:0;border-right:1px solid #1b2b45}#top,main{margin-left:92px}body{padding-bottom:0}}
 </style></head><body>
 <div id="top">
- <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · Mua bán xe · Quốc tế</span></h1>
- <div id="mtabs"><button data-m="1" class="on">Tin nhanh Nha Trang</button><button data-m="2">Chứng khoán</button><button data-m="3">Công nghệ</button><button data-m="4">Mua bán xe</button><button data-m="5">Quốc tế</button></div>
+ <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · Mua bán xe · News</span></h1>
+ <div id="mtabs"><button data-m="1" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span>Tin tức</span></button><button data-m="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span>Chứng khoán</span></button><button data-m="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg><span>Công nghệ</span></button><button data-m="4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.5-5a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16v3h-2v-1.5H7V19H5z"/></svg><span>Mua bán xe</span></button><button data-m="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>News</span></button></div>
  <div id="ckhead" class="hide">
  <div id="ban">Đang tải dữ liệu…</div>
  <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
@@ -429,9 +441,9 @@ const OPEN=new Set();
 const URL_OK=u=>/^https?:\/\//.test(u||"");
 function ngay(d){if(!d)return"";const [a,b]=String(d).split(" "),p=a.split("-");return p.length==3?`${p[2]}/${p[1]}/${p[0]}${b?" "+b:""}`:d}
 function tin(x){const u=URL_OK(x.url)?esc(x.url):"";
- return `<div class="ni">${u?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(x.title)}</a>`:`<b>${esc(x.title)}</b>`}
+ return `<div class="ni">${x.img&&URL_OK(x.img)?`<img class="ti" src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`:'<i class="ti"></i>'}<div class="nb">${u?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(x.title)}</a>`:`<b>${esc(x.title)}</b>`}
  ${x.summary?`<div class="ns">${esc(x.summary)}</div>`:""}
- <div class="nm">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}${u?`<a href="${u}" target="_blank" rel="noopener">Đọc bài →</a>`:""}</div></div>`}
+ <div class="nm">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}${u?`<a href="${u}" target="_blank" rel="noopener">Đọc bài →</a>`:""}</div></div></div>`}
 function khoi(id,ten,items,extra="",cls=""){
  items=items||[];const HS=Math.min(15,Math.max(1,(T&&T.meta&&+T.meta.hien_san)||3)),mo=OPEN.has(id),dau=items.slice(0,HS),sau=items.slice(HS);
  return `<div class="card ${cls}"><div class="nh"><h3>${esc(ten)}</h3><span class="mu" style="font-size:12px">${items.length?items.length+" tin":""}</span></div>${extra}
@@ -531,7 +543,7 @@ function t3(){
  $("#t3").innerHTML=ghiChu(T)+menu("ck",ds)+khoi("ck-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
 
 // ===== Sự kiện =====
-function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m!=2);const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m!=2?"#f6efdf":"#0d1117";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,4,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
+function chonM(m){ls.set("mtab",m);document.documentElement.classList.remove("kem");const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content="#0a1220";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,4,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const t=e.target;
  if(t.closest("#mtabs button")){chonM(+t.closest("#mtabs button").dataset.m);return}
  const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}

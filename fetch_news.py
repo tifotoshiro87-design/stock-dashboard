@@ -568,8 +568,18 @@ def doc_rss(du_lieu, nguon_mac_dinh=""):
                 nguon_url = el.get("url") or ""
         if not tieu_de or not link:
             continue
+        anh = ""   # ảnh đại diện: <enclosure>, <media:content>, <media:thumbnail> hoặc <img> đầu tiên trong mô tả
+        for el in it.iter():
+            u = (el.get("url") or "").strip()
+            if u.startswith("http") and (el.tag == "enclosure" or el.tag.endswith("}content") or el.tag.endswith("}thumbnail")) \
+                    and (el.get("type", "").startswith("image") or re.search(r"\.(?:jpe?g|png|webp)(?:\?|$)", u, re.I)):
+                anh = u
+                break
+        if not anh:
+            m_anh = re.search(r"<img[^>]+src=[\"'](https?://[^\"']+)", it.findtext("description") or "", re.I)
+            anh = m_anh.group(1) if m_anh else ""
         ds.append({"title": tieu_de, "url": link_that(link), "summary": mo_ta, "dt": ngay,
-                   "source": nguon or nguon_mac_dinh, "nguon_url": nguon_url})
+                   "source": nguon or nguon_mac_dinh, "nguon_url": nguon_url, "img": anh.replace("http://", "https://", 1)})
     return ds
 
 
@@ -854,8 +864,11 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
             tom_tat = ""
         if len(tom_tat) > DO_DAI_TOM_TAT:
             tom_tat = tom_tat[:DO_DAI_TOM_TAT].rsplit(" ", 1)[0] + "…"
-        return {"title": t["title"], "summary": tom_tat, "url": t["url"], "source": ten_nguon(t),
-                "date": t["dt"].strftime("%Y-%m-%d %H:%M")}
+        d = {"title": t["title"], "summary": tom_tat, "url": t["url"], "source": ten_nguon(t),
+             "date": t["dt"].strftime("%Y-%m-%d %H:%M")}
+        if t.get("img"):
+            d["img"] = t["img"]
+        return d
 
     sections = [{"key": m["key"], "name": m["ten"], "items": [ra_json(t) for t in ket_qua[m["key"]]]}
                 for m in cau_hinh["muc"]]
