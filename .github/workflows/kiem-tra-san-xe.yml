@@ -1,0 +1,99 @@
+name: Kiem tra san xe
+# Chỉ ĐỌC robots.txt và trang điều khoản của các sàn xe, ghi kết quả vào data/kiem_tra_san_xe.json. Không thu thập tin rao xe.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  kiem-tra:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Kiem tra
+        run: |
+          python - <<'PYEOF'
+          """Kiểm tra quyền thu thập dữ liệu của các sàn xe. CHỈ ĐỌC: robots.txt, trang chủ và trang điều khoản của mỗi sàn (mỗi trang 1 lần, cách nhau 2 giây).
+          Kết quả ghi vào data/kiem_tra_san_xe.json để người dùng và Claude đọc. Script này KHÔNG thu thập tin rao xe."""
+          import json, os, re, time, html
+          import urllib.request, urllib.robotparser as rp
+          from datetime import datetime, timezone, timedelta
+          from urllib.parse import urljoin, urlparse
+
+          UA = "NewdayPersonalBot/1.0 (cong cu ca nhan, vai yeu cau moi ngay)"
+          SAN = {"Chợ Tốt Xe": "https://xe.chotot.com/", "Bonbanh": "https://bonbanh.com/", "Car360": "https://car360.vn/",
+                 "Oto.com.vn": "https://oto.com.vn/", "Carmudi": "https://www.carmudi.vn/", "Choxe": "https://choxe.net/",
+                 "Muaban.net": "https://muaban.net/", "Oto360": "https://oto360.net/", "Winauto": "https://winauto.vn/",
+                 "Carpla": "https://carpla.vn/", "Anycar": "https://anycar.vn/", "Vucar": "https://vucar.vn/",
+                 "Toyota Sure": "https://toyotasure.vn/", "Otosaigon": "https://www.otosaigon.com/", "Otofun": "https://www.otofun.net/",
+                 "Mercedes-Benz": "https://www.mercedes-benz.com.vn/", "Ford": "https://www.ford.com.vn/", "BMW": "https://www.bmw.com.vn/"}
+          if os.environ.get("SAN_THU"):
+              SAN = json.loads(os.environ["SAN_THU"])
+          TU_KHOA = re.compile(r"thu thập|tự động|robot|crawl|scrap|trích xuất|sao chép|khai thác dữ liệu|công cụ tự động|\bbot\b|phần mềm", re.I)
+          LINK_DK = re.compile(r"điều khoản|quy chế|thỏa thuận|quy định|terms", re.I)
+          LINK_XE = re.compile(r"xe|oto|ô tô|bán|giá", re.I)
+
+          def tai(url, gioi_han=400000):
+              req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept-Language": "vi"})
+              with urllib.request.urlopen(req, timeout=20) as r:
+                  return r.status, r.read(gioi_han).decode("utf-8", "ignore")
+
+          def van_ban(h):
+              h = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", h)
+              return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", h)))
+
+          def kiem_tra(goc):
+              kq, host = {"trang_chu": goc}, "{0.scheme}://{0.netloc}".format(urlparse(goc))
+              p = None
+              try:
+                  st, txt = tai(host + "/robots.txt")
+                  if "<html" in txt[:800].lower():
+                      kq["robots"] = {"trang_thai": st, "ghi_chu": "không có robots.txt thật (trả về trang HTML)"}
+                  else:
+                      p = rp.RobotFileParser(); p.parse(txt.splitlines())
+                      kq["robots"] = {"trang_thai": st, "chan_toan_bo": not p.can_fetch(UA, host + "/"), "crawl_delay": p.crawl_delay(UA),
+                                      "disallow": [l.strip() for l in txt.splitlines() if l.lower().startswith("disallow")][:40]}
+              except Exception as e:  # noqa: BLE001
+                  kq["robots"] = {"loi": f"{type(e).__name__}: {e}"[:150]}
+              time.sleep(2)
+              try:
+                  st, home = tai(goc)
+                  kq["trang_chu_trang_thai"] = st
+              except Exception as e:  # noqa: BLE001
+                  kq["trang_chu_loi"] = f"{type(e).__name__}: {e}"[:150]
+                  return kq
+              lk = [(urljoin(goc, h), van_ban(t)) for h, t in re.findall(r'<a[^>]+href=["\']([^"\'#]+)["\'][^>]*>(.*?)</a>', home, re.I | re.S)]
+              lk = [(u, t) for u, t in lk if urlparse(u).netloc == urlparse(goc).netloc]
+              if p:
+                  xe = list(dict.fromkeys(u for u, t in lk if LINK_XE.search(u + " " + t)))[:15]
+                  ok = [u for u in xe if p.can_fetch(UA, u)]
+                  kq["duong_dan_rao_xe"] = {"da_thu": len(xe), "duoc_phep": len(ok), "bi_chan_vi_du": [u for u in xe if u not in ok][:3]}
+              dk = list(dict.fromkeys(u for u, t in lk if LINK_DK.search(u + " " + t)))[:3]
+              kq["dieu_khoan"] = []
+              for u in dk:
+                  time.sleep(2)
+                  try:
+                      st, trang = tai(u)
+                      cau = [c.strip()[:260] for c in re.split(r"(?<=[.;:!?])\s+", van_ban(trang)) if TU_KHOA.search(c)][:8]
+                      kq["dieu_khoan"].append({"url": u, "trang_thai": st, "cau_lien_quan": cau})
+                  except Exception as e:  # noqa: BLE001
+                      kq["dieu_khoan"].append({"url": u, "loi": f"{type(e).__name__}: {e}"[:150]})
+              return kq
+
+          ra = {"chay_luc": datetime.now(timezone(timedelta(hours=7))).strftime("%Y-%m-%d %H:%M"), "san": {}}
+          for ten, goc in SAN.items():
+              ra["san"][ten] = kiem_tra(goc)
+              time.sleep(2)
+          os.makedirs("data", exist_ok=True)
+          json.dump(ra, open(os.environ.get("RA", "data/kiem_tra_san_xe.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          print("xong", len(ra["san"]), "sàn")
+          PYEOF
+      - name: Luu ket qua
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/kiem_tra_san_xe.json
+          git diff --cached --quiet || (git commit -m "kiem tra san xe" && for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done)
