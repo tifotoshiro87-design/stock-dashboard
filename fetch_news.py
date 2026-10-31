@@ -3,7 +3,7 @@
 fetch_news.py - Gom tin cho 3 tab của app, ghi ra data/tin.json
   Tab 1: Tin nhanh Nha Trang (7 mục, có dự báo thời tiết)
   Tab 2: Chứng khoán - mục Tin tức (5 nhóm ngành)
-  Tab 3: Công nghệ (Xe ô tô theo hãng: Honda, Suzuki, Toyota, Hyundai, VinFast, Khác - loại trừ xe Trung Quốc; Công nghệ AI)
+  Tab 3: Công nghệ (Xe ô tô theo hãng: Honda, Suzuki, Toyota, Hyundai, Kia, VinFast, Khác - loại trừ xe Trung Quốc; Công nghệ AI)
 
 Chạy: python fetch_news.py
 Chỉ dùng nguồn KHÔNG cần đăng nhập, KHÔNG cần API key:
@@ -179,7 +179,7 @@ TAB = {
             "https://dantri.com.vn/rss/o-to-xe-may.rss", "https://dantri.com.vn/rss/cong-nghe.rss",
         ],
         "muc": [
-            # Xe ô tô chia theo hãng: Honda, Suzuki, Toyota, Hyundai, VinFast, Khác (hãng còn lại, trừ xe Trung Quốc).
+            # Xe ô tô chia theo hãng: Honda, Suzuki, Toyota, Hyundai, Kia, VinFast, Khác (hãng còn lại, trừ xe Trung Quốc).
             # Mục hãng: tiêu đề phải có tên hãng hoặc tên dòng xe của hãng đó.
             xe_hang("xe_honda", "Honda", ["Honda ô tô", "xe Honda mới", "Honda CR-V HR-V City Civic"],
                     r"honda|cr-v|hr-v|br-v|wr-v|civic|accord|honda city|\bcity rs\b"),
@@ -189,17 +189,19 @@ TAB = {
                     r"toyota|\bvios\b|camry|corolla|innova|fortuner|hilux|yaris|\braize\b|veloz|avanza|land cruiser|\bprado\b|wigo"),
             xe_hang("xe_hyundai", "Hyundai", ["Hyundai ô tô", "xe Hyundai mới", "Hyundai Santa Fe Tucson Creta Accent"],
                     r"hyundai|santa fe|tucson|\bcreta\b|\baccent\b|palisade|stargazer|grand i10|elantra|custin|ioniq|\bkona\b|\bvenue\b"),
+            xe_hang("xe_kia", "Kia", ["Kia ô tô", "xe Kia mới", "Kia Morning Seltos Carens Sorento"],
+                    r"\bkia\b|seltos|sonet|carens|sorento|sportage|carnival|soluto|cerato"),
             xe_hang("xe_vinfast", "VinFast", ["VinFast ô tô", "xe VinFast mới", "VinFast VF 3 VF 5 VF 6 VF 7 VF 8 VF 9"],
                     r"vinfast|\bvf ?\d\b|limo green|minio green|herio green|nerio green|ec van"),
             {"key": "o_to", "ten": "Xe khác (trừ xe Trung Quốc)",
              "tim": ["ô tô mới ra mắt", "mẫu xe mới thiết kế", "xe thế hệ mới ra mắt", "ô tô nâng cấp facelift",
-                     "concept xe hơi", "Kia Mazda Ford Mitsubishi ra mắt", "Mercedes BMW Audi Porsche mẫu mới",
+                     "concept xe hơi", "Mazda Ford Mitsubishi ra mắt", "Mercedes BMW Audi Porsche mẫu mới",
                      "Lexus Volvo Volkswagen Nissan mẫu xe mới"],
              "tu_khoa": r"ra mắt|trình làng|lộ diện|lộ trang bị|lộ ảnh|thế hệ mới|thiết kế|nâng cấp|phiên bản|bản mới|"
                         r"mẫu xe mới|mẫu mới|dòng xe mới|concept|facelift|nội thất|ngoại thất|khung gầm|diện mạo|"
                         r"đầu xe|đuôi xe|ngôn ngữ thiết kế|nền tảng mới|giới thiệu mẫu",
              # ngoài xe Trung Quốc còn loại xe máy, tin tai nạn/giao thông và 5 hãng đã có mục riêng
-             "loai_tru": LOAI_XE + r"|honda|suzuki|toyota|hyundai|vinfast", "loai_tru_ca_bai": HANG_XE_TQ,
+             "loai_tru": LOAI_XE + r"|honda|suzuki|toyota|hyundai|kia|vinfast", "loai_tru_ca_bai": HANG_XE_TQ,
              "bat_buoc": r"ô tô|xe hơi|\bxe\b|suv|sedan|crossover|bán tải|minivan|hatchback|coupe|"
                          r"kia|mazda|ford|mitsubishi|nissan|subaru|lexus|mercedes|bmw|audi|"
                          r"porsche|volkswagen|volvo|tesla|peugeot|land rover|jeep|ferrari|lamborghini|bentley|"

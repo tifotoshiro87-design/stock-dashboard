@@ -89,7 +89,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{border-bottom:1px
 .vt .pinl{position:absolute;left:calc(49.9% + 9px);top:calc(49% - 9px);font-size:12px;font-weight:700;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}
 .vt .vtm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:#8b949e;font-size:12px}
 .wsec{font-size:13px;font-weight:600;margin:12px 0 6px}
-/* ===== Nền kem cho tab Tin nhanh Nha Trang, Công nghệ, Mua bán xe (html.kem); tab Chứng khoán giữ nền tối ===== */
+/* ===== Nền kem cho tab Tin nhanh Nha Trang, Công nghệ (html.kem); tab Chứng khoán giữ nền tối ===== */
 html.kem{--k-bg:#f6efdf;--k-card:#fffaf0;--k-card2:#faf2e0;--k-img:#ece2c9;--k-line:#e0d4b8;--k-line2:#ebe1ca;--k-tx:#2a2620;--k-mu:#6a6355;--k-ac:#8a5a00;--k-up:#1a7f37;--k-dn:#c4262e;--k-warn:#9a6700;--k-ok:#1a7f37;--k-okbg:#dcf2e1;--k-minebg:#f6e7c1;--xt0:#15803d;--xt1:#4d7c0f;--xt2:#6a6355;--xt3:#a35a00;--xt4:#c4262e}
 html.kem body{background:var(--k-bg);color:var(--k-tx)}
 html.kem #top{background:linear-gradient(#0d1117,#0d1117) top/100% env(safe-area-inset-top,0px) no-repeat,var(--k-bg);border-bottom-color:var(--k-line)}
@@ -127,8 +127,8 @@ body{background:#0a1220;padding-bottom:calc(78px + env(safe-area-inset-bottom,0p
 @media(min-width:900px){#mtabs{top:0;right:auto;width:92px;flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 4px;border-top:0;border-right:1px solid #1b2b45}#top,main{margin-left:92px}body{padding-bottom:0}}
 </style></head><body>
 <div id="top">
- <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · Mua bán xe · News</span></h1>
- <div id="mtabs"><button data-m="1" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span>Tin tức</span></button><button data-m="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span>Chứng khoán</span></button><button data-m="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg><span>Công nghệ</span></button><button data-m="4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.5-5a2 2 0 0 1 2-1.5h7a2 2 0 0 1 2 1.5L19 16v3h-2v-1.5H7V19H5z"/></svg><span>Mua bán xe</span></button><button data-m="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>News</span></button></div>
+ <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · News</span></h1>
+ <div id="mtabs"><button data-m="1" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span>Tin tức</span></button><button data-m="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span>Chứng khoán</span></button><button data-m="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg><span>Công nghệ</span></button><button data-m="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>News</span></button></div>
  <div id="ckhead" class="hide">
  <div id="ban">Đang tải dữ liệu…</div>
  <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
@@ -145,8 +145,7 @@ body{background:#0a1220;padding-bottom:calc(78px + env(safe-area-inset-bottom,0p
  <section id="t4" class="hide"></section>
  </div>
  <section id="m3" class="hide"></section>
- <section id="m4" class="hide"></section>
- <section id="m5" class="hide"></section>
+  <section id="m5" class="hide"></section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
@@ -511,13 +510,14 @@ function wxHtml(){
 const CN_XE=[["xe_honda","Honda",/honda|cr-v|hr-v|br-v|wr-v|civic|accord/i],["xe_suzuki","Suzuki",/suzuki|xl7|ertiga|jimny|swift|fronx|ciaz|vitara/i],
  ["xe_toyota","Toyota",/toyota|vios|camry|corolla|innova|fortuner|hilux|yaris|raize|veloz|avanza|land cruiser|prado|wigo/i],
  ["xe_hyundai","Hyundai",/hyundai|santa fe|tucson|creta|accent|palisade|stargazer|grand i10|elantra|custin|ioniq|kona/i],
+ ["xe_kia","Kia",/\bkia\b|seltos|sonet|carens|sorento|sportage|carnival|soluto|cerato/i],
  ["xe_vinfast","VinFast",/vinfast|\bvf ?\d|limo green|minio green|herio green|nerio green/i],["o_to","Khác",null]];
 function xeTheoHang(S){
  const f=k=>(S.find(s=>s.key==k)||{}).items;
  if(S.some(s=>/^xe_/.test(s.key)))return CN_XE.map(([k,t])=>[k,t,f(k)||[]]);
  // Dữ liệu cũ (bot chưa chạy bản mới): tự chia tin "o_to" theo tên hãng trong tiêu đề
  const con=(f("o_to")||[]).slice(),out=CN_XE.map(([k,t])=>[k,t,[]]);
- con.forEach(x=>{const i=CN_XE.findIndex(h=>h[2]&&h[2].test(x.title));out[i<0?5:i][2].push(x)});return out}
+ con.forEach(x=>{const i=CN_XE.findIndex(h=>h[2]&&h[2].test(x.title));out[i<0?CN_XE.length-1:i][2].push(x)});return out}
 function renderCN(){
  const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
  const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
@@ -543,7 +543,7 @@ function t3(){
  $("#t3").innerHTML=ghiChu(T)+menu("ck",ds)+khoi("ck-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
 
 // ===== Sự kiện =====
-function chonM(m){ls.set("mtab",m);document.documentElement.classList.remove("kem");const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content="#0a1220";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,4,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
+function chonM(m){ls.set("mtab",m);document.documentElement.classList.remove("kem");const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content="#0a1220";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const t=e.target;
  if(t.closest("#mtabs button")){chonM(+t.closest("#mtabs button").dataset.m);return}
  const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}
@@ -558,9 +558,9 @@ document.addEventListener("click",e=>{const t=e.target;
 document.addEventListener("change",e=>{const t=e.target;
  if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
-chonM([1,2,3,4,5].includes(ls.get("mtab",1))?ls.get("mtab",1):1);
+chonM([1,2,3,5].includes(ls.get("mtab",1))?ls.get("mtab",1):1);
 cards();detail();t2();t3();t4();renderVn30();renderNT();renderCN();renderQT();load();loadWX();setInterval(loadWX,1800000);
 setInterval(load,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script>
-<script src="xe.js"></script></body></html>
+</body></html>
