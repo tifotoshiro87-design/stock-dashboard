@@ -6,7 +6,7 @@
 <title>NEWDAY</title>
 <meta name="apple-mobile-web-app-title" content="NEWDAY">
 <meta name="application-name" content="NEWDAY">
-<meta name="theme-color" content="#0a1220">
+<meta name="theme-color" content="#0b1026">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
@@ -125,7 +125,22 @@ body{background:#0a1220;padding-bottom:calc(78px + env(safe-area-inset-bottom,0p
 #mtabs button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 #mtabs button.on{background:none;color:#2dd4bf;font-weight:600}
 @media(min-width:900px){#mtabs{top:0;right:auto;width:92px;flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 4px;border-top:0;border-right:1px solid #1b2b45}#top,main{margin-left:92px}body{padding-bottom:0}}
-.xl{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:8px 0}.xc{background:rgba(127,147,178,.12);border:1px solid rgba(127,147,178,.3);border-radius:14px;padding:12px;backdrop-filter:blur(6px)}.xh{display:flex;justify-content:space-between;align-items:center;gap:6px}.xb{background:#d29922;color:#1f1a0e;border-radius:10px;padding:1px 8px;font-size:11px;font-weight:600}.xg{color:#2dd4bf;font-weight:700;margin:4px 0 6px}
+.xl{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:8px 0}.xc{background:rgba(127,147,178,.12);border:1px solid rgba(127,147,178,.3);border-radius:14px;padding:12px;backdrop-filter:blur(6px)}.xh{display:flex;justify-content:space-between;align-items:center;gap:6px}.xb{background:#d29922;color:#1f1a0e;border-radius:10px;padding:1px 8px;font-size:11px;font-weight:600}.xg{color:#2dd4bf;font-weight:700;margin:4px 0 6px}.xc a.nt{display:block;color:#e6edf3;text-decoration:none;font-weight:500;line-height:1.4;margin:2px 0 6px}.xc a.nt:hover{color:#2dd4bf}.xc .nm{color:#9fb0d0;font-size:12px}
+/* ===== Mẫu F: tối kính mờ navy-tím than; tab News (html.kem) nền trắng ===== */
+:root{--k-bg:#0b1026;--k-card:rgba(255,255,255,.06);--k-card2:rgba(255,255,255,.04);--k-img:rgba(255,255,255,.08);--k-line:rgba(255,255,255,.12);--k-line2:rgba(255,255,255,.08);--k-mu:#9fb0d0}
+body{background:linear-gradient(160deg,#0b1026 0%,#151040 55%,#1d1452 100%) fixed;min-height:100vh}
+#top{background:rgba(11,16,38,.96);border-bottom-color:rgba(255,255,255,.1)}
+.card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);border-radius:18px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.ni{border-color:rgba(255,255,255,.08)}.wd{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);border-radius:12px}
+.mn button{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#dfe7f7}.mn.sub{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+#mtabs{background:rgba(13,18,48,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:rgba(255,255,255,.1)}.xc{border-radius:16px}
+html.kem{--k-bg:#fff;--k-card:#f6f8fb;--k-card2:#f1f4f9;--k-img:#e6ebf2;--k-line:#dfe5ee;--k-line2:#e9edf4;--k-tx:#1b2330;--k-mu:#5b6678;--k-ac:#0b6e8a}
+html.kem body{background:#fff;color:#1b2330}html.kem #top{background:#fff;border-bottom-color:#e3e8ef}
+html.kem .card{backdrop-filter:none;box-shadow:0 1px 3px rgba(20,30,50,.06)}
+html.kem #mtabs{background:rgba(255,255,255,.94);border-color:#e3e8ef}html.kem #mtabs button{background:none;border:0;color:#6b7686}html.kem #mtabs button.on{background:none;color:#0b6e8a;font-weight:600}
+html.kem .mn button{background:#f6f8fb;border-color:#dfe5ee;color:#1b2330}html.kem .mn button.on{background:#e0f2f1;border-color:#0b6e8a;color:#0b6e8a}
+html.kem .mn.sub{background:#f1f4f9;border-color:#e9edf4}html.kem .wd{background:#f1f4f9;border-color:#dfe5ee}
+html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e2}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · News</span></h1>
@@ -553,7 +568,7 @@ function t3(){
  $("#t3").innerHTML=ghiChu(T)+menu("ck",ds)+khoi("ck-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
 
 // ===== Sự kiện =====
-function chonM(m){ls.set("mtab",m);document.documentElement.classList.remove("kem");const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content="#0a1220";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
+function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m==5);const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m==5?"#ffffff":"#0b1026";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const t=e.target;
  if(t.closest("#mtabs button")){chonM(+t.closest("#mtabs button").dataset.m);return}
  const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}
