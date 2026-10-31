@@ -125,6 +125,7 @@ body{background:#0a1220;padding-bottom:calc(78px + env(safe-area-inset-bottom,0p
 #mtabs button svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 #mtabs button.on{background:none;color:#2dd4bf;font-weight:600}
 @media(min-width:900px){#mtabs{top:0;right:auto;width:92px;flex-direction:column;justify-content:flex-start;gap:6px;padding:16px 4px;border-top:0;border-right:1px solid #1b2b45}#top,main{margin-left:92px}body{padding-bottom:0}}
+.xl{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:8px 0}.xc{background:rgba(127,147,178,.12);border:1px solid rgba(127,147,178,.3);border-radius:14px;padding:12px;backdrop-filter:blur(6px)}.xh{display:flex;justify-content:space-between;align-items:center;gap:6px}.xb{background:#d29922;color:#1f1a0e;border-radius:10px;padding:1px 8px;font-size:11px;font-weight:600}.xg{color:#2dd4bf;font-weight:700;margin:4px 0 6px}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · News</span></h1>
@@ -178,13 +179,13 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt=(v,d=2)=>(v==null||typeof v!=="number"||!isFinite(v))?"—":v.toLocaleString("vi-VN",{minimumFractionDigits:d,maximumFractionDigits:d});
 const ls={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-let P=null,M=null,T=null,WX=null,ERR=[],sel=(ST.find(x=>x.g===0)||ST[0]).s,grp=0,stamp="",charts=[],tvOn=false,c4=null,curC=[],curPats=[];
+let GX=null,P=null,M=null,T=null,WX=null,ERR=[],sel=(ST.find(x=>x.g===0)||ST[0]).s,grp=0,stamp="",charts=[],tvOn=false,c4=null,curC=[],curPats=[];
 
 // ===== Nạp dữ liệu online, tự làm mới mỗi 60 giây và khi mở lại app =====
 async function getJ(f){const r=await fetch("data/"+f+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(f+" "+r.status);return r.json()}
 async function load(){
- const r=await Promise.allSettled([getJ("prices.json"),getJ("macro.json"),getJ("tin.json")]);
- if(r[0].status=="fulfilled")P=r[0].value;if(r[1].status=="fulfilled")M=r[1].value;if(r[2].status=="fulfilled")T=r[2].value;
+ const r=await Promise.allSettled([getJ("prices.json"),getJ("macro.json"),getJ("tin.json"),getJ("gia_xe.json")]);
+ if(r[0].status=="fulfilled")P=r[0].value;if(r[1].status=="fulfilled")M=r[1].value;if(r[2].status=="fulfilled")T=r[2].value;if(r[3].status=="fulfilled")GX=r[3].value;
  if(P&&P.stocks)P.stocks.filter(x=>x.group=="Hỗn hợp"&&!ST.some(t=>t.s==x.symbol)).forEach(x=>ST.push({s:x.symbol,n:x.name||x.symbol,g:5,x:x.exchange||"HOSE"}));
  ERR=["prices","macro"].filter((_,i)=>r[i].status=="rejected");
  const st=JSON.stringify([P&&P.meta,M&&M.meta,T&&T.meta,ERR]);
@@ -518,13 +519,22 @@ function xeTheoHang(S){
  // Dữ liệu cũ (bot chưa chạy bản mới): tự chia tin "o_to" theo tên hãng trong tiêu đề
  const con=(f("o_to")||[]).slice(),out=CN_XE.map(([k,t])=>[k,t,[]]);
  con.forEach(x=>{const i=CN_XE.findIndex(h=>h[2]&&h[2].test(x.title));out[i<0?CN_XE.length-1:i][2].push(x)});return out}
+const fGia=g=>g>=1000?(g/1000).toFixed(3).replace(".",",")+" tỷ":g+" triệu";
+const xeCo=x=>!!GX&&x[0]!="o_to"&&(GX.xe||[]).some(m=>m.hang==x[1]);
+function theDong(hang,items){
+ const ds=(GX.xe||[]).filter(m=>m.hang==hang),gan=ds.map(()=>[]),rest=[];
+ items.forEach(x=>{const i=ds.findIndex(m=>new RegExp(m.khop,"i").test(x.title||""));i<0?rest.push(x):gan[i].push(x)});
+ const moi=t=>t&&/ra mắt|trình làng/i.test(t.title)&&Date.now()-new Date(String(t.date).replace(" ","T"))<30*864e5;
+ const the=ds.map((m,i)=>({m,t:gan[i][0],n:gan[i].length})).sort((a,b)=>a.m.gia_tu-b.m.gia_tu);
+ return {rest,html:`<div class="xl">`+the.map(({m,t,n})=>{const u=t&&URL_OK(t.url)?esc(t.url):"";
+  return `<div class="xc"><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>${t?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(t.title)}</a><div class="nm">${esc(t.source||"")} · ${esc(ngay(t.date))}${n>1?` · +${n-1} tin`:""}</div>`:'<div class="nm">Chưa có tin mới</div>'}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.</div>`}}
 function renderCN(){
  const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
  const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
  const chinh=[["xe","Xe ô tô",nXe],["ai","Công nghệ AI",(f("ai").items||[]).length]].concat(S.filter(s=>!biet.has(s.key)).map(s=>[s.key,s.name||s.key,(s.items||[]).length]));
  const k=chon("cn",chinh);let h=ghiChu(T)+menu("cn",chinh);
  if(k=="xe"){const ds=xe.map(([kk,t,it])=>[kk,t,it.length]),kx=chon("cnxe",ds),x=xe.find(a=>a[0]==kx);
-  h+=menu("cnxe",ds,"sub")+khoi("cn-"+kx,"Xe "+(kx=="o_to"?"hãng khác":x[1]),x[2],'<div class="mu" style="font-size:12px;margin-bottom:4px">Tin ô tô theo hãng. Đã loại trừ xe Trung Quốc, xe máy, tin tai nạn/vi phạm giao thông.</div>')}
+  h+=menu("cnxe",ds,"sub")+(xeCo(x)?theDong(x[1],x[2]).html:"")+khoi("cn-"+kx,"Xe "+(kx=="o_to"?"hãng khác":x[1])+(xeCo(x)?" – tin khác":""),xeCo(x)?theDong(x[1],x[2]).rest:x[2],'<div class="mu" style="font-size:12px;margin-bottom:4px">Tin ô tô theo hãng. Đã loại trừ xe Trung Quốc, xe máy, tin tai nạn/vi phạm giao thông.</div>')}
  else h+=khoi("cn-"+k,(chinh.find(c=>c[0]==k)||[])[1],f(k).items);
  $("#m3").innerHTML=h}
 
