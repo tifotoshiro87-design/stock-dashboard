@@ -519,7 +519,7 @@ function xeTheoHang(S){
  // Dữ liệu cũ (bot chưa chạy bản mới): tự chia tin "o_to" theo tên hãng trong tiêu đề
  const con=(f("o_to")||[]).slice(),out=CN_XE.map(([k,t])=>[k,t,[]]);
  con.forEach(x=>{const i=CN_XE.findIndex(h=>h[2]&&h[2].test(x.title));out[i<0?CN_XE.length-1:i][2].push(x)});return out}
-const fGia=g=>g>=1000?(g/1000).toFixed(3).replace(".",",")+" tỷ":g+" triệu";
+const fGia=g=>g>=1000?(g/1000).toFixed(3).replace(".",",")+" tỷ":String(g).replace(".",",")+" triệu";
 const xeCo=x=>!!GX&&x[0]!="o_to"&&(GX.xe||[]).some(m=>m.hang==x[1]);
 function theDong(hang,items){
  const ds=(GX.xe||[]).filter(m=>m.hang==hang),gan=ds.map(()=>[]),rest=[];
