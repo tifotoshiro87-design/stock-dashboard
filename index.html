@@ -167,7 +167,8 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
 <script>
 "use strict";
 // ===== Danh mục cố định (mã, tên, nhóm, sàn) — dùng khi chưa có prices.json =====
-const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức","Hỗn hợp"];
+const G=["Xây dựng – Đầu tư công","Ngân hàng","Công nghệ thông tin","Thép","Vàng bạc trang sức","Hỗn hợp","Chứng khoán","Bất động sản dân dụng","Bất động sản khu công nghiệp","Bán lẻ & Tiêu dùng","Dầu khí & Năng lượng","Cảng biển & Vận tải","Thủy sản & Xuất khẩu"];
+const gOf=n=>{const i=G.indexOf(n);return i<0?5:i};
 const ST=[["VCB","NH TMCP Ngoại thương Việt Nam",1,"HOSE"],["VPB","NH TMCP Việt Nam Thịnh Vượng",1,"HOSE"],["HDB","NH TMCP Phát triển TP.HCM",1,"HOSE"],
 ["MWG","CTCP Đầu tư Thế Giới Di Động",2,"HOSE"],["MSN","CTCP Tập đoàn Masan",5,"HOSE"],["DGW","CTCP Thế Giới Số",2,"HOSE"],["PNJ","CTCP Vàng bạc Đá quý Phú Nhuận",4,"HOSE"],
 ["GVR","Tập đoàn Công nghiệp Cao su Việt Nam",0,"HOSE"],["PHR","CTCP Cao su Phước Hòa",0,"HOSE"],
@@ -202,7 +203,7 @@ async function getR(f){const r=await fetch(f+"?t="+Date.now(),{cache:"no-store"}
 async function load(){
  const r=await Promise.allSettled([getJ("prices.json"),getJ("macro.json"),getJ("tin.json"),getR("gia_xe.json").catch(()=>getJ("gia_xe.json"))]);
  if(r[0].status=="fulfilled")P=r[0].value;if(r[1].status=="fulfilled")M=r[1].value;if(r[2].status=="fulfilled")T=r[2].value;if(r[3].status=="fulfilled")GX=r[3].value;
- if(P&&P.stocks)P.stocks.filter(x=>x.group=="Hỗn hợp"&&!ST.some(t=>t.s==x.symbol)).forEach(x=>ST.push({s:x.symbol,n:x.name||x.symbol,g:5,x:x.exchange||"HOSE"}));
+ if(P&&P.stocks)P.stocks.filter(x=>x.group&&G.includes(x.group)&&!ST.some(t=>t.s==x.symbol)).forEach(x=>ST.push({s:x.symbol,n:x.name||x.symbol,g:gOf(x.group),x:x.exchange||"HOSE"}));
  ERR=["prices","macro"].filter((_,i)=>r[i].status=="rejected");
  const st=JSON.stringify([P&&P.meta,M&&M.meta,T&&T.meta,ERR]);
  banner();if(st!==stamp){stamp=st;renderAll()}
@@ -215,7 +216,7 @@ function banner(){
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
 function renderAll(){cards();detail();t2();t3();t4();renderVn30();renderNT();renderCN();renderQT()}
-function tatCaMa(){const co=new Set(ST.map(s=>s.s));const them=(P&&P.stocks||[]).filter(x=>!co.has(x.symbol)).map(x=>({s:x.symbol,n:x.name,g:5,x:x.exchange}));return ST.concat(them)}
+function tatCaMa(){const co=new Set(ST.map(s=>s.s));const them=(P&&P.stocks||[]).filter(x=>!co.has(x.symbol)).map(x=>({s:x.symbol,n:x.name,g:gOf(x.group),x:x.exchange}));return ST.concat(them)}
 function t4(){
  const all=tatCaMa();
  const rows=all.map(s=>{
