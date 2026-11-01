@@ -141,6 +141,11 @@ html.kem #mtabs{background:rgba(255,255,255,.94);border-color:#e3e8ef}html.kem #
 html.kem .mn button{background:#f6f8fb;border-color:#dfe5ee;color:#1b2330}html.kem .mn button.on{background:#e0f2f1;border-color:#0b6e8a;color:#0b6e8a}
 html.kem .mn.sub{background:#f1f4f9;border-color:#e9edf4}html.kem .wd{background:#f1f4f9;border-color:#dfe5ee}
 html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e2}
+
+/* Smart Scanner — bổ sung độc lập, không thay đổi giao diện các tab cũ */
+.scan-hero{background:linear-gradient(120deg,#10243a,#132d35);border:1px solid #28505b;border-radius:12px;padding:14px;margin-bottom:12px}
+.scan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.scan-kpi{background:#0d1622;border:1px solid #26384a;border-radius:9px;padding:10px}.scan-kpi b{display:block;font-size:20px;color:#2dd4bf}.scan-table{overflow-x:auto}.scan-table table{min-width:760px}.scan-table th{color:#8b949e;font-weight:500}.scan-table tr{cursor:pointer}.scan-table tr:hover{background:#1c2735}.scan-score{font-weight:700;color:#2dd4bf}.scan-tag{display:inline-block;border:1px solid #35556a;border-radius:20px;padding:2px 8px;font-size:11px;color:#9bd6df}.scan-warn{color:#e3b341;font-size:12px}.scan-detail{background:#101a27;border:1px solid #26384a;border-radius:8px;padding:10px;margin-top:8px}.scan-controls{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.scan-controls select,.scan-controls input{width:auto;min-width:130px}.scan-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.scan-tabs button{background:#161b22;border:1px solid #30363d;color:#9aa8b8;border-radius:18px;padding:7px 12px}.scan-tabs button.on{color:#071b20;background:#2dd4bf;border-color:#2dd4bf;font-weight:700}
+@media(min-width:800px){.scan-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · News</span></h1>
@@ -148,7 +153,7 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
  <div id="ckhead" class="hide">
  <div id="ban">Đang tải dữ liệu…</div>
  <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
- <div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button><button data-t="4">Tổng hợp</button></div>
+ <div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button><button data-t="4">Tổng hợp</button><button data-t="5">Smart Scanner</button></div>
  <div id="bar"><div id="grp"></div><div id="cards"></div></div>
  </div>
 </div>
@@ -159,6 +164,7 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
  <section id="t2" class="hide"></section>
  <section id="t3" class="hide"></section>
  <section id="t4" class="hide"></section>
+ <section id="t5" class="hide"></section>
  </div>
  <section id="m3" class="hide"></section>
   <section id="m5" class="hide"></section>
@@ -215,7 +221,7 @@ function banner(){
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
-function renderAll(){cards();detail();t2();t3();t4();renderVn30();renderNT();renderCN();renderQT()}
+function renderAll(){cards();detail();t2();t3();t4();renderScanner();renderVn30();renderNT();renderCN();renderQT()}
 function tatCaMa(){const co=new Set(ST.map(s=>s.s));const them=(P&&P.stocks||[]).filter(x=>!co.has(x.symbol)).map(x=>({s:x.symbol,n:x.name,g:gOf(x.group),x:x.exchange}));return ST.concat(them)}
 function t4(){
  const all=tatCaMa();
@@ -569,6 +575,63 @@ function t3(){
  const ds=dsMuc("chung_khoan",CK_ORDER).map(([k,t])=>[k,t,(f(k).items||[]).length]),k=chon("ck",ds);
  $("#t3").innerHTML=ghiChu(T)+menu("ck",ds)+khoi("ck-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
 
+
+// ===== SMART SCANNER — phân tích kỹ thuật minh bạch trên dữ liệu OHLCV đang có =====
+let scannerMode="short", scannerFilter="all", scannerQuery="", scannerSort="score";
+function scannerIndicators(C){
+ const close=C.map(x=>+x.c),vol=C.map(x=>+x.v||0),n=close.length;
+ if(n<60)return null;
+ const last=close[n-1],s20=close.slice(-20).reduce((a,b)=>a+b,0)/20,s50=close.slice(-50).reduce((a,b)=>a+b,0)/50;
+ const s200=n>=200?close.slice(-200).reduce((a,b)=>a+b,0)/200:null;
+ const prev20=close.slice(-40,-20).reduce((a,b)=>a+b,0)/20;
+ const r=rsi(close,14).at(-1),m=macd(close),ml=m.ln.at(-1),ms=m.sg.at(-1),mh=m.h.at(-1);
+ const v20=vol.slice(-20).reduce((a,b)=>a+b,0)/20, v5=vol.slice(-5).reduce((a,b)=>a+b,0)/5;
+ const ret20=(last/close[n-21]-1)*100,ret60=(last/close[n-61]-1)*100;
+ const hi20=Math.max(...close.slice(-20)),hi60=Math.max(...close.slice(-60));
+ const dd20=(last/hi20-1)*100;
+ return {last,s20,s50,s200,prev20,r,ml,ms,mh,v20,v5,ret20,ret60,hi20,hi60,dd20,volRatio:v20>0?v5/v20:null};
+}
+function scannerScore(s,mode){
+ const d=P&&P.stocks.find(x=>x.symbol===s.s),C=d&&d.candles||[],x=scannerIndicators(C);
+ if(!x)return {s,score:null,items:[],reason:"Chưa đủ tối thiểu 60 phiên dữ liệu",d};
+ let score=0,items=[];const add=(name,pts,why)=>{score+=pts;items.push({name,pts,why})};
+ if(mode==="short"){
+  add("Giá so với MA20",x.last>x.s20?15:0,x.last>x.s20?"Giá đóng cửa trên MA20":"Giá đóng cửa dưới MA20");
+  add("MA20 so với MA50",x.s20>x.s50?12:0,x.s20>x.s50?"MA20 nằm trên MA50":"MA20 chưa vượt MA50");
+  add("Độ dốc MA20",x.s20>x.prev20?10:0,x.s20>x.prev20?"MA20 đang hướng lên":"MA20 đi ngang hoặc giảm");
+  add("RSI vùng cân bằng",x.r>=50&&x.r<=70?12:x.r>70?3:x.r>=40?6:0,`RSI ${x.r.toFixed(1)}; tránh xem RSI cao là tín hiệu chắc chắn`);
+  add("MACD",x.ml>x.ms&&x.mh>0?12:x.ml>x.ms?7:0,x.ml>x.ms?"MACD nằm trên đường tín hiệu":"MACD chưa xác nhận đà tăng");
+  add("Thanh khoản",x.volRatio>=1.2?10:x.volRatio>=0.9?6:0,`Khối lượng 5 phiên / TB20: ${x.volRatio==null?"—":x.volRatio.toFixed(2)} lần`);
+  add("Hiệu suất 20 phiên",x.ret20>0?10:0,`Biến động 20 phiên: ${x.ret20.toFixed(1)}%`);
+  add("Gần đỉnh 20 phiên",x.dd20>=-3?9:x.dd20>=-7?5:0,`So với đỉnh 20 phiên: ${x.dd20.toFixed(1)}%`);
+  add("Dữ liệu đủ độ dài",C.length>=120?10:5,`${C.length} phiên dữ liệu`);
+ }else{
+  add("Giá so với MA50",x.last>x.s50?15:0,x.last>x.s50?"Giá trên MA50":"Giá dưới MA50");
+  add("MA50 so với MA200",x.s200!=null&&x.s50>x.s200?15:0,x.s200==null?"Chưa đủ dữ liệu MA200":x.s50>x.s200?"MA50 trên MA200":"MA50 dưới MA200");
+  add("Độ dốc MA20",x.s20>x.prev20?10:0,x.s20>x.prev20?"MA20 đang hướng lên":"MA20 chưa hướng lên");
+  add("Hiệu suất 60 phiên",x.ret60>8?15:x.ret60>0?10:x.ret60>-8?4:0,`Biến động 60 phiên: ${x.ret60.toFixed(1)}%`);
+  add("MACD",x.ml>x.ms&&x.mh>0?12:x.ml>x.ms?7:0,x.ml>x.ms?"MACD xác nhận tích cực":"MACD chưa xác nhận");
+  add("RSI",x.r>=45&&x.r<=68?10:x.r>68?5:x.r>=35?4:0,`RSI ${x.r.toFixed(1)}`);
+  add("Thanh khoản",x.volRatio>=1?8:4,`Khối lượng 5 phiên / TB20: ${x.volRatio==null?"—":x.volRatio.toFixed(2)} lần`);
+  add("Khoảng cách MA50",x.last>=x.s50&&x.last/x.s50<1.18?15:x.last>=x.s50?7:0,`Giá / MA50: ${(x.last/x.s50*100).toFixed(1)}%`);
+ }
+ // Cảnh báo biến động mạnh/thiếu thanh khoản; điểm không thể âm.
+ const risk=[];if(x.r>78)risk.push("RSI cao, có thể đã tăng nóng");if(x.volRatio!=null&&x.volRatio<0.35)risk.push("Thanh khoản gần đây suy yếu");if(x.dd20<-12)risk.push("Giá giảm sâu so với đỉnh 20 phiên");
+ return {s,score:Math.max(0,Math.min(100,score)),items,reason:risk.join(" · "),d,x};
+}
+function scannerRows(){return tatCaMa().map(s=>scannerScore(s,scannerMode)).filter(r=>r.score!=null).filter(r=>scannerFilter==="all"||r.score>=({a:80,b:65,c:50}[scannerFilter])).filter(r=>!scannerQuery||r.s.s.toLowerCase().includes(scannerQuery)||String(r.s.n).toLowerCase().includes(scannerQuery)).sort((a,b)=>scannerSort==="symbol"?a.s.s.localeCompare(b.s.s):b.score-a.score)}
+function renderScanner(){const el=$("#t5");if(!el)return;const rows=scannerRows(),valid=rows.length,avg=valid?rows.reduce((a,r)=>a+r.score,0)/valid:0;
+ el.innerHTML=`<div class="scan-hero"><div class="scan-tag">NEWDAY · SMART STOCK SCANNER</div><h2 style="margin:8px 0 4px;font-size:20px">Bộ lọc cổ phiếu theo xu hướng</h2><div style="color:#a9bdc9;font-size:12px">Chấm điểm kỹ thuật tự động từ dữ liệu giá hiện có. Không phải khuyến nghị mua/bán, không dự báo lợi nhuận.</div><div class="scan-grid" style="margin-top:12px"><div class="scan-kpi"><span class="mu">Mã đủ dữ liệu</span><b>${valid}</b></div><div class="scan-kpi"><span class="mu">Điểm trung bình</span><b>${valid?avg.toFixed(1):"—"}</b></div><div class="scan-kpi"><span class="mu">Phiên dữ liệu</span><b style="font-size:14px">${esc(P&&P.meta&&P.meta.latest_session||"—")}</b></div><div class="scan-kpi"><span class="mu">Phân tích cơ bản</span><b style="font-size:14px;color:#e3b341">Chưa đủ dữ liệu</b></div></div></div>
+ <div class="card"><div class="scan-tabs"><button data-scanmode="short" class="${scannerMode==="short"?"on":""}">Ngắn hạn · 2–8 tuần</button><button data-scanmode="medium" class="${scannerMode==="medium"?"on":""}">Trung hạn · 3–12 tháng</button></div>
+ <div class="scan-controls"><input id="scan-search" placeholder="Tìm mã / tên doanh nghiệp" value="${esc(scannerQuery)}"><select id="scan-filter"><option value="all" ${scannerFilter==="all"?"selected":""}>Tất cả điểm</option><option value="a" ${scannerFilter==="a"?"selected":""}>Từ 80 điểm</option><option value="b" ${scannerFilter==="b"?"selected":""}>Từ 65 điểm</option><option value="c" ${scannerFilter==="c"?"selected":""}>Từ 50 điểm</option></select><select id="scan-sort"><option value="score">Điểm cao xuống thấp</option><option value="symbol" ${scannerSort==="symbol"?"selected":""}>Mã A–Z</option></select></div>
+ <div class="scan-warn">Lưu ý phạm vi: chỉ quét các mã đã có trong dữ liệu NEWDAY, không phải toàn bộ HOSE/HNX/UPCoM. Điểm 0–100 là điểm sàng lọc kỹ thuật, không phải xác suất tăng giá.</div>
+ <div class="scan-table"><table><thead><tr><th>Mã</th><th>Nhóm</th><th>Điểm</th><th>Giá</th><th>RSI</th><th>20 phiên</th><th>60 phiên</th><th>Đánh giá</th></tr></thead><tbody>${rows.map((r,i)=>`<tr data-scanrow="${esc(r.s.s)}"><td><b class="tk">${esc(r.s.s)}</b></td><td>${esc(r.d.group||"—")}</td><td class="scan-score">${r.score}</td><td>${fmt(r.x.last)}</td><td>${r.x.r.toFixed(1)}</td><td class="${r.x.ret20>=0?"up":"dn"}">${r.x.ret20>=0?"+":""}${r.x.ret20.toFixed(1)}%</td><td class="${r.x.ret60>=0?"up":"dn"}">${r.x.ret60>=0?"+":""}${r.x.ret60.toFixed(1)}%</td><td>${r.score>=80?"Tích cực":r.score>=65?"Theo dõi":r.score>=50?"Trung tính":"Yếu"}</td></tr>`).join("")||'<tr><td colspan="8" class="mu">Không có mã phù hợp hoặc chưa đủ dữ liệu.</td></tr>'}</tbody></table></div></div>
+ <div class="card"><h3>Đọc điểm số đúng cách</h3><div class="row"><span>80–100</span><b class="up">Xu hướng kỹ thuật nổi bật</b></div><div class="row"><span>65–79</span><b>Đưa vào danh sách theo dõi</b></div><div class="row"><span>50–64</span><b class="rf">Tín hiệu trung tính / chưa đồng thuận</b></div><div class="row"><span>Dưới 50</span><b class="dn">Xu hướng kỹ thuật yếu</b></div><p class="mu" style="font-size:12px">Ngưỡng là quy ước sàng lọc nội bộ, chưa được kiểm định bằng backtest. Không nên dùng riêng lẻ để ra quyết định.</p></div>
+ <div class="card"><h3>Nội dung chưa thể chấm điểm</h3><p class="mu">Chưa có bộ dữ liệu báo cáo tài chính đã chuẩn hóa và có quyền sử dụng rõ ràng để đánh giá tăng trưởng doanh thu/lợi nhuận, EPS, ROE/ROA, biên lợi nhuận, dòng tiền, nợ vay, định giá và chất lượng quản trị. Vì vậy hệ thống không gán điểm cơ bản giả định và không xếp hạng “cổ phiếu tốt dài hạn”.</p><p class="mu">Nguồn giá trong bộ dữ liệu hiện tại được gắn nhãn Yahoo Finance/yfinance. Việc có thể xem được dữ liệu không đồng nghĩa được cấp quyền tái phân phối hoặc sử dụng thương mại. Trước khi công bố hoặc mở rộng phạm vi sử dụng, cần xác minh điều khoản nguồn dữ liệu hoặc thay bằng nhà cung cấp có giấy phép phù hợp.</p></div>
+ <div id="scan-detail" class="card"><span class="mu">Chọn một mã trong bảng để xem lý do chấm điểm.</span></div>`;
+}
+function showScannerDetail(symbol){const r=scannerScore(tatCaMa().find(s=>s.s===symbol),scannerMode),el=$("#scan-detail");if(!r||!r.x){el.innerHTML="Không đủ dữ liệu để phân tích mã này.";return}el.innerHTML=`<div class="row"><h3>${esc(symbol)} · Chi tiết điểm ${r.score}/100</h3><span class="scan-tag">${scannerMode==="short"?"Ngắn hạn":"Trung hạn"}</span></div><div class="scan-grid">${r.items.map(i=>`<div class="scan-kpi"><span class="mu">${esc(i.name)}</span><b>${i.pts} điểm</b><small class="mu">${esc(i.why)}</small></div>`).join("")}</div>${r.reason?`<p class="scan-warn">Cảnh báo: ${esc(r.reason)}</p>`:""}<div class="scan-detail"><b>Chưa có điểm cơ bản</b><p class="mu">Không có dữ liệu tài chính chuẩn hóa được xác minh trong bộ dữ liệu hiện tại. Điểm trên chỉ phản ánh kỹ thuật giá và khối lượng.</p></div>`}
+
 // ===== Sự kiện =====
 function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m==5);const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m==5?"#ffffff":"#0b1026";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const t=e.target;
@@ -576,17 +639,18 @@ document.addEventListener("click",e=>{const t=e.target;
  const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}
  const vb=t.closest("[data-vt]");if(vb){VT.kind=vb.dataset.vt;const b=$("#wxbox");if(b)b.innerHTML=wxHtml();return}
  if(t.dataset.more){const id=t.dataset.more,x=$("#x-"+id),mo=!OPEN.has(id);mo?OPEN.add(id):OPEN.delete(id);x.classList.toggle("hide",!mo);const n=x.querySelectorAll(".ni").length;t.textContent=mo?"Thu gọn ▲":`Xem thêm ${n} tin ▼`;return}
- if(t.closest("#tabs button")){const k=t.dataset.t;document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b==t));[1,2,3,4].forEach(i=>$("#t"+i).classList.toggle("hide",i!=k));$("#bar").classList.toggle("hide",k!="1")}
+ if(t.closest("#tabs button")){const k=t.dataset.t;document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b==t));[1,2,3,4,5].forEach(i=>$("#t"+i).classList.toggle("hide",i!=k));$("#bar").classList.toggle("hide",k!="1");if(k=="5")renderScanner()}
  else if(t.dataset.g!=null&&t.closest("#grp")){grp=+t.dataset.g;cards()}
  else if(t.closest(".sc")){sel=t.closest(".sc").dataset.s;cards();detail()}
  else if(t.closest("tr[data-s4]")){const tr=t.closest("tr[data-s4]");sel=tr.dataset.s4;grp=+tr.dataset.g4;cards();detail();
   document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t=="1"));[1,2,3,4].forEach(i=>$("#t"+i).classList.toggle("hide",i!=1));$("#bar").classList.remove("hide")}
- else if(t.closest(".tvb")){tvOn=t.closest(".tvb").dataset.v=="tv";showTV(tatCaMa().find(x=>x.s==sel))}else if(t.closest(".pi")){showPat(+t.closest(".pi").dataset.p)}else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
+ else if(t.dataset.scanmode){scannerMode=t.dataset.scanmode;renderScanner()}else if(t.closest("tr[data-scanrow]")){showScannerDetail(t.closest("tr[data-scanrow]").dataset.scanrow)}else if(t.closest(".tvb")){tvOn=t.closest(".tvb").dataset.v=="tv";showTV(tatCaMa().find(x=>x.s==sel))}else if(t.closest(".pi")){showPat(+t.closest(".pi").dataset.p)}else if(t.dataset.tip){$("#tp-"+t.dataset.tip).classList.toggle("on")}});
+document.addEventListener("input",e=>{if(e.target.id==="scan-search"){scannerQuery=e.target.value.trim().toLowerCase();const a=document.activeElement;renderScanner();const n=$("#scan-search");if(n){n.focus();n.setSelectionRange(n.value.length,n.value.length)}}});
 document.addEventListener("change",e=>{const t=e.target;
- if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
+ if(t.id==="scan-filter"){scannerFilter=t.value;renderScanner()}else if(t.id==="scan-sort"){scannerSort=t.value;renderScanner()}else if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
 chonM([1,2,3,5].includes(ls.get("mtab",1))?ls.get("mtab",1):1);
-cards();detail();t2();t3();t4();renderVn30();renderNT();renderCN();renderQT();load();loadWX();setInterval(loadWX,1800000);
+cards();detail();t2();t3();t4();renderScanner();renderVn30();renderNT();renderCN();renderQT();load();loadWX();setInterval(loadWX,1800000);
 setInterval(load,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script>
