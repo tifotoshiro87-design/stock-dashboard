@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEWDAY</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#040b1c;--bg2:#0b2250;--card:rgba(16,38,80,.55);--line:rgba(80,160,255,.22);--tx:#eaf2ff;--mut:#8fa6c8;--acc:#19c3ff;--acc2:#2b6bff;--up:#1fe08a;--dn:#ff4d5e;--fl:#ffb020;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#eef4fc;--bg2:#d5e5fa;--card:rgba(255,255,255,.85);--line:#c5d6ee;--tx:#0b1a33;--mut:#55698a;--acc:#0a8fd6;--acc2:#1d56d8;--up:#0a9a5a;--dn:#d62f42;--fl:#b97300;color-scheme:light}
+@media (prefers-color-scheme:light){:root[data-theme="auto"]{--bg:#eef4fc;--bg2:#d5e5fa;--card:rgba(255,255,255,.85);--line:#c5d6ee;--tx:#0b1a33;--mut:#55698a;--acc:#0a8fd6;--acc2:#1d56d8;--up:#0a9a5a;--dn:#d62f42;--fl:#b97300;color-scheme:light}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.4;min-height:100vh}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+#bgfx{position:fixed;inset:0;background:radial-gradient(120% 60% at 80% -10%,var(--bg2),transparent 60%),radial-gradient(80% 50% at 0% 100%,var(--bg2),transparent 70%);z-index:-1}
+#app{max-width:520px;margin:0 auto;padding:0 12px 96px}
+.up{color:var(--up)}.dn{color:var(--dn)}.fl{color:var(--fl)}.mut{color:var(--mut)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:8px;align-items:center;padding:10px 0;background:linear-gradient(var(--bg) 70%,transparent)}
+.brand{display:flex;align-items:center;gap:6px;font-weight:800;letter-spacing:.5px;font-size:16px}
+.srch{flex:1;min-width:0;background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:20px;padding:8px 12px;font:inherit;font-size:13px}
+.bell{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--tx);font-size:16px}
+h1{font-size:20px;margin:6px 0 2px}.sub{color:var(--mut);font-size:12px;margin-bottom:10px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);margin-bottom:10px}
+.cd h3{margin:0 0 8px;font-size:14px}
+.row{display:flex;gap:8px}.row>*{flex:1;min-width:0}
+.big{font-size:28px;font-weight:800;line-height:1.1}.med{font-size:20px;font-weight:700}
+.lbl{color:var(--mut);font-size:12px}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:inherit;font-size:13px;font-weight:600}
+.chip.on{background:linear-gradient(135deg,var(--acc),var(--acc2));border-color:transparent;color:#fff}
+.sm{padding:4px 9px;font-size:11px;border-radius:8px}
+.sp{width:100%;height:60px;display:block}.ch{width:100%;display:block}.gr{stroke:var(--line);stroke-width:1}
+.bar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:12px}
+.bar span:first-child{width:78px;flex:none}.bar i{display:block;height:8px;border-radius:5px;background:linear-gradient(90deg,var(--acc2),var(--acc))}
+.bar .t{flex:1;background:var(--line);border-radius:5px;height:8px}.bar .t i{height:8px}.bar b{width:64px;text-align:right;flex:none}
+table{width:100%;border-collapse:collapse;font-size:12.5px}th{color:var(--mut);font-weight:500;text-align:right;padding:6px 4px}td{padding:9px 4px;text-align:right;border-top:1px solid var(--line)}th:first-child,td:first-child{text-align:left;font-weight:700}
+.ck{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:13px}
+.ck input{width:18px;height:18px;accent-color:var(--acc)}
+.sec{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;text-align:center;font-size:11px}
+.sec div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 2px}
+.ico{width:34px;height:34px;border-radius:10px;margin:0 auto 4px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--acc2),var(--acc));color:#fff}
+.news{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line)}.news:first-of-type{border-top:0}
+.th{flex:none;width:76px;height:60px;border-radius:10px}.news b{font-size:13px;display:block}
+.hero{height:150px;border-radius:14px;display:flex;align-items:flex-end;padding:12px;font-weight:700;font-size:16px;margin-bottom:6px;color:#fff;text-shadow:0 1px 6px #0008}
+.brands{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:11px}
+.empty{text-align:center;color:var(--mut);padding:26px 10px}
+.donut{width:92px;height:92px;flex:none}
+.opt{border:2px solid var(--line);border-radius:14px;padding:10px 4px;text-align:center;background:var(--card);color:var(--tx);font:inherit;font-size:13px;font-weight:600}
+.opt.on{border-color:var(--acc)}
+.sw{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.tg{width:46px;height:26px;border-radius:13px;border:0;background:var(--line);position:relative;flex:none}
+.tg::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s}
+.tg.on{background:var(--up)}.tg.on::after{left:23px}
+.note{color:var(--mut);font-size:11px;text-align:center;margin:12px 0}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--bg);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom,0px));display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:none;min-width:74px;padding:8px 6px;border:0;border-radius:12px;background:transparent;color:var(--mut);font:inherit;font-size:11.5px;font-weight:600}
+nav button.on{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff}
+#splash{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;background:radial-gradient(100% 60% at 50% 0,var(--bg2),var(--bg));transition:opacity .5s}
+#splash.off{opacity:0;pointer-events:none}
+#splash h2{font-size:36px;margin:10px 0 6px;letter-spacing:1px}#splash p{max-width:280px;color:var(--mut);margin:0 0 22px}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;font-size:12px;width:280px}
+.feat div{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px}
+#toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--card);border:1px solid var(--line);padding:8px 14px;border-radius:12px;font-size:12px;z-index:40;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(10px)}
+#toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="bgfx"></div>
+<div id="splash"><svg width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#19c3ff"/><stop offset="1" stop-color="#2b6bff"/></linearGradient></defs><path d="M22 6h38L40 28h18L12 58l12-24H6z" fill="url(#lg)"/></svg><h2>NEWDAY</h2><p>Đồng hành cùng bạn trên hành trình đầu tư thông minh</p><div class="feat"><div>Thông tin chính xác</div><div>Phân tích thông minh</div><div>Cập nhật liên tục</div><div>Trải nghiệm tuyệt vời</div></div></div>
+<div id="app">
+<header><div class="brand"><svg width="22" height="22" viewBox="0 0 64 64"><path d="M22 6h38L40 28h18L12 58l12-24H6z" fill="url(#lg)"/></svg>NEWDAY</div><input id="q" class="srch" placeholder="Tìm mã cổ phiếu..." aria-label="Tìm kiếm" enterkeyhint="search"><button class="bell" data-a="bell" aria-label="Thông báo">&#9830;</button></header>
+<main id="main"></main>
+</div>
+<nav id="nav"></nav>
+<div id="toast"></div>
+<script>
+var $=function(s){return document.querySelector(s)},gid=0;
+function fmt(n,d){if(d===undefined)d=2;var p=Math.abs(n).toFixed(d).split('.');return(n<0?'-':'')+p[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.')+(p[1]?','+p[1]:'')}
+function pc(n){return(n>=0?'+':'\u2212')+fmt(Math.abs(n),2)+'%'}
+function cl(n){return n>0?'up':n<0?'dn':'fl'}
+function R(s){return function(){s=(s*16807)%2147483647;return s/2147483647}}
+function series(n,seed,v){var r=R(seed),x=100,a=[];for(var i=0;i<n;i++){x+=(r()-.42)*v;a.push(x)}return a}
+function spark(a,c,h){h=h||60;var w=170,i=++gid,mn=Math.min.apply(0,a),mx=Math.max.apply(0,a),d=a.map(function(y,k){return(k?'L':'M')+(k/(a.length-1)*w).toFixed(1)+' '+(h-4-(y-mn)/(mx-mn||1)*(h-8)).toFixed(1)}).join('');return'<svg viewBox="0 0 '+w+' '+h+'" class="sp" preserveAspectRatio="none" style="height:'+h+'px"><defs><linearGradient id="g'+i+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c+'" stop-opacity=".35"/><stop offset="1" stop-color="'+c+'" stop-opacity="0"/></linearGradient></defs><path d="'+d+'L'+w+' '+h+'L0 '+h+'Z" fill="url(#g'+i+')"/><path d="'+d+'" fill="none" stroke="'+c+'" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>'}
+function candles(n,seed){var r=R(seed),p=100,o=[];for(var i=0;i<n;i++){var a=p,c=a+(r()-.45)*5;o.push({o:a,c:c,h:Math.max(a,c)+r()*2,l:Math.min(a,c)-r()*2,v:20+r()*60});p=c}return o}
+function candleSvg(d){var W=340,H=190,ph=140,mn=Math.min.apply(0,d.map(function(x){return x.l})),mx=Math.max.apply(0,d.map(function(x){return x.h})),bw=W/d.length;function y(v){return 8+(mx-v)/(mx-mn)*(ph-16)}var s='<svg viewBox="0 0 '+W+' '+H+'" class="ch">';for(var i=1;i<4;i++)s+='<line x1="0" x2="'+W+'" y1="'+i*ph/4+'" y2="'+i*ph/4+'" class="gr"/>';d.forEach(function(k,i){var x=i*bw+bw/2,c=k.c>=k.o?'var(--up)':'var(--dn)';s+='<line x1="'+x+'" x2="'+x+'" y1="'+y(k.h)+'" y2="'+y(k.l)+'" stroke="'+c+'"/><rect x="'+(x-bw*.32)+'" y="'+y(Math.max(k.o,k.c))+'" width="'+bw*.64+'" height="'+Math.max(1.5,Math.abs(y(k.o)-y(k.c)))+'" fill="'+c+'"/><rect x="'+(x-bw*.32)+'" y="'+(H-k.v*.5)+'" width="'+bw*.64+'" height="'+k.v*.5+'" fill="'+c+'" opacity=".55"/>'});return s+'</svg>'}
+function donut(p,t,c){var L=251.3;return'<svg viewBox="0 0 100 100" class="donut"><circle cx="50" cy="50" r="40" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="50" cy="50" r="40" fill="none" stroke="'+(c||'var(--up)')+'" stroke-width="12" stroke-linecap="round" stroke-dasharray="'+L*p/100+' '+L+'" transform="rotate(-90 50 50)"/><text x="50" y="56" text-anchor="middle" fill="var(--tx)" font-size="18" font-weight="800">'+t+'</text></svg>'}
+function bars(a){var m=Math.max.apply(0,a.map(function(x){return x[1]}));return a.map(function(x){return'<div class="bar"><span>'+x[0]+'</span><span class="t"><i style="width:'+x[1]/m*100+'%"></i></span><b class="'+cl(x[1])+'">'+pc(x[1])+'</b></div>'}).join('')}
+var NOTE='<div class="note">Dữ liệu mẫu minh họa, chưa kết nối nguồn SSI. Thông tin chỉ mang tính tham khảo, không phải khuyến nghị đầu tư.</div>';
+var IDX={vn:{n:'VN-Index',v:1695.29,c:12.34,p:.73,sd:7,kl:'842,5 triệu cp',gt:'22.856 tỷ đồng'},hnx:{n:'HNX-Index',v:278.56,c:1.82,p:.66,sd:11,kl:'96,2 triệu cp',gt:'1.874 tỷ đồng'},up:{n:'UPCOM',v:123.45,c:.76,p:.62,sd:13,kl:'58,4 triệu cp',gt:'732 tỷ đồng'}};
+var SEC=[['Ngân hàng',2.8,'N'],['Chứng khoán',2.6,'C'],['Bất động sản',2.1,'B'],['Thép',1.9,'T'],['Dầu khí',1.7,'D']];
+var STK=[['VNM',64.8,2.1,92.5,88.1,1,1,58,1,1,'Tiêu dùng','HOSE'],['FPT',110.5,1.8,91.2,90.4,1,1,62,1,1,'Công nghệ','HOSE'],['TCB',35.2,1.7,89.7,85,1,1,57,0,1,'Ngân hàng','HOSE'],['MBB',25.8,1.5,88.9,87.3,1,1,55,1,0,'Ngân hàng','HOSE'],['VPB',32.1,1.3,87.6,82.2,1,1,53,0,1,'Ngân hàng','HOSE'],['HPG',27.4,.9,84,86.5,1,0,52,1,1,'Thép','HOSE'],['SSI',31.6,2.4,83.2,79.8,1,1,49,0,0,'Chứng khoán','HOSE'],['MWG',61.3,-.7,70.1,74,0,1,44,0,0,'Bán lẻ','HOSE'],['PVS',38.9,1.1,79.4,77.7,1,0,56,1,1,'Dầu khí','HNX'],['SHS',17.8,.6,76.5,72.9,1,1,51,0,1,'Chứng khoán','HNX']];
+var NEWS=[['Kinh tế','Tăng trưởng quý IV được kỳ vọng giữ nhịp ổn định','2 giờ trước','#2b6bff,#19c3ff'],['Chứng khoán','Thanh khoản cải thiện, nhóm ngân hàng dẫn dắt thị trường','3 giờ trước','#0a8f5a,#1fe08a'],['Doanh nghiệp','Nhiều doanh nghiệp công bố kế hoạch kinh doanh năm mới','4 giờ trước','#7a3bff,#2b6bff'],['Thế giới','Thị trường toàn cầu thận trọng trước các số liệu việc làm','5 giờ trước','#ff7a1a,#ffb020'],['Kinh tế','Lạm phát được kiểm soát trong tầm mục tiêu','6 giờ trước','#19c3ff,#0a8f5a'],['Chứng khoán','Khối ngoại giao dịch cân bằng trong phiên cuối tuần','7 giờ trước','#2b6bff,#7a3bff']];
+var INTL={'Thế giới':[['Các nền kinh tế lớn tìm cách giữ đối thoại thương mại','2 giờ trước'],['Châu Âu cân nhắc điều chỉnh chính sách năng lượng','3 giờ trước'],['Châu Á đẩy mạnh hợp tác chuỗi cung ứng','4 giờ trước']],'Kinh tế':[['Ngân hàng trung ương theo dõi sát diễn biến lạm phát','1 giờ trước'],['Giá dầu dao động trong biên độ hẹp','3 giờ trước']],'Chính trị':[['Các cuộc họp cấp cao khu vực tập trung vào an ninh kinh tế','2 giờ trước'],['Đối thoại ngoại giao được duy trì giữa nhiều bên','5 giờ trước']],'Công nghệ':[['Cuộc đua trí tuệ nhân tạo tiếp tục thúc đẩy đầu tư hạ tầng','1 giờ trước'],['Chip bán dẫn vẫn là điểm nóng của chuỗi cung ứng','4 giờ trước']],'Pháp luật':[['Quy định mới về dữ liệu cá nhân được nhiều nước xem xét','3 giờ trước'],['Khung pháp lý cho tài sản số tiếp tục hoàn thiện','6 giờ trước']]};
+var CARN=[['Hãng xe','Toyota, Honda, Mazda, Hyundai, Ford, Kia, VinFast, BMW'].slice(0,0)];
+var st={tab:'tq',idx:'vn',rng:'1M',sc:0,f:{trend:1,liq:1,rsi:1,macd:0,ma:0},nw:'Tất cả',an:0,ot:0,qt:'Thế giới',th:'dark',noti:1,auto:1,q:''};
+var RNG={'1D':30,'1W':36,'1M':44,'3M':50,'6M':56,'1Y':64};
+function tabs(list,cur,act){return'<div class="tabs">'+list.map(function(x){return'<button class="chip'+(x===cur?' on':'')+'" data-a="'+act+'" data-v="'+x+'">'+x+'</button>'}).join('')+'</div>'}
+function head(t,s){return'<h1>'+t+'</h1><div class="sub">'+s+'</div>'}
+var S={
+tq:function(){var a=IDX.vn,b=IDX.hnx,c=IDX.up;return head('Tổng quan thị trường','Dữ liệu mẫu, minh họa giao diện')+'<div class="cd"><div class="lbl">VN-Index</div><div class="big">'+fmt(a.v)+'</div><div class="up">&#9650; '+fmt(a.c)+' ('+pc(a.p)+')</div>'+spark(series(40,a.sd,3),'var(--up)',70)+'</div><div class="row"><div class="cd"><div class="lbl">HNX-Index</div><div class="med">'+fmt(b.v)+'</div><div class="up">&#9650; '+fmt(b.c)+' ('+pc(b.p)+')</div></div><div class="cd"><div class="lbl">UPCOM</div><div class="med">'+fmt(c.v)+'</div><div class="up">&#9650; '+fmt(c.c)+' ('+pc(c.p)+')</div></div></div><div class="row"><div class="cd"><div class="lbl">Mã tăng</div><div class="med up">312</div></div><div class="cd"><div class="lbl">Mã giảm</div><div class="med dn">185</div></div><div class="cd"><div class="lbl">Không đổi</div><div class="med fl">93</div></div></div><div class="cd"><h3>Top ngành tăng mạnh nhất</h3><div class="sec">'+SEC.map(function(s){return'<div><div class="ico">'+s[2]+'</div>'+s[0]+'<br><b class="up">'+pc(s[1])+'</b></div>'}).join('')+'</div></div>'+NOTE},
+ck:function(){var x=IDX[st.idx],d=candles(RNG[st.rng],x.sd*3);return head('Thị trường chứng khoán Việt Nam','Cập nhật: dữ liệu mẫu')+tabs(['VN-Index','HNX-Index','UPCOM'],x.n,'idx')+'<div class="cd"><div class="row"><div><div class="big">'+fmt(x.v)+'</div><div class="up">&#9650; '+fmt(x.c)+' ('+pc(x.p)+')</div></div><div class="lbl" style="text-align:right">KL: '+x.kl+'<br>GT: '+x.gt+'</div></div><div class="tabs" style="margin:8px 0">'+Object.keys(RNG).map(function(k){return'<button class="chip sm'+(k===st.rng?' on':'')+'" data-a="rng" data-v="'+k+'">'+k+'</button>'}).join('')+'</div>'+candleSvg(d)+'</div><div class="cd"><h3>Biến động theo ngành</h3>'+bars(SEC.map(function(s){return[s[0],s[1]]}))+'</div><div class="cd row" style="align-items:center"><div><div class="lbl">Độ rộng thị trường</div><div class="med"><span class="up">312</span> / <span class="dn">185</span></div></div>'+donut(63,'63%')+'</div>'+NOTE},
+sc:function(){var f=st.f,T=['Ngắn hạn (2-6 tuần)','Trung hạn (3-12 tháng)','Theo ngành','Theo chỉ số'],col=['Điểm số','Điểm số','Ngành','Sàn'][st.sc];var L=STK.filter(function(s){return(!f.trend||s[5])&&(!f.liq||s[6])&&(!f.rsi||s[7]>50)&&(!f.macd||s[8])&&(!f.ma||s[9])&&(!st.q||s[0].indexOf(st.q)===0)});L.sort(function(a,b){return st.sc===2?a[10].localeCompare(b[10],'vi'):st.sc===3?a[11].localeCompare(b[11]):b[st.sc===1?4:3]-a[st.sc===1?4:3]});var K=[['trend','Xu hướng tăng'],['liq','Thanh khoản tốt'],['rsi','RSI > 50'],['macd','MACD dương'],['ma','Giá > MA50']];return head('Smart Scanner','Sàng lọc cổ phiếu theo tiêu chí của bạn')+'<div class="tabs">'+T.map(function(x,i){return'<button class="chip'+(i===st.sc?' on':'')+'" data-a="sc" data-v="'+i+'">'+x+'</button>'}).join('')+'</div><div class="cd"><h3>Tiêu chí lọc</h3>'+K.map(function(k){return'<label class="ck"><input type="checkbox" data-a="flt" data-v="'+k[0]+'"'+(f[k[0]]?' checked':'')+'>'+k[1]+'</label>'}).join('')+'<button class="chip sm" data-a="reset">Đặt lại</button>'+(st.q?' <button class="chip sm" data-a="clrq">Mã: '+st.q+' &#215;</button>':'')+'</div><div class="cd"><h3>Kết quả sàng lọc</h3><div class="lbl" style="margin-bottom:6px">Tìm thấy '+L.length+' cổ phiếu phù hợp · giá tính theo nghìn đồng</div>'+(L.length?'<table><tr><th>Mã CK</th><th>'+col+'</th><th>Giá</th><th>Thay đổi</th></tr>'+L.map(function(s){var v=st.sc<2?fmt(st.sc?s[4]:s[3],1):st.sc===2?s[10]:s[11];return'<tr><td>'+s[0]+'</td><td>'+v+'</td><td>'+fmt(s[1])+'</td><td class="'+cl(s[2])+'">'+pc(s[2])+'</td></tr>'}).join('')+'</table>':'<div class="empty">Không có cổ phiếu nào khớp. Hãy bỏ bớt một tiêu chí.</div>')+'</div>'+NOTE},
+tt:function(){var C=['Tất cả','Kinh tế','Chứng khoán','Doanh nghiệp','Thế giới'],L=NEWS.filter(function(n){return st.nw==='Tất cả'||n[0]===st.nw}),h=L[0];return head('Tin tức thị trường','Tin mẫu minh họa')+tabs(C,st.nw,'nw')+(h?'<div class="cd"><div class="hero" style="background:linear-gradient(135deg,'+h[3]+')">'+h[1]+'</div><div class="lbl">'+h[2]+' · '+h[0]+'</div></div><div class="cd">'+L.slice(1).map(function(n){return'<div class="news"><div class="th" style="background:linear-gradient(135deg,'+n[3]+')"></div><div><b>'+n[1]+'</b><span class="lbl">'+n[2]+' · '+n[0]+'</span></div></div>'}).join('')+(L.length<2?'<div class="empty">Chưa có thêm tin trong mục này.</div>':'')+'</div>':'<div class="empty">Chưa có tin trong mục này.</div>')},
+pt:function(){var T=['Tổng quan','Dòng tiền','Nhóm ngành','Thanh khoản'],v=st.an,b='';if(v===0)b='<div class="row"><div class="cd"><div class="lbl">Dòng tiền hôm nay</div><div class="med">22.856 tỷ</div><div class="up">&#9650; '+pc(8.2)+'</div>'+spark(series(24,5,4),'var(--up)',46)+'</div><div class="cd"><div class="lbl">Độ rộng thị trường</div><div class="med"><span class="up">312</span> tăng<br><span class="dn">185</span> giảm</div></div></div><div class="cd"><h3>Nhóm ngành nổi bật</h3>'+bars(SEC.slice(0,4).map(function(s){return[s[0],s[1]]}))+'</div>';else if(v===1)b='<div class="cd"><h3>Dòng tiền 20 phiên gần nhất</h3>'+spark(series(20,9,5),'var(--acc)',110)+'<div class="lbl">Đơn vị: tỷ đồng · dữ liệu mẫu</div></div>';else if(v===2)b='<div class="cd"><h3>Biến động theo nhóm ngành</h3>'+bars(SEC.map(function(s){return[s[0],s[1]]}))+'</div>';else b='<div class="cd row" style="align-items:center"><div><div class="lbl">Thanh khoản so với trung bình 20 phiên</div><div class="med up">+8,20%</div></div>'+donut(63,'63%','var(--acc)')+'</div><div class="cd"><div class="lbl">Khối lượng</div><div class="med">842,5 triệu cp</div><div class="lbl" style="margin-top:6px">Giá trị</div><div class="med">22.856 tỷ đồng</div></div>';return head('Phân tích thị trường','Dữ liệu mẫu')+tabs(T,T[v],'an')+b+NOTE},
+ot:function(){var T=['Tin tức','Bảng giá','Mua bán'],b;if(st.ot===0)b='<div class="cd"><h3>Các hãng xe phổ biến</h3><div class="brands">'+['Toyota','Honda','Mazda','Hyundai','Ford','Kia','VinFast','BMW'].map(function(n){return'<div><div class="ico">'+n[0]+'</div>'+n+'</div>'}).join('')+'</div></div><div class="cd"><h3>Tin nổi bật</h3><div class="news"><div class="th" style="background:linear-gradient(135deg,#2b6bff,#19c3ff)"></div><div><b>Thị trường ô tô giữ nhịp ổn định cuối năm</b><span class="lbl">Tin mẫu · 2 giờ trước</span></div></div><div class="news"><div class="th" style="background:linear-gradient(135deg,#0a8f5a,#1fe08a)"></div><div><b>Xe điện tiếp tục thu hút người mua mới</b><span class="lbl">Tin mẫu · 5 giờ trước</span></div></div></div>';else b='<div class="cd empty">'+(st.ot===1?'Chưa có dữ liệu bảng giá.<br>Cần kết nối nguồn giá xe để hiển thị.':'Chưa có tin đăng mua bán.<br>Mục này sẽ hiển thị tin đăng khi được kết nối.')+'</div>';return head('Thị trường ô tô Việt Nam','Cập nhật: dữ liệu mẫu')+tabs(T,T[st.ot],'ot')+b},
+qt:function(){var T=Object.keys(INTL);return head('Tin tức quốc tế','Tin mẫu minh họa')+tabs(T,st.qt,'qt')+'<div class="cd">'+INTL[st.qt].map(function(n,i){return'<div class="news"><div class="th" style="background:linear-gradient(135deg,'+['#2b6bff,#19c3ff','#7a3bff,#2b6bff','#ff7a1a,#ffb020'][i%3]+')"></div><div><b>'+n[0]+'</b><span class="lbl">'+n[1]+' · '+st.qt+'</span></div></div>'}).join('')+'</div>'},
+cd:function(){function o(k,t){return'<button class="opt'+(st.th===k?' on':'')+'" data-a="th" data-v="'+k+'">'+t+'</button>'}function sw(k,t){return'<div class="sw"><span>'+t+'</span><button class="tg'+(st[k]?' on':'')+'" data-a="tg" data-v="'+k+'" role="switch" aria-checked="'+(st[k]?'true':'false')+'" aria-label="'+t+'"></button></div>'}return head('Cài đặt ứng dụng','')+'<div class="cd"><h3>Chế độ hiển thị</h3><div class="row">'+o('light','Sáng')+o('dark','Tối')+o('auto','Tự động')+'</div></div><div class="cd">'+sw('noti','Nhận thông báo tin tức')+sw('auto','Cập nhật dữ liệu tự động')+'<div class="sw"><span>Phiên bản ứng dụng</span><span class="mut">v1.0.0</span></div></div>'}
+};
+var TABS=[['tq','Tổng quan'],['ck','Chứng khoán'],['sc','Smart Scanner'],['tt','Tin tức'],['pt','Thị trường'],['ot','Ô tô'],['qt','Quốc tế'],['cd','Cài đặt']];
+function render(){$('#main').innerHTML=S[st.tab]();$('#nav').innerHTML=TABS.map(function(t){return'<button data-a="go" data-v="'+t[0]+'" class="'+(t[0]===st.tab?'on':'')+'">'+t[1]+'</button>'}).join('');try{$('#nav .on').scrollIntoView({inline:'center',block:'nearest'})}catch(e){}}
+function show(id){if(!S[id])id='tq';st.tab=id;render();window.scrollTo(0,0)}
+function toast(t){var e=$('#toast');e.textContent=t;e.className='on';clearTimeout(toast.t);toast.t=setTimeout(function(){e.className=''},1800)}
+function theme(){document.documentElement.setAttribute('data-theme',st.th);try{localStorage.setItem('nd-th',st.th)}catch(e){}}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-a]');if(!b)return;var a=b.dataset.a,v=b.dataset.v;
+if(a==='go'){location.hash=v;return}
+if(a==='bell'){toast(st.noti?'Chưa có thông báo mới':'Thông báo đang tắt trong Cài đặt');return}
+if(a==='idx')st.idx=v==='VN-Index'?'vn':v==='HNX-Index'?'hnx':'up';
+else if(a==='rng')st.rng=v;else if(a==='sc')st.sc=+v;else if(a==='nw')st.nw=v;else if(a==='an')st.an=['Tổng quan','Dòng tiền','Nhóm ngành','Thanh khoản'].indexOf(v);
+else if(a==='ot')st.ot=['Tin tức','Bảng giá','Mua bán'].indexOf(v);else if(a==='qt')st.qt=v;
+else if(a==='reset'){st.f={trend:1,liq:1,rsi:1,macd:0,ma:0};st.q='';$('#q').value=''}
+else if(a==='clrq'){st.q='';$('#q').value=''}
+else if(a==='th'){st.th=v;theme()}else if(a==='tg')st[v]=st[v]?0:1;else if(a==='flt')st.f[v]=b.checked?1:0;
+var y=window.scrollY;render();window.scrollTo(0,y)});
+$('#q').addEventListener('keydown',function(e){if(e.key==='Enter'){st.q=this.value.trim().toUpperCase();this.blur();if(st.tab==='sc')render();else location.hash='sc'}});
+window.addEventListener('hashchange',function(){show(location.hash.slice(1))});
+try{var t=localStorage.getItem('nd-th');if(t==='light'||t==='dark'||t==='auto')st.th=t}catch(e){}
+theme();show(location.hash.slice(1));
+function hide(){$('#splash').className='off'}
+$('#splash').addEventListener('click',hide);setTimeout(hide,1800);
+</script>
+</body>
+</html>
