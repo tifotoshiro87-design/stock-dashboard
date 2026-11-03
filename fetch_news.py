@@ -312,6 +312,12 @@ for _k in ("vnexpress", "tuoitre", "thanhnien", "dantri", "vietnamnet", "tienpho
 
 # Báo/trang địa phương không có RSS: bot tìm bằng Bing/Google với "site:" (mỗi mục Nha Trang tìm thêm theo chủ đề).
 BAO_DIA_PHUONG = ["baokhanhhoa.vn", "khanhhoa.gov.vn"]
+# Báo lớn không có RSS dùng được: tìm bài bằng Bing/Google News với "site:" theo từng mục của tab (chỉ lấy tiêu đề, nguồn, giờ đăng, link).
+BAO_SITE_THEO_TAB = {
+    "chung_khoan": ["baodautu.vn", "nhipcaudautu.vn", "thesaigontimes.vn", "thoibaotaichinhvietnam.vn"],
+    "quoc_te": ["laodong.vn", "znews.vn"],
+    "cong_nghe": ["znews.vn", "laodong.vn"],
+}
 CHU_DE_DIA_PHUONG = {"ha_tang": "giao thông", "quy_hoach": "quy hoạch dự án", "kinh_te_vh": "kinh tế văn hóa",
                      "du_lich": "du lịch", "giao_duc": "giáo dục", "phap_luat": "pháp luật", "thoi_tiet": "thời tiết mưa bão"}
 
@@ -401,7 +407,14 @@ def giong_nhau(a, b):
     return len(a & b) / min(len(a), len(b))
 
 
+_TU_PHAP = re.compile(r"\b(?:est|avec|des|les|une|dans|pour|sur|aux|cette|sont|qui|que|nous|vous)\b", re.I)
+_CHU_RIENG_VN = re.compile(r"[áảãạăắằẳẵặấầẩẫậẻẽẹếềểễệíỉĩịóòỏõọốồổỗộơớờởỡợúủũụưứừửữựýỳỷỹỵđ]")
+
+
 def co_tieng_viet(s):
+    # bản tiếng Pháp (Vietnam.vn có kênh tiếng Pháp) có é, è, ê nên lọt qua bộ lọc ký tự: loại khi có >= 2 từ Pháp và không có ký tự riêng của tiếng Việt
+    if len({m.lower() for m in _TU_PHAP.findall(s or "")}) >= 2 and not _CHU_RIENG_VN.search((s or "").lower()):
+        return False
     return bool(re.search(r"[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]", (s or "").lower()))
 
 
@@ -840,6 +853,7 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
     viec = [(m, c) for m in cau_hinh["muc"] for c in m["tim"]]
     if ma_tab == NT:   # báo địa phương không có RSS: tìm trực tiếp theo tên miền
         viec += [(m, f"site:{d} {CHU_DE_DIA_PHUONG.get(m['key'], m['ten'])}") for m in cau_hinh["muc"] for d in BAO_DIA_PHUONG]
+    viec += [(m, f"site:{d} {m['ten']}") for d in BAO_SITE_THEO_TAB.get(ma_tab, []) for m in cau_hinh["muc"]]
     with ThreadPoolExecutor(max_workers=TIM_KIEM_SONG_SONG) as ex:
         for kq in ex.map(lambda mc: lay_tim_kiem(*mc), viec):
             ung_vien += kq
@@ -1061,8 +1075,100 @@ def tin_theo_mau_xe(tab_cn, cu_mau):
             ket[key] = {"items": items, "cap_nhat": gio, "so_ngay": SO_NGAY_MAU_XE}
     co = sum(1 for v in ket.values() if v["items"])
     loi_n = sum(1 for v in ket.values() if v.get("loi"))
-    print(f"[mau_xe] {len(can_tim)} mẫu chưa có tin ở mục hãng -> tìm riêng: {co} mẫu có tin, {len(ket) - co - loi_n} mẫu không có tin trong {SO_NGAY_MAU_XE} ngày, {loi_n} mẫu lỗi nguồn")
+    khong_tin = sum(1 for v in ket.values() if not v["items"] and not v.get("loi"))
+    print(f"[mau_xe] {len(can_tim)} mẫu chưa có tin ở mục hãng -> tìm riêng: {co} mẫu có tin, {khong_tin} mẫu không có tin trong {SO_NGAY_MAU_XE} ngày, {loi_n} mẫu lỗi nguồn")
     return ket
+
+
+# ===================== HÌNH MINH HỌA + TÓM TẮT CHO MỌI BÀI =====================
+# Mỗi bài trên app cần có: hình minh họa, tóm tắt ngắn, link bài gốc. Bài nào RSS/tìm kiếm không kèm hình/tóm tắt thì mở trang bài gốc đọc thẻ og:image / og:description.
+# Chỉ lưu LINK ảnh (không tải ảnh về) và đoạn tóm tắt ngắn; bài không có ảnh/tóm tắt thật thì để trống (app hiện ô thay thế), không bịa.
+RE_ANH_LOAI = re.compile(r"logo|favicon|default|placeholder|no-?image|noimage|avatar|sprite|blank", re.I)
+TOI_DA_TRANG_BO_SUNG = 400
+
+
+def _meta_trang(trang):
+    d = {}
+    for the in re.findall(r"<meta\b[^>]*>", trang, re.I):
+        k = re.search(r'(?:property|name)=["\']([^"\']+)["\']', the, re.I)
+        v = re.search(r'content=["\']([^"\']*)["\']', the, re.I)
+        if k and v:
+            d.setdefault(k.group(1).lower(), v.group(1))
+    return d
+
+
+def thong_tin_bai_goc(url):
+    """(tóm tắt, link ảnh) của bài gốc; không đọc được thì ("", "")."""
+    if not url or "news.google.com" in url:
+        return "", ""
+    try:
+        trang = tai(url, timeout=12)[:400000].decode("utf-8", "ignore")
+    except Exception:  # noqa: BLE001
+        return "", ""
+    meta = _meta_trang(trang)
+    tom = lam_sach(meta.get("og:description") or meta.get("twitter:description") or meta.get("description") or "")
+    if len(tom) < 40:   # trang không có mô tả: lấy đoạn văn đầu đủ dài
+        for dv in re.findall(r"<p[^>]*>(.*?)</p>", trang, re.S | re.I):
+            dv = lam_sach(dv)
+            if len(dv) >= 80:
+                tom = dv
+                break
+    anh = meta.get("og:image:secure_url") or meta.get("og:image") or meta.get("twitter:image") or meta.get("twitter:image:src") or ""
+    if not anh:
+        m = re.search(r'<link[^>]+rel=["\']image_src["\'][^>]+href=["\']([^"\']+)', trang, re.I)
+        anh = m.group(1) if m else ""
+    anh = urljoin(url, html.unescape(anh.strip())) if anh else ""
+    if anh.startswith("http://"):
+        anh = "https://" + anh[7:]
+    if not anh.startswith("https://") or RE_ANH_LOAI.search(urlparse(anh).path):
+        anh = ""
+    return tom, anh
+
+
+def bo_sung_hinh_tom_tat(ket_qua, cu):
+    tabs = [k for k in ket_qua if isinstance(ket_qua[k], dict) and "sections" in ket_qua[k]]
+
+    def tat_ca(kq):
+        for t in tabs:
+            for sec in (kq.get(t) or {}).get("sections", []):
+                yield t, sec.get("items", [])
+        for v in ((kq.get(CN) or {}).get("mau_xe") or {}).values():
+            yield "mau_xe", v.get("items", [])
+
+    cache = {}
+    for _t, ds in tat_ca(cu or {}):
+        for x in ds:
+            c = cache.setdefault(x["url"], {})
+            c.setdefault("img", x.get("img"))
+            c.setdefault("summary", x.get("summary"))
+    can = {}
+    for _t, ds in tat_ca(ket_qua):
+        for x in ds:
+            c = cache.get(x["url"], {})
+            if not x.get("img") and c.get("img"):
+                x["img"] = c["img"]
+            if not (x.get("summary") or "").strip() and (c.get("summary") or "").strip():
+                x["summary"] = c["summary"]
+            if not x.get("img") or not (x.get("summary") or "").strip():
+                can.setdefault(x["url"], []).append(x)
+    urls = list(can)[:TOI_DA_TRANG_BO_SUNG]
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for u, (tom, anh) in zip(urls, ex.map(thong_tin_bai_goc, urls)):
+            for x in can[u]:
+                if anh and not x.get("img"):
+                    x["img"] = anh
+                if tom and not (x.get("summary") or "").strip() and chuan(tom).strip() != chuan(x["title"]).strip():
+                    x["summary"] = tom if len(tom) <= DO_DAI_TOM_TAT else tom[:DO_DAI_TOM_TAT].rsplit(" ", 1)[0] + "…"
+    tk = {}
+    for t, ds in tat_ca(ket_qua):
+        a = tk.setdefault(t, {"tong": 0, "co_hinh": 0, "co_tom_tat": 0})
+        for x in ds:
+            a["tong"] += 1
+            a["co_hinh"] += 1 if x.get("img") else 0
+            a["co_tom_tat"] += 1 if (x.get("summary") or "").strip() else 0
+    tk["da_mo_trang_bai_goc"] = len(urls)
+    print("[hinh_tom_tat]", json.dumps(tk, ensure_ascii=False))
+    return tk
 
 
 # ===================== THỜI TIẾT (Open-Meteo, không cần key) =====================
@@ -1263,6 +1369,10 @@ def main():
     except Exception as e:  # noqa: BLE001 - lỗi phần này không được làm mất tin các tab
         print("Lỗi tin theo mẫu xe:", type(e).__name__, e)
         ket_qua[CN]["mau_xe"] = (cu.get(CN) or {}).get("mau_xe", {})
+    try:
+        ket_qua["meta"]["chat_luong"] = bo_sung_hinh_tom_tat(ket_qua, cu)
+    except Exception as e:  # noqa: BLE001 - lỗi bổ sung hình/tóm tắt không được làm mất tin
+        print("Lỗi bổ sung hình/tóm tắt:", type(e).__name__, e)
     if "error" in ket_qua["weather"] and cu.get("weather") and "error" not in cu["weather"]:
         ket_qua["weather"] = cu["weather"]
 

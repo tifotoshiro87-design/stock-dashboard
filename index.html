@@ -464,8 +464,8 @@ const OPEN=new Set();
 const URL_OK=u=>/^https?:\/\//.test(u||"");
 function ngay(d){if(!d)return"";const [a,b]=String(d).split(" "),p=a.split("-");return p.length==3?`${p[2]}/${p[1]}/${p[0]}${b?" "+b:""}`:d}
 function tin(x){const u=URL_OK(x.url)?esc(x.url):"";
- return `<div class="ni">${x.img&&URL_OK(x.img)?`<img class="ti" src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`:'<i class="ti"></i>'}<div class="nb">${u?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(x.title)}</a>`:`<b>${esc(x.title)}</b>`}
- ${x.summary?`<div class="ns">${esc(x.summary)}</div>`:""}
+ return `<div class="ni">${x.img&&URL_OK(x.img)?`<img class="ti" src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.visibility='hidden'">`:`<i class="ti" style="display:flex;align-items:center;justify-content:center;color:#cfe3ee;font:700 17px sans-serif">${esc((x.source||"?").replace(/^(Báo|Cổng)\s+/i,"").split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase())}</i>`}<div class="nb">${u?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(x.title)}</a>`:`<b>${esc(x.title)}</b>`}
+ ${x.summary?`<div class="ns">${esc(x.summary)}</div>`:`<div class="ns" style="opacity:.7;font-style:italic">Chưa có tóm tắt, bấm "Đọc bài" để xem bản gốc.</div>`}
  <div class="nm">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}${u?`<a href="${u}" target="_blank" rel="noopener">Đọc bài →</a>`:""}</div></div></div>`}
 function khoi(id,ten,items,extra="",cls=""){
  items=items||[];const HS=Math.min(15,Math.max(1,(T&&T.meta&&+T.meta.hien_san)||3)),mo=OPEN.has(id),dau=items.slice(0,HS),sau=items.slice(HS);
