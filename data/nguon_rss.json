@@ -1,5 +1,5 @@
 {
-"updated": "2026-11-03 13:29",
+"updated": "2026-11-03 13:58",
 "tot": {
 "vnexpress": [
 "https://vnexpress.net/rss/the-gioi.rss",
@@ -51,9 +51,7 @@
 "https://thanhnien.vn/rss/gioi-tre/the-gioi-mang.rss",
 "https://thanhnien.vn/rss/du-lich/kham-pha.rss",
 "https://thanhnien.vn/rss/the-thao/bong-da-quoc-te.rss",
-"https://thanhnien.vn/rss/cong-nghe.rss",
 "https://thanhnien.vn/rss/cong-nghe/tin-tuc-cong-nghe.rss",
-"https://thanhnien.vn/rss/cong-nghe/blockchain.rss",
 "https://thanhnien.vn/rss/cong-nghe/san-pham.rss",
 "https://thanhnien.vn/rss/cong-nghe/xu-huong-chuyen-doi-so.rss",
 "https://thanhnien.vn/rss/cong-nghe/thu-thuat.rss",
@@ -61,7 +59,6 @@
 "https://thanhnien.vn/rss/xe.rss",
 "https://thanhnien.vn/rss/xe/thi-truong.rss",
 "https://thanhnien.vn/rss/xe/xe-xanh.rss",
-"https://thanhnien.vn/rss/xe/danh-gia-xe.rss",
 "https://thanhnien.vn/rss/xe/tu-van.rss",
 "https://thanhnien.vn/rss/video/the-gioi.rss"
 ],
@@ -82,7 +79,13 @@
 "https://dantri.com.vn/rss/khoa-hoc.rss",
 "https://dantri.com.vn/rss/thoi-tiet.rss"
 ],
-"vietnamnet": [],
+"vietnamnet": [
+"https://vietnamnet.vn/rss/thoi-su.rss",
+"https://vietnamnet.vn/rss/kinh-doanh.rss",
+"https://vietnamnet.vn/rss/cong-nghe.rss",
+"https://vietnamnet.vn/rss/oto-xe-may.rss",
+"https://vietnamnet.vn/rss/the-gioi.rss"
+],
 "tienphong": [
 "https://tienphong.vn/rss/home.rss"
 ],
@@ -288,7 +291,9 @@
 ],
 "baodautu": [],
 "thesaigontimes": [],
-"tinnhanhchungkhoan": [],
+"tinnhanhchungkhoan": [
+"https://tinnhanhchungkhoan.vn/rss/home.rss"
+],
 "nhipcaudautu": [],
 "baoxaydung": [
 "https://baoxaydung.vn/rss/home.rss"
@@ -323,9 +328,7 @@
 "https://tinhte.vn/rss"
 ],
 "ictnews": [],
-"vnreview": [
-"https://vnreview.vn/forums/-/index.rss"
-],
+"vnreview": [],
 "autopro": [
 "https://autopro.com.vn/home.rss"
 ]
