@@ -354,7 +354,7 @@ SLUG_QUAN_TAM[QT] = _T.format("the-gioi|thegioi|quoc-te|quocte|kinh-te-the-gioi|
 
 
 # ===================== HÀM TIỆN ÍCH =====================
-HAN_CHOT = time.time() + 12 * 60   # sau 12 phút bot ngừng lấy thêm, ghi những gì đã có (workflow cho tối đa 20 phút)
+HAN_CHOT = time.time() + 14 * 60   # sau 14 phút bot ngừng lấy thêm, ghi những gì đã có (workflow cho tối đa 20 phút)
 _KHOA = threading.Lock()
 GHI_KENH = {}                       # url kênh RSS -> số tin lấy được (-1 = lỗi)
 NK = {"bing": [0, 0], "google": [0, 0], "gm": [0, 0], "mien_bi_loai": Counter()}   # nhật ký chẩn đoán ghi vào tin.json
@@ -550,13 +550,34 @@ def ten_nguon(t):
     return nguon
 
 
+def _cay_rss_tu_regex(txt):
+    """Dự phòng khi XML hỏng: lấy title/link/description/pubDate của từng <item> bằng regex. Không bịa: item thiếu title hoặc link thì bỏ."""
+    goc = ET.Element("rss")
+    for khoi in re.split(r"<item[\s>]", txt, flags=re.I)[1:]:   # tách theo thẻ mở, cắt tại </item> nếu có (item hỏng thiếu thẻ đóng vẫn đọc được)
+        khoi = khoi.split("</item>")[0]
+        it = ET.SubElement(goc, "item")
+        for the in ("title", "link", "description", "pubDate"):
+            m = re.search(r"<%s[^>]*>(.*?)</%s>" % (the, the), khoi, re.S | re.I)
+            if m:
+                v = m.group(1).strip()
+                c = re.fullmatch(r"<!\[CDATA\[(.*?)\]\]>", v, re.S)
+                ET.SubElement(it, the).text = c.group(1) if c else html.unescape(v)
+    return goc
+
+
 def doc_rss(du_lieu, nguon_mac_dinh=""):
     """Đọc RSS 2.0 -> danh sách tin thô."""
     try:
         cay = ET.fromstring(du_lieu)
     except ET.ParseError:   # RSS lỗi nhẹ (ký tự & trần, ký tự điều khiển): sửa rồi đọc lại
         sua = re.sub(r"&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);)", "&amp;", du_lieu.decode("utf-8", "ignore"))
-        cay = ET.fromstring(re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", sua).encode("utf-8"))
+        sua = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", sua)
+        try:
+            cay = ET.fromstring(sua.encode("utf-8"))
+        except ET.ParseError:   # XML hỏng nặng (thẻ lệch, ký tự lạ): tách từng <item> bằng regex, bỏ item hỏng
+            cay = _cay_rss_tu_regex(du_lieu.decode("utf-8", "ignore"))
+            if next(cay.iter("item"), None) is None:
+                raise   # không cứu được item nào (file rỗng/không phải RSS): vẫn báo lỗi như trước, không coi là kênh tốt
     ds = []
     for it in cay.iter("item"):
         tieu_de = re.sub(r"^[/\s]+", "", lam_sach(it.findtext("title")))
@@ -613,8 +634,8 @@ def tim_bing(cau):
     return ds
 
 
-def tim_google(cau):
-    url = f"https://news.google.com/rss/search?q={quote(cau)}+when:30d&hl=vi&gl=VN&ceid=VN:vi"
+def tim_google(cau, ngay=30):
+    url = f"https://news.google.com/rss/search?q={quote(cau)}+when:{ngay}d&hl=vi&gl=VN&ceid=VN:vi"
     ds = doc_rss(tai(url))
     for t in ds:
         if t["source"] and t["title"].endswith(" - " + t["source"]):
@@ -625,6 +646,33 @@ def tim_google(cau):
 
 
 _CACHE_KENH = {}
+
+# Kênh đã xác nhận chết (lần chạy 02/11/2026: 404 hoặc file rỗng). Bỏ qua để không báo lỗi lặp lại; danh sách này ghi vào tin.json (meta.nguon.kenh_bo_qua).
+KENH_CHET = {
+    "https://cafef.vn/rss/home.rss",
+    "https://www.vietnamplus.vn/rss/kinhte/thong-tin-doanh-nghiep-433.rss",
+    "https://www.vietnamplus.vn/rss/kinhte/thong-cao-bao-chi-426.rss",
+    "https://congthuong.vn/rss/giai-thuong-cong-nghiep-thuong-mai-dich-vu-viet-nam-2026.rss",
+    "https://genk.vn/rss/cong-nghe.rss",
+    "https://vtv.vn/rss/the-thao/bong-da-quoc-te.rss",
+}
+KENH_BO_QUA = set()
+
+# Báo mà trang RSS không còn dùng được: thử thêm vài đường dẫn kênh phổ biến. Bot kiểm tra thật (đọc được >= 1 tin mới nhận), không chạy được thì bỏ.
+KENH_DU_DOAN = {
+    "vietnamnet": ["https://vietnamnet.vn/rss/home.rss", "https://vietnamnet.vn/rss/thoi-su.rss", "https://vietnamnet.vn/rss/kinh-doanh.rss",
+                   "https://vietnamnet.vn/rss/cong-nghe.rss", "https://vietnamnet.vn/rss/oto-xe-may.rss", "https://vietnamnet.vn/rss/the-gioi.rss"],
+    "laodong": ["https://laodong.vn/rss/home.rss", "https://laodong.vn/rss/kinh-te.rss", "https://laodong.vn/rss/thoi-su.rss",
+                "https://laodong.vn/rss/the-gioi.rss", "https://laodong.vn/rss/cong-nghe.rss"],
+    "baokhanhhoa": ["https://baokhanhhoa.vn/rss/home.rss", "https://baokhanhhoa.vn/rss/tin-moi.rss", "https://baokhanhhoa.vn/feed"],
+    "khanhhoa_gov": ["https://khanhhoa.gov.vn/rss/home.rss", "https://khanhhoa.gov.vn/feed"],
+    "baodautu": ["https://baodautu.vn/tai-chinh-chung-khoan.rss", "https://baodautu.vn/thi-truong.rss", "https://baodautu.vn/bat-dong-san.rss",
+                 "https://baodautu.vn/home.rss"],
+    "thesaigontimes": ["https://thesaigontimes.vn/feed/", "https://thesaigontimes.vn/rss/home.rss"],
+    "tinnhanhchungkhoan": ["https://tinnhanhchungkhoan.vn/rss/home.rss", "https://tinnhanhchungkhoan.vn/rss/chung-khoan.rss",
+                           "https://tinnhanhchungkhoan.vn/rss/doanh-nghiep.rss"],
+    "nhipcaudautu": ["https://nhipcaudautu.vn/rss/home.rss", "https://nhipcaudautu.vn/feed/"],
+}
 
 
 def doc_feed(url):
@@ -698,6 +746,25 @@ def chon_kenh(kenh, tab):
     return chon[:TOI_DA_KENH_MOI_BAO]
 
 
+DU_DOAN_OK = []
+
+
+def do_kenh_du_doan(khoa, loi_cu):
+    """Thử các đường dẫn kênh phổ biến của báo; chỉ nhận kênh đọc được >= 1 tin."""
+    ok = []
+    for u in KENH_DU_DOAN[khoa][:8]:
+        try:
+            if thu(lambda: doc_feed(u), lan=1):
+                ok.append(u)
+        except Exception:  # noqa: BLE001 - đường dẫn đoán sai là chuyện bình thường
+            pass
+    if ok:
+        with _KHOA:
+            DU_DOAN_OK.extend(ok)
+        return ok, ""
+    return [], (loi_cu + " (đã thử thêm đường dẫn dự đoán, đều không dùng được)")[:200]
+
+
 def tong_hop_kenh(da_biet):
     """Dò kênh của mọi báo (song song). Dò hụt thì dùng lại các kênh đã chạy tốt lần trước."""
     kenh_bao, ghi = {}, {}
@@ -705,7 +772,10 @@ def tong_hop_kenh(da_biet):
     def lam(kv):
         khoa, bao = kv
         try:
-            return khoa, kham_pha_kenh(bao)
+            kenh, loi = kham_pha_kenh(bao)
+            if not kenh and khoa in KENH_DU_DOAN:
+                kenh, loi = do_kenh_du_doan(khoa, loi)
+            return khoa, (kenh, loi)
         except Exception as e:  # noqa: BLE001
             return khoa, ([], f"{type(e).__name__}: {e}"[:120])
 
@@ -775,6 +845,10 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
             ung_vien += kq
 
     def lay_feed(url):
+        if url in KENH_CHET:
+            with _KHOA:
+                KENH_BO_QUA.add(url)
+            return []
         try:
             kq = thu(lambda: doc_feed(url))
             for t in kq:
@@ -878,6 +952,117 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
           + ", ".join(f"{s['name']}: {len(s['items'])}" for s in sections)
           + f"; {len(ds_rss)} kênh RSS, lỗi {len(loi)}, loại {sum(bi_loai.values())} tin nguồn lạ")
     return {"name": cau_hinh["ten"], "sections": sections, "failed": dict(list(loi.items())[:12]), "n_failed": len(loi)}
+
+
+# ===================== TIN THEO TỪNG MẪU XE (tab Công nghệ) =====================
+# Mẫu nào không có tin trong mục hãng (15 tin mới nhất) thì tìm riêng theo "Hãng Mẫu" trong 90 ngày.
+# Kết quả ghi vào tin.json -> cong_nghe.mau_xe["Hãng|Mẫu"]; app chỉ dùng khi mục hãng không có tin của mẫu đó.
+GIA_XE_FILE = Path(__file__).parent / "gia_xe.json"
+SO_NGAY_MAU_XE = 90
+TIN_MOI_MAU_XE = 3
+NGU_CANH_XE = r"ô tô|xe hơi|\bxe\b|suv|sedan|crossover|bán tải|mpv|hatchback|ra mắt|giá lăn bánh|giá xe|phiên bản"
+
+
+def nap_gia_xe():
+    for f in (GIA_XE_FILE, THU_MUC / "gia_xe.json"):
+        try:
+            return json.loads(f.read_text(encoding="utf-8")).get("xe", [])
+        except (OSError, ValueError):
+            continue
+    return []
+
+
+def _tin_ra_json(t):
+    tom = t.get("summary", "")
+    if chuan(tom).strip() == chuan(t["title"]).strip():
+        tom = ""
+    if len(tom) > DO_DAI_TOM_TAT:
+        tom = tom[:DO_DAI_TOM_TAT].rsplit(" ", 1)[0] + "…"
+    d = {"title": t["title"], "summary": tom, "url": t["url"], "source": ten_nguon(t), "date": t["dt"].strftime("%Y-%m-%d %H:%M")}
+    if t.get("img"):
+        d["img"] = t["img"]
+    return d
+
+
+def tin_theo_mau_xe(tab_cn, cu_mau):
+    ds = nap_gia_xe()
+    if not ds:
+        return {}
+    phan = {sec["key"]: sec["items"] for sec in tab_cn["sections"]}
+    bay_gio = datetime.now(VN)
+    moc = bay_gio - timedelta(days=SO_NGAY_MAU_XE)
+    cu_mau = cu_mau or {}
+    can_tim = []
+    for m in ds:
+        muc_hang = phan.get("xe_" + m["hang"].lower().replace(" ", ""), [])
+        if not any(re.search(m["khop"], x["title"], re.I) for x in muc_hang):   # đúng cách app ghép tin vào thẻ mẫu xe
+            can_tim.append(m)
+
+    def tim(m):
+        cau, kq, ok = f"{m['hang']} {m['dong']}", [], 0
+        for ten, ham in (("bing", tim_bing), ("google", lambda c: tim_google(c, SO_NGAY_MAU_XE))):
+            try:
+                kq += thu(lambda: ham(cau))
+                ok += 1
+                with _KHOA:
+                    NK[ten][0] += 1
+            except Exception:  # noqa: BLE001
+                with _KHOA:
+                    NK[ten][1] += 1
+        return m, kq, ok
+
+    with ThreadPoolExecutor(max_workers=TIM_KIEM_SONG_SONG) as ex:
+        da_tim = list(ex.map(tim, can_tim))
+
+    ra, cho_xu_ly = {}, []
+    for m, kq, ok in da_tim:
+        key = f"{m['hang']}|{m['dong']}"
+        cu = cu_mau.get(key) or {}
+        giu = []
+        for t in kq:
+            if t["dt"] is None or t["dt"] < moc or not co_tieng_viet(t["title"]):
+                continue
+            t["mien"] = ten_mien(t.get("nguon_url") or t["url"])
+            if CHI_BAO_CHINH_THONG and not la_bao_chinh_thong(t["mien"]):
+                continue
+            toan = t["title"] + " " + t.get("summary", "")
+            if not re.search(m["khop"], t["title"], re.I) or re.search(LOAI_XE, t["title"], re.I) \
+                    or re.search(HANG_XE_TQ, toan, re.I) or not re.search(NGU_CANH_XE + "|" + re.escape(m["hang"]), toan, re.I):
+                continue
+            t["tu"] = tu_cua(t["title"])
+            giu.append(t)
+        giu.sort(key=lambda t: t["dt"], reverse=True)
+        chon = []
+        for t in giu:
+            if not any(t["url"] == g["url"] or giong_nhau(t["tu"], g["tu"]) >= NGUONG_TRUNG for g in chon):
+                chon.append(t)
+        ra[key] = {"chon": chon[:TIN_MOI_MAU_XE], "ok": ok, "cu": cu}
+        cho_xu_ly += ra[key]["chon"]
+
+    cho_giai = [t for t in cho_xu_ly if "news.google.com" in t["url"]]
+    with ThreadPoolExecutor(max_workers=3) as ex:
+        for t, u in zip(cho_giai, ex.map(lambda t: giai_ma_google_moi(t["url"]), cho_giai)):
+            t["url"] = u
+    thieu = [t for t in cho_xu_ly if not t.get("summary")][:80]
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for t, mo_ta in zip(thieu, ex.map(lambda t: mo_ta_bai_goc(t["url"]), thieu)):
+            t["summary"] = mo_ta
+
+    ket = {}
+    gio = bay_gio.strftime("%Y-%m-%d %H:%M")
+    for key, v in ra.items():
+        moi = [_tin_ra_json(t) for t in v["chon"]]
+        cu_tin = [x for x in v["cu"].get("items", []) if x.get("date", "") >= moc.strftime("%Y-%m-%d %H:%M")]
+        gop = {x["url"]: x for x in cu_tin + moi}   # giữ cả tin lần trước còn trong 90 ngày để kết quả không nhảy qua lại
+        items = sorted(gop.values(), key=lambda x: x["date"], reverse=True)[:TIN_MOI_MAU_XE]
+        if v["ok"] == 0:   # cả Bing và Google đều lỗi: không biết có tin hay không -> giữ giờ cũ, đánh dấu lỗi
+            ket[key] = {"items": items, "cap_nhat": v["cu"].get("cap_nhat"), "loi": True, "so_ngay": SO_NGAY_MAU_XE}
+        else:
+            ket[key] = {"items": items, "cap_nhat": gio, "so_ngay": SO_NGAY_MAU_XE}
+    co = sum(1 for v in ket.values() if v["items"])
+    loi_n = sum(1 for v in ket.values() if v.get("loi"))
+    print(f"[mau_xe] {len(can_tim)} mẫu chưa có tin ở mục hãng -> tìm riêng: {co} mẫu có tin, {len(ket) - co - loi_n} mẫu không có tin trong {SO_NGAY_MAU_XE} ngày, {loi_n} mẫu lỗi nguồn")
+    return ket
 
 
 # ===================== THỜI TIẾT (Open-Meteo, không cần key) =====================
@@ -1073,6 +1258,11 @@ def main():
             if not s["items"] and cu_tab.get(s["key"], {}).get("items"):
                 s["items"] = cu_tab[s["key"]]["items"]
                 s["stale"] = True
+    try:
+        ket_qua[CN]["mau_xe"] = tin_theo_mau_xe(ket_qua[CN], (cu.get(CN) or {}).get("mau_xe"))
+    except Exception as e:  # noqa: BLE001 - lỗi phần này không được làm mất tin các tab
+        print("Lỗi tin theo mẫu xe:", type(e).__name__, e)
+        ket_qua[CN]["mau_xe"] = (cu.get(CN) or {}).get("mau_xe", {})
     if "error" in ket_qua["weather"] and cu.get("weather") and "error" not in cu["weather"]:
         ket_qua["weather"] = cu["weather"]
 
@@ -1084,6 +1274,7 @@ def main():
         "bing": NK["bing"], "google": NK["google"], "google_giai_ma": NK["gm"],
         "bao_khong_co_kenh": {BAO[k][0]: ghi_bao[k]["loi"] for k, v in kenh_bao.items() if not v},
         "mien_bi_loai": [f"{m} ({n})" for m, n in NK["mien_bi_loai"].most_common(12)],
+        "kenh_bo_qua": sorted(KENH_BO_QUA), "kenh_du_doan_ok": sorted(set(DU_DOAN_OK)),
     }
     (THU_MUC / "tin.json").write_text(json.dumps(ket_qua, ensure_ascii=False, indent=1), encoding="utf-8")
     if any(tot.values()):   # chỉ ghi đè danh sách kênh tốt khi lần này có kênh chạy được

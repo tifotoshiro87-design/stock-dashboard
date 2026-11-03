@@ -20,8 +20,9 @@ THU_MUC = Path(__file__).parent / "data"
 THU_MUC.mkdir(exist_ok=True)
 VN = timezone(timedelta(hours=7))
 
-# Thứ tự thử nguồn cho từng mã. Đổi thành ["yahoo", "vnstock"] nếu vnstock hay lỗi.
-NGUON_UU_TIEN = ["yahoo"]  # vnstock đang bị PyPI cách ly (quarantine) từ 24/9/2026 nên không dùng
+# Thứ tự thử nguồn cho từng mã: Yahoo trước (đủ sàn HOSE), KBS dự phòng (Yahoo không có sàn HNX).
+# vnstock không dùng: đang bị PyPI cách ly (quarantine) từ 24/9/2026, nên gọi thẳng API KBS (hàm lay_kbs).
+NGUON_UU_TIEN = ["yahoo", "kbs"]
 
 # (mã, tên đầy đủ, nhóm ngành, sàn)
 CO_PHIEU = [
@@ -149,7 +150,88 @@ def lay_vnstock(ma):
     return nen
 
 
-HAM_NGUON = {"vnstock": lay_vnstock, "yahoo": lay_yahoo}
+# ---------- KBS (dự phòng cho mã Yahoo không có, chủ yếu sàn HNX) ----------
+KBS_URL = "https://kbbuddywts.kbsec.com.vn/iis-server/investment/stocks/{ma}/data_day?sdate={tu}&edate={den}"
+_KBS = {"da_kiem": False, "dat": False, "ket_qua": "chưa dùng"}   # kiểm tra đối chiếu với Yahoo đúng 1 lần mỗi lần chạy
+
+
+def _ngay_kbs(v):
+    """Chuẩn hóa ngày về YYYY-MM-DD; không hiểu được thì báo lỗi (không đoán)."""
+    v = str(v).strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}.*", v):
+        return v[:10]
+    m = re.fullmatch(r"(\d{2})[/-](\d{2})[/-](\d{4}).*", v)
+    if m:
+        return f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
+    if re.fullmatch(r"\d{9,13}", v):
+        sec = int(v) / (1000 if len(v) > 10 else 1)
+        return datetime.fromtimestamp(sec, VN).strftime("%Y-%m-%d")
+    raise ValueError(f"không hiểu định dạng ngày: {v[:20]}")
+
+
+def phan_tich_kbs(js):
+    """Tìm danh sách nến trong JSON (không phụ thuộc tên khóa), chuẩn hóa về nghìn đồng và kiểm tra hợp lý."""
+    ds = js if isinstance(js, list) else next((v for v in (js or {}).values() if isinstance(v, list) and v and isinstance(v[0], dict)), None)
+    if not ds:
+        raise ValueError("KBS không trả về danh sách nến")
+
+    def lay(r, *khoa):
+        for k in khoa:
+            if r.get(k) is not None:
+                return r[k]
+        raise KeyError(khoa[0])
+
+    nen = []
+    for r in ds:
+        try:
+            nen.append({"t": _ngay_kbs(lay(r, "t", "time", "date", "tradingDate")), "o": float(lay(r, "o", "open")), "h": float(lay(r, "h", "high")),
+                        "l": float(lay(r, "l", "low")), "c": float(lay(r, "c", "close")), "v": int(float(lay(r, "v", "volume", "vol")))})
+        except (KeyError, ValueError, TypeError):
+            continue   # dòng thiếu/hỏng thì bỏ, không điền số
+    nen.sort(key=lambda x: x["t"])
+    if len(nen) < 30:
+        raise ValueError(f"KBS chỉ có {len(nen)} nến hợp lệ (cần >= 30)")
+    he_so = 1000 if sorted(x["c"] for x in nen)[len(nen) // 2] > 1000 else 1   # trung vị > 1000 => đơn vị đồng; giá cổ phiếu VN không có mã trên 1 triệu đồng
+    for x in nen:
+        for k in ("o", "h", "l", "c"):
+            x[k] = round(x[k] / he_so, 2)
+    if any(x["c"] <= 0 or x["h"] < x["l"] for x in nen):
+        raise ValueError("KBS có nến sai (giá <= 0 hoặc cao < thấp)")
+    tre = (datetime.now(VN).date() - datetime.strptime(nen[-1]["t"], "%Y-%m-%d").date()).days
+    if tre > 15:
+        raise ValueError(f"KBS dữ liệu cũ {tre} ngày")
+    return nen
+
+
+def _goi_kbs(ma):
+    den = datetime.now(VN).date()
+    url = KBS_URL.format(ma=ma, tu=(den - timedelta(days=400)).strftime("%d-%m-%Y"), den=den.strftime("%d-%m-%Y"))
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0", "Accept": "application/json", "Referer": "https://kbsec.com.vn/"})
+    with urllib.request.urlopen(req, timeout=25) as r:
+        return phan_tich_kbs(json.loads(r.read().decode("utf-8", "ignore")))
+
+
+def lay_kbs(ma):
+    """Chỉ dùng KBS sau khi đối chiếu đúng với Yahoo ở mã VCB (cùng ngày, lệch <= 2%); không qua thì từ chối, không dùng số liệu chưa kiểm chứng."""
+    if not _KBS["da_kiem"]:
+        _KBS["da_kiem"] = True
+        try:
+            kbs, yh = {x["t"]: x["c"] for x in _goi_kbs("VCB")}, {x["t"]: x["c"] for x in lay_yahoo("VCB")}
+            chung = sorted(set(kbs) & set(yh))
+            if not chung:
+                raise ValueError("không có ngày chung với Yahoo")
+            lech = abs(kbs[chung[-1]] / yh[chung[-1]] - 1)
+            if lech > 0.02:
+                raise ValueError(f"giá VCB ngày {chung[-1]} lệch Yahoo {lech:.1%}")
+            _KBS.update(dat=True, ket_qua=f"đạt đối chiếu VCB ({chung[-1]})")
+        except Exception as e:  # noqa: BLE001
+            _KBS["ket_qua"] = f"không đạt đối chiếu: {type(e).__name__}: {e}"[:160]
+    if not _KBS["dat"]:
+        raise RuntimeError("KBS " + _KBS["ket_qua"])
+    return _goi_kbs(ma)
+
+
+HAM_NGUON = {"vnstock": lay_vnstock, "yahoo": lay_yahoo, "kbs": lay_kbs}
 
 
 def lay_von_hoa(ma):
@@ -182,7 +264,7 @@ def lay_gia(danh_sach=None):
                    "links": {"yahoo": f"https://finance.yahoo.com/quote/{ma}.VN"}})
     phien = max((s["candles"][-1]["t"] for s in ds if s["candles"]), default=None)
     meta = {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "latest_session": phien,
-            "unit": "nghìn đồng", "failed": loi, "sample": False,
+            "unit": "nghìn đồng", "failed": loi, "sample": False, "kbs": _KBS["ket_qua"],
             "disclaimer": "Chỉ mang tính tham khảo, không phải khuyến nghị đầu tư."}
     return {"meta": meta, "stocks": ds}
 

@@ -264,7 +264,7 @@ function macd(a){const e1=ema(a,12),e2=ema(a,26),ln=a.map((_,i)=>e2[i]==null?nul
 // ===== Tab 1 =====
 function cards(){
  $("#grp").innerHTML=G.map((g,i)=>`<span class="${i==grp?"on":""}" data-g="${i}">${g}</span>`).join("");
- $("#cards").innerHTML=tatCaMa().filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu",c="mu";
+ $("#cards").innerHTML=tatCaMa().filter(s=>s.g==grp).map(s=>{const d=P&&P.stocks.find(x=>x.symbol==s.s),C=d&&d.candles||[];let p="Chưa có dữ liệu"+(P&&P.meta&&P.meta.fetched_at?`<small style="display:block;font-size:10px;font-weight:400">cập nhật ${esc(ngay(P.meta.fetched_at))}</small>`:""),c="mu";
   if(C.length>1){const a=C[C.length-1].c,b=C[C.length-2].c,ch=(a/b-1)*100;c=ch>0?"up":ch<0?"dn":"rf";p=`${fmt(a)} (${ch>0?"+":""}${fmt(ch,1)}%)`}
   const inVn30=P&&P.vn30&&P.vn30.members&&P.vn30.members.includes(s.s);
   return `<div class="sc ${s.s==sel?"on":""}" data-s="${s.s}"><small>${esc(s.n)}</small><b>${s.s}</b>${inVn30?' <span style="font-size:9px;color:#d29922;border:1px solid #d29922;border-radius:3px;padding:0 3px">VN30</span>':""}<span class="${c}" style="font-size:12px;display:block">${p}</span>${bdg(C,c)}</div>`}).join("")}
@@ -283,8 +283,8 @@ const line=(c,color,t,v,o={})=>{const s=c.addLineSeries({color,lineWidth:1,price
 function detail(){
  const box=$("#detail");kill();const s=tatCaMa().find(x=>x.s==sel);
  if(!s){box.innerHTML='<div class="card mu">Chọn một mã ở thanh phía trên để xem biểu đồ và tín hiệu.</div>';return}
- const d=P&&P.stocks.find(x=>x.symbol==sel),C=d&&d.candles||[],lk=`<a class="rf" target="_blank" rel="noopener" href="https://finance.yahoo.com/quote/${s.s}.VN">Tra cứu gốc trên Yahoo Finance →</a>`;
- if(C.length<30){box.innerHTML=`<div class="card"><h3>${s.s} — ${esc(s.n)} (${s.x})</h3><p class="mu">Chưa có dữ liệu giá (cần ít nhất 30 phiên). ${esc(P&&P.meta.failed&&P.meta.failed[sel]||"")}</p>${lk}</div>`;return}
+ const d=P&&P.stocks.find(x=>x.symbol==sel),C=d&&d.candles||[],lk=`<a class="rf" target="_blank" rel="noopener" href="${s.x=="HNX"?"https://www.tradingview.com/symbols/HNX-"+s.s+"/":"https://finance.yahoo.com/quote/"+s.s+".VN"}">Tra cứu gốc trên ${s.x=="HNX"?"TradingView":"Yahoo Finance"} →</a>`;
+ if(C.length<30){box.innerHTML=`<div class="card"><h3>${s.s} — ${esc(s.n)} (${s.x})</h3><p class="mu">Chưa có dữ liệu giá (cần ít nhất 30 phiên). Cập nhật lúc ${esc(ngay(P&&P.meta&&P.meta.fetched_at))}. ${esc(P&&P.meta.failed&&P.meta.failed[sel]||"")}</p>${lk}</div>`;return}
  const T=C.map(x=>x.t),cl=C.map(x=>x.c),vo=C.map(x=>x.v),e20=ema(cl,20),e50=ema(cl,50),B=bb(cl),R=rsi(cl),X=macd(cl),vm=sma(vo,20),n=C.length-1;
  box.innerHTML=`<div class="g2"><div>
  <div class="card"><h3>Nến, EMA20, EMA50, Bollinger(20,2), khối lượng — ${s.s}</h3><div style="margin-bottom:8px"><button class="tvb on" data-v="app">Biểu đồ của app</button><button class="tvb" data-v="tv">TradingView (vẽ, chỉ báo)</button></div>
@@ -548,9 +548,12 @@ function theDong(hang,items){
  const ds=(GX.xe||[]).filter(m=>m.hang==hang),gan=ds.map(()=>[]),rest=[];
  items.forEach(x=>{const i=ds.findIndex(m=>new RegExp(m.khop,"i").test(x.title||""));i<0?rest.push(x):gan[i].push(x)});
  const moi=t=>t&&/ra mắt|trình làng/i.test(t.title)&&Date.now()-new Date(String(t.date).replace(" ","T"))<30*864e5;
- const the=ds.map((m,i)=>({m,t:gan[i][0],n:gan[i].length})).sort((a,b)=>a.m.gia_tu-b.m.gia_tu);
- return {rest,html:`<div class="xl">`+the.map(({m,t,n})=>{const u=t&&URL_OK(t.url)?esc(t.url):"";
-  return `<div class="xc"><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>${t?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(t.title)}</a><div class="nm">${esc(t.source||"")} · ${esc(ngay(t.date))}${n>1?` · +${n-1} tin`:""}</div>`:'<div class="nm">Chưa có tin mới</div>'}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.</div>`}}
+ const MX=(T&&T.cong_nghe&&T.cong_nghe.mau_xe)||{},gio=ngay(T&&T.meta&&T.meta.fetched_at),
+  trong=e=>!e?`Chưa có dữ liệu · cập nhật ${gio}`:e.loi?`Chưa có dữ liệu (nguồn tin lỗi) · ${e.cap_nhat?"cập nhật "+ngay(e.cap_nhat):"chưa lấy được lần nào"}`:`Chưa có tin trong ${e.so_ngay||90} ngày qua · cập nhật ${ngay(e.cap_nhat)}`,
+  dd=GX.cap_nhat?Math.floor((Date.now()-new Date(GX.cap_nhat+"T00:00:00"))/864e5):0;
+ const the=ds.map((m,i)=>{const e=MX[m.hang+"|"+m.dong]||null,it=gan[i].length?gan[i]:(e&&e.items)||[];return{m,t:it[0],n:it.length,e}}).sort((a,b)=>a.m.gia_tu-b.m.gia_tu);
+ return {rest,html:`<div class="xl">`+the.map(({m,t,n,e})=>{const u=t&&URL_OK(t.url)?esc(t.url):"";
+  return `<div class="xc"><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>${t?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(t.title)}</a><div class="nm">${esc(t.source||"")} · ${esc(ngay(t.date))}${n>1?` · +${n-1} tin`:""}</div>`:`<div class="nm">${esc(trong(e))}</div>`}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.${dd>30?` ⚠ Giá chưa được cập nhật ${dd} ngày, có thể đã cũ.`:""}</div>`}}
 function renderCN(){
  const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
  const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
