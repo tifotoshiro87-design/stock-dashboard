@@ -470,15 +470,41 @@ GIAI_MA_TOI_DA = 130          # tổng số link giải mã mỗi lần chạy (
 GIAI_MA_LOI_LIEN_TIEP = 6     # lỗi liên tiếp ngần này lần -> coi như bị chặn, ngừng giải mã
 GIAI_MA_NGHI = 0.4            # giây nghỉ giữa các lần (tránh bị Google giới hạn tốc độ)
 _GM = {"da_thu": 0, "loi_lt": 0, "dung": False}
+GM_CACHE = {}   # mã bài Google -> link bài gốc, nạp từ tin.json lần trước (mỗi tin đã giải mã lưu link Google gốc ở trường "g")
+RE_MA_GOOGLE = re.compile(r"news\.google\.com/(?:rss/)?(?:articles|read)/([A-Za-z0-9_-]+)")
+
+
+def nap_cache_giai_ma():
+    try:
+        cu = json.loads((THU_MUC / "tin.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return
+    ds = [x for k in cu if isinstance(cu[k], dict) for sec in cu[k].get("sections", []) for x in sec.get("items", [])]
+    ds += [x for v in ((cu.get("cong_nghe") or {}).get("mau_xe") or {}).values() for x in v.get("items", [])]
+    for x in ds:
+        m = RE_MA_GOOGLE.search(x.get("g") or "")
+        if m and x.get("url") and "news.google.com" not in x["url"]:
+            GM_CACHE[m.group(1)] = x["url"]
+
+
+def giai_ma_tin(t):
+    """Đổi link Google của một tin sang link bài gốc (nếu được) và nhớ link Google gốc ở t["g"] để lần sau khỏi hỏi lại."""
+    goc = t["url"]
+    moi = giai_ma_google_moi(goc)
+    if moi != goc:
+        t["g"] = goc
+        t["url"] = moi
 _GM_COOKIE = {"Cookie": "CONSENT=YES+cb.20210720-07-p0.en+FX+410; SOCS=CAI"}
 
 
 def giai_ma_google_moi(link):
     """Trả về link bài gốc nếu giải mã được, ngược lại trả lại đúng link Google ban đầu."""
-    m = re.search(r"news\.google\.com/(?:rss/)?(?:articles|read)/([A-Za-z0-9_-]+)", link or "")
+    m = RE_MA_GOOGLE.search(link or "")
     if not m:
         return link
     ma = m.group(1)
+    if ma in GM_CACHE:   # đã giải mã ở lần chạy trước: không tốn lượt hỏi Google
+        return GM_CACHE[ma]
     with _KHOA:
         if _GM["dung"] or _GM["da_thu"] >= GIAI_MA_TOI_DA or time.time() > HAN_CHOT:
             return link
@@ -939,8 +965,7 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
     # Giải mã link Google kiểu mới -> link bài gốc (để đọc được tóm tắt, và bấm vào là tới thẳng báo)
     cho_giai = [t for k in ket_qua for t in ket_qua[k] if "news.google.com" in t["url"]]
     with ThreadPoolExecutor(max_workers=3) as ex:
-        for t, u in zip(cho_giai, ex.map(lambda t: giai_ma_google_moi(t["url"]), cho_giai)):
-            t["url"] = u
+        list(ex.map(giai_ma_tin, cho_giai))
 
     # Bổ sung tóm tắt từ bài gốc cho tin chưa có
     thieu = [t for k in ket_qua for t in ket_qua[k] if not t["summary"]][:150]
@@ -958,6 +983,8 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
              "date": t["dt"].strftime("%Y-%m-%d %H:%M")}
         if t.get("img"):
             d["img"] = t["img"]
+        if t.get("g"):
+            d["g"] = t["g"]
         return d
 
     sections = [{"key": m["key"], "name": m["ten"], "items": [ra_json(t) for t in ket_qua[m["key"]]]}
@@ -995,6 +1022,8 @@ def _tin_ra_json(t):
     d = {"title": t["title"], "summary": tom, "url": t["url"], "source": ten_nguon(t), "date": t["dt"].strftime("%Y-%m-%d %H:%M")}
     if t.get("img"):
         d["img"] = t["img"]
+    if t.get("g"):
+        d["g"] = t["g"]
     return d
 
 
@@ -1055,8 +1084,7 @@ def tin_theo_mau_xe(tab_cn, cu_mau):
 
     cho_giai = [t for t in cho_xu_ly if "news.google.com" in t["url"]]
     with ThreadPoolExecutor(max_workers=3) as ex:
-        for t, u in zip(cho_giai, ex.map(lambda t: giai_ma_google_moi(t["url"]), cho_giai)):
-            t["url"] = u
+        list(ex.map(giai_ma_tin, cho_giai))
     thieu = [t for t in cho_xu_ly if not t.get("summary")][:80]
     with ThreadPoolExecutor(max_workers=8) as ex:
         for t, mo_ta in zip(thieu, ex.map(lambda t: mo_ta_bai_goc(t["url"]), thieu)):
@@ -1338,6 +1366,7 @@ def main():
     cau_hinh_ghi, cau_hinh_loi = nap_cau_hinh()
     if cau_hinh_loi:
         print("CẢNH BÁO cau_hinh_tin.txt:", *cau_hinh_loi, sep="\n  ")
+    nap_cache_giai_ma()
     da_biet = doc_json("nguon_rss.json").get("tot", {})
     kenh_bao, ghi_bao = tong_hop_kenh(da_biet)
     co_kenh = sum(1 for v in kenh_bao.values() if v)

@@ -6,6 +6,8 @@
 <title>NEWDAY</title>
 <meta name="apple-mobile-web-app-title" content="NEWDAY">
 <meta name="application-name" content="NEWDAY">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#0b1026">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
@@ -146,9 +148,90 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
 .scan-hero{background:linear-gradient(120deg,#10243a,#132d35);border:1px solid #28505b;border-radius:12px;padding:14px;margin-bottom:12px}
 .scan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.scan-kpi{background:#0d1622;border:1px solid #26384a;border-radius:9px;padding:10px}.scan-kpi b{display:block;font-size:20px;color:#2dd4bf}.scan-table{overflow-x:auto}.scan-table table{min-width:760px}.scan-table th{color:#8b949e;font-weight:500}.scan-table tr{cursor:pointer}.scan-table tr:hover{background:#1c2735}.scan-score{font-weight:700;color:#2dd4bf}.scan-tag{display:inline-block;border:1px solid #35556a;border-radius:20px;padding:2px 8px;font-size:11px;color:#9bd6df}.scan-warn{color:#e3b341;font-size:12px}.scan-detail{background:#101a27;border:1px solid #26384a;border-radius:8px;padding:10px;margin-top:8px}.scan-controls{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.scan-controls select,.scan-controls input{width:auto;min-width:130px}.scan-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.scan-tabs button{background:#161b22;border:1px solid #30363d;color:#9aa8b8;border-radius:18px;padding:7px 12px}.scan-tabs button.on{color:#071b20;background:#2dd4bf;border-color:#2dd4bf;font-weight:700}
 @media(min-width:800px){.scan-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* ===== GIAO DIỆN "DARK LUXURY" cho mọi tab tin tức (áp dụng khi body có class lux) ===== */
+:root{--lx-gold:#d4a84b;--lx-gold2:#f0c566;--lx-line:rgba(212,168,75,.55);--lx-tx:#f4efe3;--lx-mu:#8d96ab;--lx-card:rgba(255,255,255,.04);--lx-ease:.25s ease;--lx-sans:"Inter","Be Vietnam Pro",system-ui,sans-serif;--lx-serif:"Playfair Display",Georgia,serif}
+body.lux{background:#05080f;padding:calc(12px + env(safe-area-inset-top,0px)) 12px 12px;min-height:100vh;font-family:var(--lx-sans);color:var(--lx-tx)}
+body.lux #top h1,body.lux #mtabs,body.lux #ban,body.lux #vn30,body.lux #bar{display:none!important}
+body.lux #top{position:static;background:transparent;border:0;padding:0;margin-left:0}
+body.lux #ckhead:not(.hide){padding:0 0 10px}
+body.lux #tabs button{color:#c9ced9}body.lux #tabs button.on{color:var(--lx-gold2);border-color:var(--lx-gold2)}
+body.lux main{margin:0;max-width:none;padding:0}
+/* Khung ngoài cùng: bo góc 20px, nền gradient navy + vệt sáng xanh góc dưới trái, viền vàng rất mảnh */
+.lx-frame{display:grid;grid-template-columns:190px minmax(0,1fr);gap:14px;padding:14px;border-radius:20px;border:1px solid rgba(212,168,75,.22);
+ background:radial-gradient(circle at 0% 100%,rgba(30,70,140,.25),transparent 55%),linear-gradient(135deg,#0a1428,#060b16)}
+/* Sidebar: logo + dòng phụ, bên dưới là hộp menu viền vàng */
+.lx-side{min-width:0}
+.lx-side-in{position:sticky;top:12px;display:flex;flex-direction:column;gap:14px;height:calc(100vh - 66px);min-height:360px}
+.lx-brand{padding:4px 4px 0}
+.lx-logo{font:700 28px/1.1 var(--lx-serif);letter-spacing:2px;color:var(--lx-gold2);text-transform:uppercase}
+.lx-sub{margin-top:6px;font-size:10px;line-height:1.4;color:var(--lx-mu)}
+.lx-menu{flex:1;border:1px solid var(--lx-line);border-radius:14px;padding:10px 0;overflow:hidden;align-content:start}
+.lx-menu button{position:relative;display:flex;align-items:center;gap:12px;width:100%;height:48px;padding:0 16px;background:none;border:0;border-radius:6px;color:#c9ced9;font:500 14px var(--lx-sans);cursor:pointer;text-align:left;transition:color var(--lx-ease),background var(--lx-ease)}
+.lx-menu button svg{flex:none;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.lx-menu button:hover{color:var(--lx-gold2);background:rgba(255,255,255,.05)}
+.lx-menu button.on{color:var(--lx-gold2);background:linear-gradient(90deg,rgba(212,168,75,.22),rgba(212,168,75,.1))}
+.lx-menu button.on::after{content:"";position:absolute;right:0;top:0;bottom:0;width:3px;background:var(--lx-gold2);border-radius:2px 0 0 2px}
+/* Khối nội dung chính */
+.lx-main{min-width:0;padding:16px;border:1px solid var(--lx-line);border-radius:14px}
+.lx-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.lx-pill{background:transparent;border:1px solid var(--lx-line);color:var(--lx-tx);border-radius:999px;padding:6px 12px;font:500 11px var(--lx-sans);cursor:pointer;white-space:nowrap;transition:border-color var(--lx-ease),box-shadow var(--lx-ease),background var(--lx-ease)}
+.lx-pill:hover{border-color:var(--lx-gold2);box-shadow:0 0 10px rgba(240,197,102,.25)}
+.lx-pill.on{background:linear-gradient(135deg,#e8b95a,#c9983a);color:#1a1305;font-weight:700;border-color:transparent}
+.lx-h{margin:4px 0 14px;padding-bottom:10px;border-bottom:1px solid rgba(212,168,75,.3);font:600 28px/1.2 var(--lx-serif);color:var(--lx-gold2)}
+.lx-wx{margin:0 0 14px;padding:12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:var(--lx-card);color:var(--lx-tx)}
+.lx-empty{padding:18px 4px;color:var(--lx-mu);font-size:13px}
+/* Lưới thẻ tin: 3 cột (>1000px), 2 cột (700–1000px), 1 cột (điện thoại) */
+.lx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lx-grid:not(.open) .lx-x{display:none}
+.lx-card{display:flex;flex-direction:column;padding:8px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:var(--lx-card);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:transform var(--lx-ease),border-color var(--lx-ease),box-shadow var(--lx-ease)}
+.lx-card:hover{transform:translateY(-4px);border-color:var(--lx-gold);box-shadow:0 10px 26px rgba(212,168,75,.2)}
+.lx-th{position:relative;display:block;aspect-ratio:16/10;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#12365a,#0f766e)}
+.lx-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.lx-th::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(to top,rgba(5,8,15,.65),transparent);pointer-events:none}
+.lx-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 26px var(--lx-serif);color:rgba(240,197,102,.85);letter-spacing:2px}
+.lx-t{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin-top:10px;font:700 16px/1.35 var(--lx-serif);color:var(--lx-tx);text-decoration:none;overflow-wrap:anywhere}
+.lx-s{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:12px;line-height:1.45;color:#aeb5c6;overflow-wrap:anywhere}
+.lx-s0{opacity:.65;font-style:italic}
+.lx-m{margin-top:8px;font-size:10px;color:var(--lx-mu)}
+.lx-f{margin-top:auto;padding-top:10px}
+.lx-b{display:inline-block;padding:5px 12px;border:1px solid var(--lx-line);border-radius:6px;background:transparent;color:var(--lx-gold2);font:500 11px var(--lx-sans);text-decoration:none;transition:background var(--lx-ease)}
+.lx-b:hover{background:rgba(212,168,75,.2)}
+.lx-more{display:block;width:180px;margin:18px auto 4px;padding:9px 0;border:1px solid var(--lx-gold);border-radius:10px;background:transparent;color:var(--lx-gold2);font:500 13px var(--lx-sans);cursor:pointer;transition:background var(--lx-ease)}
+.lx-more:hover{background:rgba(212,168,75,.16)}
+/* Bảng mẫu xe (tab Công nghệ) đồng bộ phong cách kính mờ + vàng */
+.lx-main .xl{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:0 0 18px}
+.lx-main .xc{background:var(--lx-card);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:transform var(--lx-ease),border-color var(--lx-ease),box-shadow var(--lx-ease)}
+.lx-main .xc:hover{transform:translateY(-4px);border-color:var(--lx-gold);box-shadow:0 10px 26px rgba(212,168,75,.2)}
+.lx-main .xc b{font:700 16px var(--lx-serif);color:var(--lx-tx)}
+.lx-main .xc .xg{color:var(--lx-gold2)}
+.lx-main .xc a.nt{color:var(--lx-tx);font-family:var(--lx-serif)}.lx-main .xc a.nt:hover{color:var(--lx-gold2)}
+.lx-main .xc .nm{color:var(--lx-mu)}
+.lx-main .mu{color:var(--lx-mu)}
+/* Nút tròn cuộn xuống: chỉ hiện khi còn nội dung bên dưới */
+#lxdown{display:none;position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(200,205,217,.18);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#e8ebf2;font-size:18px;line-height:1;cursor:pointer;align-items:center;justify-content:center;transition:background var(--lx-ease)}
+#lxdown:hover{background:rgba(200,205,217,.32)}
+body.lux #lxdown.show{display:flex}
+/* Thanh cuộn mảnh màu vàng mờ */
+:root:has(body.lux){scrollbar-width:thin;scrollbar-color:rgba(212,168,75,.4) transparent}
+body.lux ::-webkit-scrollbar{width:8px;height:8px}body.lux ::-webkit-scrollbar-thumb{background:rgba(212,168,75,.4);border-radius:8px}body.lux ::-webkit-scrollbar-track{background:transparent}
+@media(max-width:1000px){.lx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+ body.lux{padding:calc(8px + env(safe-area-inset-top,0px)) 8px 8px}
+ .lx-frame{grid-template-columns:minmax(0,1fr);padding:10px;gap:10px;border-radius:16px}
+ .lx-side-in{position:sticky;top:0;z-index:15;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;height:auto;min-height:0;padding:8px 10px;background:#0a1428;border:1px solid var(--lx-line);border-radius:12px}
+ .lx-brand{padding:0}.lx-logo{font-size:20px}.lx-sub{display:none}
+ .lx-menu{flex:none;display:flex;border:0;padding:0}
+ .lx-menu button{width:auto;height:44px;padding:0 12px}.lx-menu button span{display:none}
+ .lx-menu button.on::after{left:0;right:0;top:auto;bottom:0;width:auto;height:3px}
+ .lx-main{padding:12px}
+ .lx-pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(212,168,75,.4) transparent}
+ .lx-h{font-size:22px}
+ .lx-grid{grid-template-columns:minmax(0,1fr)}
+}
 </style></head><body>
 <div id="top">
- <h1>NEWDAY <span class="mu" style="font-weight:400;font-size:12px">Nha Trang · Chứng khoán · Công nghệ · News</span></h1>
+ <h1>NEWDAY</h1>
  <div id="mtabs"><button data-m="1" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span>Tin tức</span></button><button data-m="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span>Chứng khoán</span></button><button data-m="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg><span>Công nghệ</span></button><button data-m="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>News</span></button></div>
  <div id="ckhead" class="hide">
  <div id="ban">Đang tải dữ liệu…</div>
@@ -169,6 +252,7 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
  <section id="m3" class="hide"></section>
   <section id="m5" class="hide"></section>
 </main>
+<button id="lxdown" type="button" aria-label="Cuộn xuống">↓</button>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 "use strict";
@@ -221,7 +305,7 @@ function banner(){
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
-function renderAll(){cards();detail();t2();t3();t4();renderScanner();renderVn30();renderNT();renderCN();renderQT()}
+function renderAll(){[cards,detail,t2,t3,t4,renderScanner,renderVn30,renderNT,renderCN,renderQT].forEach(f=>{try{f()}catch(e){console.error(f.name,e)}})}   // mỗi phần chạy độc lập: lỗi biểu đồ không làm trống các tab tin
 function tatCaMa(){const co=new Set(ST.map(s=>s.s));const them=(P&&P.stocks||[]).filter(x=>!co.has(x.symbol)).map(x=>({s:x.symbol,n:x.name,g:gOf(x.group),x:x.exchange}));return ST.concat(them)}
 function t4(){
  const all=tatCaMa();
@@ -473,7 +557,7 @@ function khoi(id,ten,items,extra="",cls=""){
  ${items.length?dau.map(tin).join(""):'<div class="mu" style="padding:8px 0">Chưa có tin (chờ bot chạy lần đầu hoặc nguồn tạm lỗi).</div>'}
  ${sau.length?`<div class="${mo?"":"hide"}" id="x-${id}">${sau.map(tin).join("")}</div><button class="more" data-more="${id}">${mo?"Thu gọn ▲":`Xem thêm ${sau.length} tin ▼`}</button>`:""}</div>`}
 function nguonTin(d){const n=d&&d.meta&&d.meta.nguon;return n?` (${n.bao_co_kenh}/${n.bao_tong} báo có kênh RSS, ${n.kenh_tot} kênh đang hoạt động)`:""}
-function ghiChu(d){return `<div class="mu" style="font-size:12px;margin:0 0 10px">Tin tự động từ RSS các báo chính thống, Bing News và Google News (không cần đăng nhập, không cần API key), lấy lúc <b>${esc(d&&d.meta&&d.meta.fetched_at||"chưa có")}</b>${nguonTin(d)}. Đã lọc trùng lặp: mỗi tin chỉ xuất hiện ở một mục. Bấm tiêu đề để đọc bài gốc.</div>`+loiCH(d)}
+function ghiChu(d){return loiCH(d)}
 function secs(tab){return (T&&T[tab]&&T[tab].sections)||[]}
 // Mục có sẵn theo thứ tự cố định + mục do bạn tự thêm trong cau_hinh_tin.txt (hiện ở cuối)
 function dsMuc(tab,ORDER){const co=new Set(ORDER.map(o=>o[0]));return ORDER.concat(secs(tab).filter(s=>!co.has(s.key)).map(s=>[s.key,s.name||s.key]))}
@@ -483,14 +567,38 @@ function chon(nhom,ds){const b=ds.find(d=>d[0]==BAM[nhom]);SEL[nhom]=b?b[0]:(ds.
 function menu(nhom,ds,cls=""){return `<div class="mn ${cls}" role="tablist">`+ds.map(([k,t,n])=>`<button role="tab" data-mn="${nhom}" data-k="${esc(k)}" class="${SEL[nhom]==k?"on":""}">${esc(t)}${n!=null?`<i>${n}</i>`:""}</button>`).join("")+`</div>`}
 function loiCH(d){const l=d&&d.meta&&d.meta.cau_hinh_loi;return l&&l.length?`<div style="font-size:12px;color:#f0883e;margin:0 0 8px">⚠ File cau_hinh_tin.txt có ${l.length} dòng chưa đúng (bot đã bỏ qua các dòng đó): ${l.slice(0,3).map(esc).join(" · ")}</div>`:""}
 
+// ===== Giao diện Dark Luxury dùng chung cho các tab tin tức =====
+const LX_MENU=[[1,"Tin tức"],[2,"Chứng khoán"],[3,"Công nghệ"],[5,"News"]];
+const LX_ICON={1:'<path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/>',2:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
+ 3:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',5:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>'};
+const lxSide=a=>`<aside class="lx-side"><div class="lx-side-in"><div class="lx-brand"><div class="lx-logo">NEWDAY</div><div class="lx-sub">Nha Trang · Chứng khoán · Công nghệ · News</div></div><nav class="lx-menu">${LX_MENU.map(([m,t])=>`<button type="button" data-lm="${m}" class="${m==a?"on":""}"><svg viewBox="0 0 24 24" aria-hidden="true">${LX_ICON[m]}</svg><span>${t}</span></button>`).join("")}</nav></div></aside>`;
+const lxShell=(a,inner)=>`<div class="lx-frame">${lxSide(a)}<section class="lx-main">${inner}</section></div>`;
+const lxPills=(nhom,ds,sel)=>`<div class="lx-pills" role="tablist">${ds.map(([k,t])=>`<button type="button" role="tab" class="lx-pill${k==sel?" on":""}" data-mn="${nhom}" data-k="${esc(k)}">${esc(t)}</button>`).join("")}</div>`;
+const lxHead=(t,n)=>`<h2 class="lx-h">${esc(t)}${n?` - ${n} tin`:""}</h2>`;
+const lxIni=x=>(x.source||"?").replace(/^(Báo|Cổng)\s+/i,"").split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase();
+function lxCard(x,extra){const u=URL_OK(x.url)?esc(x.url):"",a=c=>u?`<a ${c} href="${u}" target="_blank" rel="noopener">`:`<span ${c}>`,z=u?"</a>":"</span>";
+ const anh=x.img&&URL_OK(x.img)?`<img src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"";
+ return `<article class="lx-card${extra?" lx-x":""}">${a('class="lx-th"')}<span class="lx-ph">${esc(lxIni(x))}</span>${anh}${z}${a('class="lx-t"')}${esc(x.title)}${z}
+  ${x.summary?`<div class="lx-s">${esc(x.summary)}</div>`:`<div class="lx-s lx-s0">Chưa có tóm tắt, bấm "Đọc bài" để xem bản gốc.</div>`}
+  <div class="lx-m">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}</div>${u?`<div class="lx-f"><a class="lx-b" href="${u}" target="_blank" rel="noopener">Đọc bài →</a></div>`:""}</article>`}
+function lxList(id,items){items=items||[];
+ if(!items.length)return `<div class="lx-empty">Chưa có dữ liệu · cập nhật ${esc(ngay(T&&T.meta&&T.meta.fetched_at))}</div>`;
+ const HS=Math.min(15,Math.max(1,(T&&T.meta&&+T.meta.hien_san)||3)),mo=OPEN.has(id);
+ return `<div class="lx-grid${mo?" open":""}" id="x-${id}">${items.map((x,i)=>lxCard(x,i>=HS)).join("")}</div>`+
+  (items.length>HS?`<button type="button" class="lx-more" data-lxmore="${id}">${mo?"Thu gọn ▴":`Xem thêm ${items.length-HS} tin ▾`}</button>`:"")}
+function lxSync(){const b=$("#lxdown");if(!b)return;b.classList.toggle("show",document.body.classList.contains("lux")&&document.documentElement.scrollHeight-window.innerHeight-window.scrollY>60)}
+// body.lux bật cho: Tin tức (1), Công nghệ (3), News (5) và mục "Tin tức" trong Chứng khoán (2 → tab con 3)
+function luxSync2(){const m=ls.get("mtab",1),tb=document.querySelector("#tabs button.on"),lux=m==1||m==3||m==5||(m==2&&tb&&tb.dataset.t=="3");document.body.classList.toggle("lux",!!lux);
+ const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m==5?"#ffffff":lux?"#05080f":"#0b1026";setTimeout(lxSync,0)}
+
 // ===== Tab chính 1: Tin nhanh Nha Trang =====
 const NT_ORDER=[["ha_tang","Hạ tầng giao thông"],["quy_hoach","Quy hoạch đô thị – Bất động sản & dự án"],["kinh_te_vh","Môi trường kinh tế – văn hóa"],["du_lich","Thị trường du lịch – dịch vụ"],["giao_duc","Giáo dục"],["phap_luat","Pháp luật"],["thoi_tiet","Dự báo thời tiết"]];
 function renderNT(){
- const S=secs("nha_trang"),f=k=>S.find(s=>s.key==k)||{};
- const ds=dsMuc("nha_trang",NT_ORDER).map(([k,t])=>[k,k=="thoi_tiet"?t:(f(k).name||t),(f(k).items||[]).length]);
- const k=chon("nt",ds),t=ds.find(d=>d[0]==k)[1];
- $("#m1").innerHTML=ghiChu(T)+menu("nt",ds.map(d=>[d[0],d[1],d[0]=="thoi_tiet"?null:d[2]]))+
-  (k=="thoi_tiet"?khoi("nt-"+k,t,f(k).items,`<div id="wxbox">${wxHtml()}</div><div class="wsec">Tin cảnh báo mưa bão, thời tiết</div>`):khoi("nt-"+k,t,f(k).items))}
+  const S=secs("nha_trang"),f=k=>S.find(s=>s.key==k)||{};
+  const ds=dsMuc("nha_trang",NT_ORDER).map(([k,t])=>[k,k=="thoi_tiet"?t:(f(k).name||t),(f(k).items||[]).length]);
+  const k=chon("nt",ds),t=ds.find(d=>d[0]==k)[1],items=f(k).items||[];
+  $("#m1").innerHTML=lxShell(1,ghiChu(T)+lxPills("nt",ds,k)+lxHead(t,items.length)+
+   (k=="thoi_tiet"?`<div id="wxbox" class="lx-wx">${wxHtml()}</div><div class="wsec" style="color:var(--lx-gold2)">Tin cảnh báo mưa bão, thời tiết</div>`:"")+lxList("nt-"+k,items))}
 // Thời tiết: lấy trực tiếp Open-Meteo (miễn phí, không cần key); lỗi thì dùng bản lưu trong tin.json
 const WXC={0:["☀️","Trời quang"],1:["🌤️","Ít mây"],2:["⛅","Có mây"],3:["☁️","Nhiều mây"],45:["🌫️","Sương mù"],48:["🌫️","Sương mù"],51:["🌦️","Mưa phùn nhẹ"],53:["🌦️","Mưa phùn"],55:["🌦️","Mưa phùn dày"],56:["🌧️","Mưa phùn lạnh"],57:["🌧️","Mưa phùn lạnh"],61:["🌧️","Mưa nhẹ"],63:["🌧️","Mưa vừa"],65:["🌧️","Mưa to"],66:["🌧️","Mưa lạnh"],67:["🌧️","Mưa lạnh to"],80:["🌦️","Mưa rào nhẹ"],81:["🌧️","Mưa rào"],82:["⛈️","Mưa rào rất to"],95:["⛈️","Dông"],96:["⛈️","Dông, mưa đá"],99:["⛈️","Dông, mưa đá"]};
 const wc=c=>WXC[c]||["🌡️","—"];
@@ -555,28 +663,28 @@ function theDong(hang,items){
  return {rest,html:`<div class="xl">`+the.map(({m,t,n,e})=>{const u=t&&URL_OK(t.url)?esc(t.url):"";
   return `<div class="xc"><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>${t?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(t.title)}</a><div class="nm">${esc(t.source||"")} · ${esc(ngay(t.date))}${n>1?` · +${n-1} tin`:""}</div>`:`<div class="nm">${esc(trong(e))}</div>`}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.${dd>30?` ⚠ Giá chưa được cập nhật ${dd} ngày, có thể đã cũ.`:""}</div>`}}
 function renderCN(){
- const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
- const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
- const chinh=[["xe","Xe ô tô",nXe],["ai","Công nghệ AI",(f("ai").items||[]).length]].concat(S.filter(s=>!biet.has(s.key)).map(s=>[s.key,s.name||s.key,(s.items||[]).length]));
- const k=chon("cn",chinh);let h=ghiChu(T)+menu("cn",chinh);
- if(k=="xe"){const ds=xe.map(([kk,t,it])=>[kk,t,it.length]),kx=chon("cnxe",ds),x=xe.find(a=>a[0]==kx);
-  h+=menu("cnxe",ds,"sub")+(xeCo(x)?theDong(x[1],x[2]).html:"")+khoi("cn-"+kx,"Xe "+(kx=="o_to"?"hãng khác":x[1])+(xeCo(x)?" – tin khác":""),xeCo(x)?theDong(x[1],x[2]).rest:x[2],'<div class="mu" style="font-size:12px;margin-bottom:4px">Tin ô tô theo hãng. Đã loại trừ xe Trung Quốc, xe máy, tin tai nạn/vi phạm giao thông.</div>')}
- else h+=khoi("cn-"+k,(chinh.find(c=>c[0]==k)||[])[1],f(k).items);
- $("#m3").innerHTML=h}
+  const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
+  const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
+  const chinh=[["xe","Xe ô tô",nXe],["ai","Công nghệ AI",(f("ai").items||[]).length]].concat(S.filter(s=>!biet.has(s.key)).map(s=>[s.key,s.name||s.key,(s.items||[]).length]));
+  const k=chon("cn",chinh);let h=ghiChu(T)+lxPills("cn",chinh,k);
+  if(k=="xe"){const ds=xe.map(([kk,t,it])=>[kk,t,it.length]),kx=chon("cnxe",ds),x=xe.find(a=>a[0]==kx),td=xeCo(x)?theDong(x[1],x[2]):null,items=td?td.rest:x[2];
+   h+=lxPills("cnxe",ds,kx)+(td?td.html:"")+lxHead("Xe "+(kx=="o_to"?"hãng khác":x[1])+(td?" – tin khác":""),items.length)+lxList("cn-"+kx,items)}
+  else h+=lxHead((chinh.find(c=>c[0]==k)||[])[1],(f(k).items||[]).length)+lxList("cn-"+k,f(k).items);
+  $("#m3").innerHTML=lxShell(3,h)}
 
 // ===== Tab chính 5: Tin quốc tế =====
 const QT_ORDER=[["kinh_te_tg","Kinh tế – thương mại – lãi suất"],["chinh_tri","Chính trị – địa chính trị – quan hệ quốc tế"],["nang_luong_vang","Tài chính – năng lượng – vàng – hàng hóa"],["tac_dong_vn","Tác động tới Việt Nam"]];
 function renderQT(){
  const S=secs("quoc_te"),f=k=>S.find(s=>s.key==k)||{};
  const ds=dsMuc("quoc_te",QT_ORDER).map(([k,t])=>[k,f(k).name||t,(f(k).items||[]).length]),k=chon("qt",ds);
- $("#m5").innerHTML=ghiChu(T)+menu("qt",ds)+khoi("qt-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
+ $("#m5").innerHTML=lxShell(5,ghiChu(T)+lxPills("qt",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length)+lxList("qt-"+k,f(k).items))}
 
 // ===== Tab 3 (trong Chứng khoán): Tin tức theo 5 nhóm ngành =====
 const CK_ORDER=[["xay_dung","Xây dựng – Đầu tư công"],["ngan_hang","Ngân hàng"],["cntt","Công nghệ thông tin"],["thep","Thép"],["vang_bac","Vàng bạc trang sức"]];
 function t3(){
  const S=secs("chung_khoan"),f=k=>S.find(s=>s.key==k)||{};
  const ds=dsMuc("chung_khoan",CK_ORDER).map(([k,t])=>[k,t,(f(k).items||[]).length]),k=chon("ck",ds);
- $("#t3").innerHTML=ghiChu(T)+menu("ck",ds)+khoi("ck-"+k,ds.find(d=>d[0]==k)[1],f(k).items)}
+ $("#t3").innerHTML=lxShell(2,ghiChu(T)+lxPills("ck",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length)+lxList("ck-"+k,f(k).items))}
 
 
 // ===== SMART SCANNER — phân tích kỹ thuật minh bạch trên dữ liệu OHLCV đang có =====
@@ -636,8 +744,12 @@ function renderScanner(){const el=$("#t5");if(!el)return;const rows=scannerRows(
 function showScannerDetail(symbol){const r=scannerScore(tatCaMa().find(s=>s.s===symbol),scannerMode),el=$("#scan-detail");if(!r||!r.x){el.innerHTML="Không đủ dữ liệu để phân tích mã này.";return}el.innerHTML=`<div class="row"><h3>${esc(symbol)} · Chi tiết điểm ${r.score}/100</h3><span class="scan-tag">${scannerMode==="short"?"Ngắn hạn":"Trung hạn"}</span></div><div class="scan-grid">${r.items.map(i=>`<div class="scan-kpi"><span class="mu">${esc(i.name)}</span><b>${i.pts} điểm</b><small class="mu">${esc(i.why)}</small></div>`).join("")}</div>${r.reason?`<p class="scan-warn">Cảnh báo: ${esc(r.reason)}</p>`:""}<div class="scan-detail"><b>Chưa có điểm cơ bản</b><p class="mu">Không có dữ liệu tài chính chuẩn hóa được xác minh trong bộ dữ liệu hiện tại. Điểm trên chỉ phản ánh kỹ thuật giá và khối lượng.</p></div>`}
 
 // ===== Sự kiện =====
-function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m==5);const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m==5?"#ffffff":"#0b1026";document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);window.scrollTo(0,0)}
-document.addEventListener("click",e=>{const t=e.target;
+function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m==5);document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);luxSync2();window.scrollTo(0,0)}
+window.addEventListener("scroll",lxSync,{passive:true});window.addEventListener("resize",lxSync);
+document.addEventListener("click",e=>{const t=e.target;setTimeout(luxSync2,0);
+  if(t.closest("#lxdown")){window.scrollBy({top:Math.round(window.innerHeight*.8),behavior:"smooth"});return}
+  const lm=t.closest("[data-lm]");if(lm){chonM(+lm.dataset.lm);return}
+  const lxm=t.closest("[data-lxmore]");if(lxm){const id=lxm.dataset.lxmore,g=$("#x-"+id),mo=!OPEN.has(id);mo?OPEN.add(id):OPEN.delete(id);g.classList.toggle("open",mo);lxm.textContent=mo?"Thu gọn ▴":`Xem thêm ${g.querySelectorAll(".lx-x").length} tin ▾`;lxSync();return}
  if(t.closest("#mtabs button")){chonM(+t.closest("#mtabs button").dataset.m);return}
  const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}
  const vb=t.closest("[data-vt]");if(vb){VT.kind=vb.dataset.vt;const b=$("#wxbox");if(b)b.innerHTML=wxHtml();return}
@@ -653,7 +765,7 @@ document.addEventListener("change",e=>{const t=e.target;
  if(t.id==="scan-filter"){scannerFilter=t.value;renderScanner()}else if(t.id==="scan-sort"){scannerSort=t.value;renderScanner()}else if(t.dataset.c){const sc=ls.get("sc",{});sc[t.dataset.c]=+t.value;ls.set("sc",sc);sum()}else if(t.id=="ths"||t.id=="thb")sum()});
 window.addEventListener("error",()=>{});
 chonM([1,2,3,5].includes(ls.get("mtab",1))?ls.get("mtab",1):1);
-cards();detail();t2();t3();t4();renderScanner();renderVn30();renderNT();renderCN();renderQT();load();loadWX();setInterval(loadWX,1800000);
+renderAll();load();loadWX();setInterval(loadWX,1800000);
 setInterval(load,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script>
