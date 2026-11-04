@@ -219,7 +219,8 @@ body.lux ::-webkit-scrollbar{width:8px;height:8px}body.lux ::-webkit-scrollbar-t
 @media(max-width:700px){
  body.lux{padding:calc(8px + env(safe-area-inset-top,0px)) 8px 8px}
  .lx-frame{grid-template-columns:minmax(0,1fr);padding:10px;gap:10px;border-radius:16px}
- .lx-side-in{position:sticky;top:0;z-index:15;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;height:auto;min-height:0;padding:8px 10px;background:#0a1428;border:1px solid var(--lx-line);border-radius:12px}
+ .lx-side{position:sticky;top:0;z-index:15}
+ .lx-side-in{position:static;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;height:auto;min-height:0;padding:8px 10px;background:#0a1428;border:1px solid var(--lx-line);border-radius:12px}
  .lx-brand{padding:0}.lx-logo{font-size:20px}.lx-sub{display:none}
  .lx-menu{flex:none;display:flex;border:0;padding:0}
  .lx-menu button{width:auto;height:44px;padding:0 12px}.lx-menu button span{display:none}
@@ -229,6 +230,24 @@ body.lux ::-webkit-scrollbar{width:8px;height:8px}body.lux ::-webkit-scrollbar-t
  .lx-h{font-size:22px}
  .lx-grid{grid-template-columns:minmax(0,1fr)}
 }
+
+/* Ô mẫu xe: hình đại diện + tên + giá + tóm tắt */
+.lx-main .xl{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.lx-main .xc{display:flex;flex-direction:column;padding:8px}
+.xi{position:relative;display:block;aspect-ratio:16/10;margin-bottom:10px;border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#12365a,#0f766e)}
+.xi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.xi::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(to top,rgba(5,8,15,.65),transparent);pointer-events:none}
+.xp{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 20px var(--lx-serif);letter-spacing:3px;text-transform:uppercase;color:rgba(240,197,102,.85)}
+.lx-main .xc .xh,.lx-main .xc .xg,.lx-main .xc .xs,.lx-main .xc .nm,.lx-main .xc .xcr{padding:0 4px}
+.lx-main .xc .xs{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-top:6px;font-size:12px;line-height:1.45;color:#aeb5c6;overflow-wrap:anywhere}
+.lx-main .xc .xs a{color:inherit;text-decoration:none}.lx-main .xc .xs a:hover{color:var(--lx-gold2)}
+.lx-main .xc .nm{margin-top:6px;font-size:10px}
+.xcr{margin-top:6px;font-size:9px;color:#6f7a91}.xcr a{color:inherit}
+/* Tiêu đề cố định: hàng chuyên mục + tiêu đề khối luôn nằm trên cùng khi cuộn (thanh bên cũng cố định) */
+.lx-stick{position:sticky;top:0;z-index:12;margin:-16px -16px 14px;padding:16px 16px 0;border-radius:13px 13px 0 0;background:rgba(8,14,30,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.lx-stick .lx-h{margin-bottom:0}
+.lx-stick.nb{padding-bottom:2px;border-bottom:1px solid rgba(212,168,75,.3)}
+@media(max-width:700px){.lx-stick{top:62px;margin:-12px -12px 12px;padding:12px 12px 0}}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY</h1>
@@ -574,6 +593,7 @@ const LX_ICON={1:'<path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M
 const lxSide=a=>`<aside class="lx-side"><div class="lx-side-in"><div class="lx-brand"><div class="lx-logo">NEWDAY</div><div class="lx-sub">Nha Trang · Chứng khoán · Công nghệ · News</div></div><nav class="lx-menu">${LX_MENU.map(([m,t])=>`<button type="button" data-lm="${m}" class="${m==a?"on":""}"><svg viewBox="0 0 24 24" aria-hidden="true">${LX_ICON[m]}</svg><span>${t}</span></button>`).join("")}</nav></div></aside>`;
 const lxShell=(a,inner)=>`<div class="lx-frame">${lxSide(a)}<section class="lx-main">${inner}</section></div>`;
 const lxPills=(nhom,ds,sel)=>`<div class="lx-pills" role="tablist">${ds.map(([k,t])=>`<button type="button" role="tab" class="lx-pill${k==sel?" on":""}" data-mn="${nhom}" data-k="${esc(k)}">${esc(t)}</button>`).join("")}</div>`;
+const lxStick=(h,cls="")=>`<div class="lx-stick ${cls}">${h}</div>`;
 const lxHead=(t,n)=>`<h2 class="lx-h">${esc(t)}${n?` - ${n} tin`:""}</h2>`;
 const lxIni=x=>(x.source||"?").replace(/^(Báo|Cổng)\s+/i,"").split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 function lxCard(x,extra){const u=URL_OK(x.url)?esc(x.url):"",a=c=>u?`<a ${c} href="${u}" target="_blank" rel="noopener">`:`<span ${c}>`,z=u?"</a>":"</span>";
@@ -597,7 +617,7 @@ function renderNT(){
   const S=secs("nha_trang"),f=k=>S.find(s=>s.key==k)||{};
   const ds=dsMuc("nha_trang",NT_ORDER).map(([k,t])=>[k,k=="thoi_tiet"?t:(f(k).name||t),(f(k).items||[]).length]);
   const k=chon("nt",ds),t=ds.find(d=>d[0]==k)[1],items=f(k).items||[];
-  $("#m1").innerHTML=lxShell(1,ghiChu(T)+lxPills("nt",ds,k)+lxHead(t,items.length)+
+  $("#m1").innerHTML=lxShell(1,ghiChu(T)+lxStick(lxPills("nt",ds,k)+lxHead(t,items.length))+
    (k=="thoi_tiet"?`<div id="wxbox" class="lx-wx">${wxHtml()}</div><div class="wsec" style="color:var(--lx-gold2)">Tin cảnh báo mưa bão, thời tiết</div>`:"")+lxList("nt-"+k,items))}
 // Thời tiết: lấy trực tiếp Open-Meteo (miễn phí, không cần key); lỗi thì dùng bản lưu trong tin.json
 const WXC={0:["☀️","Trời quang"],1:["🌤️","Ít mây"],2:["⛅","Có mây"],3:["☁️","Nhiều mây"],45:["🌫️","Sương mù"],48:["🌫️","Sương mù"],51:["🌦️","Mưa phùn nhẹ"],53:["🌦️","Mưa phùn"],55:["🌦️","Mưa phùn dày"],56:["🌧️","Mưa phùn lạnh"],57:["🌧️","Mưa phùn lạnh"],61:["🌧️","Mưa nhẹ"],63:["🌧️","Mưa vừa"],65:["🌧️","Mưa to"],66:["🌧️","Mưa lạnh"],67:["🌧️","Mưa lạnh to"],80:["🌦️","Mưa rào nhẹ"],81:["🌧️","Mưa rào"],82:["⛈️","Mưa rào rất to"],95:["⛈️","Dông"],96:["⛈️","Dông, mưa đá"],99:["⛈️","Dông, mưa đá"]};
@@ -656,20 +676,26 @@ function theDong(hang,items){
  const ds=(GX.xe||[]).filter(m=>m.hang==hang),gan=ds.map(()=>[]),rest=[];
  items.forEach(x=>{const i=ds.findIndex(m=>new RegExp(m.khop,"i").test(x.title||""));i<0?rest.push(x):gan[i].push(x)});
  const moi=t=>t&&/ra mắt|trình làng/i.test(t.title)&&Date.now()-new Date(String(t.date).replace(" ","T"))<30*864e5;
- const MX=(T&&T.cong_nghe&&T.cong_nghe.mau_xe)||{},gio=ngay(T&&T.meta&&T.meta.fetched_at),
+ const MX=(T&&T.cong_nghe&&T.cong_nghe.mau_xe)||{},XC=(T&&T.cong_nghe&&T.cong_nghe.xe_card)||{},gio=ngay(T&&T.meta&&T.meta.fetched_at),
   trong=e=>!e?`Chưa có dữ liệu · cập nhật ${gio}`:e.loi?`Chưa có dữ liệu (nguồn tin lỗi) · ${e.cap_nhat?"cập nhật "+ngay(e.cap_nhat):"chưa lấy được lần nào"}`:`Chưa có tin trong ${e.so_ngay||90} ngày qua · cập nhật ${ngay(e.cap_nhat)}`,
   dd=GX.cap_nhat?Math.floor((Date.now()-new Date(GX.cap_nhat+"T00:00:00"))/864e5):0;
- const the=ds.map((m,i)=>{const e=MX[m.hang+"|"+m.dong]||null,it=gan[i].length?gan[i]:(e&&e.items)||[];return{m,t:it[0],n:it.length,e}}).sort((a,b)=>a.m.gia_tu-b.m.gia_tu);
- return {rest,html:`<div class="xl">`+the.map(({m,t,n,e})=>{const u=t&&URL_OK(t.url)?esc(t.url):"";
-  return `<div class="xc"><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>${t?`<a class="nt" href="${u}" target="_blank" rel="noopener">${esc(t.title)}</a><div class="nm">${esc(t.source||"")} · ${esc(ngay(t.date))}${n>1?` · +${n-1} tin`:""}</div>`:`<div class="nm">${esc(trong(e))}</div>`}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.${dd>30?` ⚠ Giá chưa được cập nhật ${dd} ngày, có thể đã cũ.`:""}</div>`}}
+ const the=ds.map((m,i)=>{const e=MX[m.hang+"|"+m.dong]||null,it=gan[i].length?gan[i]:(e&&e.items)||[];return{m,t:it[0],n:it.length,e,c:XC[m.hang+"|"+m.dong]||{}}}).sort((a,b)=>a.m.gia_tu-b.m.gia_tu);
+ return {rest,html:`<div class="xl">`+the.map(({m,t,n,e,c})=>{
+   // mỗi ô đủ: hình đại diện, tên xe, giá, tóm tắt (bot tìm hình từ Wikipedia/Commons/báo; không có hình thì hiện ô chữ hãng)
+   const img=c.img||(t&&t.img)||"",co=!!c.tom_tat,tt=co?c.tom_tat:t?(t.summary||t.title):trong(e),tl=co?c.tom_tat_link:t&&t.url,ts=co?c.tom_tat_nguon:t&&t.source,td=co?c.tom_tat_ngay:t&&t.date,u=URL_OK(tl)?esc(tl):"",
+    anh=img&&URL_OK(img)?`<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"",
+    nguonAnh=c.img?c.img_nguon:(t&&t.img?t.source:""),cr=nguonAnh?`<div class="xcr">Ảnh: ${URL_OK(c.img_link)&&c.img?`<a href="${esc(c.img_link)}" target="_blank" rel="noopener">${esc(nguonAnh)}</a>`:esc(nguonAnh)}</div>`:"";
+   return `<div class="xc"><div class="xi"><span class="xp">${esc(m.hang)}</span>${anh}</div><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>
+    <div class="xs">${u?`<a href="${u}" target="_blank" rel="noopener">${esc(tt)}</a>`:esc(tt)}</div>
+    <div class="nm">${[ts,td?ngay(td):"",n>1?"+"+(n-1)+" tin":""].filter(Boolean).map(esc).join(" · ")}</div>${cr}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.${dd>30?` ⚠ Giá chưa được cập nhật ${dd} ngày, có thể đã cũ.`:""}</div>`}}
 function renderCN(){
   const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
   const xe=xeTheoHang(S),nXe=xe.reduce((a,h)=>a+h[2].length,0);
   const chinh=[["xe","Xe ô tô",nXe],["ai","Công nghệ AI",(f("ai").items||[]).length]].concat(S.filter(s=>!biet.has(s.key)).map(s=>[s.key,s.name||s.key,(s.items||[]).length]));
-  const k=chon("cn",chinh);let h=ghiChu(T)+lxPills("cn",chinh,k);
+  const k=chon("cn",chinh);let h=ghiChu(T);
   if(k=="xe"){const ds=xe.map(([kk,t,it])=>[kk,t,it.length]),kx=chon("cnxe",ds),x=xe.find(a=>a[0]==kx),td=xeCo(x)?theDong(x[1],x[2]):null,items=td?td.rest:x[2];
-   h+=lxPills("cnxe",ds,kx)+(td?td.html:"")+lxHead("Xe "+(kx=="o_to"?"hãng khác":x[1])+(td?" – tin khác":""),items.length)+lxList("cn-"+kx,items)}
-  else h+=lxHead((chinh.find(c=>c[0]==k)||[])[1],(f(k).items||[]).length)+lxList("cn-"+k,f(k).items);
+   h+=lxStick(lxPills("cn",chinh,k)+lxPills("cnxe",ds,kx),"nb")+(td?td.html:"")+lxHead("Xe "+(kx=="o_to"?"hãng khác":x[1])+(td?" – tin khác":""),items.length)+lxList("cn-"+kx,items)}
+  else h+=lxStick(lxPills("cn",chinh,k)+lxHead((chinh.find(c=>c[0]==k)||[])[1],(f(k).items||[]).length))+lxList("cn-"+k,f(k).items);
   $("#m3").innerHTML=lxShell(3,h)}
 
 // ===== Tab chính 5: Tin quốc tế =====
@@ -677,14 +703,14 @@ const QT_ORDER=[["kinh_te_tg","Kinh tế – thương mại – lãi suất"],["
 function renderQT(){
  const S=secs("quoc_te"),f=k=>S.find(s=>s.key==k)||{};
  const ds=dsMuc("quoc_te",QT_ORDER).map(([k,t])=>[k,f(k).name||t,(f(k).items||[]).length]),k=chon("qt",ds);
- $("#m5").innerHTML=lxShell(5,ghiChu(T)+lxPills("qt",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length)+lxList("qt-"+k,f(k).items))}
+ $("#m5").innerHTML=lxShell(5,ghiChu(T)+lxStick(lxPills("qt",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length))+lxList("qt-"+k,f(k).items))}
 
 // ===== Tab 3 (trong Chứng khoán): Tin tức theo 5 nhóm ngành =====
 const CK_ORDER=[["xay_dung","Xây dựng – Đầu tư công"],["ngan_hang","Ngân hàng"],["cntt","Công nghệ thông tin"],["thep","Thép"],["vang_bac","Vàng bạc trang sức"]];
 function t3(){
  const S=secs("chung_khoan"),f=k=>S.find(s=>s.key==k)||{};
  const ds=dsMuc("chung_khoan",CK_ORDER).map(([k,t])=>[k,t,(f(k).items||[]).length]),k=chon("ck",ds);
- $("#t3").innerHTML=lxShell(2,ghiChu(T)+lxPills("ck",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length)+lxList("ck-"+k,f(k).items))}
+ $("#t3").innerHTML=lxShell(2,ghiChu(T)+lxStick(lxPills("ck",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length))+lxList("ck-"+k,f(k).items))}
 
 
 // ===== SMART SCANNER — phân tích kỹ thuật minh bạch trên dữ liệu OHLCV đang có =====

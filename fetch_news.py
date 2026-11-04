@@ -1199,6 +1199,140 @@ def bo_sung_hinh_tom_tat(ket_qua, cu):
     return tk
 
 
+# ===================== Ô MẪU XE (tab Công nghệ): hình đại diện + tên + giá + tóm tắt cho TỪNG mẫu =====================
+# Mẫu nào có trong gia_xe.json đều được làm ô đủ 4 thứ: hình, tên, giá, tóm tắt (thêm mẫu mới = thêm 1 dòng vào gia_xe.json).
+# Hình: Wikipedia tiếng Việt -> Wikipedia tiếng Anh -> Wikimedia Commons (ảnh tự do, có ghi nguồn) -> ảnh của bài báo về mẫu đó. Không có thì app hiện ô thay thế.
+# Tóm tắt: ưu tiên tóm tắt bài báo mới nhất về mẫu đó; không có thì đoạn mở đầu Wikipedia tiếng Việt; không có nữa thì ghi rõ chưa có bài riêng. Không bịa.
+WIKI_UA = {"User-Agent": "NEWDAY-news-bot/1.0 (https://github.com/tifotoshiro87-design/stock-dashboard; ca nhan, phi thuong mai)", "Accept": "application/json"}
+WIKI_KIEM_LAI_SAU_NGAY = 7
+
+
+def _xe_chuan(s):
+    return re.sub(r"[^a-z0-9]", "", bo_dau(s or "").lower())
+
+
+def khop_tieu_de_xe(tieu_de, hang, dong):
+    """Tiêu đề trang/ảnh có đúng hãng + mẫu không (tránh lấy nhầm xe khác)."""
+    n = _xe_chuan(tieu_de)
+    tu = [w for w in re.split(r"\s+", dong.strip()) if w]
+    dau = _xe_chuan(tu[0]) if tu and len(_xe_chuan(tu[0])) >= 3 else _xe_chuan("".join(tu[:2]))
+    return bool(dau) and _xe_chuan(hang) in n and dau in n
+
+
+def _wiki_json(url):
+    return json.loads(thu(lambda: tai(url, timeout=15, headers=WIKI_UA), lan=2).decode("utf-8", "ignore"))
+
+
+def wiki_tim(ngon_ngu, hang, dong):
+    """Trang Wikipedia khớp 'Hãng Mẫu': {'title','url','img','tom_tat'} hoặc None."""
+    q = quote(f"{hang} {dong}")
+    du = _wiki_json(f"https://{ngon_ngu}.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrsearch={q}&gsrlimit=4"
+                    "&prop=pageimages%7Cextracts%7Cinfo&inprop=url&piprop=thumbnail&pithumbsize=640&exintro=1&explaintext=1&exsentences=2&exlimit=4")
+    trang = sorted(((du.get("query") or {}).get("pages") or {}).values(), key=lambda p: p.get("index", 99))
+    for p in trang:
+        tt = p.get("title", "")
+        if re.search(r"định hướng|disambiguation", tt, re.I) or not khop_tieu_de_xe(tt, hang, dong):
+            continue
+        tom = re.sub(r"\s+", " ", p.get("extract") or "").strip()
+        if len(tom) > 260:
+            tom = tom[:260].rsplit(" ", 1)[0] + "…"
+        return {"title": tt, "url": p.get("fullurl", ""), "img": ((p.get("thumbnail") or {}).get("source") or ""), "tom_tat": tom}
+    return None
+
+
+def commons_tim(hang, dong):
+    q = quote(f"{hang} {dong}")
+    du = _wiki_json("https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=6&gsrlimit=6"
+                    f"&gsrsearch={q}&prop=imageinfo&iiprop=url%7Cmime&iiurlwidth=640")
+    trang = sorted(((du.get("query") or {}).get("pages") or {}).values(), key=lambda p: p.get("index", 99))
+    for p in trang:
+        ii = (p.get("imageinfo") or [{}])[0]
+        if ii.get("mime") in ("image/jpeg", "image/png") and ii.get("thumburl") and khop_tieu_de_xe(p.get("title", ""), hang, dong):
+            return {"img": ii["thumburl"], "url": ii.get("descriptionurl", "")}
+    return None
+
+
+def tao_the_xe(tab_cn, cu_the):
+    ds = nap_gia_xe()
+    if not ds:
+        return {}
+    phan = {sec["key"]: sec["items"] for sec in tab_cn["sections"]}
+    mx = tab_cn.get("mau_xe") or {}
+    cu_the = cu_the or {}
+    hom_nay = datetime.now(VN).strftime("%Y-%m-%d")
+    han = (datetime.now(VN) - timedelta(days=WIKI_KIEM_LAI_SAU_NGAY)).strftime("%Y-%m-%d")
+    the, can_wiki = {}, []
+    for m in ds:
+        key = f"{m['hang']}|{m['dong']}"
+        tin = [x for x in phan.get("xe_" + m["hang"].lower().replace(" ", ""), []) if re.search(m["khop"], x["title"], re.I)] + list((mx.get(key) or {}).get("items", []))
+        gop = {x["url"]: x for x in tin}
+        the[key] = {"m": m, "tin": sorted(gop.values(), key=lambda x: x["date"], reverse=True), "cu": cu_the.get(key) or {}}
+        if (the[key]["cu"].get("wiki_kiem") or "") < han:
+            can_wiki.append(key)
+
+    def hoi_wiki(key):
+        m, kq = the[key]["m"], {"wiki_kiem": hom_nay}
+        loi = 0
+        try:
+            vi = wiki_tim("vi", m["hang"], m["dong"])
+        except Exception:  # noqa: BLE001
+            vi, loi = None, loi + 1
+        try:
+            en = None if (vi and vi["img"]) else wiki_tim("en", m["hang"], m["dong"])
+        except Exception:  # noqa: BLE001
+            en, loi = None, loi + 1
+        anh = (vi if vi and vi["img"] else None) or (en if en and en["img"] else None)
+        if anh:
+            kq.update(wiki_img=anh["img"], wiki_img_nguon="Wikipedia", wiki_img_link=anh["url"])
+        else:
+            try:
+                cm = commons_tim(m["hang"], m["dong"])
+                if cm:
+                    kq.update(wiki_img=cm["img"], wiki_img_nguon="Wikimedia Commons", wiki_img_link=cm["url"])
+            except Exception:  # noqa: BLE001
+                loi += 1
+        if vi and vi["tom_tat"] and co_tieng_viet(vi["tom_tat"]):
+            kq.update(wiki_tom_tat=vi["tom_tat"], wiki_tom_tat_link=vi["url"])
+        if loi >= 2:    # mạng/Wikipedia lỗi: không ghi mốc kiểm tra để lần chạy sau thử lại
+            kq.pop("wiki_kiem")
+        return key, kq
+
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        for key, kq in ex.map(hoi_wiki, can_wiki):
+            the[key]["cu"] = {**the[key]["cu"], **kq}
+
+    ket, dem = {}, Counter()
+    for key, v in the.items():
+        m, tin, cu = v["m"], v["tin"], v["cu"]
+        t0 = next((x for x in tin if (x.get("summary") or "").strip()), None)
+        t_anh = next((x for x in tin if x.get("img")), None)
+        o = {k: cu[k] for k in ("wiki_kiem", "wiki_img", "wiki_img_nguon", "wiki_img_link", "wiki_tom_tat", "wiki_tom_tat_link") if cu.get(k)}
+        if cu.get("wiki_img"):
+            o.update(img=cu["wiki_img"], img_nguon=cu["wiki_img_nguon"], img_link=cu.get("wiki_img_link", ""))
+            dem["anh_" + ("wikipedia" if cu["wiki_img_nguon"] == "Wikipedia" else "commons")] += 1
+        elif t_anh:
+            o.update(img=t_anh["img"], img_nguon=t_anh.get("source", ""), img_link=t_anh["url"])
+            dem["anh_bao"] += 1
+        else:
+            dem["anh_chua_co"] += 1
+        if t0:
+            o.update(tom_tat=t0["summary"], tom_tat_nguon=t0.get("source", ""), tom_tat_link=t0["url"], tom_tat_ngay=t0["date"])
+            dem["tt_bao"] += 1
+        elif cu.get("wiki_tom_tat"):
+            o.update(tom_tat=cu["wiki_tom_tat"], tom_tat_nguon="Wikipedia", tom_tat_link=cu.get("wiki_tom_tat_link", ""))
+            dem["tt_wiki"] += 1
+        elif tin:   # có bài nhưng bài chưa lấy được tóm tắt: ghi tiêu đề bài mới nhất (dữ liệu thật), kèm link
+            o.update(tom_tat="Bài mới nhất: " + tin[0]["title"], tom_tat_nguon=tin[0].get("source", ""), tom_tat_link=tin[0]["url"], tom_tat_ngay=tin[0]["date"])
+            dem["tt_tieu_de"] += 1
+        else:
+            o.update(tom_tat=f"Chưa có bài viết riêng về {m['hang']} {m['dong']} trong {SO_NGAY_MAU_XE} ngày qua.", tom_tat_nguon="")
+            dem["tt_du_phong"] += 1
+        ket[key] = o
+    print(f"[the_xe] {len(ket)} mẫu | hình: Wikipedia {dem['anh_wikipedia']}, Commons {dem['anh_commons']}, báo {dem['anh_bao']}, CHƯA CÓ {dem['anh_chua_co']} "
+          f"| tóm tắt: báo {dem['tt_bao']}, Wikipedia {dem['tt_wiki']}, tiêu đề bài {dem['tt_tieu_de']}, chưa có bài {dem['tt_du_phong']} | đã hỏi Wikipedia {len(can_wiki)} mẫu")
+    return ket
+
+
 # ===================== THỜI TIẾT (Open-Meteo, không cần key) =====================
 def lay_thoi_tiet():
     url = ("https://api.open-meteo.com/v1/forecast?latitude=12.2388&longitude=109.1967"
@@ -1402,6 +1536,11 @@ def main():
         ket_qua["meta"]["chat_luong"] = bo_sung_hinh_tom_tat(ket_qua, cu)
     except Exception as e:  # noqa: BLE001 - lỗi bổ sung hình/tóm tắt không được làm mất tin
         print("Lỗi bổ sung hình/tóm tắt:", type(e).__name__, e)
+    try:
+        ket_qua[CN]["xe_card"] = tao_the_xe(ket_qua[CN], (cu.get(CN) or {}).get("xe_card"))
+    except Exception as e:  # noqa: BLE001
+        print("Lỗi làm ô mẫu xe:", type(e).__name__, e)
+        ket_qua[CN]["xe_card"] = (cu.get(CN) or {}).get("xe_card", {})
     if "error" in ket_qua["weather"] and cu.get("weather") and "error" not in cu["weather"]:
         ket_qua["weather"] = cu["weather"]
 
