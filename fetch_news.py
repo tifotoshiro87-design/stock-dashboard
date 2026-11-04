@@ -466,7 +466,7 @@ def giai_ma_google(link):
 # Cách làm (giống thư viện googlenewsdecoder): đọc trang /articles/<mã> để lấy chữ ký (data-n-a-sg, data-n-a-ts),
 # rồi hỏi batchexecute (rpc Fbv4je) -> link bài gốc. Chỉ dùng cho tin ĐÃ được chọn vào app, có giới hạn và tự ngắt
 # khi Google chặn, nên lỗi cũng không làm hỏng gì: tin vẫn giữ link Google như trước.
-GIAI_MA_TOI_DA = 130          # tổng số link giải mã mỗi lần chạy (cả 3 tab)
+GIAI_MA_TOI_DA = 300          # tổng số link giải mã mỗi lần chạy (có tự ngắt khi Google chặn)
 GIAI_MA_LOI_LIEN_TIEP = 6     # lỗi liên tiếp ngần này lần -> coi như bị chặn, ngừng giải mã
 GIAI_MA_NGHI = 0.4            # giây nghỉ giữa các lần (tránh bị Google giới hạn tốc độ)
 _GM = {"da_thu": 0, "loi_lt": 0, "dung": False}
@@ -985,6 +985,8 @@ def xu_ly_tab(ma_tab, cau_hinh, da_co_toan_cuc, kenh_tab):
             d["img"] = t["img"]
         if t.get("g"):
             d["g"] = t["g"]
+        if t.get("mien") and "google" not in t["mien"]:
+            d["logo"] = t["mien"]   # tên miền báo: app dùng làm logo khi bài chưa có ảnh
         return d
 
     sections = [{"key": m["key"], "name": m["ten"], "items": [ra_json(t) for t in ket_qua[m["key"]]]}
@@ -1024,6 +1026,8 @@ def _tin_ra_json(t):
         d["img"] = t["img"]
     if t.get("g"):
         d["g"] = t["g"]
+    if t.get("mien") and "google" not in t["mien"]:
+        d["logo"] = t["mien"]
     return d
 
 
@@ -1191,6 +1195,8 @@ def bo_sung_hinh_tom_tat(ket_qua, cu):
     for t, ds in tat_ca(ket_qua):
         a = tk.setdefault(t, {"tong": 0, "co_hinh": 0, "co_tom_tat": 0})
         for x in ds:
+            if x.get("img"):
+                x.pop("logo", None)
             a["tong"] += 1
             a["co_hinh"] += 1 if x.get("img") else 0
             a["co_tom_tat"] += 1 if (x.get("summary") or "").strip() else 0
@@ -1212,11 +1218,10 @@ def _xe_chuan(s):
 
 
 def khop_tieu_de_xe(tieu_de, hang, dong):
-    """Tiêu đề trang/ảnh có đúng hãng + mẫu không (tránh lấy nhầm xe khác)."""
+    """Tiêu đề trang/ảnh phải có hãng và ĐỦ các từ của tên mẫu (Civic Type R không được nhận trang Civic thường)."""
     n = _xe_chuan(tieu_de)
-    tu = [w for w in re.split(r"\s+", dong.strip()) if w]
-    dau = _xe_chuan(tu[0]) if tu and len(_xe_chuan(tu[0])) >= 3 else _xe_chuan("".join(tu[:2]))
-    return bool(dau) and _xe_chuan(hang) in n and dau in n
+    tu = [_xe_chuan(w) for w in dong.split() if _xe_chuan(w) not in ("pro", "hybrid")]
+    return _xe_chuan(hang) in n and bool(tu) and all(w in n for w in tu)
 
 
 def _wiki_json(url):
@@ -1252,6 +1257,80 @@ def commons_tim(hang, dong):
     return None
 
 
+# ---------- Bài đánh giá thiết kế / chi tiết cho từng mẫu ----------
+XE_PHIEN_BAN = 2            # đổi số này thì ô xe được làm lại từ đầu (luật chọn hình/bài đổi)
+TK_KIEM_LAI_SAU_NGAY = 7
+TU_TK_MANH = ["thiết kế", "ngoại thất", "nội thất", "cận cảnh", "soi chi tiết", "chi tiết", "khoang lái", "khoang cabin", "khoang hành khách",
+              "đầu xe", "đuôi xe", "la-zăng", "la zăng", "đèn pha", "táp-lô", "táp lô", "kết cấu", "khung gầm"]
+TU_TK_YEU = ["đánh giá", "trải nghiệm", "lái thử", "hình ảnh", "trang bị", "tiện nghi", "vận hành"]
+TU_TK_GIA = ["giá lăn bánh", "khuyến mại", "khuyến mãi", "ưu đãi", "giảm giá", "bảng giá", "giá xe tháng", "nên mua"]
+
+
+def xe_chu_de(tieu_de, ds):
+    """Mẫu xe là CHỦ ĐỀ CHÍNH của tiêu đề (mẫu xuất hiện sớm nhất; cùng hãng thì lấy tên dài hơn, vd Civic Type R > Civic)."""
+    kq = []
+    for m in ds:
+        mm = re.search(m["khop"], tieu_de, re.I)
+        if mm:
+            kq.append((mm.start(), m))
+    if not kq:
+        return None
+    dau = min(k[0] for k in kq)
+    hang = next(m["hang"] for st, m in kq if st == dau)
+    cung = [m for st, m in kq if m["hang"] == hang and st <= dau + 12]
+    return max(cung, key=lambda m: len(m["dong"]))
+
+
+def diem_thiet_ke(tieu_de, tom_tat):
+    t, s_ = tieu_de.lower(), (tom_tat or "").lower()
+    d = sum(3 if w in t else (1 if w in s_ else 0) for w in TU_TK_MANH)
+    d += sum(1 for w in TU_TK_YEU if w in t)
+    d -= sum(2 for w in TU_TK_GIA if w in t)
+    return d
+
+
+def tim_bai_thiet_ke(m, ds):
+    """Bài báo nói về thiết kế/chi tiết của đúng mẫu xe m (hình ảnh, ngoại thất, nội thất...), có hình đại diện của bài. Không có thì None."""
+    cau = f"{m['hang']} {m['dong']} đánh giá chi tiết thiết kế ngoại thất nội thất"
+    kq, ok = [], 0
+    for ten, ham in (("bing", tim_bing), ("google", lambda c: tim_google(c, 365))):
+        try:
+            kq += thu(lambda: ham(cau))
+            ok += 1
+        except Exception:  # noqa: BLE001
+            pass
+    if ok == 0:
+        raise OSError("cả Bing và Google đều lỗi")
+    moc = datetime.now(VN) - timedelta(days=365)
+    ung = []
+    for t in kq:
+        if t["dt"] is None or t["dt"] < moc or not co_tieng_viet(t["title"]):
+            continue
+        t["mien"] = ten_mien(t.get("nguon_url") or t["url"])
+        if CHI_BAO_CHINH_THONG and not la_bao_chinh_thong(t["mien"]):
+            continue
+        toan = t["title"] + " " + t.get("summary", "")
+        if xe_chu_de(t["title"], ds) is not m or re.search(LOAI_XE, t["title"], re.I) or re.search(HANG_XE_TQ, toan, re.I):
+            continue
+        d = diem_thiet_ke(t["title"], t.get("summary", ""))
+        manh = any(w in t["title"].lower() for w in TU_TK_MANH) or sum(1 for w in TU_TK_MANH if w in toan.lower()) >= 2
+        if d >= 3 and manh:
+            ung.append((d, "news.google.com" not in t["url"], t["dt"], t))
+    ung.sort(key=lambda x: x[:3], reverse=True)
+    tot_nhat = None
+    for _d, _ng, _dt, t in ung[:3]:
+        giai_ma_tin(t)
+        tom, anh = thong_tin_bai_goc(t["url"])
+        t["summary"] = (tom or t.get("summary") or "").strip()
+        if len(t["summary"]) > DO_DAI_TOM_TAT:
+            t["summary"] = t["summary"][:DO_DAI_TOM_TAT].rsplit(" ", 1)[0] + "…"
+        kqua = {"title": t["title"], "url": t["url"], "source": ten_nguon(t), "date": t["dt"].strftime("%Y-%m-%d %H:%M"), "summary": t["summary"], "img": anh}
+        if anh:
+            return kqua
+        tot_nhat = tot_nhat or kqua
+    return tot_nhat
+
+
 def tao_the_xe(tab_cn, cu_the):
     ds = nap_gia_xe()
     if not ds:
@@ -1262,13 +1341,22 @@ def tao_the_xe(tab_cn, cu_the):
     hom_nay = datetime.now(VN).strftime("%Y-%m-%d")
     han = (datetime.now(VN) - timedelta(days=WIKI_KIEM_LAI_SAU_NGAY)).strftime("%Y-%m-%d")
     the, can_wiki = {}, []
+    han_tk = (datetime.now(VN) - timedelta(days=TK_KIEM_LAI_SAU_NGAY)).strftime("%Y-%m-%d")
+    han_tk_ngan = (datetime.now(VN) - timedelta(days=2)).strftime("%Y-%m-%d")
+    can_tk = []
     for m in ds:
         key = f"{m['hang']}|{m['dong']}"
-        tin = [x for x in phan.get("xe_" + m["hang"].lower().replace(" ", ""), []) if re.search(m["khop"], x["title"], re.I)] + list((mx.get(key) or {}).get("items", []))
+        tin = [x for x in phan.get("xe_" + m["hang"].lower().replace(" ", ""), []) + list((mx.get(key) or {}).get("items", []))
+               if re.search(m["khop"], x["title"], re.I) and xe_chu_de(x["title"], ds) is m]   # chỉ nhận bài mà mẫu này là chủ đề chính
         gop = {x["url"]: x for x in tin}
-        the[key] = {"m": m, "tin": sorted(gop.values(), key=lambda x: x["date"], reverse=True), "cu": cu_the.get(key) or {}}
-        if (the[key]["cu"].get("wiki_kiem") or "") < han:
+        cu0 = cu_the.get(key) or {}
+        if cu0.get("v") != XE_PHIEN_BAN:   # luật chọn hình/bài đã đổi: bỏ kết quả cũ, làm lại
+            cu0 = {}
+        the[key] = {"m": m, "tin": sorted(gop.values(), key=lambda x: x["date"], reverse=True), "cu": cu0}
+        if (cu0.get("wiki_kiem") or "") < han:
             can_wiki.append(key)
+        if (cu0.get("tk_kiem") or "") < (han_tk if cu0.get("tk") else han_tk_ngan):
+            can_tk.append(key)
 
     def hoi_wiki(key):
         m, kq = the[key]["m"], {"wiki_kiem": hom_nay}
@@ -1301,13 +1389,31 @@ def tao_the_xe(tab_cn, cu_the):
         for key, kq in ex.map(hoi_wiki, can_wiki):
             the[key]["cu"] = {**the[key]["cu"], **kq}
 
+    def hoi_tk(key):
+        try:
+            return key, {"tk_kiem": hom_nay, "tk": tim_bai_thiet_ke(the[key]["m"], ds)}
+        except Exception:  # noqa: BLE001 - lỗi mạng: không ghi mốc, lần sau thử lại
+            return key, {}
+
+    with ThreadPoolExecutor(max_workers=TIM_KIEM_SONG_SONG) as ex:
+        for key, kq in ex.map(hoi_tk, can_tk):
+            if kq:
+                if kq.get("tk") is None:
+                    kq.pop("tk", None)   # tìm lại mà không thấy: giữ bài cũ (nếu có), chỉ cập nhật mốc kiểm tra
+                the[key]["cu"] = {**the[key]["cu"], **kq}
+
     ket, dem = {}, Counter()
     for key, v in the.items():
         m, tin, cu = v["m"], v["tin"], v["cu"]
         t0 = next((x for x in tin if (x.get("summary") or "").strip()), None)
         t_anh = next((x for x in tin if x.get("img")), None)
-        o = {k: cu[k] for k in ("wiki_kiem", "wiki_img", "wiki_img_nguon", "wiki_img_link", "wiki_tom_tat", "wiki_tom_tat_link") if cu.get(k)}
-        if cu.get("wiki_img"):
+        o = {k: cu[k] for k in ("wiki_kiem", "wiki_img", "wiki_img_nguon", "wiki_img_link", "wiki_tom_tat", "wiki_tom_tat_link", "tk_kiem", "tk") if cu.get(k)}
+        o["v"] = XE_PHIEN_BAN
+        tk = cu.get("tk")
+        if tk and tk.get("img"):   # ảnh của chính bài đánh giá thiết kế: khớp tiêu đề và đường link
+            o.update(img=tk["img"], img_nguon=tk["source"], img_link=tk["url"])
+            dem["anh_bai_thiet_ke"] += 1
+        elif cu.get("wiki_img"):
             o.update(img=cu["wiki_img"], img_nguon=cu["wiki_img_nguon"], img_link=cu.get("wiki_img_link", ""))
             dem["anh_" + ("wikipedia" if cu["wiki_img_nguon"] == "Wikipedia" else "commons")] += 1
         elif t_anh:
@@ -1315,7 +1421,10 @@ def tao_the_xe(tab_cn, cu_the):
             dem["anh_bao"] += 1
         else:
             dem["anh_chua_co"] += 1
-        if t0:
+        if tk and (tk.get("summary") or "").strip():
+            o.update(tom_tat=tk["summary"], tom_tat_nguon=tk["source"], tom_tat_link=tk["url"], tom_tat_ngay=tk["date"], la_tk=True)
+            dem["tt_thiet_ke"] += 1
+        elif t0:
             o.update(tom_tat=t0["summary"], tom_tat_nguon=t0.get("source", ""), tom_tat_link=t0["url"], tom_tat_ngay=t0["date"])
             dem["tt_bao"] += 1
         elif cu.get("wiki_tom_tat"):
@@ -1329,7 +1438,7 @@ def tao_the_xe(tab_cn, cu_the):
             dem["tt_du_phong"] += 1
         ket[key] = o
     print(f"[the_xe] {len(ket)} mẫu | hình: Wikipedia {dem['anh_wikipedia']}, Commons {dem['anh_commons']}, báo {dem['anh_bao']}, CHƯA CÓ {dem['anh_chua_co']} "
-          f"| tóm tắt: báo {dem['tt_bao']}, Wikipedia {dem['tt_wiki']}, tiêu đề bài {dem['tt_tieu_de']}, chưa có bài {dem['tt_du_phong']} | đã hỏi Wikipedia {len(can_wiki)} mẫu")
+          f"| ảnh bài thiết kế {dem['anh_bai_thiet_ke']}, tóm tắt bài thiết kế {dem['tt_thiet_ke']}, hỏi bài thiết kế {len(can_tk)} mẫu | tóm tắt: báo {dem['tt_bao']}, Wikipedia {dem['tt_wiki']}, tiêu đề bài {dem['tt_tieu_de']}, chưa có bài {dem['tt_du_phong']} | đã hỏi Wikipedia {len(can_wiki)} mẫu")
     return ket
 
 

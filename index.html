@@ -248,6 +248,9 @@ body.lux ::-webkit-scrollbar{width:8px;height:8px}body.lux ::-webkit-scrollbar-t
 .lx-stick .lx-h{margin-bottom:0}
 .lx-stick.nb{padding-bottom:2px;border-bottom:1px solid rgba(212,168,75,.3)}
 @media(max-width:700px){.lx-stick{top:62px;margin:-12px -12px 12px;padding:12px 12px 0}}
+.lx-th img.lx-fav{position:absolute;inset:auto;left:50%;top:50%;width:76px;height:76px;transform:translate(-50%,-50%);object-fit:contain;padding:10px;border-radius:16px;background:rgba(255,255,255,.94);box-shadow:0 4px 16px rgba(0,0,0,.35);z-index:1}
+.lx-main .xc .xtk{margin-top:8px;padding:0 4px;font-size:10px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--lx-gold2)}
+.lx-main .xc .xtk+.xs{margin-top:3px}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY</h1>
@@ -598,7 +601,10 @@ const lxHead=(t,n)=>`<h2 class="lx-h">${esc(t)}${n?` - ${n} tin`:""}</h2>`;
 const lxIni=x=>(x.source||"?").replace(/^(Báo|Cổng)\s+/i,"").split(/\s+/).slice(0,2).map(w=>w[0]).join("").toUpperCase();
 function lxCard(x,extra){const u=URL_OK(x.url)?esc(x.url):"",a=c=>u?`<a ${c} href="${u}" target="_blank" rel="noopener">`:`<span ${c}>`,z=u?"</a>":"</span>";
  const anh=x.img&&URL_OK(x.img)?`<img src="${esc(x.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"";
- return `<article class="lx-card${extra?" lx-x":""}">${a('class="lx-th"')}<span class="lx-ph">${esc(lxIni(x))}</span>${anh}${z}${a('class="lx-t"')}${esc(x.title)}${z}
+ // bài chưa có ảnh: hiện logo của báo (favicon) làm ảnh đại diện; không có logo thì hiện chữ viết tắt
+ const dom=x.logo||(()=>{try{const h=new URL(x.url).hostname;return /google\./.test(h)?"":h}catch(e){return ""}})(),
+  fav=!anh&&dom?`<img class="lx-fav" src="https://www.google.com/s2/favicons?sz=128&domain=${encodeURIComponent(dom)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"";
+ return `<article class="lx-card${extra?" lx-x":""}">${a('class="lx-th"')}<span class="lx-ph">${esc(lxIni(x))}</span>${fav}${anh}${z}${a('class="lx-t"')}${esc(x.title)}${z}
   ${x.summary?`<div class="lx-s">${esc(x.summary)}</div>`:`<div class="lx-s lx-s0">Chưa có tóm tắt, bấm "Đọc bài" để xem bản gốc.</div>`}
   <div class="lx-m">${esc(x.source||"")}${x.source&&x.date?" · ":""}${esc(ngay(x.date))}</div>${u?`<div class="lx-f"><a class="lx-b" href="${u}" target="_blank" rel="noopener">Đọc bài →</a></div>`:""}</article>`}
 function lxList(id,items){items=items||[];
@@ -686,7 +692,7 @@ function theDong(hang,items){
     anh=img&&URL_OK(img)?`<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"",
     nguonAnh=c.img?c.img_nguon:(t&&t.img?t.source:""),cr=nguonAnh?`<div class="xcr">Ảnh: ${URL_OK(c.img_link)&&c.img?`<a href="${esc(c.img_link)}" target="_blank" rel="noopener">${esc(nguonAnh)}</a>`:esc(nguonAnh)}</div>`:"";
    return `<div class="xc"><div class="xi"><span class="xp">${esc(m.hang)}</span>${anh}</div><div class="xh"><b>${esc(m.dong)}</b>${moi(t)?'<span class="xb">Mới ra mắt</span>':""}</div><div class="xg">Từ ${fGia(m.gia_tu)}</div>
-    <div class="xs">${u?`<a href="${u}" target="_blank" rel="noopener">${esc(tt)}</a>`:esc(tt)}</div>
+    ${c.la_tk?'<div class="xtk">Thiết kế &amp; chi tiết</div>':""}<div class="xs">${u?`<a href="${u}" target="_blank" rel="noopener">${esc(tt)}</a>`:esc(tt)}</div>
     <div class="nm">${[ts,td?ngay(td):"",n>1?"+"+(n-1)+" tin":""].filter(Boolean).map(esc).join(" · ")}</div>${cr}</div>`}).join("")+`</div><div class="mu" style="font-size:12px;margin:6px 0">Xếp giá thấp → cao. ${esc((GX&&GX.ghi_chu)||"")} Cập nhật ${esc(ngay(GX.cap_nhat))}.${dd>30?` ⚠ Giá chưa được cập nhật ${dd} ngày, có thể đã cũ.`:""}</div>`}}
 function renderCN(){
   const S=secs("cong_nghe"),f=k=>S.find(s=>s.key==k)||{},biet=new Set(CN_XE.map(h=>h[0]).concat(["ai"]));
