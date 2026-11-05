@@ -152,10 +152,8 @@ html.kem select,html.kem input{background:#fff;color:#1b2330;border-color:#cfd6e
 /* ===== GIAO DIỆN "DARK LUXURY" cho mọi tab tin tức (áp dụng khi body có class lux) ===== */
 :root{--lx-gold:#d4a84b;--lx-gold2:#f0c566;--lx-line:rgba(212,168,75,.55);--lx-tx:#f4efe3;--lx-mu:#8d96ab;--lx-card:rgba(255,255,255,.04);--lx-ease:.25s ease;--lx-sans:"Inter","Be Vietnam Pro",system-ui,sans-serif;--lx-serif:"Playfair Display",Georgia,serif}
 body.lux{background:#05080f;padding:calc(12px + env(safe-area-inset-top,0px)) 12px 12px;min-height:100vh;font-family:var(--lx-sans);color:var(--lx-tx)}
-body.lux #top h1,body.lux #mtabs,body.lux #ban,body.lux #vn30,body.lux #bar{display:none!important}
-body.lux #top{position:static;background:transparent;border:0;padding:0;margin-left:0}
-body.lux #ckhead:not(.hide){padding:0 0 10px}
-body.lux #tabs button{color:#c9ced9}body.lux #tabs button.on{color:var(--lx-gold2);border-color:var(--lx-gold2)}
+body.lux #top{display:none}
+body.lux #ckhead:not(.hide){display:contents}
 body.lux main{margin:0;max-width:none;padding:0}
 /* Khung ngoài cùng: bo góc 20px, nền gradient navy + vệt sáng xanh góc dưới trái, viền vàng rất mảnh */
 .lx-frame{display:grid;grid-template-columns:190px minmax(0,1fr);gap:14px;padding:14px;border-radius:20px;border:1px solid rgba(212,168,75,.22);
@@ -251,28 +249,62 @@ body.lux ::-webkit-scrollbar{width:8px;height:8px}body.lux ::-webkit-scrollbar-t
 .lx-th img.lx-fav{position:absolute;inset:auto;left:50%;top:50%;width:76px;height:76px;transform:translate(-50%,-50%);object-fit:contain;padding:10px;border-radius:16px;background:rgba(255,255,255,.94);box-shadow:0 4px 16px rgba(0,0,0,.35);z-index:1}
 .lx-main .xc .xtk{margin-top:8px;padding:0 4px;font-size:10px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--lx-gold2)}
 .lx-main .xc .xtk+.xs{margin-top:3px}
+
+/* ===== Tab Chứng khoán: cùng khung Dark Luxury (mục con = viên thuốc cố định; nội dung đổi sang kính mờ + vàng) ===== */
+body.lux #tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+body.lux #tabs button{background:transparent;border:1px solid var(--lx-line);color:var(--lx-tx);border-radius:999px;padding:6px 12px;font:500 11px var(--lx-sans);cursor:pointer;white-space:nowrap;transition:border-color var(--lx-ease),box-shadow var(--lx-ease),background var(--lx-ease)}
+body.lux #tabs button:hover{border-color:var(--lx-gold2);box-shadow:0 0 10px rgba(240,197,102,.25)}
+body.lux #tabs button.on{background:linear-gradient(135deg,#e8b95a,#c9983a);color:#1a1305;font-weight:700;border-color:transparent}
+.lx-stick.l2{top:var(--lx-st1,0px);z-index:11;margin:0 -16px 14px;padding:12px 16px 0;border-radius:0}
+@media(max-width:700px){body.lux #tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:rgba(212,168,75,.4) transparent}.lx-stick.l2{top:calc(62px + var(--lx-st1,0px));margin:0 -12px 12px;padding:10px 12px 0}}
+body.lux #ban{border-radius:10px;margin:0 0 10px}
+body.lux #grp{border-top:1px solid rgba(255,255,255,.08)}
+body.lux #grp span{color:var(--lx-mu)}body.lux #grp span.on{color:var(--lx-gold2)}
+body.lux .sc{background:var(--lx-card);border:1px solid rgba(255,255,255,.1);border-radius:12px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:transform var(--lx-ease),border-color var(--lx-ease),box-shadow var(--lx-ease)}
+body.lux .sc:hover{transform:translateY(-3px);border-color:var(--lx-gold);box-shadow:0 8px 20px rgba(212,168,75,.18)}
+body.lux .sc.on{border-color:var(--lx-gold);background:rgba(212,168,75,.1)}
+body.lux .sc small{color:var(--lx-mu)}
+.lx-main .card{background:var(--lx-card);border:1px solid rgba(255,255,255,.1);border-radius:12px;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--lx-tx)}
+.lx-main h3{margin:0 0 8px;font:600 18px var(--lx-serif);color:var(--lx-gold2)}
+.lx-main .row,.lx-main .cr,.lx-main td,.lx-main th,.lx-main .nw{border-color:rgba(255,255,255,.08)}
+.lx-main .mu,.lx-main .cr em,.lx-main .bx i,.lx-main .tip{color:var(--lx-mu)}
+.lx-main .tvb{background:transparent;border:1px solid var(--lx-line);color:var(--lx-tx);border-radius:999px;padding:5px 12px;font-size:11px;cursor:pointer;transition:border-color var(--lx-ease),background var(--lx-ease)}
+.lx-main .tvb:hover{border-color:var(--lx-gold2)}
+.lx-main .tvb.on{background:linear-gradient(135deg,#e8b95a,#c9983a);color:#1a1305;border-color:transparent;font-weight:700}
+.lx-main .pi{border-color:rgba(255,255,255,.1)}.lx-main .pi.on{border-color:var(--lx-gold);background:rgba(212,168,75,.1)}
+.lx-main select,.lx-main input{background:rgba(255,255,255,.05);color:var(--lx-tx);border:1px solid rgba(255,255,255,.16)}
+.lx-main .bx{border-color:rgba(255,255,255,.14)}
+.lx-main .tag{background:rgba(212,168,75,.15);color:var(--lx-gold2)}
+.lx-main .i{border-color:rgba(255,255,255,.2);color:var(--lx-mu)}
+.lx-main .more,.lx-main .nw a{color:var(--lx-gold2);border-color:var(--lx-line)}
+.lx-main .scan-hero{background:var(--lx-card);border-color:var(--lx-line)}
+.lx-main .scan-kpi{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+.lx-main .scan-kpi b,.lx-main .scan-score{color:var(--lx-gold2)}
+.lx-main .scan-tabs button{background:transparent;border:1px solid var(--lx-line);color:var(--lx-tx);border-radius:999px}
+.lx-main .scan-tabs button.on{background:linear-gradient(135deg,#e8b95a,#c9983a);color:#1a1305;border-color:transparent;font-weight:700}
+.lx-main .scan-table th{color:var(--lx-mu)}
 </style></head><body>
 <div id="top">
  <h1>NEWDAY</h1>
  <div id="mtabs"><button data-m="1" class="on"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg><span>Tin tức</span></button><button data-m="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg><span>Chứng khoán</span></button><button data-m="3"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 3v4M15 3v4M9 17v4M15 17v4M3 9h4M3 15h4M17 9h4M17 15h4"/></svg><span>Công nghệ</span></button><button data-m="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span>News</span></button></div>
- <div id="ckhead" class="hide">
- <div id="ban">Đang tải dữ liệu…</div>
- <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
- <div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button><button data-t="4">Tổng hợp</button><button data-t="5">Smart Scanner</button></div>
- <div id="bar"><div id="grp"></div><div id="cards"></div></div>
- </div>
 </div>
 <main>
  <section id="m1"></section>
- <div id="m2" class="hide">
- <section id="t1"><div id="detail"></div></section>
- <section id="t2" class="hide"></section>
- <section id="t3" class="hide"></section>
- <section id="t4" class="hide"></section>
- <section id="t5" class="hide"></section>
- </div>
+ <div id="m2" class="hide"><div class="lx-frame"><div id="m2side" style="display:contents"></div><section class="lx-main">
+  <div id="ckhead" class="hide">
+   <div class="lx-stick nb"><div id="tabs"><button data-t="1" class="on">Chỉ số cổ phiếu</button><button data-t="2">Chấm điểm vĩ mô</button><button data-t="3">Tin tức</button><button data-t="4">Tổng hợp</button><button data-t="5">Smart Scanner</button></div></div>
+   <div id="ban">Đang tải dữ liệu…</div>
+   <div id="vn30" class="mu" style="font-size:12px;padding:2px 0 4px"></div>
+   <div id="bar"><div id="grp"></div><div id="cards"></div></div>
+  </div>
+  <section id="t1"><div id="detail"></div></section>
+  <section id="t2" class="hide"></section>
+  <section id="t3" class="hide"></section>
+  <section id="t4" class="hide"></section>
+  <section id="t5" class="hide"></section>
+ </section></div></div>
  <section id="m3" class="hide"></section>
-  <section id="m5" class="hide"></section>
+ <section id="m5" class="hide"></section>
 </main>
 <button id="lxdown" type="button" aria-label="Cuộn xuống">↓</button>
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
@@ -327,7 +359,7 @@ function banner(){
  else t=`Chưa tải được dữ liệu giá (mất mạng hoặc chưa có file data/prices.json — hãy mở app qua địa chỉ web, không mở trực tiếp file). `;
  if(ERR.length&&P)t+=`Chưa tải được: ${ERR.join(", ")}. `;
  $("#ban").innerHTML=t+"Chỉ báo/tín hiệu và điểm số chỉ mang tính tham khảo — không phải khuyến nghị đầu tư."}
-function renderAll(){[cards,detail,t2,t3,t4,renderScanner,renderVn30,renderNT,renderCN,renderQT].forEach(f=>{try{f()}catch(e){console.error(f.name,e)}})}   // mỗi phần chạy độc lập: lỗi biểu đồ không làm trống các tab tin
+function renderAll(){[()=>{$("#m2side").innerHTML=lxSide(2)},cards,detail,t2,t3,t4,renderScanner,renderVn30,renderNT,renderCN,renderQT].forEach(f=>{try{f()}catch(e){console.error(f.name,e)}})}   // mỗi phần chạy độc lập: lỗi biểu đồ không làm trống các tab tin
 function tatCaMa(){const co=new Set(ST.map(s=>s.s));const them=(P&&P.stocks||[]).filter(x=>!co.has(x.symbol)).map(x=>({s:x.symbol,n:x.name,g:gOf(x.group),x:x.exchange}));return ST.concat(them)}
 function t4(){
  const all=tatCaMa();
@@ -384,7 +416,7 @@ const TIPS={
  hist:"Histogram = MACD − Signal. Cột dương và tăng dần: đà tăng mạnh lên.",
  vol:"Khối lượng so với trung bình 20 phiên. Trên 1,5 lần là dòng tiền bất thường."};
 function kill(){charts.forEach(c=>{try{c.remove()}catch(e){}});charts=[];c4=null}
-function mk(el,h){const c=LightweightCharts.createChart(el,{autoSize:true,height:h,layout:{background:{color:"#161b22"},textColor:"#8b949e"},grid:{vertLines:{color:"#21262d"},horzLines:{color:"#21262d"}},rightPriceScale:{borderColor:"#30363d"},timeScale:{borderColor:"#30363d"}});charts.push(c);return c}
+function mk(el,h){const c=LightweightCharts.createChart(el,{autoSize:true,height:h,layout:{background:{color:"rgba(0,0,0,0)"},textColor:"#8d96ab"},grid:{vertLines:{color:"rgba(255,255,255,.06)"},horzLines:{color:"rgba(255,255,255,.06)"}},rightPriceScale:{borderColor:"rgba(255,255,255,.12)"},timeScale:{borderColor:"rgba(255,255,255,.12)"}});charts.push(c);return c}
 const line=(c,color,t,v,o={})=>{const s=c.addLineSeries({color,lineWidth:1,priceLineVisible:false,lastValueVisible:false,...o});s.setData(t.map((x,i)=>v[i]==null?null:{time:x,value:v[i]}).filter(Boolean));return s};
 function detail(){
  const box=$("#detail");kill();const s=tatCaMa().find(x=>x.s==sel);
@@ -614,8 +646,10 @@ function lxList(id,items){items=items||[];
   (items.length>HS?`<button type="button" class="lx-more" data-lxmore="${id}">${mo?"Thu gọn ▴":`Xem thêm ${items.length-HS} tin ▾`}</button>`:"")}
 function lxSync(){const b=$("#lxdown");if(!b)return;b.classList.toggle("show",document.body.classList.contains("lux")&&document.documentElement.scrollHeight-window.innerHeight-window.scrollY>60)}
 // body.lux bật cho: Tin tức (1), Công nghệ (3), News (5) và mục "Tin tức" trong Chứng khoán (2 → tab con 3)
-function luxSync2(){const m=ls.get("mtab",1),tb=document.querySelector("#tabs button.on"),lux=m==1||m==3||m==5||(m==2&&tb&&tb.dataset.t=="3");document.body.classList.toggle("lux",!!lux);
- const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content=m==5?"#ffffff":lux?"#05080f":"#0b1026";setTimeout(lxSync,0)}
+function luxSync2(){document.body.classList.add("lux");document.documentElement.classList.remove("kem");
+ const tc=document.querySelector('meta[name="theme-color"]');if(tc)tc.content="#05080f";setTimeout(()=>{lxMeasure();lxSync()},0)}
+// đo chiều cao hàng viên thuốc cố định của tab Chứng khoán để hàng cố định thứ hai (nhóm ngành trong Tin tức) nằm ngay bên dưới
+function lxMeasure(){const o=document.querySelector("#ckhead .lx-stick");document.documentElement.style.setProperty("--lx-st1",((o&&o.offsetParent!==null&&o.offsetHeight)||0)+"px")}
 
 // ===== Tab chính 1: Tin nhanh Nha Trang =====
 const NT_ORDER=[["ha_tang","Hạ tầng giao thông"],["quy_hoach","Quy hoạch đô thị – Bất động sản & dự án"],["kinh_te_vh","Môi trường kinh tế – văn hóa"],["du_lich","Thị trường du lịch – dịch vụ"],["giao_duc","Giáo dục"],["phap_luat","Pháp luật"],["thoi_tiet","Dự báo thời tiết"]];
@@ -716,7 +750,7 @@ const CK_ORDER=[["xay_dung","Xây dựng – Đầu tư công"],["ngan_hang","Ng
 function t3(){
  const S=secs("chung_khoan"),f=k=>S.find(s=>s.key==k)||{};
  const ds=dsMuc("chung_khoan",CK_ORDER).map(([k,t])=>[k,t,(f(k).items||[]).length]),k=chon("ck",ds);
- $("#t3").innerHTML=lxShell(2,ghiChu(T)+lxStick(lxPills("ck",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length))+lxList("ck-"+k,f(k).items))}
+ $("#t3").innerHTML=ghiChu(T)+lxStick(lxPills("ck",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length),"l2")+lxList("ck-"+k,f(k).items)}
 
 
 // ===== SMART SCANNER — phân tích kỹ thuật minh bạch trên dữ liệu OHLCV đang có =====
@@ -776,8 +810,8 @@ function renderScanner(){const el=$("#t5");if(!el)return;const rows=scannerRows(
 function showScannerDetail(symbol){const r=scannerScore(tatCaMa().find(s=>s.s===symbol),scannerMode),el=$("#scan-detail");if(!r||!r.x){el.innerHTML="Không đủ dữ liệu để phân tích mã này.";return}el.innerHTML=`<div class="row"><h3>${esc(symbol)} · Chi tiết điểm ${r.score}/100</h3><span class="scan-tag">${scannerMode==="short"?"Ngắn hạn":"Trung hạn"}</span></div><div class="scan-grid">${r.items.map(i=>`<div class="scan-kpi"><span class="mu">${esc(i.name)}</span><b>${i.pts} điểm</b><small class="mu">${esc(i.why)}</small></div>`).join("")}</div>${r.reason?`<p class="scan-warn">Cảnh báo: ${esc(r.reason)}</p>`:""}<div class="scan-detail"><b>Chưa có điểm cơ bản</b><p class="mu">Không có dữ liệu tài chính chuẩn hóa được xác minh trong bộ dữ liệu hiện tại. Điểm trên chỉ phản ánh kỹ thuật giá và khối lượng.</p></div>`}
 
 // ===== Sự kiện =====
-function chonM(m){ls.set("mtab",m);document.documentElement.classList.toggle("kem",m==5);document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);luxSync2();window.scrollTo(0,0)}
-window.addEventListener("scroll",lxSync,{passive:true});window.addEventListener("resize",lxSync);
+function chonM(m){ls.set("mtab",m);document.querySelectorAll("#mtabs button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));[1,2,3,5].forEach(i=>$("#m"+i).classList.toggle("hide",i!=m));$("#ckhead").classList.toggle("hide",m!=2);luxSync2();window.scrollTo(0,0)}
+window.addEventListener("scroll",lxSync,{passive:true});window.addEventListener("resize",()=>{lxSync();lxMeasure()});
 document.addEventListener("click",e=>{const t=e.target;setTimeout(luxSync2,0);
   if(t.closest("#lxdown")){window.scrollBy({top:Math.round(window.innerHeight*.8),behavior:"smooth"});return}
   const lm=t.closest("[data-lm]");if(lm){chonM(+lm.dataset.lm);return}
