@@ -1,0 +1,143 @@
+{
+ "_doc": "Cấu hình bộ lấy dữ liệu xe (fetch_xe.py). Sửa file này khi hãng đổi địa chỉ trang hoặc khi cần thêm/bớt xe; không cần sửa mã. 'tu_khoa' = cách gọi tên xe trong địa chỉ trang (không dấu, chữ thường). 'loai_tru' = từ khóa để không nhầm với dòng xe khác. 'cho_ngoi' do người soạn nhập theo hiểu biết chung, nếu trang hãng ghi số chỗ khác thì dùng số của hãng. 'loai': xe_con | ban_tai | xe_tai (ban_tai và xe_tai chưa tính lăn bánh vì cách tính lệ phí khác xe con). 'dien': true = xe điện.",
+ "lephi": {
+  "truoc_ba_pct": 10,
+  "truoc_ba_xe_dien_pct": 0,
+  "bien_so_kv1": 14000000,
+  "bien_so_kv2": 140000,
+  "dang_kiem": 340000,
+  "duong_bo_nam": 1560000,
+  "bhtnds_duoi_6_cho": 437000,
+  "bhtnds_6_den_11_cho": 794000,
+  "ghi_chu": "Theo trang giá Toyota Việt Nam (22/10/2026) và đối chiếu VnExpress: trước bạ 10%, biển số 14 triệu (Hà Nội, TP.HCM) hoặc 140 nghìn (tỉnh khác, gồm Khánh Hòa). Xe điện: trước bạ 0% theo quy định em biết đang áp dụng đến hết 2/2027 — anh đối chiếu lại khi quy định đổi. Chưa trừ khuyến mãi, chưa gồm bảo hiểm vật chất, phụ kiện, phí dịch vụ đại lý."
+ },
+ "hang": [
+  {
+   "hang": "Toyota",
+   "ten_mien": ["toyota.com.vn"],
+   "trang_bat_dau": ["https://www.toyota.com.vn/danh-sach-xe"],
+   "trang_gia": ["https://www.toyota.com.vn/tin-tuc/thong-tin-bo-tro/gia-toyota-45580"],
+   "gia_du_phong_file": "toyota_gia.json",
+   "dong": [
+    {"dong": "Wigo", "tu_khoa": ["wigo"], "cho_ngoi": 5},
+    {"dong": "Vios", "tu_khoa": ["vios"], "cho_ngoi": 5},
+    {"dong": "Raize", "tu_khoa": ["raize"], "cho_ngoi": 5},
+    {"dong": "Avanza Premio", "tu_khoa": ["avanza"], "cho_ngoi": 7},
+    {"dong": "Veloz Cross", "tu_khoa": ["veloz"], "cho_ngoi": 7},
+    {"dong": "Yaris Cross", "tu_khoa": ["yaris cross"], "cho_ngoi": 5},
+    {"dong": "Corolla Cross", "tu_khoa": ["corolla cross"], "cho_ngoi": 5},
+    {"dong": "Innova Cross", "tu_khoa": ["innova"], "cho_ngoi": 7},
+    {"dong": "Fortuner", "tu_khoa": ["fortuner"], "cho_ngoi": 7},
+    {"dong": "Land Cruiser FJ", "tu_khoa": ["land cruiser fj", "fj"], "cho_ngoi": null},
+    {"dong": "Camry", "tu_khoa": ["camry"], "cho_ngoi": 5},
+    {"dong": "Land Cruiser Prado", "tu_khoa": ["prado"], "cho_ngoi": 7},
+    {"dong": "Alphard", "tu_khoa": ["alphard"], "cho_ngoi": 7},
+    {"dong": "Land Cruiser 300", "tu_khoa": ["land cruiser 300", "land cruiser", "lc300"], "loai_tru": ["fj", "prado"], "cho_ngoi": 7},
+    {"dong": "Hilux", "tu_khoa": ["hilux"], "loai": "ban_tai"}
+   ]
+  },
+  {
+   "hang": "Honda",
+   "ten_mien": ["honda.com.vn"],
+   "trang_bat_dau": ["https://www.honda.com.vn/o-to", "https://www.honda.com.vn/"],
+   "trang_gia": ["https://www.honda.com.vn/o-to/bang-gia"],
+   "dong": [
+    {"dong": "City", "tu_khoa": ["city"], "cho_ngoi": 5},
+    {"dong": "Civic", "tu_khoa": ["civic"], "loai_tru": ["type r", "type-r"], "cho_ngoi": 5},
+    {"dong": "Civic Type R", "tu_khoa": ["type r", "type-r", "civic type r"], "cho_ngoi": 4},
+    {"dong": "BR-V", "tu_khoa": ["br v", "br-v", "brv"], "cho_ngoi": 7},
+    {"dong": "HR-V", "tu_khoa": ["hr v", "hr-v", "hrv"], "cho_ngoi": 5},
+    {"dong": "CR-V", "tu_khoa": ["cr v", "cr-v", "crv"], "cho_ngoi": 7},
+    {"dong": "Accord", "tu_khoa": ["accord"], "cho_ngoi": 5}
+   ]
+  },
+  {
+   "hang": "Hyundai",
+   "ten_mien": ["hyundai.com", "hyundai-thanhcong.com", "hyundaithanhcong.vn"],
+   "trang_bat_dau": ["https://hyundai.com/vn/vi", "https://hyundai.com/vn/vi/oto"],
+   "trang_gia": [],
+   "dong": [
+    {"dong": "Grand i10", "tu_khoa": ["grand i10", "i10"], "cho_ngoi": 5},
+    {"dong": "Accent", "tu_khoa": ["accent"], "cho_ngoi": 5},
+    {"dong": "Venue", "tu_khoa": ["venue"], "cho_ngoi": 5},
+    {"dong": "Stargazer", "tu_khoa": ["stargazer"], "cho_ngoi": 7},
+    {"dong": "Elantra", "tu_khoa": ["elantra"], "cho_ngoi": 5},
+    {"dong": "Creta", "tu_khoa": ["creta"], "cho_ngoi": 5},
+    {"dong": "Tucson", "tu_khoa": ["tucson"], "cho_ngoi": 5},
+    {"dong": "Custin", "tu_khoa": ["custin"], "cho_ngoi": 7},
+    {"dong": "Santa Fe", "tu_khoa": ["santa fe", "santafe"], "cho_ngoi": 7},
+    {"dong": "Palisade", "tu_khoa": ["palisade"], "cho_ngoi": 7},
+    {"dong": "IONIQ 5", "tu_khoa": ["ioniq 5", "ioniq5"], "cho_ngoi": 5, "dien": true}
+   ]
+  },
+  {
+   "hang": "Kia",
+   "ten_mien": ["kia.com", "kia.vn", "thacoauto.vn"],
+   "trang_bat_dau": ["https://www.kia.com/vn/", "https://www.kia.com/vn/vehicles.html"],
+   "trang_gia": [],
+   "dong": [
+    {"dong": "Morning", "tu_khoa": ["morning"], "cho_ngoi": 5},
+    {"dong": "Sonet", "tu_khoa": ["sonet"], "cho_ngoi": 5},
+    {"dong": "Seltos", "tu_khoa": ["seltos"], "cho_ngoi": 5},
+    {"dong": "Carens", "tu_khoa": ["carens"], "loai_tru": ["clavis"], "cho_ngoi": 7},
+    {"dong": "Carens Clavis", "tu_khoa": ["clavis"], "cho_ngoi": 7},
+    {"dong": "K3", "tu_khoa": ["k3"], "cho_ngoi": 5},
+    {"dong": "Sportage", "tu_khoa": ["sportage"], "cho_ngoi": 5},
+    {"dong": "K5", "tu_khoa": ["k5"], "cho_ngoi": 5},
+    {"dong": "Sorento", "tu_khoa": ["sorento"], "cho_ngoi": 7},
+    {"dong": "Carnival", "tu_khoa": ["carnival"], "cho_ngoi": 7}
+   ]
+  },
+  {
+   "hang": "Suzuki",
+   "ten_mien": ["suzuki.com.vn"],
+   "trang_bat_dau": ["https://www.suzuki.com.vn/o-to", "https://www.suzuki.com.vn/"],
+   "trang_gia": [],
+   "dong": [
+    {"dong": "EECO", "tu_khoa": ["eeco"], "cho_ngoi": null},
+    {"dong": "Carry Pro", "tu_khoa": ["carry pro", "carry"], "loai": "xe_tai"},
+    {"dong": "Fronx", "tu_khoa": ["fronx"], "cho_ngoi": 5},
+    {"dong": "Swift", "tu_khoa": ["swift"], "cho_ngoi": 5},
+    {"dong": "XL7 Hybrid", "tu_khoa": ["xl7"], "cho_ngoi": 7},
+    {"dong": "Jimny", "tu_khoa": ["jimny"], "cho_ngoi": 4}
+   ]
+  },
+  {
+   "hang": "Mitsubishi",
+   "nguon_danh_sach": "du_kien: dòng xe do người soạn nhập theo hiểu biết chung, nếu hãng đã thôi bán thì bộ lấy dữ liệu sẽ báo không thấy trang",
+   "ten_mien": ["mitsubishi-motors.com.vn"],
+   "trang_bat_dau": ["https://www.mitsubishi-motors.com.vn/", "https://www.mitsubishi-motors.com.vn/o-to"],
+   "trang_gia": [],
+   "dong": [
+    {"dong": "Attrage", "tu_khoa": ["attrage"], "cho_ngoi": 5},
+    {"dong": "Xforce", "tu_khoa": ["xforce"], "cho_ngoi": 5},
+    {"dong": "Xpander", "tu_khoa": ["xpander"], "loai_tru": ["cross"], "cho_ngoi": 7},
+    {"dong": "Xpander Cross", "tu_khoa": ["xpander cross", "xpander-cross"], "cho_ngoi": 7},
+    {"dong": "Destinator", "tu_khoa": ["destinator"], "cho_ngoi": 7},
+    {"dong": "Pajero Sport", "tu_khoa": ["pajero"], "cho_ngoi": 7},
+    {"dong": "Triton", "tu_khoa": ["triton"], "loai": "ban_tai"}
+   ]
+  },
+  {
+   "hang": "VinFast",
+   "nguon_danh_sach": "VF 7, VF 8, VF 9 do người soạn bổ sung theo hiểu biết chung; các dòng còn lại lấy từ gia_xe.json",
+   "ten_mien": ["vinfastauto.com", "vinfast.vn"],
+   "trang_bat_dau": ["https://vinfastauto.com/vn_vi", "https://vinfastauto.com/vn_vi/oto"],
+   "trang_gia": [],
+   "dong": [
+    {"dong": "VF 3", "tu_khoa": ["vf 3", "vf3"], "cho_ngoi": 4, "dien": true},
+    {"dong": "Minio Green", "tu_khoa": ["minio"], "cho_ngoi": 4, "dien": true},
+    {"dong": "EC Van", "tu_khoa": ["ec van", "ecvan"], "loai": "xe_tai", "dien": true},
+    {"dong": "Herio Green", "tu_khoa": ["herio"], "cho_ngoi": 5, "dien": true},
+    {"dong": "VF 5", "tu_khoa": ["vf 5", "vf5"], "cho_ngoi": 5, "dien": true},
+    {"dong": "VF 6", "tu_khoa": ["vf 6", "vf6"], "cho_ngoi": 5, "dien": true},
+    {"dong": "Nerio Green", "tu_khoa": ["nerio"], "cho_ngoi": 5, "dien": true},
+    {"dong": "Limo Green", "tu_khoa": ["limo"], "cho_ngoi": 7, "dien": true},
+    {"dong": "VF MPV 7", "tu_khoa": ["mpv 7", "mpv-7", "mpv7"], "cho_ngoi": 7, "dien": true},
+    {"dong": "VF 7", "tu_khoa": ["vf 7", "vf7"], "cho_ngoi": 5, "dien": true},
+    {"dong": "VF 8", "tu_khoa": ["vf 8", "vf8"], "cho_ngoi": 5, "dien": true},
+    {"dong": "VF 9", "tu_khoa": ["vf 9", "vf9"], "cho_ngoi": 7, "dien": true}
+   ]
+  }
+ ]
+}

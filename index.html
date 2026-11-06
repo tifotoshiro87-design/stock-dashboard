@@ -835,4 +835,105 @@ renderAll();load();loadWX();setInterval(loadWX,1800000);
 setInterval(load,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()});
 </script>
+<script>
+/* Chi tiết xe: bấm vào thẻ xe (ô .xc) trong Công nghệ > Xe ô tô để mở cửa sổ gồm ảnh, giá niêm yết, giá lăn bánh, thông số.
+   Đọc data/xe_chi_tiet.json do fetch_xe.py tạo. Khối này độc lập, không đụng tới mã còn lại của app. */
+(function(){
+ "use strict";
+ var XD=null,loading=null;
+ var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})};
+ var okUrl=function(u){return /^https?:\/\//.test(u||"")};
+ var nk=function(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/[^a-z0-9]+/g,"")};
+ var fVND=function(n){return n==null?"—":Number(n).toLocaleString("vi-VN")+" ₫"};
+ var fGia=function(n){if(n==null)return "—";var tr=n/1e6;return tr>=1000?(tr/1000).toFixed(3).replace(".",",")+" tỷ":Math.round(tr)+" triệu"};
+ var fNgay=function(s){var m=/^(\d{4})-(\d{2})-(\d{2})/.exec(s||"");return m?m[3]+"/"+m[2]+"/"+m[1]:(s||"")};
+ var NHAN={kich_thuoc:"Kích thước (D×R×C)",chieu_dai_co_so:"Chiều dài cơ sở",khoang_sang_gam:"Khoảng sáng gầm",ban_kinh_quay_vong:"Bán kính quay vòng",
+  trong_luong:"Trọng lượng không tải",dung_tich_binh:"Bình nhiên liệu",so_cho:"Số chỗ ngồi",dong_co:"Động cơ",dung_tich_xi_lanh:"Dung tích xi lanh",
+  cong_suat:"Công suất",mo_men:"Mô-men xoắn",hop_so:"Hộp số",dan_dong:"Dẫn động",tieu_thu:"Tiêu thụ nhiên liệu (kết hợp)",nhien_lieu:"Nhiên liệu",
+  tui_khi:"Túi khí",mam_lop:"Mâm / lốp",xuat_xu:"Xuất xứ"};
+ var TT={day_du:"Đủ dữ liệu",ban_cu:"Bản lần trước (lần mới nhất không lấy được)",khong_tim_thay_trang:"Chưa tìm thấy trang hãng",loi:"Lỗi khi lấy dữ liệu"};
+ var NGUON={bang_gia_hang:"Bảng giá hãng",trang_xe_hang:"Trang xe của hãng",gia_kiem_tay_truoc_do:"Giá đã kiểm tay trước đó"};
+
+ var css=".xcd-ov{position:fixed;inset:0;z-index:9999;background:rgba(5,8,20,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:16px 10px}"+
+ ".xcd{width:100%;max-width:880px;background:#0f1630;border:1px solid rgba(255,255,255,.14);border-radius:16px;color:var(--lx-tx,#f4efe3);padding:16px;margin:auto 0;font-size:14px;line-height:1.45}"+
+ ".xcd h2{margin:0;font-size:20px}.xcd .xcd-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.xcd .xcd-x{background:none;border:1px solid rgba(255,255,255,.25);color:inherit;border-radius:8px;width:34px;height:34px;font-size:18px;cursor:pointer;flex:none}"+
+ ".xcd .xcd-s{color:var(--lx-mu,#8d96ab);font-size:12px;margin:4px 0 10px}.xcd .xcd-img{width:100%;aspect-ratio:16/9;object-fit:contain;background:#0a1024;border-radius:10px;display:block}"+
+ ".xcd .xcd-th{display:flex;gap:6px;margin:6px 0 12px;overflow-x:auto}.xcd .xcd-th img{height:54px;border-radius:6px;border:2px solid transparent;cursor:pointer;background:#0a1024;flex:none}.xcd .xcd-th img.on{border-color:var(--lx-gold2,#f0c566)}"+
+ ".xcd .xcd-w{overflow-x:auto;margin:6px 0}.xcd table{width:100%;border-collapse:collapse;font-size:13px}.xcd th,.xcd td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,.1);text-align:left;vertical-align:top}"+
+ ".xcd th{color:var(--lx-mu,#8d96ab);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px}.xcd td.n,.xcd th.n{text-align:right;white-space:nowrap}.xcd .g{color:var(--lx-gold2,#f0c566);font-weight:700}"+
+ ".xcd .nt{font-size:11px;color:var(--lx-mu,#8d96ab)}.xcd a{color:var(--lx-gold2,#f0c566)}.xcd h3{font-size:14px;margin:14px 0 6px;color:var(--lx-gold2,#f0c566)}"+
+ ".xcd details{border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:8px 10px;margin:6px 0}.xcd summary{cursor:pointer;font-weight:600}.xcd .kv{display:grid;grid-template-columns:minmax(120px,38%) 1fr;gap:4px 12px;margin-top:8px}.xcd .kv b{color:var(--lx-mu,#8d96ab);font-weight:500}"+
+ ".xcd .wr{background:rgba(240,197,102,.1);border:1px solid rgba(240,197,102,.35);border-radius:8px;padding:6px 9px;margin:4px 0;font-size:12px}.xc{cursor:pointer}";
+ var st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+
+ function nap(){
+  if(XD!==null&&XD!==false)return Promise.resolve(XD);
+  if(!loading)loading=fetch("data/xe_chi_tiet.json?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(j){XD=j;return j}).catch(function(){loading=null;return false});
+  return loading;
+ }
+ function tim(d,hang,dong){
+  if(!d||!d.xe)return null;var h=nk(hang),g=nk(dong),c=d.xe.filter(function(x){return nk(x.hang)==h});
+  return c.find(function(x){return nk(x.dong)==g})||null;
+ }
+ function bangPhienBan(x){
+  var pb=x.phien_ban||[];if(!pb.length)return '<div class="wr">Chưa lấy được giá của dòng xe này.</div>';
+  var h='<div class="xcd-w"><table><thead><tr><th>Phiên bản</th><th class="n">Giá niêm yết</th><th class="n">Lăn bánh Khánh Hòa</th><th class="n">Lăn bánh Hà Nội / TP.HCM</th></tr></thead><tbody>';
+  pb.forEach(function(p){
+   var ng=p.nguon_gia,lb=p.lan_banh;
+   var nguon=ng?(okUrl(ng.url)?'<a href="'+esc(ng.url)+'" target="_blank" rel="noopener">'+esc(NGUON[ng.loai]||"Nguồn")+'</a>':esc(NGUON[ng.loai]||"Nguồn"))+" · "+esc(fNgay(ng.ngay)):"";
+   h+='<tr><td><b>'+esc(p.ten)+'</b><div class="nt">'+(p.cho_ngoi?esc(p.cho_ngoi)+" chỗ · ":"")+nguon+'</div></td>'+
+    '<td class="n g">'+esc(fGia(p.gia_niem_yet))+'<div class="nt">'+(p.gia_niem_yet?esc(fVND(p.gia_niem_yet)):"")+'</div></td>'+
+    '<td class="n">'+(lb?esc(fVND(lb.khanh_hoa_kv2)):"—")+(lb?"":'<div class="nt">'+esc(p.lan_banh_ghi_chu||"chưa tính được")+'</div>')+'</td>'+
+    '<td class="n">'+(lb?esc(fVND(lb.ha_noi_tphcm_kv1)):"—")+'</td></tr>';
+  });
+  return h+'</tbody></table></div><div class="nt">Xếp giá thấp → cao. Lăn bánh là giá tính theo công thức, chưa trừ khuyến mãi.</div>';
+ }
+ function khoiThongSo(x){
+  var pb=x.phien_ban||[],chung=x.thong_so_chung||{},h="";
+  function kv(o){var r="";Object.keys(NHAN).forEach(function(k){if(o[k])r+="<b>"+esc(NHAN[k])+"</b><span>"+esc(o[k])+"</span>"});return r}
+  pb.forEach(function(p,i){
+   var o=Object.assign({},chung,(p.thong_so&&p.thong_so.chuan)||{}),tho=(p.thong_so&&p.thong_so.tho)||[],k=kv(o);
+   if(!k&&!tho.length)return;
+   h+='<details'+(i===0?" open":"")+'><summary>'+esc(p.ten)+'</summary>'+(k?'<div class="kv">'+k+'</div>':'<div class="nt">Chưa lấy được thông số chuẩn của phiên bản này.</div>')+
+    (tho.length?'<details style="margin-top:8px"><summary>Tất cả thông số trên trang hãng ('+tho.length+')</summary><div class="kv">'+tho.map(function(r){return "<b>"+esc(r.nhan)+"</b><span>"+esc(r.gt)+"</span>"}).join("")+'</div></details>':"")+'</details>';
+  });
+  var cho=x.thong_so_chung_tho||[];
+  if(!h&&cho.length)h+='<details open><summary>Thông số (chung cho dòng xe)</summary><div class="kv">'+cho.map(function(r){return "<b>"+esc(r.nhan)+"</b><span>"+esc(r.gt)+"</span>"}).join("")+'</div></details>';
+  var cg=x.thong_so_chua_ghep;
+  if(cg)Object.keys(cg).forEach(function(t){h+='<details><summary>Thông số cột "'+esc(t)+'" (chưa ghép được với bảng giá)</summary><div class="kv">'+cg[t].map(function(r){return "<b>"+esc(r.nhan)+"</b><span>"+esc(r.gt)+"</span>"}).join("")+'</div></details>'});
+  return h||'<div class="wr">Chưa lấy được thông số của dòng xe này.</div>';
+ }
+ function dung(x,d){
+  var im=(x.hinh_anh||[]).filter(function(a){return a&&a.file});
+  var anh=im.length?'<img class="xcd-img" id="xcd-main" src="'+esc(im[0].file)+'" alt="'+esc(x.hang+" "+x.dong)+'" referrerpolicy="no-referrer">'+
+   (im.length>1?'<div class="xcd-th">'+im.map(function(a,i){return '<img src="'+esc(a.file)+'" alt="" loading="lazy" class="'+(i?"":"on")+'">'}).join("")+'</div>':"")+
+   '<div class="nt">Ảnh từ trang hãng'+(okUrl(im[0].trang)?': <a href="'+esc(im[0].trang)+'" target="_blank" rel="noopener">mở trang xe</a>':"")+'</div>':'<div class="wr">Chưa có ảnh của dòng xe này.</div>';
+  var gc=(x.ghi_chu||[]).map(function(t){return '<div class="wr">⚠ '+esc(t)+'</div>'}).join("");
+  return '<div class="xcd-h"><div><h2>'+esc(x.hang)+" "+esc(x.dong)+'</h2><div class="xcd-s">'+esc(TT[x.trang_thai]||("Thiếu: "+(x.thieu||[]).join(", ")))+' · cập nhật '+esc(fNgay(d.cap_nhat))+
+   (okUrl(x.trang_hang)?' · <a href="'+esc(x.trang_hang)+'" target="_blank" rel="noopener">trang hãng</a>':"")+'</div></div><button class="xcd-x" aria-label="Đóng">✕</button></div>'+
+   anh+'<h3>Giá niêm yết và giá lăn bánh</h3>'+bangPhienBan(x)+'<h3>Thông số kỹ thuật</h3>'+khoiThongSo(x)+(gc?'<h3>Lưu ý về dữ liệu</h3>'+gc:"")+
+   '<div class="nt" style="margin-top:10px">'+esc(d.cong_thuc_lan_banh||"")+'</div>';
+ }
+ function dong(){var o=document.getElementById("xcd-ov");if(o){o.remove();document.body.style.overflow=""}}
+ function mo(hang,dongXe,d){
+  dong();var x=tim(d,hang,dongXe),o=document.createElement("div");o.id="xcd-ov";o.className="xcd-ov";
+  o.innerHTML='<div class="xcd" role="dialog" aria-modal="true">'+(x?dung(x,d):
+   '<div class="xcd-h"><h2>'+esc(hang)+" "+esc(dongXe)+'</h2><button class="xcd-x" aria-label="Đóng">✕</button></div><div class="wr" style="margin-top:10px">Chưa có dữ liệu chi tiết cho xe này. Vào GitHub › Actions › “Lay du lieu chi tiet xe” › Run workflow để lấy dữ liệu từ trang hãng.</div>')+'</div>';
+  o.addEventListener("click",function(e){
+   if(e.target===o||(e.target.closest&&e.target.closest(".xcd-x")))return dong();
+   var t=e.target;if(t.tagName==="IMG"&&t.parentNode.className==="xcd-th"){var m=document.getElementById("xcd-main");if(m)m.src=t.src;Array.prototype.forEach.call(t.parentNode.children,function(c){c.className=c===t?"on":""})}
+  });
+  document.body.appendChild(o);document.body.style.overflow="hidden";
+  var im=o.querySelectorAll("img");Array.prototype.forEach.call(im,function(i){i.onerror=function(){i.style.display="none"}});
+ }
+ document.addEventListener("click",function(e){
+  var c=e.target.closest&&e.target.closest(".xc");if(!c||e.target.closest("a"))return;
+  var hp=c.querySelector(".xp"),hd=c.querySelector(".xh b");if(!hp||!hd)return;
+  var hang=hp.textContent.trim(),dg=hd.textContent.trim();
+  nap().then(function(d){mo(hang,dg,d)});
+ });
+ document.addEventListener("keydown",function(e){if(e.key==="Escape")dong()});
+ window.__xe={tim:tim,dung:dung,nk:nk,fGia:fGia}; /* để kiểm tra */
+})();
+</script>
 </body></html>
