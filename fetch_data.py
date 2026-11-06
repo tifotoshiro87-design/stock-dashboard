@@ -15,6 +15,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import yfinance as yf
+from nen_sach import lam_sach_nen  # bỏ nến ngày nghỉ và nến nhiễu trước khi lưu
 
 THU_MUC = Path(__file__).parent / "data"
 THU_MUC.mkdir(exist_ok=True)
@@ -246,6 +247,7 @@ def lay_von_hoa(ma):
 
 def lay_gia(danh_sach=None):
     ds, loi = [], {}
+    tong_ls = {"nghi_le_da_bo": 0, "nen_nhieu_da_bo": {}}
     for ma, ten, nhom, san in (danh_sach or CO_PHIEU):
         nen, nguon_dung = [], None
         chi_tiet_loi = []
@@ -256,6 +258,12 @@ def lay_gia(danh_sach=None):
                 break
             except Exception as e:  # noqa: BLE001
                 chi_tiet_loi.append(f"{nguon}: {e}")
+        bc_ls = {"nghi_le": 0, "nhieu": []}
+        if nen:
+            nen, bc_ls = lam_sach_nen(nen)
+            tong_ls["nghi_le_da_bo"] += bc_ls["nghi_le"]
+            if bc_ls["nhieu"]:
+                tong_ls["nen_nhieu_da_bo"][ma] = bc_ls["nhieu"]
         if not nen:
             loi[ma] = " | ".join(chi_tiet_loi)
         print(("OK  " if nen else "LỖI"), ma, nguon_dung or loi[ma][:80])
@@ -265,6 +273,7 @@ def lay_gia(danh_sach=None):
     phien = max((s["candles"][-1]["t"] for s in ds if s["candles"]), default=None)
     meta = {"fetched_at": datetime.now(VN).strftime("%Y-%m-%d %H:%M"), "latest_session": phien,
             "unit": "nghìn đồng", "failed": loi, "sample": False, "kbs": _KBS["ket_qua"],
+            "lam_sach": {**tong_ls, "ghi_chu": "Bỏ nến ngày nghỉ (khối lượng 0, giá phẳng) và nến nhiễu một phiên; không sửa số liệu nào."},
             "disclaimer": "Chỉ mang tính tham khảo, không phải khuyến nghị đầu tư."}
     return {"meta": meta, "stocks": ds}
 
