@@ -1,0 +1,55 @@
+name: Lay du lieu chi tiet xe
+# Lấy giá niêm yết, thông số, hình ảnh từng dòng xe từ trang chính hãng, tự tính giá lăn bánh.
+# Chạy tay (Actions > Lay du lieu chi tiet xe > Run workflow) hoặc tự chạy mỗi thứ Hai.
+# Kết quả: data/xe_chi_tiet.json, data/xe_bao_cao.json, data/xe_anh/. Xem báo cáo để biết xe nào thiếu gì.
+on:
+  workflow_dispatch:
+    inputs:
+      hang:
+        description: "Chỉ chạy một hãng (để trống = tất cả). Ví dụ: Toyota"
+        required: false
+        default: ""
+      dong:
+        description: "Chỉ chạy một dòng xe (để trống = tất cả). Ví dụ: Vios"
+        required: false
+        default: ""
+  schedule:
+    - cron: "0 20 * * 0"   # 20:00 UTC Chủ nhật = 03:00 sáng thứ Hai giờ Việt Nam
+permissions:
+  contents: write
+concurrency:
+  group: xe-chi-tiet
+  cancel-in-progress: false
+jobs:
+  lay-du-lieu:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Cai thu vien
+        run: |
+          pip install -r requirements-xe.txt
+          python -m playwright install --with-deps chromium
+      - name: Kiem tra ham doc/tinh (khong can mang)
+        run: python test_fetch_xe.py
+      - name: Lay du lieu
+        env:
+          HANG: ${{ github.event.inputs.hang }}
+          DONG: ${{ github.event.inputs.dong }}
+        run: |
+          args=()
+          if [ -n "$HANG" ]; then args+=(--hang "$HANG"); fi
+          if [ -n "$DONG" ]; then args+=(--dong "$DONG"); fi
+          python fetch_xe.py "${args[@]}"
+      - name: Luu ket qua
+        run: |
+          git config user.name "xe-bot"
+          git config user.email "xe-bot@users.noreply.github.com"
+          git add data/xe_chi_tiet.json data/xe_bao_cao.json data/xe_anh 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Khong co thay doi"; exit 0; fi
+          git commit -m "Cap nhat du lieu chi tiet xe $(date -u +%F)"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push
