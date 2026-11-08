@@ -821,7 +821,7 @@ document.addEventListener("click",e=>{const t=e.target;setTimeout(luxSync2,0);
  const vb=t.closest("[data-vt]");if(vb){VT.kind=vb.dataset.vt;const b=$("#wxbox");if(b)b.innerHTML=wxHtml();return}
  if(t.dataset.more){const id=t.dataset.more,x=$("#x-"+id),mo=!OPEN.has(id);mo?OPEN.add(id):OPEN.delete(id);x.classList.toggle("hide",!mo);const n=x.querySelectorAll(".ni").length;t.textContent=mo?"Thu gọn ▲":`Xem thêm ${n} tin ▼`;return}
  if(t.closest("#tabs button")){const k=t.dataset.t;document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b==t));[1,2,3,4,5].forEach(i=>$("#t"+i).classList.toggle("hide",i!=k));$("#bar").classList.toggle("hide",k!="1");if(k=="5")renderScanner()}
- else if(t.dataset.g!=null&&t.closest("#grp")){grp=+t.dataset.g;cards()}
+ else if(t.dataset.g!=null&&t.closest("#grp")){grp=+t.dataset.g;const ds=tatCaMa().filter(x=>x.g==grp);if(ds.length&&!ds.some(x=>x.s==sel))sel=ds[0].s;cards();detail()}
  else if(t.closest(".sc")){sel=t.closest(".sc").dataset.s;cards();detail()}
  else if(t.closest("tr[data-s4]")){const tr=t.closest("tr[data-s4]");sel=tr.dataset.s4;grp=+tr.dataset.g4;cards();detail();
   document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.dataset.t=="1"));[1,2,3,4].forEach(i=>$("#t"+i).classList.toggle("hide",i!=1));$("#bar").classList.remove("hide")}
