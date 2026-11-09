@@ -255,12 +255,66 @@ TAB["quoc_te"] = {
 }
 
 
+# ---- Tab 6 (app gộp vào nút "News" thành chip "Chính trị Việt Nam"): bộ máy chính trị trong nước ----
+# Nhân sự (ai được bầu/bổ nhiệm/miễn nhiệm chức vụ gì), kỷ luật – kiểm tra, Quốc hội – Chính phủ – Đảng.
+# Chỉ lấy tin tiếng Việt từ báo chính thống; tiêu đề, tóm tắt, nguồn, giờ đăng, link gốc đều lấy từ chính nguồn tin, không thêm bình luận.
+# 'bat_buoc' (từng mục): tin phải nhắc tới chức danh/cơ quan của bộ máy Đảng – Nhà nước => loại kỷ luật cầu thủ, bổ nhiệm giám đốc công ty...
+# 'loai_tru' (xét ở tiêu đề): tin thể thao/giải trí/giao thông và tin chính trị nước ngoài (có tên nước ngoài mà không nhắc Việt Nam).
+_CT_BAT_BUOC = (r"bộ chính trị|ban bí thư|ban chấp hành trung ương|ủy viên trung ương|trung ương đảng|tổng bí thư|"
+                r"ủy ban kiểm tra|uỷ ban kiểm tra|ban kiểm tra|tỉnh ủy|tỉnh uỷ|thành ủy|thành uỷ|huyện ủy|quận ủy|đảng ủy|đảng bộ|"
+                r"ban thường vụ|ban cán sự|đảng đoàn|cấp ủy|đảng viên|đại hội đảng|"
+                r"chủ tịch nước|thủ tướng|phó thủ tướng|chính phủ|bộ trưởng|thứ trưởng|quốc hội|đại biểu quốc hội|"
+                r"hđnd|hội đồng nhân dân|ubnd|ủy ban nhân dân|uỷ ban nhân dân|bí thư|chủ tịch tỉnh|chủ tịch thành phố|chủ tịch ubnd|"
+                r"phó chủ tịch (?:nước|quốc hội|tỉnh|thành phố|ubnd|hđnd)|mặt trận tổ quốc|tòa án nhân dân tối cao|"
+                r"viện kiểm sát nhân dân tối cao|kiểm toán nhà nước|tướng|thượng tướng|đại tướng")
+_CT_LOAI_TRU = (r"cầu thủ|bóng đá|\bhlv\b|huấn luyện viên|trọng tài|ca sĩ|nghệ sĩ|hoa hậu|người mẫu|diễn viên|nồng độ cồn|tai nạn|"
+                r"vi phạm giao thông|\bcsgt\b|học sinh|sinh viên|kỷ luật (?:ngân sách|tài chính|tài khóa|thị trường|lao động)|"
+                r"tổng thống|quốc vương|nữ hoàng|hoàng gia|hoa kỳ|nhà trắng|lầu năm góc|thượng viện|hạ viện|trump|biden|putin|ukraine|"
+                r"thủ tướng (?:anh|đức|ý|pháp|úc|canada|ấn độ|nhật|israel|malaysia|singapore|thái|lào|campuchia|hungary|ba lan|hy lạp|tây ban nha|new zealand)|"
+                r"^(?!.*việt nam).*(?:\bmỹ\b|thế giới|đảng dân chủ|đảng cộng hòa|châu âu|trung quốc|tập cận bình|nhật bản|hàn quốc|triều tiên|thái lan|campuchia|indonesia|philippines|"
+                r"singapore|malaysia|myanmar|israel|\biran\b|gaza|đài loan|liên bang nga|nước nga|\bnato\b|liên minh châu âu|liên hợp quốc)")
+TAB["chinh_tri_vn"] = {
+    "ten": "Chính trị Việt Nam",
+    "so_ngay": 30,
+    "bat_buoc": "",
+    # kênh Thời sự và Xây dựng Đảng của các báo (đã đọc được ở lần chạy gần nhất, xem data/nguon_rss.json); các báo khác bot tự dò theo SLUG_QUAN_TAM
+    "rss": ["https://nhandan.vn/rss/xay-dung-dang-1179.rss", "https://baotintuc.vn/rss/xay-dung-dang-1623.rss",
+            "https://www.sggp.org.vn/rss/xay-dung-dang-204.rss", "https://vnexpress.net/rss/thoi-su.rss",
+            "https://tuoitre.vn/thoi-su.rss", "https://thanhnien.vn/rss/thoi-su.rss", "https://dantri.com.vn/rss/thoi-su.rss",
+            "https://vietnamnet.vn/rss/thoi-su.rss"],
+    "muc": [
+        {"key": "ct_nhan_su", "ten": "Nhân sự – bầu cử – bổ nhiệm",
+         "tim": ["Bộ Chính trị Ban Bí thư phân công bổ nhiệm", "Quốc hội bầu phê chuẩn bổ nhiệm bộ trưởng"],
+         "tu_khoa": r"\bbầu\b|bầu cử|trúng cử|ứng cử|giới thiệu ứng cử|bổ nhiệm|phê chuẩn|miễn nhiệm|bãi nhiệm|thôi giữ chức|"
+                    r"thôi làm nhiệm vụ|nghỉ hưu|điều động|luân chuyển|chuẩn y|chỉ định|phân công|kiện toàn|giữ chức|nhậm chức|"
+                    r"nhận chức|trao quyết định|công bố quyết định|nhân sự|tân (?:bộ trưởng|chủ tịch|bí thư|thủ tướng)|"
+                    r"đại hội đảng bộ|được giới thiệu|được bầu|được phân công",
+         "uu_tien": 3, "tieu_de": True,   # mục cụ thể thắng mục "Quốc hội – Chính phủ – Đảng" (mục rộng) khi cùng khớp; từ khóa phải nằm ở tiêu đề
+         "bat_buoc": _CT_BAT_BUOC, "loai_tru": _CT_LOAI_TRU},
+        {"key": "ct_ky_luat", "ten": "Kỷ luật – kiểm tra – vi phạm",
+         "tim": ["Ủy ban Kiểm tra Trung ương kỷ luật", "kỷ luật cán bộ khai trừ Đảng cách chức"],
+         "tu_khoa": r"kỷ luật|khai trừ|cách chức|cảnh cáo|khiển trách|xóa tư cách|xoá tư cách|vi phạm|khuyết điểm|sai phạm|"
+                    r"kiểm tra dấu hiệu|kiểm điểm|đình chỉ|tạm đình chỉ|bị bắt|khởi tố|truy tố|xét xử|tham nhũng|tiêu cực|"
+                    r"buộc thôi việc|thu hồi",
+         "uu_tien": 3, "tieu_de": True,
+         "bat_buoc": _CT_BAT_BUOC, "loai_tru": _CT_LOAI_TRU},
+        {"key": "ct_quoc_hoi", "ten": "Quốc hội – Chính phủ – Đảng",
+         "tim": ["kỳ họp Quốc hội thông qua nghị quyết", "Hội nghị Trung ương Bộ Chính trị kết luận"],
+         "tu_khoa": r"kỳ họp|quốc hội|nghị quyết|dự thảo luật|thông qua luật|chất vấn|hội nghị trung ương|hội nghị bộ chính trị|"
+                    r"phiên họp|họp chính phủ|họp báo chính phủ|chủ trương|kết luận của bộ chính trị|tổng bí thư|chủ tịch nước|thủ tướng",
+         "tieu_de": True,   # từ khóa phải nằm ở tiêu đề (mục này rộng, tránh kéo cả tin lạc đề)
+         "bat_buoc": _CT_BAT_BUOC, "loai_tru": _CT_LOAI_TRU},
+    ],
+}
+
+
 # ===================== DANH SÁCH BÁO: BOT TỰ DÒ KÊNH RSS =====================
 # (tên hiển thị, tên miền, [các trang liệt kê RSS - thử lần lượt, cuối cùng thử trang chủ], tab được cấp tin)
 # Bot đọc trang liệt kê RSS để tìm link kênh THẬT => báo đổi đường dẫn RSS vẫn không hỏng.
 # Các kênh chạy tốt được nhớ ở data/nguon_rss.json (lần sau dò hụt vẫn dùng lại).
 # Muốn thêm báo: thêm 1 dòng. Báo không có RSS (vd Báo Khánh Hòa) vẫn lấy được qua Bing/Google (xem BAO_DIA_PHUONG).
 NT, CK, CN, QT = "nha_trang", "chung_khoan", "cong_nghe", "quoc_te"
+CT = "chinh_tri_vn"
 CA_BA = (NT, CK, CN)
 BAO = {
     # --- báo tổng hợp quốc gia (cấp tin cho cả 3 tab, bot chỉ lấy các kênh liên quan) ---
@@ -310,12 +364,19 @@ for _k in ("vnexpress", "tuoitre", "thanhnien", "dantri", "vietnamnet", "tienpho
     if _k in BAO:
         BAO[_k] = BAO[_k][:3] + (tuple(BAO[_k][3]) + (QT,),)
 
+# Tab Chính trị Việt Nam: các báo tổng hợp quốc gia có chuyên mục Thời sự / Xây dựng Đảng (bot tự dò kênh, xem SLUG_QUAN_TAM[CT])
+for _k in ("vnexpress", "tuoitre", "thanhnien", "dantri", "vietnamnet", "tienphong", "nld", "laodong", "vov", "vtv",
+           "vietnamplus", "baotintuc", "baochinhphu", "nhandan", "sggp", "plo", "congthuong"):
+    if _k in BAO:
+        BAO[_k] = BAO[_k][:3] + (tuple(BAO[_k][3]) + (CT,),)
+
 # Báo/trang địa phương không có RSS: bot tìm bằng Bing/Google với "site:" (mỗi mục Nha Trang tìm thêm theo chủ đề).
 BAO_DIA_PHUONG = ["baokhanhhoa.vn", "khanhhoa.gov.vn"]
 # Báo lớn không có RSS dùng được: tìm bài bằng Bing/Google News với "site:" theo từng mục của tab (chỉ lấy tiêu đề, nguồn, giờ đăng, link).
 BAO_SITE_THEO_TAB = {
     "chung_khoan": ["baodautu.vn", "nhipcaudautu.vn", "thesaigontimes.vn", "thoibaotaichinhvietnam.vn"],
     "quoc_te": ["laodong.vn", "znews.vn"],
+    "chinh_tri_vn": ["dangcongsan.vn", "ubkttw.vn", "quochoi.vn"],
     "cong_nghe": ["znews.vn", "laodong.vn"],
 }
 CHU_DE_DIA_PHUONG = {"ha_tang": "giao thông", "quy_hoach": "quy hoạch dự án", "kinh_te_vh": "kinh tế văn hóa",
@@ -333,7 +394,7 @@ THEM_BAO_CHINH_THONG = [
     "doisongphapluat.com", "baophapluat.vn", "vietnamdaily.vn", "toquoc.vn", "congly.vn", "phunuonline.com.vn",
     "tuoitrethudo.vn", "24h.com.vn", "vietnambiz.vn", "nguoiquansat.vn", "nhadautu.vn", "thuonghieucongluan.com.vn",
     "cafeland.vn", "24hmoney.vn", "xedoisong.vn", "techz.vn", "oto.com.vn", "vietnam.vn", "danviet.vn", "petrotimes.vn", "nongnghiep.vn", "nongnghiepmoitruong.vn", "vietq.vn", "dienanhvietnam.vn", "tiepthigiadinh.vn", "motgoc.vn",
-    "dangcongsan.vn", "dangcongsan.org.vn", "vtvgo.vn", "voh.com.vn", "suckhoedoisong.vn", "doanhnghiephoinhap.vn",
+    "dangcongsan.vn", "dangcongsan.org.vn", "ubkttw.vn", "quochoi.vn", "chinhphu.vn", "xaydungdang.org.vn", "vtvgo.vn", "voh.com.vn", "suckhoedoisong.vn", "doanhnghiephoinhap.vn",
 ]
 TOI_DA_KENH_MOI_BAO = 14   # mỗi báo, mỗi tab lấy tối đa bao nhiêu kênh RSS liên quan
 TIM_KIEM_SONG_SONG = 6     # số luồng tìm kiếm Bing/Google (giữ thấp để không bị chặn)
@@ -356,6 +417,8 @@ SLUG_QUAN_TAM = {
 }
 
 
+SLUG_QUAN_TAM[CT] = _T.format("thoi-su|thoisu|chinh-tri|chinhtri|xay-dung-dang|xaydungdang|chinh-phu|chinhphu|quoc-hoi|quochoi|"
+                              "phap-luat|phapluat|nhan-su|nhansu|home|trang-chu|tin-moi-nhat|tin-moi|trong-nuoc|trongnuoc")
 SLUG_QUAN_TAM[QT] = _T.format("the-gioi|thegioi|quoc-te|quocte|kinh-te-the-gioi|the-gioi-kinh-te|tai-chinh-quoc-te|chinh-tri-quoc-te|world|international")
 
 

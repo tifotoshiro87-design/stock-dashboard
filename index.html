@@ -739,11 +739,19 @@ function renderCN(){
   $("#m3").innerHTML=lxShell(3,h)}
 
 // ===== Tab chính 5: Tin quốc tế =====
-const QT_ORDER=[["kinh_te_tg","Kinh tế – thương mại – lãi suất"],["chinh_tri","Chính trị – địa chính trị – quan hệ quốc tế"],["nang_luong_vang","Tài chính – năng lượng – vàng – hàng hóa"],["tac_dong_vn","Tác động tới Việt Nam"]];
+const QT_ORDER=[["kinh_te_tg","Kinh tế – thương mại – lãi suất"],["chinh_tri","Chính trị – địa chính trị – quan hệ quốc tế"],["nang_luong_vang","Tài chính – năng lượng – vàng – hàng hóa"],["tac_dong_vn","Tác động tới Việt Nam"],["ct_vn","Chính trị Việt Nam"]];
+// Chip "Chính trị Việt Nam": dữ liệu nằm ở T.chinh_tri_vn (bot tách riêng), có hàng chip phụ theo nhóm tin
+const CT_SUB=[["tat_ca","Tất cả"],["ct_nhan_su","Nhân sự – bầu cử – bổ nhiệm"],["ct_ky_luat","Kỷ luật – kiểm tra – vi phạm"],["ct_quoc_hoi","Quốc hội – Chính phủ – Đảng"]];
+function ctItems(k){const S=secs("chinh_tri_vn");
+ return k=="tat_ca"?S.flatMap(s=>s.items||[]).sort((a,b)=>String(b.date||"").localeCompare(String(a.date||""))):((S.find(s=>s.key==k)||{}).items||[])}
 function renderQT(){
  const S=secs("quoc_te"),f=k=>S.find(s=>s.key==k)||{};
- const ds=dsMuc("quoc_te",QT_ORDER).map(([k,t])=>[k,f(k).name||t,(f(k).items||[]).length]),k=chon("qt",ds);
- $("#m5").innerHTML=lxShell(5,ghiChu(T)+lxStick(lxPills("qt",ds,k)+lxHead(ds.find(d=>d[0]==k)[1],(f(k).items||[]).length))+lxList("qt-"+k,f(k).items))}
+ const ds=dsMuc("quoc_te",QT_ORDER).map(([k,t])=>[k,k=="ct_vn"?t:(f(k).name||t),k=="ct_vn"?ctItems("tat_ca").length:(f(k).items||[]).length]),k=chon("qt",ds);
+ let sub="",items,tt=ds.find(d=>d[0]==k)[1];
+ if(k=="ct_vn"){const dsub=CT_SUB.map(([a,b])=>[a,b,ctItems(a).length]),ks=chon("ctvn",dsub);
+  sub=lxPills("ctvn",dsub,ks);items=ctItems(ks);if(ks!="tat_ca")tt+=" – "+dsub.find(d=>d[0]==ks)[1]}
+ else items=f(k).items;
+ $("#m5").innerHTML=lxShell(5,ghiChu(T)+lxStick(lxPills("qt",ds,k)+sub+lxHead(tt,(items||[]).length))+lxList("qt-"+k+(k=="ct_vn"?"-"+SEL.ctvn:""),items))}
 
 // ===== Tab 3 (trong Chứng khoán): Tin tức theo 5 nhóm ngành =====
 const CK_ORDER=[["xay_dung","Xây dựng – Đầu tư công"],["ngan_hang","Ngân hàng"],["cntt","Công nghệ thông tin"],["thep","Thép"],["vang_bac","Vàng bạc trang sức"]];
@@ -817,7 +825,7 @@ document.addEventListener("click",e=>{const t=e.target;setTimeout(luxSync2,0);
   const lm=t.closest("[data-lm]");if(lm){chonM(+lm.dataset.lm);return}
   const lxm=t.closest("[data-lxmore]");if(lxm){const id=lxm.dataset.lxmore,g=$("#x-"+id),mo=!OPEN.has(id);mo?OPEN.add(id):OPEN.delete(id);g.classList.toggle("open",mo);lxm.textContent=mo?"Thu gọn ▴":`Xem thêm ${g.querySelectorAll(".lx-x").length} tin ▾`;lxSync();return}
  if(t.closest("#mtabs button")){chonM(+t.closest("#mtabs button").dataset.m);return}
- const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT})[mn.dataset.mn]();return}
+ const mn=t.closest("[data-mn]");if(mn){BAM[mn.dataset.mn]=mn.dataset.k;({nt:renderNT,ck:t3,cn:renderCN,cnxe:renderCN,qt:renderQT,ctvn:renderQT})[mn.dataset.mn]();return}
  const vb=t.closest("[data-vt]");if(vb){VT.kind=vb.dataset.vt;const b=$("#wxbox");if(b)b.innerHTML=wxHtml();return}
  if(t.dataset.more){const id=t.dataset.more,x=$("#x-"+id),mo=!OPEN.has(id);mo?OPEN.add(id):OPEN.delete(id);x.classList.toggle("hide",!mo);const n=x.querySelectorAll(".ni").length;t.textContent=mo?"Thu gọn ▲":`Xem thêm ${n} tin ▼`;return}
  if(t.closest("#tabs button")){const k=t.dataset.t;document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b==t));[1,2,3,4,5].forEach(i=>$("#t"+i).classList.toggle("hide",i!=k));$("#bar").classList.toggle("hide",k!="1");if(k=="5")renderScanner()}
