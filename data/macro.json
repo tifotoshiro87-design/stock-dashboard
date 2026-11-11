@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-11-11 00:11",
+  "fetched_at": "2026-11-11 15:56",
   "failed": {}
  },
  "criteria": {
@@ -30,15 +30,15 @@
    "reason": "Tỷ giá ổn định quanh 25.975 VND/USD; chỉ số giá USD trong nước tháng 9 giảm 0,69% so với tháng trước (Cục Thống kê), chưa có áp lực mất giá đáng kể.",
    "url": "https://doanhnhan.baophapluat.vn/cpi-thang-9-tang-cao-do-gia-xang-dau-va-hoc-phi-tang.html",
    "previous": {
-    "value": 25580.0,
+    "value": 25509.0,
     "unit": "VND/USD",
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "source": "Yahoo Finance (USDVND=X)"
    },
    "current": {
     "value": 25594.0,
     "unit": "VND/USD",
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "source": "Yahoo Finance (USDVND=X)"
    }
   },
@@ -143,15 +143,15 @@
    "reason": "DXY 102,33 điểm (8/10), đi ngang vùng cao trong bối cảnh lợi suất trái phiếu Mỹ ở đỉnh nhiều thập kỷ và Fed nghiêng về thắt chặt.",
    "url": "https://dttc.sggp.org.vn/pho-wall-lai-mat-diem-vi-trai-phieu-post138192.html",
    "previous": {
-    "value": 101.65,
+    "value": 102.23,
     "unit": "điểm",
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "source": "Yahoo Finance (DX-Y.NYB)"
    },
    "current": {
-    "value": 102.36,
+    "value": 102.39,
     "unit": "điểm",
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "source": "Yahoo Finance (DX-Y.NYB)"
    }
   },
@@ -162,15 +162,15 @@
    "reason": "Brent quanh 100–104 USD/thùng: đàm phán Mỹ–Iran đình trệ, Trung Quốc tạm dừng xuất khẩu sản phẩm dầu, căng thẳng Saudi Arabia–Houthi; IEA và EU xả kho dự trữ (ưu tiên diesel) chỉ hạn chế được đà tăng.",
    "url": "https://www.vietnamplus.vn/gia-dau-the-gioi-di-xuong-khi-iea-day-nhanh-xa-kho-du-tru-post1140667.vnp",
    "previous": {
-    "value": 92.57,
+    "value": 91.49,
     "unit": "USD/thùng (Brent)",
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "source": "Yahoo Finance (BZ=F)"
    },
    "current": {
-    "value": 92.04,
+    "value": 91.86,
     "unit": "USD/thùng (Brent)",
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "source": "Yahoo Finance (BZ=F)"
    }
   },
@@ -187,7 +187,7 @@
     "source": "Yahoo Finance (^GSPC)"
    },
    "current": {
-    "value": 7495.4,
+    "value": 7520.93,
     "unit": "điểm (S&P 500)",
     "date": "2026-11-10",
     "source": "Yahoo Finance (^GSPC)"
@@ -234,13 +234,13 @@
  "reference": {
   "^IXIC": {
    "name": "Nasdaq",
-   "value": 24954.43,
+   "value": 25065.87,
    "date": "2026-11-10"
   },
   "CL=F": {
    "name": "Dầu WTI",
-   "value": 86.67,
-   "date": "2026-11-10"
+   "value": 86.24,
+   "date": "2026-11-11"
   }
  },
  "scored_at": "2026-10-08",
