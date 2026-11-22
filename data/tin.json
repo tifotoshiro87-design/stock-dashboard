@@ -1,6 +1,6 @@
 {
  "meta": {
-  "fetched_at": "2026-11-23 00:46",
+  "fetched_at": "2026-11-23 06:33",
   "note": "Tin tự động từ RSS các báo chính thống, Bing News, Google News. Không cần API key.",
   "hien_san": 3,
   "cau_hinh_loi": [],
@@ -12,13 +12,13 @@
   "chat_luong": {
    "nha_trang": {
     "tong": 105,
-    "co_hinh": 89,
-    "co_tom_tat": 87
+    "co_hinh": 87,
+    "co_tom_tat": 82
    },
    "chung_khoan": {
     "tong": 75,
-    "co_hinh": 68,
-    "co_tom_tat": 72
+    "co_hinh": 70,
+    "co_tom_tat": 74
    },
    "cong_nghe": {
     "tong": 120,
@@ -32,15 +32,15 @@
    },
    "chinh_tri_vn": {
     "tong": 45,
-    "co_hinh": 28,
-    "co_tom_tat": 39
+    "co_hinh": 27,
+    "co_tom_tat": 36
    },
    "mau_xe": {
     "tong": 69,
     "co_hinh": 7,
     "co_tom_tat": 12
    },
-   "da_mo_trang_bai_goc": 241
+   "da_mo_trang_bai_goc": 231
   },
   "nguon": {
    "bao_co_kenh": 27,
@@ -56,7 +56,7 @@
     0
    ],
    "google_giai_ma": [
-    40,
+    30,
     8
    ],
    "bao_khong_co_kenh": {
@@ -64,24 +64,24 @@
     "Lao Động": "không thấy link RSS trong trang (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
     "Báo Khánh Hòa": "HTTPError: HTTP Error 404: Not Found (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
     "Cổng TTĐT Khánh Hòa": "URLError: <urlopen error timed out> (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
-    "Báo Đầu tư": "HTTPError: HTTP Error 500: Internal Server Error (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
+    "Báo Đầu tư": "không thấy link RSS trong trang (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
     "Kinh tế Sài Gòn": "không thấy link RSS trong trang (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
     "Nhịp cầu đầu tư": "không thấy link RSS trong trang (đã thử thêm đường dẫn dự đoán, đều không dùng được)",
     "Thời báo Tài chính VN": "HTTPError: HTTP Error 410: Gone"
    },
    "mien_bi_loai": [
-    "baomoi.com (104)",
-    "msn.com (80)",
-    "ngoisao.vn (52)",
-    "thuongtruong.com.vn (27)",
-    "mekongasean.vn (26)",
-    "whatcar.vn (26)",
+    "baomoi.com (101)",
+    "msn.com (73)",
+    "ngoisao.vn (58)",
+    "whatcar.vn (31)",
+    "diendandoanhnghiep.vn (28)",
+    "thuongtruong.com.vn (28)",
+    "mekongasean.vn (27)",
+    "viettimes.vn (25)",
     "congluan.vn (24)",
     "moneyf.vn (24)",
-    "htv.vn (23)",
-    "daibieunhandan.vn (22)",
-    "fili.vn (21)",
-    "vietbao.vn (21)"
+    "twaslnews1.twaslnews.com (21)",
+    "daibieunhandan.vn (21)"
    ],
    "kenh_bo_qua": [
     "https://cafef.vn/rss/home.rss",
@@ -159,6 +159,15 @@
       "img": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/21/tnw-1795074680123313182093575453941313182093575453941daceaf6bc5555a8ed3f914766433b895-17952512407411127207486-318-0-1918-2560-crop-17952518290572024177555.jpg"
      },
      {
+      "title": "Tuyên truyền, phổ biến kiến thức về an toàn giao thông cho cán bộ, công nhân viên chức công ty cổ phần thương mại và du lịch quốc tế",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/tuyen-truyen-pho-bien-kien-thuc-ve-an-toan-giao-thong-cho-can-bo-cong-nhan-vien-chuc-cong-ty-co",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-11-21 15:00",
+      "g": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNQVVBMjdGSEszYng1T0l3dWR6NVZmVlJreHZSajZsdVo4VkpkOE9HWDNER0g1SUlvaHVyTVc2STRsLTNKT0pVdVczNnVtbG5JdThibWd4M29ad3FHVXY5em9sb2xSMUpWVFNvU0VyQWNCckc3SjBwM0F3MHZQYzZyWko4OUpkQnFsaFIwSVBBNGo4SzA1ZzFveG1MUTAzMi0xcmV5eWdvdkRyMmExVHc3VFlmZUFDV25SSDFQOTU3QTduQ2pac2JwWg?oc=5",
+      "img": "https://congan.khanhhoa.gov.vn/FileStorage/Article/Thumbnail/admin/Tin-tuc/Thang3/tuyentruyenATGT.jpg"
+     },
+     {
       "title": "Tăng tốc thi công hầm đường bộ qua đèo Hoàng Liên",
       "summary": "Những ngày cuối năm 2026, trên công trường Dự án Hầm đường bộ qua đèo Hoàng Liên, nối hai tỉnh Lai Châu và Lào Cai, các nhà thầu đang huy động tối đa nhân lực, máy móc, tổ chức thi công 3 ca liên tục ngày đêm nhằm đẩy nhanh tiến độ. Gỡ điểm nghẽn, hoàn thiện các dự án cao tốc…",
       "url": "https://baotintuc.vn/tang-toc-thi-cong-ham-duong-bo-qua-deo-hoang-lien-post1404875.html",
@@ -225,15 +234,6 @@
       "date": "2026-11-20 14:07",
       "g": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOd3JuaXJLUS1kSTJpWTJwVWZfVnREUmFHYkNVUHNFZXNDOGFXU2FoY1dja3AxM2JLeVg1bVlKVlY1X0Uxd1FRVFpWN0JrTWt6RXh4WmxIdnVKSnhSdHJKZk1BVjBWMzg0SFpvS0V4QWpJbTBXNlk3bGh1ZTZ1eE5yeVBHa0JBc0pwaUIySnBYQVIzUXRSYTZpeS1KNG0zQjVXYUE?oc=5",
       "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/20/1795156833473_123-17951454056052140423941-0-0-1047-2000-crop-1795145435551740645748.jpeg"
-     },
-     {
-      "title": "Cận cảnh cầu gỗ Phú Kiểng 25 năm bắc qua sông Cái Nha Trang sắp được thay thế",
-      "summary": "Tỉnh Khánh Hòa quyết định chi 809 tỷ đồng xây cầu Phú Kiểng bắc qua sông Cái thay thế cây cầu gỗ tuổi đời gần 25 năm đã xuống cấp.",
-      "url": "https://cafef.vn/can-canh-cau-go-phu-kieng-25-nam-bac-qua-song-cai-nha-trang-sap-duoc-thay-the-188261120132938072.chn",
-      "source": "CafeF",
-      "date": "2026-11-20 13:57",
-      "g": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNQUE0dUI2OXZmQ1FOazgzWV94OEZ5S0RlYzc4TGhCLXNabEltak1CQmw2aG0xWmNEMXdNaFBONUZ6QXd5dmRXMlBaRGZEWVNtaEVtNVUxaHlIZ1F4S3B3aTRsZVk5TjhuV2hzTlFGeGo5dVFSYXgzeFB1S2pYZnBHWTJ2LXlKUmw1bEQ2UTluSHV0emlPeTZFX0tfQjhaN3JwOUZQN1lpcFRQZ3h4R2QxSjFMYVNrMDZN?oc=5",
-      "logo": "cafef.vn"
      }
     ]
    },
@@ -294,15 +294,6 @@
       "date": "2026-11-21 17:30",
       "g": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc3NuZm1kWmpYZUw2Z1pvUkhYNUU2U0Q0eXpBUm1mY1V4aUtKM0k0RVhjd0E2bWFNTzdCaS1mNGRtQ1R2WHFvU1hTaVdURFA3OE1RS2g0akc1dUU2SmVlVlh2VTE3OGJYUEUxaWJ5RnZSaG9TbEwyYWkxOGd0STVPRC14RVQ4YWVxMmx6UnNxQQ?oc=5",
       "img": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/11/21/tnw-dji0020-1795253749613866863759-0-256-1440-2560-crop-1795254758446267899561.jpg"
-     },
-     {
-      "title": "Đề nghị tạm dừng hoạt động xây dựng Dự án Nha Trang Diamond Resort",
-      "summary": "",
-      "url": "https://laodong.vn/bat-dong-san/de-nghi-tam-dung-hoat-dong-xay-dung-du-an-nha-trang-diamond-resort-1804127.ldo",
-      "source": "Lao Động",
-      "date": "2026-11-21 14:31",
-      "g": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZVJZVXlUb0ZnY2dOVTduS3V4U3NhbkdaQlp2MF9NdExQalNxME5YS1B2X2VzMmZXWHZaekE1c3pRN0d2UVV4aHc5X2VfUkk0ZjhseVFqWWlBd3VKWDNKaWNUUjJlc21DM1ZoaXNGYWE4N1hfblhaUlluN0Fidm10bjNGQm04NVpiaEFmSkd6a2JONC1vWDBBYVFuVXR5cFZJcUNpcTJScjYydURnYzBr?oc=5",
-      "logo": "laodong.vn"
      },
      {
       "title": "Thông qua khu đất thí điểm dự án nhà ở thương mại gần sân bay Nha Trang cũ",
@@ -373,6 +364,14 @@
       "date": "2026-11-20 16:22",
       "g": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOUi1kUXVaZFQ0V3lzNzVxSTZZbVhMcW9Yb0JRdWVKZnBfbDlCWmlFdHM3alVEN1IzWWtUak1rTXA0TUlsZFlUMm9ZLXpUWlJzRlRHSjNEblgtS01NcWNlNWRuMzlIVGRzSk5OVlJ6bERPUUhXZzlPTHNTTWxDNzc3YW40amczZ29KemFQWlJRX1QtTjY3NVJicHg5ZVQtUG81Ukh4dzdwbW93cnpsZU9Tc1p0bkNZMVVfb1E?oc=5",
       "logo": "laodong.vn"
+     },
+     {
+      "title": "Ngày 25/12/2026, đấu giá quyền sử dụng đất tại phường Ninh Hòa, tỉnh Khánh Hoà",
+      "summary": "(BĐT) - Công ty Đấu giá hợp danh Vạn Thành An – Chi nhánh Khánh Hòa thông báo đấu giá tài sản vào ngày 25/12/2026 do THADS tỉnh Khánh Hoà – Phòng THADS Khu vực 4 ủy quyền như sau: ...",
+      "url": "https://baodauthau.vn/ngay-25122026-dau-gia-quyen-su-dung-dat-tai-phuong-ninh-hoa-tinh-khanh-hoa-post213443.html",
+      "source": "Báo Đấu thầu",
+      "date": "2026-11-20 13:41",
+      "img": "https://cdn.baodauthau.vn/images/VWI0lGO2ghiJLnsPr2ytFbnjDrsFccMZHyzDfVAWlx4mruQzJYnH_x8TU61K4ECk/33.jpg.webp"
      }
     ]
    },
@@ -381,22 +380,40 @@
     "name": "Môi trường kinh tế – văn hóa",
     "items": [
      {
+      "title": "Bản sắc văn hóa gắn kết cộng đồng, phát triển quê hương",
+      "summary": "Ngày Văn hóa Việt Nam năm 2026 tại Khánh Hòa với chủ đề \"Dấu ấn Văn hóa Việt Nam - Sắc màu Khánh Hòa\" tạo nên chuỗi hoạt động văn hóa, nghệ thuật, du lịch... sôi nổi, với hơn 30 sự kiện chính đã và đang diễn ra khắp các địa phương trong tỉnh. Nhân dịp này, phóng viên Báo và Phát…",
+      "url": "https://baokhanhhoa.vn/van-hoa/202611/ban-sac-van-hoaganket-cong-dongphat-trien-que-huong-8e55136/",
+      "source": "Báo Khánh Hòa",
+      "date": "2026-11-23 06:00",
+      "g": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOVi1jcDZ6WUVnaFcwLXV3d0xxWkZUVkVpcmItLW5KNVZZSWdhX2Y5cmhqdjNaR1dqQTEzRWhRMGVFVE5ReU9PMDBnenhkalFkWDVxY2hTSHlXUTVFRWZ6dGJJbnV0cm1tU2NGa3FqT1lXa0N6U1Faem5wWXB3UEp0aXFvSGtVREFBeTZlX1ltNWtVcnJpeDl6RDdxeVJhdFk?oc=5",
+      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/1795255854255_8778248085238955619_8778248085238955619_305c0363aa5f10b2f9a4451357be9e2c_20261122152531_20261122211355.jpg"
+     },
+     {
+      "title": "Tiếp nối giữ gìn giá trị văn hóa truyền thống",
+      "summary": "Không chỉ tìm hiểu, trải nghiệm những giá trị văn hóa truyền thống, tuổi trẻ Khánh Hòa còn chủ động quảng bá, đưa di sản đến gần hơn với cộng đồng. Chương trình “Sắc màu văn hóa thanh niên Khánh Hòa” năm 2026 do Tỉnh đoàn tổ chức ngày 21-11 với chủ đề “Tôi là Đại sứ văn hóa…",
+      "url": "https://baokhanhhoa.vn/van-hoa/202611/tiep-noi-giu-gingia-tri-van-hoa-truyen-thong-c424ee8/",
+      "source": "Báo Khánh Hòa",
+      "date": "2026-11-23 05:59",
+      "g": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOVjY0NEkzWHZPZS1iWVk5UXY0c3VhLWx5ZkNLekdDNGlaakV6MlZSTml4YkRtSGFIcGNfTmN1Tjh2RVVxSFNncVE5VG9IYWVHcldzVmVvaU5Kc0hDVkNqdkFpYmFYN1EzbXNKQVpzZzZpTnh1a21lTVRjUE1ucnA0ODlUenA1NW5qZ0M2RWk5cjFHRElXd0E?oc=5",
+      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/bhb_20261122142911_1_20261122210625.jpg"
+     },
+     {
       "title": "Ký ức văn hóa Khánh Hòa qua từng hiện vật",
       "summary": "Bộ lễ phục của người kéo đàn kanhi, chiếc kèn saranai gắn liền với âm nhạc truyền thống của đồng bào Chăm hay những chiếc mã la đặc trưng của đồng bào Raglai… Mỗi hiện vật đều mang trong mình một câu chuyện và dấu ấn văn hóa riêng, góp phần tái hiện nét đẹp đời sống tinh thần…",
-      "url": "https://baokhanhhoa.vn/van-hoa/202611/ky-uc-van-hoa-khanh-hoa-qua-tung-hien-vat-8e86027/",
-      "source": "Báo Khánh Hòa",
-      "date": "2026-11-23 00:13",
-      "g": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOMXBmdXIwWjBwRXJHUjFOb2M4V05IQTdVc0x0TVVsQVl4VU1xMUJGTnV2MzA1bTR4OG14RzVBMFhWaG9lNmc3UXctV1Q4NndfRDg3eWNWTTRKSGdKa2RIdU9id0pBdHJRcVRMVTFlTFJfeGk3UkNCRVJGSzB5TXVGNW5fNjhtOGFVVzBPdmdRbFd0UQ?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/dd_20261122215549.jpg"
+      "url": "https://www.vietnam.vn/ky-uc-van-hoa-khanh-hoa-qua-tung-hien-vat",
+      "source": "Vietnam.vn",
+      "date": "2026-11-23 00:51",
+      "g": "https://news.google.com/rss/articles/CBMickFVX3lxTE5pbmladldzb0tVOWZzZE53OTZuTEpPOTRETVhTQnVWeEExWDh6WW1zVk9BLUJZOU9nNGZKZG85MFNDRy1IUE1GY21ReVNNMEpOMWFuQzNFRXJqc3ZJenAzYmJZU1FsV2tzeXhlSFo5cHJOUQ?oc=5",
+      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/23/1795368456416_dd_20261122215549.webp"
      },
      {
       "title": "Sôi nổi chương trình nghệ thuật “Khánh Hòa - Hội tụ sắc màu văn hóa, lan tỏa tinh hoa dân tộc”",
       "summary": "Tối 22-11, tại Quảng trường 2 tháng 4 (phường Nha Trang), Hội UNESCO tỉnh Khánh Hòa tổ chức chương trình biểu diễn nghệ thuật, văn hóa và dân vũ thể thao với chủ đề “Khánh Hòa - Hội tụ sắc màu văn hóa ...",
-      "url": "https://baokhanhhoa.vn/van-hoa/202611/soi-noi-chuong-trinh-nghe-thuat-khanh-hoa-hoi-tu-sac-mau-van-hoa-lan-toa-tinh-hoa-dan-toc-603655d/",
-      "source": "Báo Khánh Hòa",
-      "date": "2026-11-22 22:51",
-      "g": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQMlFlbWRfM0tpdERFSGRtQWhUc1E3R01xcTJtcG9mLWxyVmc1ay1DRGJGNjFza2xKbVJLbG8yQ2VOOGlkVjhxTWZFRU92c2tMOTl2VHpmOUhNcFU0ZENUMmdTSW50RVpJUzg1akl5RzdZQkd4Sjh2VWQwOWtEVWlGTmI1azFQYmM5OGV0UzR5dVIyR1JjdnBXNTk5c2duTzFNU2dTOUxtZ21jLUpha2ZFcTljSk1uZmFzVFdNbi1Id1dSTGZWc3pvTEVnN21sdlV0eFE?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/img_0540_20261122215758.jpg"
+      "url": "https://www.vietnam.vn/soi-noi-chuong-trinh-nghe-thuat-khanh-hoa-hoi-tu-sac-mau-van-hoa-lan-toa-tinh-hoa-dan-toc",
+      "source": "Vietnam.vn",
+      "date": "2026-11-22 23:23",
+      "g": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNeTVZSVZJdHNxZzNBT05Ga0ljWGdKLVc0Z3B4Y0JRdmZqYkR1U3lCalQyV0R0MXdtTVphVmNPUU14czFjcXdOelJ6SGVqQllFc0pnaXNsQnNrQ1BwZTRkekpPWVFMbE1aUEtJTzJKZGpDZUJicW5aRGVCcnp1cmtDVTVWMTQxa25PTWtERFVRY1gzbWRXSGJ2ckppNFNNajl4OFFKOTFOdjNPajkycVcxWUdB?oc=5",
+      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/22/1795363738693_img_0540_20261122215758.webp"
      },
      {
       "title": "Khách Tây bay từ Nha Trang ra Hà Nội thưởng thức lễ hội ẩm thực quốc tế",
@@ -406,14 +423,6 @@
       "date": "2026-11-22 20:51",
       "g": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPUnBPYXdRNzhDZHR0SUpVcEJlUHRFUG1NUGwxcUcycGd1ZUNSZElIbHVMU3QzUTltNTBuVlMzMzZ2aU9KSDg5ME13WGRpUlpxbER0RzE4ZEpWZG9Cc1BZc0U2SENlZnpkYTRFbksyRmdoRXNzZ0ZBeDdFQWNlbmdqN1hrZ25DLVVqTlk3dXI0YmpKWFpVd0REXzFtb3ZHcV80WGdqX0F6TTVxcUJVeWRWT2pSa1IxWkhIekNIR3FKdjg?oc=5",
       "logo": "laodong.vn"
-     },
-     {
-      "title": "Rực rỡ Carnival 'Con đường di sản – Đại ngàn xuống phố'",
-      "summary": "Trong khuôn khổ Tuần Văn hóa – Đại đoàn kết toàn dân tộc tỉnh Quảng Ngãi năm 2026, chiều 22/11, tại phường Kon Tum, Sở Văn hóa, Thể thao và Du lịch tỉnh Quảng Ngãi tổ chức Carnival “Con đường di sản – Đại ngàn xuống phố”. Nghệ An: Hàng nghìn người dân đội mưa hòa mình vào lễ hội…",
-      "url": "https://baotintuc.vn/ruc-ro-carnival-con-duong-di-san-dai-ngan-xuong-pho-post1405155.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 19:02",
-      "img": "https://media3.baotintuc.vn/images/TRUYNfbQjREuh7U7WHBHPTwooEGeHcSQUzTZmcic72BNzvxhPqK2OJaM4ugddXZKYwDzzct9OlXoPMO8j9rKHwHa4KEw7gAI2pbpHFq1b1AO0GyQpkwAq3qp4J4rgatBqKiSOfKz4GSBcBZveMjnPXfBnakU10HmYPILQhcMo6E/potal-quang-ngai-ruc-ro-carnival-e2809ccon-duong-di-san-e28093-dai-ngan-xuong-phoe2809d-stand-6657.jpg.avif"
      },
      {
       "title": "Liên hoan nghệ thuật quần chúng “Sắc màu văn hóa Việt” tại phường Nha Trang",
@@ -441,14 +450,6 @@
       "date": "2026-11-22 17:08",
       "g": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQanNqOURnYnl6YmxKdUlfX0NSNTV2SWhNQjRpNmlsYnNqekJVeFBlX1dUYmduMnd2TVd6S19YSGs0OXdwN1ZRWlpoS3lwUHlxS0RXMzZGYWF5RWJsbUZ4dU9PSW1iaDhGaGJoN2pBdWszcHM3RGJjVmRlTmdiaWw3S1lMZV9Qc0ppbHFwV1Zvb01JcXNGb1ZWdWNHOA?oc=5",
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/dd1_20261122165510.jpg"
-     },
-     {
-      "title": "Gần 20.000 bước chạy lan tỏa vẻ đẹp di sản vịnh Hạ Long",
-      "summary": "Sáng 22/11, gần 20.000 VĐV đã có trải nghiệm độc bản khi sải bước trên tuyến đường bao biển Trần Quốc Nghiễn - cung đường từng được Runner’s World UK xếp vào Top 50 đẹp nhất thế giới. Giải chạy miễn phí quy tụ 5.000 VĐV tranh tài tại Ninh Bình Từ văn phòng tới vạch đích giải…",
-      "url": "https://tienphong.vn/gan-20000-buoc-chay-lan-toa-ve-dep-di-san-vinh-ha-long-post1896566.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-11-22 16:21",
-      "img": "https://cdn.tienphong.vn/images/bScdhTp8jB5eNsHzMgcANt6_aDFSKrolmZlOcR7rCh2lVXu1JbpjQ5jZS06IyaG0/25.jpg.avif"
      },
      {
       "title": "Lữ đoàn 957 tổ chức nhiều hoạt động hưởng ứng Ngày Văn hóa Việt Nam",
@@ -596,6 +597,15 @@
       "logo": "nongnghiepmoitruong.vn"
      },
      {
+      "title": "Đề nghị tạm dừng hoạt động xây dựng Dự án Nha Trang Diamond Resort",
+      "summary": "",
+      "url": "https://laodong.vn/bat-dong-san/de-nghi-tam-dung-hoat-dong-xay-dung-du-an-nha-trang-diamond-resort-1804127.ldo",
+      "source": "Lao Động",
+      "date": "2026-11-21 14:31",
+      "g": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZVJZVXlUb0ZnY2dOVTduS3V4U3NhbkdaQlp2MF9NdExQalNxME5YS1B2X2VzMmZXWHZaekE1c3pRN0d2UVV4aHc5X2VfUkk0ZjhseVFqWWlBd3VKWDNKaWNUUjJlc21DM1ZoaXNGYWE4N1hfblhaUlluN0Fidm10bjNGQm04NVpiaEFmSkd6a2JONC1vWDBBYVFuVXR5cFZJcUNpcTJScjYydURnYzBr?oc=5",
+      "logo": "laodong.vn"
+     },
+     {
       "title": "Trường Cao đẳng Du lịch Nha Trang kỷ niệm 44 năm Ngày Nhà giáo Việt Nam",
       "summary": "Sáng 20-11, Trường Cao đẳng Du lịch Nha Trang tổ chức kỷ niệm 44 năm Ngày Nhà giáo Việt Nam (20-11-1982 - 20-11-2026). Ông Lưu Xuân Hải - Phó Bí thư chuyên trách Đảng ủy UBND tỉnh Khánh Hòa; lãnh đạo ...",
       "url": "https://www.vietnam.vn/truong-cao-dang-du-lich-nha-trang-ky-niem-44-nam-ngay-nha-giao-viet-nam",
@@ -637,14 +647,6 @@
       "source": "Báo Đồng Tháp Online",
       "date": "2026-11-20 16:30",
       "img": "https://cdn2.baodongthap.vn/image/news/2026/20261120/thumbnail/475x300/du-lich-nha-trang-toi-uu-chi-phi-toi-da-trai-nghiem-van-hoa-dia-phuong20261120051810.webp"
-     },
-     {
-      "title": "Rác thải bủa vây bãi biển ở vịnh Cam Ranh",
-      "summary": "Bãi biển dài khoảng 2km ở xã Nam Cam Ranh (Khánh Hòa) ngập rác thải nhựa, lưới cũ và vỏ hàu, ốc từ hoạt động nuôi tôm hùm. Tình trạng ô nhiễm kéo dài khiến người dân không dám tắm biển.",
-      "url": "https://vietnamnet.vn/bai-bien-ven-vinh-cam-ranh-ngap-ngua-rac-boc-mui-khien-nguoi-dan-khong-dam-tam-2569475.html",
-      "source": "VietNamNet",
-      "date": "2026-11-20 10:00",
-      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/10/29/rac-thai-bua-vay-bai-bien-o-vinh-cam-ranh-2022.jpg?width=0&s=SlwPmCpQ_svkkpln7lYseA"
      }
     ]
    },
@@ -662,15 +664,6 @@
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/1795326815539_7631447925396952549_7631447925396952549_1088e0a1e647c9da0fd20cc56aefcd90_20261122162942.jpg"
      },
      {
-      "title": "Công an xã Ninh Sơn tổ chức tuyên truyền pháp luật cho các em học sinh tại Phân hiệu Trường THPT Nguyễn Du - Ninh Sơn",
-      "summary": "",
-      "url": "https://congan.khanhhoa.gov.vn/vi/cong-an-xa-ninh-son-to-chuc-tuyen-truyen-phap-luat-cho-cac-em-hoc-sinh-tai-phan-hieu-truong-thpt",
-      "source": "Công An Tỉnh Khánh Hòa",
-      "date": "2026-11-22 17:56",
-      "g": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSEl4NE9RTksya1NsTmw1YUlLRkdlZmR0Z19WMzdJN2RxWlRrT29fMTFkZ0tfbkNRdVEydm1YOEMtbmc4MEZqSS1xdEluZnpFR1RkcFZBbWloOVBwZnFnUXhhUEVMek1uWUJpemFXOWJ5UUs3bWhsYWtRaHhVX00tc1l5bHdtbzB2dWFWVlBoajVqa3FtTG14NldLQVlya3BhNW5TSVhfdTN2cXFhUGlGbjJLQmxMeE5oOVR2NGtnMGFjRGRqRHBHNXJn?oc=5",
-      "img": "https://congan.khanhhoa.gov.vn/FileStorage/Article/Thumbnail/Caxninhson/1wupukog3hlwe9sie6qf1ugqnbpgmcjerhw0cetdv1c3jvbqiziywlu8xfgs0jtezej5.jpg"
-     },
-     {
       "title": "Sôi nổi Hội thao trò chơi dân gian tại Cụm thi đua Vĩnh Nguyên (phường Nha Trang)",
       "summary": "Ngày 22/11, Cụm thi đua Vĩnh Nguyên (Cụm số 5), phường Nha Trang, tỉnh Khánh Hòa tổ chức Hội thao trò chơi dân gian thu hút hàng trăm vận động viên là cán bộ, đoàn viên, người lao động và đông đảo quần chúng nhân dân trên địa bàn tham gia.",
       "url": "https://www.vietnam.vn/soi-noi-hoi-thao-tro-choi-dan-gian-tai-cum-thi-dua-vinh-nguyen-phuong-nha-trang",
@@ -678,14 +671,6 @@
       "date": "2026-11-22 16:56",
       "g": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOcE9hSVE1ODg4bFlncHhDVHFaR1o4MzNOdGZGZVVYWXBnbjVjaUJVZjhZQnNmT05fUU9ING1oLUtoQlM3bU5wVjlUNXNaXzNHZnFvZ2VqcmJDTHk2d2JLNVlzUXZpdUZGRHVGa3NEVU1DUmVSSmJpMlJBWkRUTkw2cG9rZHZkczJxdDhVSGR0YXFGcXdzbUpsaW9PY1drN0oxNm9LQg?oc=5",
       "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/22/1795339962473_thi-nhay-bao-bo-145229.webp"
-     },
-     {
-      "title": "Nhân viên cứu hộ biển Nha Trang tử vong sau khi cứu người đuối nước",
-      "summary": "Anh P.S, thành viên Đội Cứu nạn, cứu hộ biển Nha Trang (Khánh Hòa), tử vong sau khi kiệt sức trong quá trình tham gia ứng cứu người gặp nạn giữa biển. Anh có 14 năm gắn bó với công việc cứu nạn, cứu hộ tại các bãi biển Nha Trang. Người đàn ông tử vong khi cứu phụ nữ đuối nước ở…",
-      "url": "https://tienphong.vn/nhan-vien-cuu-ho-bien-nha-trang-tu-vong-sau-khi-cuu-nguoi-duoi-nuoc-post1896527.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-11-22 16:08",
-      "img": "https://cdn.tienphong.vn/images/G6JgQZ0AATbJyN4p769QHBFvn3T-72pgbwNrCASy6J3YHwu4cmO1Es_FoLJ9IOx4WzkUYw95x--zVb_R3lxEOhz_MKhxakTM7facG3efYM0fjbboQh5uA3QcDX6yfEA8r6JJbNyUNMNP4R2qZAGa294D-HiFgOJUyAO-44ISgXg/1795329587707-1581470969539411506-3248276023067107540-3155b8da958afb33a686b2f4ad999d53.jpg.avif"
      },
      {
       "title": "Khánh Hòa: Khảo sát công tác bảo vệ môi trường tại Công ty Cổ phần Xuất nhập khẩu Thủy sản Cà Ná",
@@ -733,6 +718,24 @@
       "logo": "congan.khanhhoa.gov.vn"
      },
      {
+      "title": "Một ngày trải nghiệm thú vị về phòng cháy, chữa cháy cho giáo viên, phụ huynh và các em học sinh Trường mầm non song ngữ CleverKid",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/mot-ngay-trai-nghiem-thu-vi-ve-phong-chay-chua-chay-cho-giao-vien-phu-huynh-va-cac-em-hoc-sinh",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-11-21 15:00",
+      "g": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOUVFBN3BkSllMSlVNZTNnRFkwU2NYSlRMVXo0cVNUc0pMSUxKeFZTc1JsQldhUG5QYndFbGlyTXhvdGN0dlpRSnJHUU9DTjZ3b21Fd1NvUi1wckdJQXBTOXN0Q0lXcVpXTmk5ZFZjVVVGSlNUWGt6dUVHbTFvZm5ydXhJV3VCekJ6b1VGa1lNVnBfM3VQbHAtaWFmcXpWY25RSGpFS3VlSVhNSWltNTJBaUJzSkM3UFJ0VVpBTWpBaWpKQVZsT3BR?oc=5",
+      "img": "https://congan.khanhhoa.gov.vn/FileStorage/Article/Thumbnail/admin/Tin-tuc/Thang7/cleverkid5.jpg"
+     },
+     {
+      "title": "Hội thi nấu ăn “Bữa cơm đại đoàn kết” tại phường Nha Trang",
+      "summary": "Sáng 21-11, tại Trường Tiểu học Nha Trang (phân hiệu Phước Hòa 1), Cụm thi đua số 4 Mặt trận các tổ dân phố thuộc Ủy ban MTTQ Việt Nam phường Nha Trang tổ chức Hội thi nấu ăn với chủ đề “Bữa cơm đại đoàn kết”. Đây là một trong các hoạt động giao lưu văn hóa, văn nghệ, thể dục…",
+      "url": "https://www.vietnam.vn/hoi-thi-nau-an-bua-com-dai-doan-ket-tai-phuong-nha-trang",
+      "source": "Vietnam.vn",
+      "date": "2026-11-21 13:01",
+      "g": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPdkljVUd5VUdqaUhLaVNGOW5idTlYS1pBT01PVG5WaklpZ09fc0ZDZzViOHhzYnRndnN1TE5LTm54emlxSjRWR1drQ2ttOWhfMFBEaXNGMjdMVnBlX2x3VEtnUzgwNnUzRk9VaHA3NVBzRS1MVVFQeDItUFUwVnFmaml4ekpXdw?oc=5",
+      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/21/1795240094562_dsc_2349_20261121113240.webp"
+     },
+     {
       "title": "Thông qua Nghị quyết thi hành Bộ luật Hình sự (sửa đổi): Tạo nền tảng để chính sách hình sự mới đi vào cuộc sống",
       "summary": "Chiều 20-11, với 466/469 đại biểu tham gia biểu quyết tán thành, Quốc hội chính thức thông qua Nghị quyết của Quốc hội về việc thi hành Bộ luật Hình sự (sửa đổi). Tỷ lệ tán thành gần như tuyệt đối cho thấy sự đồng thuận cao của các đại biểu với một văn bản có ý nghĩa quan trọng,…",
       "url": "https://baokhanhhoa.vn/chinh-tri/202611/thong-qua-nghi-quyet-thi-hanh-bo-luat-hinh-su-sua-doi-tao-nen-tang-de-chinh-sach-hinh-su-moi-di-vao-cuoc-song-f4670c6/",
@@ -740,6 +743,15 @@
       "date": "2026-11-21 12:56",
       "g": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxORk5zNVVwaU5GUzNUNU1DNDVRR1Y3NDJCemg5Mm9CaUlyTkNSWVhiN0xMV1FsSUxJN2o2N2FCc0llNF96U1lrZXppUW1KQ0VMZnJBUEJ6czBXRlhaQ1BjMnpWOEdEdkhRNlVLRUdQTndaQl9MY3JKMVBkM3BIR3R0WnFUaU1DaWdiTDExaUVycmU4LWd6eTFhV2tHWlFmMzlzcHFPTUVHel82d0FpcWtzbGNuNkdFcUhERENVQVNDdDlvSVBnYXRYOGdadGI3RVVpZG1wa3dkX2k2RjNxYlBWQjZDeWxESU5tZ3JkLXkwTQ?oc=5",
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/qh_20261121124757.jpg"
+     },
+     {
+      "title": "Sẽ đấu thầu chọn doanh nghiệp xây trường liên cấp 644 tỉ đồng ở Nam Nha Trang",
+      "summary": "",
+      "url": "https://laodong.vn/giao-duc/se-dau-thau-chon-doanh-nghiep-xay-truong-lien-cap-644-ti-dong-o-nam-nha-trang-1804021.ldo",
+      "source": "Lao Động",
+      "date": "2026-11-21 10:32",
+      "g": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVEZ0cDNGNHZxX1FDUU5UdzRKakcydm9NaDRfZjhOSVZPQ1ptd0hGcGkwSTlGMXJCTldqT0FyVllhY2VhSGNhaWRkNDF0dzU3Z1l5WWtpTWZlbmZTNEZsTUcwUGh1Q3FoNGhNaWp5bkpjcUdsTnc2dDQxVndsb1kzaXVfX2tkZl8zMGtHenhPamhMSV84aVk2Q0pfcVZtM2FFa094UkowV0ZTcUE4bWhKZGJVZUtITHQ1?oc=5",
+      "logo": "laodong.vn"
      },
      {
       "title": "Xã Bác Ái Tây tổ chức tọa đàm kỷ niệm Ngày Nhà giáo Việt Nam",
@@ -760,6 +772,15 @@
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/tieng_anh_20261120195543.jpg"
      },
      {
+      "title": "Tri ân các thế hệ nhà giáo tại Phân hiệu Đại học Tôn Đức Thắng Khánh Hòa",
+      "summary": "",
+      "url": "https://laodong.vn/giao-duc/tri-an-cac-the-he-nha-giao-tai-phan-hieu-dai-hoc-ton-duc-thang-khanh-hoa-1803846.ldo",
+      "source": "Lao Động",
+      "date": "2026-11-20 20:14",
+      "g": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOX2xxdDh5cklObGtudEVxeVhjZzZadGUtRE5zbFdZTmFHQ0w5aWg4cDVLT0Z0MFNtU1ZOZUI4aHVaUVFQMS11UjhSVDlLZTNPWkpuMzc1THQ0Wlk1anI4R3FMMy1WaDB0dmlyNDVmT2lPc2JBc2x6b3h5bEV3aWRPV2o0bFEyVWo1cVJweXdZdXRHWUxKX2NaUHM0NU8tdkU5cmJfNUdRZWdTdkE5ZlItSHJR?oc=5",
+      "logo": "laodong.vn"
+     },
+     {
       "title": "Lãnh đạo xã Phước Hà thăm, chúc mừng các trường học nhân Ngày Nhà giáo Việt Nam",
       "summary": "Kỷ niệm 44 năm Ngày Nhà giáo Việt Nam (20-11-1982 - 20-11-2026), ngày 20-11, xã Phước Hà tổ chức các đoàn đến thăm, chúc mừng các trường học trên địa bàn xã.",
       "url": "https://baokhanhhoa.vn/thong-tin-xa-phuoc-ha/202611/lanhdao-xa-phuoc-ha-thamchuc-mung-cac-truong-hoc-nhan-ngay-nha-giao-viet-nam-5ea0106/",
@@ -767,24 +788,6 @@
       "date": "2026-11-20 20:02",
       "g": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPX3U3Qm1XWUIwMU5FaEhLQ2puU0lfYllxQjBzc2dQcGFoN1R5cG9QYXlSTDExVVdFeTZVbVNNSGlyT1p4bHpsOFBCa00wRDh4cDR3cURJNVNmQ2E3bjhWbEE2QWNBZXJyLW1wVUlkRUhjS1Y2RU5lYng0SzFWdnpBcTB0eU5sN2dpaERLbjNBT0pSVUNQVkZZc0lhaE5oXzY1ZFJaV04wb3ZvS3VvLVZNNndDZExHRHJoei1Na2hpaDhiVUlxT2VEcURJSWdPRjhpQ0dB?oc=5",
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/1_20261120194424.jpeg"
-     },
-     {
-      "title": "Khánh Hòa và Cao Bằng kết nối giao thương, mở rộng thị trường tiêu thụ sản phẩm",
-      "summary": "Sáng 20-11, tại phường Nha Trang, Sở Công Thương tỉnh Khánh Hòa tổ chức buổi làm việc với đoàn công tác tỉnh Cao Bằng về khảo sát thị trường, kết nối giao thương năm 2026.",
-      "url": "https://www.vietnam.vn/khanh-hoa-va-cao-bang-ket-noi-giao-thuong-mo-rong-thi-truong-tieu-thu-san-pham",
-      "source": "Vietnam.vn",
-      "date": "2026-11-20 19:44",
-      "g": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNS2dBbUpKY2xaTERPbjdhZ0luMDRjdW9hU21YeHNINkVCMThDY2RJWXY3TXkwVWpOd1VHZUJ6ZXdfbDlWTVlsbTFNZG9mSTIxT3dVQTBGem9YWjBLUVdybGFkcWxrS0ZiVHROWVpQMUhud2o0NUNndXhYcExYSlplN2lfUGhtZjM4QldNZzZnSEtJTFBadWhXS0l0MnBFNTU0R3Q0?oc=5",
-      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/20/1795171526186_1_20261120161657.webp"
-     },
-     {
-      "title": "Các trường học xã Khánh Sơn kỷ niệm 44 năm Ngày Nhà giáo Việt Nam",
-      "summary": "Ngày 20-11, các trường trên địa bàn xã Khánh Sơn, gồm: Mầm non 1-6, Tiểu học Tô Hạp, THCS Tô Hạp và THPT Khánh Sơn tổ chức kỷ niệm 44 năm Ngày Nhà giáo Việt Nam (20-11-1982 - 20-11-2026).",
-      "url": "https://baokhanhhoa.vn/thong-tin-xa-khanh-son/202611/cac-truong-hoc-xa-khanh-son-ky-niem-44-nam-ngay-nha-giao-viet-nam-c1a08d0/",
-      "source": "Báo Khánh Hòa",
-      "date": "2026-11-20 18:26",
-      "g": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOY3g4YzJkUFZSelZLZjFZdEJmMTVmWTRlVnQ5eHVwSUxzRDRiODVHd3hyYWM3WHVkaVJRZlg4cms4Q3FwY3FYM0VmUGJRUG9YWlhXT0JxdFFrRmhFMFJvZFQ5WXZZUlhpd1pqQ0RHcXdPYURzcDQ0S1VtOWdWTXF3RTR6M1ZVMUFhc2tCVVhaWjdzazBNeFp0ay0xMHhkcEt5clY3TkdWSEl4aDJMRWkxSThBTHVtejQ1YkpLM2tYQWVVN2RIN2c?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/ks__20261120165920.jpg"
      }
     ]
    },
@@ -864,6 +867,15 @@
       "img": "https://congan.khanhhoa.gov.vn/FileStorage/Article/Thumbnail/bbtxuatban/cakh_TB.png"
      },
      {
+      "title": "Dự thảo Bộ luật Hình sự (sửa đổi): Bổ sung \"Tội sử dụng trái phép chất ma túy\" và tăng mức hình phạt tù liên quan đến tội phạm ma túy",
+      "summary": "",
+      "url": "https://congan.khanhhoa.gov.vn/vi/du-thao-bo-luat-hinh-su-sua-doi-bo-sung-toi-su-dung-trai-phep-chat-ma-tuy-va-tang-muc-hinh-phat-tu",
+      "source": "Công An Tỉnh Khánh Hòa",
+      "date": "2026-11-21 15:00",
+      "g": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPZThjVEtNRW9SRUlEZm1XV1NxTkEwT3RtNkRyeGdRd24tNXVsMFR5Zk1RUlpTSFMyNllmamc3WjMzdy0wUGc1ZDdfY1FScVo0cUJ4Mnh4N2JvbnBBVWNLVlZrSWhRQ3BJVmlFWUltd3VBYTM2c0lDclEycDd0OWtieFpXQURWVm85cTZtbXNZQjl1RUFOTjdnZF84YVZGS3hwaGNJcUZRU3Z2bHlzRDV3WFE3aXd1VThhTTlHa0lEZmIzSGg2QVhzbDUyNjg?oc=5",
+      "img": "https://congan.khanhhoa.gov.vn/FileStorage/Article/Thumbnail/PBGDPL/21417.jpg"
+     },
+     {
       "title": "Phòng Cảnh sát giao thông phối hợp cùng Công an cấp xã, phường thực hiện rà soát, làm sạch dữ liệu đăng ký xe.",
       "summary": "",
       "url": "https://congan.khanhhoa.gov.vn/vi/phong-canh-sat-giao-thong-phoi-hop-cung-cong-an-cap-xa-phuong-thuc-hien-ra-soat-lam-sach-du-lieu",
@@ -899,31 +911,22 @@
       "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/1wupukvrdjurn93gr0cypzhm1nxxxs5hxzhbwzzwy1u7kbdtuadsjpkqphbehukfm5f_2_20261121104853.jpg"
      },
      {
-      "title": "Truy nã đối tượng có tiền án giết người",
-      "summary": "Sáng 21-11, Phòng Cảnh sát hình sự Công an tỉnh Khánh Hòa cho biết, đơn vị đang phối hợp truy tìm Nguyễn Viên (sinh năm 1972), bị can bị truy nã về tội “Cố ý gây thương tích” theo khoản 2 Điều 134 Bộ luật Hình sự và từng có một tiền án về tội “Giết người”.",
-      "url": "https://baokhanhhoa.vn/phap-luat/an-ninh-trat-tu/202611/truy-na-doi-tuong-co-tien-an-giet-nguoi-7d61a5e/",
-      "source": "Báo Khánh Hòa",
-      "date": "2026-11-21 09:51",
-      "g": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNbFVyX0lzOU1oYUtPTHZIMl9pQ0JPRVI1cFVYaXNYT21ySFJkU1dteE1VSTl2cEFPYTdHQWJyM2JyWWZyQ1p6eG9kZXFTQmlBTzY1RG9weDFwTXFUWFBtOWo3X2E4cHZaay1fcjBOdjZWN2ZtRlFIVm50dGFVekRXQjlvdEJIUG1ENEd6S0l0N2xwVUdjZF9lbzlwN0hxVEh3dk50SllKYw?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/1795217693447_4634001534793546280_4634001534793546280_35b99b3256bc6a1858bad3cefab4b0f5_20261121090202.jpg"
+      "title": "Truy tìm đối tượng truy nã từng có tiền án giết người ở Khánh Hòa",
+      "summary": "",
+      "url": "https://laodong.vn/phap-luat/truy-tim-doi-tuong-truy-na-tung-co-tien-an-giet-nguoi-o-khanh-hoa-1803995.ldo",
+      "source": "Lao Động",
+      "date": "2026-11-21 10:22",
+      "g": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdzNndXUtdkhnM1ppSkNIVWNpSzhVZHRFSW5rVnpyQlBYNktKdVBQcno1MHg3TDJPbE1wYXV5aUxGVE00QlJsMnAxZDd0ZnhrcG0xM1Z0WTZkUVc4MzFLQ0hYbUdYTmxqNmpvZ3QzN2RxbE5US2xjeUFTYlg5NUtnU2dldHVUX3dtMm56YTFQNE5CUDNFczV1a0xtRTBPWG5mNzg3SXJuOUpwUQ?oc=5",
+      "logo": "laodong.vn"
      },
      {
-      "title": "Lừa đổi ngoại tệ để chiếm đoạt tiền, thanh niên lãnh án tù",
-      "summary": "Không có công việc ổn định, cũng không có khả năng đổi ngoại tệ nhưng Nguyễn Gia Hoàng (sinh năm 1999, trú TP. Hồ Chí Minh) vẫn đăng thông tin trên mạng xã hội, quảng cáo dịch vụ đổi ngoại tệ để nhận tiền Việt Nam của người có nhu cầu rồi chiếm đoạt. Hành vi này đã khiến bị cáo…",
-      "url": "https://baokhanhhoa.vn/phap-luat/an-ninh-trat-tu/202611/lua-doi-ngoai-te-de-chiem-doat-tien-thanh-nien-lanh-an-tu-b3d6026/",
-      "source": "Báo Khánh Hòa",
-      "date": "2026-11-21 05:22",
-      "g": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQbnVRdndzcXItOWg3YlRGbklDdmhxQy1FeXNxUnZlRjN6b2pwM29NdkM1U2g1N1R5ODdGM2JqMTNwTU5ua2t5dXJwNk81UTR0MDFhTUxIZlpjYmNFQ1JlRnJEMmp5ZEpxS1p3aWhnQ1JWcHgxdEVPZzNWZm5MbEpDTkd6OEJ3UUVXZU1OWWpSZWt5ZjVUekdFU2FzaldtZGNNY1NHVm5jVVBiRVcxSmN2ZmxjVlFKZzNBZlpxclZpSQ?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/dsc_2141_20261119222332.jpg"
-     },
-     {
-      "title": "[Video] Khởi tố 4 đối tượng gây rối trật tự công cộng tại Quảng trường 16-4",
+      "title": "Hồ sơ vụ án: Vụ trọng án ở góc chết camera - Phần 1",
       "summary": "--> Chuyên mục Hoạt động lãnh đạo tỉnh Nhân sự mới Media --> English Liên hệ Góc Review Tìm kiếm Toggle main menu visibility Chính trị Giải Búa Liềm Vàng Quốc hội - HĐND Bảo vệ nền tảng tư tưởng của Đảng Xây dựng Đảng Dân vận khéo Hoạt động lãnh đạo Trung ương Nhân sự mới Chính…",
-      "url": "https://baokhanhhoa.vn/video/vi-nhan-dan-phuc-vu/202611/video-khoi-to-4-doi-tuong-gay-roi-trat-tu-cong-cong-tai-quang-truong-16-4-88277c0/",
+      "url": "https://baokhanhhoa.vn/video/vi-nhan-dan-phuc-vu/202611/ho-so-vu-an-vu-trong-an-o-goc-chet-camera-phan-1-8657b15/",
       "source": "Báo Khánh Hòa",
-      "date": "2026-11-20 20:34",
-      "g": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNTmhEckc4LVp4U2FnRVc4cTE1RnY0d3A5d2xOSmlTVUNWNFV0MEdZXzdTWDRSemNmbHR5OVJyZWxWbU1QUENsU1NHYzFzR2locmtBZ3pfNG1Fc19ITkhoQ2tQZ2dZU3M5Q21KTm55WEZodzZFNHoxSGtLY3ZOcjgxSGdnYTA5djJfbVZJWXR1TC1rVDBqX0NTczlkOTBMYWF1c0k3LVk1emxvaV9aVnhiWDR5V0F6WEdtQ25oelJnQS1OWUhQdTU4eHE2cjg3Zno2RTZVZA?oc=5",
-      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/ca_20261120202846.jpg"
+      "date": "2026-11-21 08:00",
+      "g": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPTWlGS1VYNGZpOU5vbWRTR0FqYkYxLWJQdnB0TVpxZG44TzBXTXRGc0JyUks2OC1CR2JBZS1LSjc5NTlqejNfYzVoSWdUOVViVTd3MmZ5c3RQNjNmSnFETW5VMEF0d3ZxajgyOGc5NWY2aV91REdTRmtCRU1iLUF0UThYUXVSdXVTYTdKa1FvN0NaTFdUQWN1WnA1Z3BhazFyOFJnOHRnbjBLWmxoTEo3UVlLSQ?oc=5",
+      "img": "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/112026/ca_20261120163838.jpg"
      }
     ]
    },
@@ -931,6 +934,15 @@
     "key": "thoi_tiet",
     "name": "Dự báo thời tiết",
     "items": [
+     {
+      "title": "Thời tiết Khánh Hòa hôm nay 23/11, ngày mai 24/11, 7 ngày tới",
+      "summary": "Hôm nay thứ Hai 23/11/2026, Khánh Hòa 22–30°C, có mưa, khả năng mưa cả ngày 55%. Dự báo thời tiết Khánh Hòa 7 ngày tới.",
+      "url": "https://baolamdong.vn/thoi-tiet/tinh-khanh-hoa",
+      "source": "Báo Lâm Đồng",
+      "date": "2026-11-23 02:12",
+      "g": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE80cTBRQW5NNW96VWRRSmd2ekZkeXJGdVZyUGZmNXpqci0zZFRlR2h4YXJMX1ZBazdaSW5Udmg1bXhDVjVmR2pUcGJUb19SVG5vYTZnMzNrMlFQUQ?oc=5",
+      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/10/31/img_031d3bfb.jpg"
+     },
      {
       "title": "Dự báo thời tiết 20/10/2026: Miền Bắc vẫn nắng trên 34 độ, Nam Bộ mưa giông",
       "summary": "Dự báo thời tiết ngày 20/10/2026, khu vực Bắc Bộ và từ Thanh Hóa đến Gia Lai chủ yếu duy trì trạng thái nắng ráo. Trong khi đó, khu vực phía Đông các tỉnh từ Đắk Lắk đến Khánh Hòa, Lâm Đồng và Nam Bộ vẫn có mưa rào và giông.",
@@ -972,15 +984,6 @@
       "source": "Báo Nhân Dân",
       "date": "2026-11-22 08:40",
       "img": "https://cdn.nhandan.vn/images/dNyArWPQnlmER5pM9ruXoc082LziGkB1NOhkNCo2iiMQt6w3Kt78wbv4N-FJgIXB3cdwV25thObGOglG3vY5dQ/thiet-ke-chua-co-ten-8.jpg.avif"
-     },
-     {
-      "title": "Thời tiết Khánh Hòa hôm nay 22/11, ngày mai 23/11, 7 ngày tới",
-      "summary": "Hôm nay thứ Hai 23/11/2026, Khánh Hòa 22–30°C, có mưa, khả năng mưa cả ngày 50%. Dự báo thời tiết Khánh Hòa 7 ngày tới.",
-      "url": "https://baolamdong.vn/thoi-tiet/tinh-khanh-hoa",
-      "source": "Báo Lâm Đồng",
-      "date": "2026-11-22 04:45",
-      "g": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE80cTBRQW5NNW96VWRRSmd2ekZkeXJGdVZyUGZmNXpqci0zZFRlR2h4YXJMX1ZBazdaSW5Udmg1bXhDVjVmR2pUcGJUb19SVG5vYTZnMzNrMlFQUQ?oc=5",
-      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/10/31/img_031d3bfb.jpg"
      },
      {
       "title": "Cứu người giữa sóng lớn ở Nha Trang, 1 người tử vong, 1 người nguy kịch",
@@ -1076,6 +1079,64 @@
     "name": "Xây dựng – Đầu tư công",
     "items": [
      {
+      "title": "Tăng tốc giải ngân vốn đầu tư công",
+      "summary": "Giải ngân vốn đầu tư công tại Quảng Ngãi có chuyển biến tích cực trong tháng 10, song áp lực về tiến độ vẫn lớn khi khối lượng vốn chưa giải ngân còn khá lớn.",
+      "url": "https://baodienbienphu.vn/tin-bai/kinh-te/tang-toc-giai-ngan-von-dau-tu-cong-21456431346",
+      "source": "Báo Điện Biên Phủ",
+      "date": "2026-11-23 06:21",
+      "g": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRThlRkx4cjNoS0dRQW5YVUVQbmJXRVRxUXFpbjhVWDhMZFFyTDl2dzJoT0diXzd4eWtwbEpKd2trZjE0aTZFdlJiMlItYUw0dEozNnRDZ3BhWVkxN1ZqbzdONmdUQ0F0azJMUEo2c0h0TC13MWdtX1hzTHNkNEE4LTVwZ1RnQWFKTVlVWi1vWE55Zw?oc=5",
+      "img": "https://media-dienbien.baodienbienphu.vn/31-TS-2311_2026-11-22-28.jpg"
+     },
+     {
+      "title": "Ngày 23/11: Giá cao su thế giới biến động trái chiều",
+      "summary": "Giá cao su thế giới hôm nay (23/11) diễn biến trái chiều. Đáng chú ý, giá cao su trên sàn SHFE tăng mạnh từ 2,16 - 2,80%, trái ngược với xu hướng phân hóa tại TOCOM. Trong khi đó, thị trường Thái Lan và sàn SGX đồng loạt giảm.",
+      "url": "https://thoibaotaichinhvietnam.vn/ngay-23-11-gia-cao-su-the-gioi-bien-dong-trai-chieu-207374.html",
+      "source": "Thời báo Tài chính Việt Nam",
+      "date": "2026-11-23 06:11",
+      "g": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdVprNGJLYzRERy03eTBJWUNhbVpTZWNOcnk0VXpaS0EzenV1TVlMRXh5TDF2TVRMNnV6aU12YTd1MGlnQ2tGS0RWSG00cm9jMU43cG9zTHpiSlU5WDZTaG1SUklUQ094VklZMi1Gcm5HNHZpa3hKNUhPbVZWQTZvNUl5M3I4Y1VlNkt4ZnlkNkE3VkZlZjBqQ1l5dENVUQ?oc=5",
+      "img": "https://thoibaotaichinhvietnam.vn/stores/news_dataimages/2026/112026/23/06/in_social/ngay-23-11-gia-cao-su-the-gioi-bien-dong-trai-chieu-20261123060613.jpg?v=2.720260812095833"
+     },
+     {
+      "title": "Thông tin mới về dự án đường sắt tốc độ cao Bắc - Nam",
+      "summary": "Liên danh nhà thầu Việt Nam, Pháp và Hàn Quốc vừa trúng gói thầu tư vấn khảo sát, lập Báo cáo nghiên cứu khả thi dự án đường sắt tốc độ cao Bắc - Nam, với giá hơn 10.240 tỷ đồng. Thời gian thực hiện là 30 tháng.",
+      "url": "https://cafef.vn/thong-tin-moi-ve-du-an-duong-sat-toc-do-cao-bac-nam-188261123060225594.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 06:02",
+      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795388516518-1795388517758460987466.webp"
+     },
+     {
+      "title": "Việt Nam sắp có thêm nhà máy nhà máy biến rác thành điện trị giá 1.150 tỷ đồng: Huy động gần 500 kỹ sư, 14 nhà thầu hoàn thành chỉ sau 16 tháng khởi công",
+      "summary": "Sau hơn 16 tháng xây dựng, nhà máy điện rác công suất 12 MW của BIWASE tại TP.HCM đang bước vào giai đoạn hoàn thiện cuối cùng. Tiến độ này tương đối nhanh khi đặt cạnh một số dự án điện rác lớn tại Việt Nam.",
+      "url": "https://cafebiz.vn/viet-nam-sap-co-them-nha-may-nha-may-bien-rac-thanh-dien-tri-gia-1150-ty-dong-huy-dong-gan-500-ky-su-14-nha-thau-hoan-thanh-chi-sau-16-thang-khoi-cong-176261122220015569.chn",
+      "source": "CafeBiz",
+      "date": "2026-11-23 04:53",
+      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795359572261-179535957413953899391.jpg"
+     },
+     {
+      "title": "Gia Lai tập trung tháo gỡ vướng mắc mặt bằng các dự án giao thông trọng điểm",
+      "summary": "Gia Lai tập trung tháo gỡ vướng mắc giải phóng mặt bằng tại các dự án giao thông trọng điểm, nhất là các tuyến kết nối cao tốc Bắc - Nam với khu công nghiệp, cảng biển, đồng thời làm rõ trách nhiệm các đơn vị liên quan để đảm bảo tiến độ công trình.",
+      "url": "https://baoxaydung.vn/gia-lai-tap-trung-thao-go-vuong-mac-mat-bang-cac-du-an-giao-thong-trong-diem-192261122184053086.htm",
+      "source": "Báo Xây dựng",
+      "date": "2026-11-23 04:46",
+      "img": "https://baoxaydung.mediacdn.vn/zoom/600_315/603483875699699712/2026/11/22/17953465290847018273196012625103681209456997989893e7b8437e41d7466fde83304b6d9c0a94-17953471347941779124445-0-259-1438-2560-crop-17953475156051761135709.jpg"
+     },
+     {
+      "title": "Đồng Nai tìm nhân thân 5 mộ xưa ở đại lộ kết nối sân bay Long Thành",
+      "summary": "5 ngôi mộ xưa, được xây bằng đá ong nằm giữa rừng cao su, thuộc phạm vi dự án xây dựng đại lộ kết nối sân bay Long Thành nhưng chưa tìm được nhân thân.",
+      "url": "https://thanhnien.vn/dong-nai-tim-nhan-than-5-mo-xua-o-dai-lo-ket-noi-san-bay-long-thanh-185261122223822896.htm",
+      "source": "Thanh Niên",
+      "date": "2026-11-23 04:41",
+      "img": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/22/91138966011195776642522933818192613939698937n-17953611548491378467465-0-0-400-640-crop-17953621517961280528440.jpg"
+     },
+     {
+      "title": "Tiếp tục rà soát các mỏ vật liệu xây dựng phục vụ công trình trọng điểm quốc gia",
+      "summary": "Phó Thủ tướng Thường trực Chính phủ Phạm Gia Túc yêu cầu tiếp tục rà soát các mỏ, điều phối nguồn vật liệu xây dựng giữa các địa phương để bảo đảm đủ vật liệu thi công các dự án trọng điểm quốc gia và dự án đầu tư công.",
+      "url": "https://baoxaydung.vn/tiep-tuc-ra-soat-cac-mo-vat-lieu-xay-dung-phuc-vu-cong-trinh-trong-diem-quoc-gia-192261122204456097.htm",
+      "source": "Báo Xây dựng",
+      "date": "2026-11-23 03:52",
+      "img": "https://baoxaydung.mediacdn.vn/zoom/600_315/603483875699699712/2026/11/22/1448f1a6-0863-41c1-b101-df104086594epng-1795352297927874499011-17953548493411128339236-22-0-822-1280-crop-17953549175221101555345.jpg"
+     },
+     {
       "title": "Một nhà thầu quân đội Việt Nam từng xây cầu dài 383 m thần tốc trong 9 tháng, nay lại đưa cầu dây văng mới về gần đích chỉ sau 280 ngày",
       "summary": "Sau khi hoàn thành cầu Phong Châu dài 383 m chỉ trong 9 tháng, sớm hơn kế hoạch 3 tháng, Tổng công ty Xây dựng Trường Sơn tiếp tục ghi dấu ấn tại dự án cầu Gia Bảy ở Thái Nguyên. Chỉ 280 ngày sau khởi công, cây cầu dây văng mới đã hợp long, cất nóc tháp và đạt hơn 90% giá trị…",
       "url": "https://cafef.vn/mot-nha-thau-quan-doi-viet-nam-tung-xay-cau-dai-383-m-than-toc-trong-9-thang-nay-lai-dua-cau-day-vang-moi-ve-gan-dich-chi-sau-280-ngay-188261122175900642.chn",
@@ -1092,47 +1153,6 @@
       "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/cang-nuoc-sau-17953626688441176373232-165-0-1111-1514-crop-17953626765791887461435.png"
      },
      {
-      "title": "Liên danh Việt - Pháp - Hàn trúng thầu tư vấn đường sắt cao tốc Bắc - Nam",
-      "summary": "(Dân trí) - Liên danh gồm 8 doanh nghiệp Việt Nam, Pháp và Hàn Quốc trúng gói thầu tư vấn quan trọng của dự án đường sắt tốc độ cao Bắc - Nam, với giá hơn 10.240 tỷ đồng.",
-      "url": "https://dantri.com.vn/thoi-su/lien-danh-viet-phap-han-trung-thau-tu-van-duong-sat-cao-toc-bac-nam-20261122231554812.htm",
-      "source": "Dân trí",
-      "date": "2026-11-23 00:00",
-      "img": "https://cdnphoto.dantri.com.vn/npuG5Pnqh6VwcXz9hQfsDqjh8zI=/2026/11/22/vingroup-cua-ty-phu-pham-nhat-vuong-muon-tap-trung-lam-du-an-nao-1766720787557-1795364055407.jpg"
-     },
-     {
-      "title": "Tiếp tục rà soát các mỏ vật liệu xây dựng phục vụ công trình trọng điểm quốc gia",
-      "summary": "Phó Thủ tướng Thường trực Phạm Gia Túc yêu cầu các bộ, ngành, địa phương tiếp tục rà soát, điều phối nguồn vật liệu liên tỉnh, bảo đảm tiến độ và chất lượng thi công các dự án trọng điểm quốc gia. Rà soát, điều phối nguồn vật liệu xây dựng phục vụ các công trình trọng điểm Giá…",
-      "url": "https://www.vietnamplus.vn/tiep-tuc-ra-soat-cac-mo-vat-lieu-xay-dung-phuc-vu-cong-trinh-trong-diem-quoc-gia-post1150014.vnp",
-      "source": "Vietnam+",
-      "date": "2026-11-22 22:05",
-      "img": "https://media.vietnamplus.vn/images/dZT0STogUg1N0wbnIQQTYG9HKkx9i9_lshyXKT38uazTQbrr8FHDkBR7b-qEQsvlp09rG_5wsyA3cseXkCDO-g/ttxvn-vat-lieu-xay-dung.jpg.avif"
-     },
-     {
-      "title": "Khoảng 1 tháng nữa, chính thức khởi công tuyến đường 16.000 tỷ đi qua 8 xã, phường tại tỉnh nhỏ nhất Việt Nam",
-      "summary": "Theo kế hoạch, tuyến đường này sẽ khởi công vào tháng 12 tới đây.",
-      "url": "https://nguoiquansat.vn/khoang-1-thang-nua-chinh-thuc-khoi-cong-tuyen-duong-16-000-ty-di-qua-8-xa-phuong-tai-tinh-nho-nhat-viet-nam-329540.html",
-      "source": "nguoiquansat.vn",
-      "date": "2026-11-22 22:00",
-      "g": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPT1BfVDA3ek1JX0pqVjE1MXZqUW1jc3NzaXhaMjlUYjBVWHJDTFllMVZtR09UWGhMTFdpYWRRY3NYWnhWZTlRYTBYemZXMmJQRzlEM1M3YkJSN3lSbGVSbXMxdGFQTkR5MU54QnlyYTE1Y3VROXhSRzRTSDdQRkRPWG9uTVBNaUFmd3psak5xZ2lidkV6REIwbUtmT08wQVJHZDBSWUIyUkFOWVBFRl9QeVNBOVVWa01IMlZnZ0FnNlBHMHpkUnRsNlVqOEUwUHB4cXltaDVnbGJDOUE?oc=5",
-      "img": "https://nqs.1cdn.vn/thumbs/540x360/2026/11/22/3197_anh-man-hinh-2026-11-22-luc-17.11.31.png"
-     },
-     {
-      "title": "Việt Nam sắp có thêm nhà máy nhà máy biến rác thành điện trị giá 1.150 tỷ đồng: Huy động gần 500 kỹ sư, 14 nhà thầu hoàn thành chỉ sau 16 tháng khởi công",
-      "summary": "Sau hơn 16 tháng xây dựng, nhà máy điện rác công suất 12 MW của BIWASE tại TP.HCM đang bước vào giai đoạn hoàn thiện cuối cùng. Tiến độ này tương đối nhanh khi đặt cạnh một số dự án điện rác lớn tại Việt Nam.",
-      "url": "https://cafebiz.vn/viet-nam-sap-co-them-nha-may-nha-may-bien-rac-thanh-dien-tri-gia-1150-ty-dong-huy-dong-gan-500-ky-su-14-nha-thau-hoan-thanh-chi-sau-16-thang-khoi-cong-176261122220015569.chn",
-      "source": "CafeBiz",
-      "date": "2026-11-22 21:53",
-      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795359572261-179535957413953899391.jpg"
-     },
-     {
-      "title": "Gia Lai tập trung tháo gỡ vướng mắc mặt bằng các dự án giao thông trọng điểm",
-      "summary": "Gia Lai tập trung tháo gỡ vướng mắc giải phóng mặt bằng tại các dự án giao thông trọng điểm, nhất là các tuyến kết nối cao tốc Bắc - Nam với khu công nghiệp, cảng biển, đồng thời làm rõ trách nhiệm các đơn vị liên quan để đảm bảo tiến độ công trình.",
-      "url": "https://baoxaydung.vn/gia-lai-tap-trung-thao-go-vuong-mac-mat-bang-cac-du-an-giao-thong-trong-diem-192261122184053086.htm",
-      "source": "Báo Xây dựng",
-      "date": "2026-11-22 21:46",
-      "img": "https://baoxaydung.mediacdn.vn/zoom/600_315/603483875699699712/2026/11/22/17953465290847018273196012625103681209456997989893e7b8437e41d7466fde83304b6d9c0a94-17953471347941779124445-0-259-1438-2560-crop-17953475156051761135709.jpg"
-     },
-     {
       "title": "Sân bay Long Thành dự kiến tăng chuyến bay dịp Tết 2027, chia sẻ áp lực với Tân Sơn Nhất",
       "summary": "Chỉ hơn một tháng sau khi vận hành thương mại, sân bay Long Thành sẽ bước vào cao điểm phục vụ Tết Nguyên đán 2027. ACV đang tính toán phương án tăng sản lượng lên 30-40 chuyến mỗi ngày, giảm tải cho sân bay Tân Sơn Nhất.",
       "url": "https://baoxaydung.vn/san-bay-long-thanh-du-kien-tang-chuyen-bay-dip-tet-2027-chia-se-ap-luc-voi-tan-son-nhat-192261122140553068.htm",
@@ -1141,20 +1161,12 @@
       "img": "https://baoxaydung.mediacdn.vn/zoom/600_315/603483875699699712/2026/11/22/img8155-17953310858361561917402-0-0-1250-2000-crop-17953310926491319818794.jpeg"
      },
      {
-      "title": "Thông tin mới về dự án đường sắt tốc độ cao Bắc - Nam",
-      "summary": "Liên danh nhà thầu Việt Nam, Pháp và Hàn Quốc vừa trúng gói thầu tư vấn khảo sát, lập Báo cáo nghiên cứu khả thi dự án đường sắt tốc độ cao Bắc - Nam, với giá hơn 10.240 tỷ đồng. Thời gian thực hiện là 30 tháng. Chuyên gia tiết lộ các công nghệ có thể xuất hiện trên tuyến đường…",
-      "url": "https://tienphong.vn/thong-tin-moi-ve-du-an-duong-sat-toc-do-cao-bac-nam-post1896632.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-11-22 20:45",
-      "img": "https://cdn.tienphong.vn/images/pAWKGOzT8BIc-M3GdeLjya-SsEkczOPVVXoPGtaq9Q-SSx_zXaDRaLPikSIIGN36/hien-truong2.jpg.avif"
-     },
-     {
-      "title": "Xem nhanh 20h ngày 22.11: Sân bay Long Thành khai thác thế nào dịp tết này | Mùa khô 2027 sẽ bất thường?",
-      "summary": "‘Xem nhanh 20h’ ngày 22.11 có nhiều tin tức đáng chú ý về: Sân bay Long Thành dịp tết 2027: Dự kiến 30 - 40 chuyến mỗi ngày; mới cuối tháng 11 đã oi bức, mùa khô 2027 đáng lo thế nào;...",
-      "url": "https://thanhnien.vn/xem-nhanh-20h-ngay-2211-san-bay-long-thanh-khai-thac-the-nao-dip-tet-nay-mua-kho-2027-se-bat-thuong-185261122194035863.htm",
-      "source": "Thanh Niên",
-      "date": "2026-11-22 20:00",
-      "img": "https://thanhnien.mediacdn.vn/zoom/600_315/325084952045817856/2026/11/22/base64-17953511067301643215702.jpeg"
+      "title": "Liên danh Việt - Pháp - Hàn trúng gói tư vấn lớn nhất đường sắt tốc độ cao Bắc Nam",
+      "summary": "Liên danh 8 doanh nghiệp Việt Nam, Pháp và Hàn Quốc trúng gói thầu tư vấn lớn nhất dự án đường sắt tốc độ cao Bắc Nam, trị giá hơn 10.243 tỷ đồng.",
+      "url": "https://vnexpress.net/lien-danh-viet-phap-han-trung-goi-tu-van-lon-nhat-duong-sat-toc-do-cao-bac-nam-5147718.html",
+      "source": "VnExpress",
+      "date": "2026-11-22 20:47",
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/22/395afd4a-ee7da30d70b0fe0-17953-8878-3722-1795353176.webp?w=1200&h=0&q=100&dpr=1&fit=crop&s=dvtE8qrf55-4hwz73-pgJQ"
      },
      {
       "title": "Giữ chân người lao động tại các khu công nghiệp",
@@ -1165,13 +1177,21 @@
       "img": "https://cdn.nhandan.vn/images/MT2FTImFR2t6eAawSqw2GybH2uis8rEVNSbIhHEU4M6uZbwnCoL5jJfmhKiFy6Br/2311dnb11.jpg.avif"
      },
      {
-      "title": "Việt Nam xây dựng trung tâm hành chính mới 30.000 tỷ tại TP giàu nhất cả nước: Sắp hoàn thành nhiều hợp phần sau 6 tháng khởi công",
-      "summary": "Dự kiến, trung tâm hành chính này sẽ được đưa vào hoạt động trong năm 2028.",
-      "url": "https://nguoiquansat.vn/viet-nam-xay-dung-trung-tam-hanh-chinh-moi-30-000-ty-tai-tp-giau-nhat-ca-nuoc-sap-hoan-thanh-nhieu-hop-phan-sau-6-thang-khoi-cong-329523.html",
-      "source": "nguoiquansat.vn",
-      "date": "2026-11-22 17:00",
-      "g": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQT0dtNzA1bzViZlVKU0prUVR5TkJQWXV5RVhfUXFsRklHRi1VSXdhTk5mamdhVU1GcmdSU1J2UEJoeUhjUXQ0YVVYamVEdFhoYk9iSWs3b1o1LURHN0htMTlyV3pocjNFd081clVkLVY1NVVkd3pRYTJjdy1pZkY5ZzdzRnp6WmRyNXJpOXQ4dGRoeFhZamhJTGFJcFgzM19TTG1lNGduenJISGY4MUswdmxyOGZHZ1cwRnF1Y0Y3VnpSYWhUTEdUT1EtNHVTYlU4a21PSm1hSFp0WWF5aS1jQldUUG5vTmY5SEpzY1FXVkUxQmlwTldJbQ?oc=5",
-      "img": "https://nqs.1cdn.vn/thumbs/540x360/2026/11/22/2BF9_anh-man-hinh-2026-11-17-luc-11.29.02.png"
+      "title": "Xã Lục Yên giải ngân vốn ngân sách xã đạt 87%",
+      "summary": "Năm 2026, trên địa bàn xã Lục Yên triển khai thực hiện 50 công trình, gồm cả công trình chuyển tiếp từ Ban Quản lý dự án đầu tư xây dựng khu vực Yên Bình về UBND xã làm chủ đầu tư và công trình khởi công mới sử dụng nguồn ngân sách xã.",
+      "url": "https://www.vietnam.vn/xa-luc-yen-giai-ngan-von-ngan-sach-xa-dat-87",
+      "source": "Vietnam.vn",
+      "date": "2026-11-22 19:30",
+      "g": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5EaXFUaFhSMk4xTS1sSHN1cHV4RnJKUmFVOWpnMU5CclFyQlAzMlFCWUZsYmdNT0oxc1BvSW1KSzQ1ZDk3UkEwTnA3WVY4X2Q2MHhPVFFhSUo3Rkh2bFh0TTdjd2tuOExOZ0JoVldRLVdlakNXaVE?oc=5",
+      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/22/1795336817784_169-2470-jpg.webp"
+     },
+     {
+      "title": "Một doanh nghiệp họ 'Vinaconex' bị hủy tư cách công ty đại chúng",
+      "summary": "Ủy ban Chứng khoán Nhà nước (UBCKNN) mới đây đã công bố việc hủy tư cách công ty đại chúng của Công ty CP Vinaconex Sài Gòn (Vinaconex Sài Gòn). Doanh nghiệp này có trụ sở tại số 47 Điện Biên Phủ ...",
+      "url": "https://antt.nguoiduatin.vn/mot-doanh-nghiep-ho-vinaconex-bi-huy-tu-cach-cong-ty-dai-chung-205261122164633819.htm",
+      "source": "antt.nguoiduatin",
+      "date": "2026-11-22 19:30",
+      "img": "https://antt.mediacdn.vn/zoom/1200_630/83577812655439872/2026/11/22/mot-doanh-nghiep-ho-vinaconex-bi-huy-tu-cach-cong-ty-dai-chung-antt-1795340784619449409172-26-0-848-1315-crop-17953407912431668306646.png"
      },
      {
       "title": "Góc nhìn chuyên gia: Nhịp giảm là cơ hội giải ngân chọn lọc, 3 nhóm cổ phiếu tiềm năng kỳ vọng đón dòng tiền mới",
@@ -1181,22 +1201,6 @@
       "date": "2026-11-22 14:14",
       "g": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOMmpWb3ctSDlhUzhGYzJ1c1hwZVRSeUtnY2hmUDA2NHc4NFFYbVJhTXdVU3FrNzF4dzFyRWpWN095RzZoOXl3RWJtVE5nMXFKZmFXb09pN3loaWtuc2VRU1VfdEp6bU56RzNXLUFMdXpMVFJPYjlEcl9uQnRCYUFvSVNhQmZiSnpXUTVfalRxY2hudWlGamIxa0lFVVdnREU2cUhhbHlwUm5YZ0hNTFR3aXd0R2xmcFVBNGZzRmRmZmFBQUVpcERtWWhiWUU3Q2FuenB2QV9PdmFYZ2VySGsyby1yeEI?oc=5",
       "img": "https://cafefcdn.com/thumb_w/1200/203337114487263232/2026/11/22/images-30-17953317907221180375296-0-43-401-685-crop-17953317963751113412210.jpeg"
-     },
-     {
-      "title": "Người dân Tây Ninh đón tin vui: Sắp khởi công 3 tuyến đường tổng vốn hơn 30.000 tỷ đồng, có tuyến dài hơn 74km kết nối đến cửa khẩu quốc tế",
-      "summary": "Tây Ninh đang chuẩn bị khởi công 3 dự án giao thông với tổng vốn đầu tư hơn 30.000 tỷ đồng, gồm trục kết nối Long An - Tân Ninh, đường Tân An - Bình Hiệp và dự án nâng cấp, mở rộng cầu kết nối cặp cửa khẩu quốc tế Tân Nam - Meun Chey.",
-      "url": "https://cafef.vn/nguoi-dan-tay-ninh-don-tin-vui-sap-khoi-cong-3-tuyen-duong-tong-von-hon-30000-ty-dong-co-tuyen-dai-hon-74km-ket-noi-den-cua-khau-quoc-te-188261122090651275.chn",
-      "source": "CafeF",
-      "date": "2026-11-22 12:10",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/tay-ninh-1795312872689423436335-0-192-1130-2000-crop-17953128932761684290714.png"
-     },
-     {
-      "title": "Doanh nghiệp khu công nghiệp duy trì đà tăng trưởng",
-      "summary": "Ninh Bình hiện có 20 khu công nghiệp đi vào hoạt động, thu hút gần 1.205 dự án thứ cấp còn hiệu lực (gồm 582 dự án FDI và 623 dự án trong nước) với tổng vốn đầu tư đăng ký đạt 11,724 tỷ USD và 143,819 nghìn tỷ đồng. Các doanh nghiệp trong khu công nghiệp đang tạo việc làm cho…",
-      "url": "https://baotintuc.vn/doanh-nghiep-khu-cong-nghiep-duy-tri-da-tang-truong-post1405055.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 10:34",
-      "img": "https://media3.baotintuc.vn/images/Kq8qNiWnYuUiRWMRp_KRoh99jdFRAwC7aYStQSDM6611qmL0gu7YZKDtta5BFAtk4FhBMzJkamoq-7ypQinkOmTa1ayDGTfwN--zWjwv0aAsWQCwFhgt195_uD0GIoNeb7rTYZ0BeJWtm7wES1znPQ/potal-sau-tet-doanh-nghiep-tai-ninh-binh-tang-toc-hoat-dong-san-xuat-stand.jpg.avif"
      }
     ]
    },
@@ -1205,12 +1209,88 @@
     "name": "Ngân hàng",
     "items": [
      {
+      "title": "Cổ phiếu ngày 23/11: Dòng tiền chú ý nhóm công nghệ, ngân hàng và hạ tầng",
+      "summary": "Các công ty chứng khoán đưa ra khuyến nghị tích cực đối với FPT, SIP, HT1, REE và CTG nhờ triển vọng tăng trưởng từ hoạt động kinh doanh cốt lõi. Trong khi đó, ANV được khuyến nghị trung lập trước những khó khăn về giá bán và chi phí đầu vào.",
+      "url": "https://hangthat.thuonghieucongluan.com.vn/co-phieu-ngay-23-11-dong-tien-chu-y-nhom-cong-nghe-ngan-hang-va-ha-tang-a295553.html",
+      "source": "Hangthat.vn",
+      "date": "2026-11-23 06:26",
+      "g": "https://news.google.com/rss/articles/CBMixgFBVV95cUxObWdEMmMwMkwwR1FRelJYSTNoUUhoNFE2ZmV0R2ZVb1ZfNTUtTVhfenhKZlY4Z3h5blJJa3JuTVdmZ2twZ3F3OW1RTExERTN4WUNxT0tKUnVybHZRandJcFFIQXhWVVlVNWZVY3VhRTJDNko5SFNiWmtsN2NrazQ4QjdVWjd6a01JVFlzVHh2b0luMG11RGRDRm4zREFqTFpyblhxTWg2Z2Y2YVUxX0pNTk4zdmpBdEdQeHdidEdPR0hXOFBOX3c?oc=5",
+      "img": "https://media.hangthat.vn/resize_640x360/uploads/2026/10/31/chung-khoan-nhat-viet-1793436533.jpeg"
+     },
+     {
+      "title": "Tất cả người dân vừa giao dịch chuyển khoản với nội dung sau cần nhanh chóng liên hệ ngân hàng, trình báo cơ quan Công an gần nhất",
+      "summary": "Công an tỉnh Khánh Hòa cảnh báo thủ đoạn lừa đảo liên quan đến giao dịch vàng trên không gian mạng.",
+      "url": "https://cafef.vn/tat-ca-nguoi-dan-vua-giao-dich-chuyen-khoan-voi-noi-dung-sau-can-nhanh-chong-lien-he-ngan-hang-trinh-bao-co-quan-cong-an-gan-nhat-188261122201133158.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 06:03",
+      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1789371647484-1789371648126105265700-17953529944601759567493-0-40-335-576-crop-1795353000214832464024.jpg"
+     },
+     {
       "title": "Có 100 triệu để ở tài khoản thanh toán Agribank, Sacombank, TPBank, SHB hay ACB,... thì sẽ trở thành khách VIP?",
       "summary": "Các ngân hàng hiện nay xét hạng khách hàng ưu tiên dựa trên số dư tiền gửi, tài sản, dư nợ hoặc phí bảo hiểm và thẻ. Ngưỡng thấp có thể chỉ 100 triệu đồng tiền gửi không kỳ hạn, còn ngưỡng cao nhất có thể tới hàng tỷ đồng.",
       "url": "https://cafef.vn/co-100-trieu-de-o-tai-khoan-thanh-toan-agribank-sacombank-tpbank-shb-hay-acb-thi-se-tro-thanh-khach-vip-188261122234715716.chn",
       "source": "CafeF",
-      "date": "2026-11-23 00:30",
+      "date": "2026-11-23 06:02",
       "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795365964173-17953659655502100964384-0-101-630-1109-crop-17953659784091185078048.png"
+     },
+     {
+      "title": "Nhận lương đều đặn hàng tháng, vì sao nhiều công nhân vẫn khó được ngân hàng cấp thẻ tín dụng?",
+      "summary": "Một người lao động có thể nhận lương đều đặn hàng tháng, sử dụng tài khoản ngân hàng để thanh toán và duy trì các khoản chi tiêu sinh hoạt ổn định. Tuy nhiên, khi đăng ký mở thẻ tín dụng, người này vẫn có thể gặp khó khăn trong việc đáp ứng các điều kiện thẩm định.",
+      "url": "https://cafef.vn/nhan-luong-deu-dan-hang-thang-vi-sao-nhieu-cong-nhan-van-kho-duoc-ngan-hang-cap-the-tin-dung-188261122232725054.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 05:26",
+      "g": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNS2ZybnpkRkxId2tRbkU5RnlCODRoZGRXMWtIY1d5Tk5ER0ZxSmxTUGlYMnB3SEZZZzM1MlcxWHhlRXBoVF9vVTZUWVdnTUlhbXlNcUJRQ04zRGh6QmdSOTI1NVFWWTBqYW15dU9kVThMU2dReV9KUVE5cE1aRWVMTGx3bUpjVWVMbnZoRl9TN2NBaWRDWU1NN3hpUDQxS0g3Y3VEUkRieXNyUHg4TlJrQnFIOWI3YWtaenNZdWlJRHhKUWl1VGZlRjlGWFU?oc=5",
+      "logo": "cafef.vn"
+     },
+     {
+      "title": "Trái phiếu chính phủ lần đầu giảm lãi suất trong năm nay",
+      "summary": "Lãi suất trúng thầu trái phiếu chính phủ 10 năm, kỳ hạn chuẩn của thị trường, vừa giảm còn 4,41% sau gần 11 tháng liên tiếp đi ngang hoặc tăng.",
+      "url": "https://vnexpress.net/trai-phieu-chinh-phu-lan-dau-giam-lai-suat-trong-nam-nay-5147737.html",
+      "source": "VnExpress",
+      "date": "2026-11-23 03:55",
+      "img": "https://i1-kinhdoanh.vnecdn.net/2026/11/22/DSC-2515-2017-1795359065.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=SfFUGxlot8U9hc00dJtmbQ"
+     },
+     {
+      "title": "Chuyên gia: Thu nhập 10 triệu nên dành luôn 2 triệu để tiết kiệm, đừng chi tiêu còn lại bao nhiêu cuối tháng mới gửi ngân hàng",
+      "summary": "Với thu nhập 10 triệu đồng mỗi tháng nhưng chi tiêu tới 12 triệu đồng, người lao động sẽ phải tìm cách bù đắp khoản thiếu hụt 2 triệu đồng. Theo chuyên gia tài chính, vấn đề có thể bắt đầu từ thói quen chi tiêu trước, tiết kiệm sau.",
+      "url": "https://cafef.vn/chuyen-gia-thu-nhap-10-trieu-nen-danh-luon-2-trieu-de-tiet-kiem-dung-chi-tieu-con-lai-bao-nhieu-cuoi-thang-moi-gui-ngan-hang-188261122233706435.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 03:36",
+      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795365357448-1795365358630639320022-0-86-630-1094-crop-17953653758961650303190.png"
+     },
+     {
+      "title": "Ngày 23/11, gửi dưới 500 triệu đồng kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
+      "summary": "Lãi suất tiết kiệm kỳ hạn 12 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB có sự chênh lệch đáng kể giữa hình thức gửi tại quầy và trực tuyến. Với khoản tiền gửi dưới 500 triệu đồng, số tiền lãi khách hàng nhận được phụ thuộc vào ngân hàng, số tiền gửi và hình…",
+      "url": "https://cafef.vn/ngay-23-11-gui-duoi-500-trieu-dong-ky-han-12-thang-tai-mb-vpbank-techcombank-sacombank-shb-hdbank-va-acb-nhan-duoc-bao-nhieu-tien-lai-188261122224452882.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 03:00",
+      "g": "https://news.google.com/rss/articles/CBMigwJBVV95cUxPNTI1R25jSGozdkpIRmZnelJpb2xhOUt0SGNYWWVIbGhyOG1qeThRZXRzRG92OG1oZFhMbDJwd2lWZXlwanE4bHFadFVXSkNWYVBwVUk0djliUDU1dS1aN292OVQ0LWlfYkJ0a2xMcmlEQUJ6WTcyWU1nS1hibXdKVmc1Y0JYbUpVZllxRVBtT0IxU1M2UjI5OVhtTkM2Y1hDZTlRWWc0dkhQNHpYMVJpeGdwVWNBZEVnaFZDUzE4VG81eEtoRHRwRE5HaXk4RTd5cmY0UmVOUUVtdmJFMmtHaE9jSXFxWW92TXNuTDlwMC1GdFZLVVltWkM5dU9SXy1zRThn?oc=5",
+      "img": "https://cafefcdn.com/thumb_w/1200/203337114487263232/2026/11/22/ls-anh-1792554995-7023-1792555011-1795362169986518477666-125-0-1193-2040-crop-1795362182756920161544.jpg"
+     },
+     {
+      "title": "Ngân hàng lớn nhất Việt Nam đặt mục tiêu tăng trưởng tín dụng 16% năm 2027, lên kế hoạch phát hành riêng lẻ 780 triệu cổ phiếu",
+      "summary": "BIDV đặt mục tiêu tăng trưởng tín dụng khoảng 16% trong năm 2027, đồng thời lên kế hoạch phát hành riêng lẻ 780 triệu cổ phiếu và huy động thêm 25.000–28.000 tỷ đồng qua kênh trái phiếu.",
+      "url": "https://cafebiz.vn/ngan-hang-lon-nhat-viet-nam-dat-muc-tieu-tang-truong-tin-dung-16-nam-2027-len-ke-hoach-phat-hanh-rieng-le-780-trieu-co-phieu-176261122195231317.chn",
+      "source": "CafeBiz",
+      "date": "2026-11-23 02:53",
+      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795351906270-17953519066832066657554.jpg"
+     },
+     {
+      "title": "Siêu nhà máy điện tại Cần Thơ được Nhật Bản cho vay hơn 4.500 tỷ đồng lãi suất 1,4%: Hé lộ một văn kiện đặc biệt từ 13 năm trước",
+      "summary": "Một văn kiện được ký từ năm 2013 đã giúp siêu dự án điện Ô Môn 3 tại Cần Thơ tiếp cận khoản vay hơn 4.500 tỷ đồng từ Nhật Bản, với lãi suất xây dựng chỉ 1,4%/năm. Điều đặc biệt là Nhật Bản đã hạn chế hỗ trợ công mới cho phần lớn dự án năng lượng hóa thạch ở nước ngoài từ cuối…",
+      "url": "https://cafebiz.vn/sieu-nha-may-dien-tai-can-tho-duoc-nhat-ban-cho-vay-hon-4500-ty-dong-lai-suat-14-he-lo-mot-van-kien-dac-biet-tu-13-nam-truoc-176261122191747949.chn",
+      "source": "CafeBiz",
+      "date": "2026-11-23 02:24",
+      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795349791115-17953497915001237310158.jpg"
+     },
+     {
+      "title": "Khối ngoại bán ròng hơn 47.000 tỷ đồng cổ phiếu ngân hàng từ đầu năm 2026, tâm điểm ACB, VCB, STB, HDB và VPB",
+      "summary": "Từ đầu năm 2026 đến nay, nhà đầu tư nước ngoài đã bán ròng hơn 47.000 tỷ đồng tại nhóm cổ phiếu ngân hàng, vượt xa mức bán ròng của cả năm 2025. Trong đó, ACB, VCB, STB, HDB và VPB là 5 cổ phiếu chịu áp lực bán ròng lớn nhất, với tổng giá trị hơn 32.700 tỷ đồng.",
+      "url": "https://cafef.vn/khoi-ngoai-ban-rong-hon-47000-ty-dong-co-phieu-ngan-hang-tam-diem-acb-vcb-stb-hdb-va-vpb-188261122234006725.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 01:00",
+      "g": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQc1pJcE5EUFB1X3BRcUhhc0owamR2amV4MU5sTXNPeEJicTRCblA3ZUxLSlJmT1UzTVZaTWcyMTRkN3lBUnFHT19rYnNvbGc2Rm83bERMdmkyRmh6akNZV3A5T1FGSURFQnZkNmdrSkpIajgxTzVYNlpRYTFUM25jR1lTOHlVbEctM2V1dU1tTy1jTzZkOGNWaXRUeGEtZXBFbnlDb2hYeWJ2ckZNZFJKYlhEZThKSUkzYTYwaWZwQ2M3Yy05TE1z?oc=5",
+      "img": "https://cafefcdn.com/thumb_w/1200/203337114487263232/2026/11/22/co-phieu-ngan-hang-lao-doc-17953654086741123403073-0-54-941-1560-crop-17953654144791099070326.png"
      },
      {
       "title": "CTCK dự báo: Ngân hàng lãi thêm 45.500 tỷ đồng, tổng tất cả các ngành còn lại giảm 800 tỷ đồng nếu không tính nhóm Vin",
@@ -1218,6 +1298,7 @@
       "url": "https://cafef.vn/ctck-du-bao-ngan-hang-lai-them-45500-ty-dong-tong-tat-ca-cac-nganh-con-lai-giam-800-ty-dong-neu-khong-tinh-nhom-vin-188261122104753285.chn",
       "source": "CafeF",
       "date": "2026-11-23 00:03",
+      "g": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNVDhhMHM5RFpmWFFpd2ZRQjlDb2ttZ3B6YVFsNGQ3c1ZZWmJudGNCNUhVb0pzaWhVNVZXWTNxMDNLTy1Od3N6aHB6OGFoaUpqWFVDNm5jVEZtLUptWnpxSzczam1mdk9hMW1BeC1aZE1ydWRUMlJEQ2xFN2NnMGJvbTZ6RGZCYm0yS05OVUlBeGhTLTRlNUhzVHFPYUw0TERaM01nY3h4SzZTMzVFV2l6RVFLRjdpWE85TmZVZUR5QUhkV0hrN3BGdDZzbFZVVGZUaVIxSTZCaExBMC12Z2RENVQ2VTMxUjhpakFJ?oc=5",
       "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/trien-vong-tai-chinh-2027-giua-bien-dong-1795319202820210900134-0-0-991-1586-crop-17953192055901905460103.png"
      },
      {
@@ -1231,10 +1312,10 @@
      {
       "title": "VN-Index mất điểm bởi VCB cùng loạt cổ phiếu ngân hàng, THD kéo lùi HNX-Index",
       "summary": "Chứng khoán Việt Nam trải qua tuần 16-20/11 đầy khó khăn khi toàn bộ nhóm ngành đều suy giảm. Ngành ngân hàng tạo sức ép lớn, trong đó VCB kéo lùi VN-Index mạnh nhất với gần 6.2 điểm. Trên HNX-Index, THD lấy đi gần 5.7 điểm.",
-      "url": "http://vietstock.vn/2026/11/vn-index-mat-diem-boi-vcb-cung-loat-co-phieu-ngan-hang-thd-keo-lui-hnx-index-830-1516795.htm",
+      "url": "https://vietstock.vn/2026/11/vn-index-mat-diem-boi-vcb-cung-loat-co-phieu-ngan-hang-thd-keo-lui-hnx-index-830-1516795.htm",
       "source": "Vietstock",
       "date": "2026-11-22 23:06",
-      "g": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQWVlLUlMxeXQxUTdoc0ZaMHNwMzdlVldVbnQ5akx3ODNiQ0JWaEZZV2trYUs0Nkx1VHpwZUV0YW5FOHVTR1FaRW02S0tQZDhaa1hMbC1fZi16a3JaNFBZdFZWa3FZbzhNT3RVNlhEdTRrZ3dQVnlmbUhrakpBTUt3RlBFdFJDTlFkc00tenl6QVBZQ0ZVUWhnWFpTbmJNdDhyYkFNNG8wTm4waFJoQXc1ekp5MXN4ZXVaLTE4Mw?oc=5",
+      "g": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPc2J4cmZmQUZLa1lDSnBIVXVFQzhma3ctU3YyU2dCUnBpM0lPWHozTmNFWnlGd2hVY0wxYmY1clhzZUk0TnpBSHBGYzFueGJkWDh2NHV4dkNfM293UWFrNVBWNGJQRDZ3d28yY250dlhvb25GQVVFc1JkUnFQUUFLdm9JS2JXZkxlNmVuUDdhZGNFZWFiWG8yS0RrZGlWOFBhSjNfTlh5bWlFcE9zZFV5cXN6T1QySkdqSV90Y3R3?oc=5",
       "img": "https://image.vietstock.vn/2026/11/21/cp-anh-huong-16-20-11-2026-1_1020660.png"
      },
      {
@@ -1253,79 +1334,6 @@
       "source": "Dân trí",
       "date": "2026-11-22 21:54",
       "img": "https://cdnphoto.dantri.com.vn/izLlUhwuf-_U61ZdLRyanm7cq6s=/2026/11/22/vay-von-1795357900960.png"
-     },
-     {
-      "title": "Highlight SHB Đà Nẵng 0-1 Ninh Bình: Hoàng Đức ghi bàn, đội khách đòi lại ngôi nhì bảng",
-      "summary": "Hoàng Đức ghi bàn thắng quyết định ở phút 24, giúp CLB Ninh Bình đánh bại SHB Đà Nẵng 1-0 ngay trên sân Chi Lăng ở vòng 8 V-League 2026 - 2027. Chiến thắng đưa Ninh Bình trở lại vị trí thứ 2 với 16 điểm, kém đội đầu bảng Nam Định 3 điểm. Trong khi đó, HLV Lee Young-jin nhận thất…",
-      "url": "https://thanhnien.vn/highlight-shb-da-nang-0-1-ninh-binh-hoang-duc-ghi-ban-doi-khach-doi-lai-ngoi-nhi-bang-185261122204703258.htm",
-      "source": "Thanh Niên",
-      "date": "2026-11-22 20:51",
-      "img": "https://thanhnien.mediacdn.vn/zoom/600_315/.v-thumb/325084952045817856/2026/11/22/2611221800shbdanangninhbinhvleaguehls3ptrenphai-17953552685061318066039.mp4.thumb2.jpg"
-     },
-     {
-      "title": "Tỷ phú Nguyễn Thị Phương Thảo liên tiếp bắt tay 2 đại gia Nhật từng rót hơn 1,3 tỷ USD vào Vietcombank và VietinBank",
-      "summary": "MUFG và Mizuho, hai tập đoàn tài chính Nhật Bản đang nắm giữ lần lượt 19,73% vốn VietinBank và 15% vốn Vietcombank, vừa thiết lập thêm các thỏa thuận hợp tác với hệ sinh thái của tỷ phú Nguyễn Thị Phương Thảo. Những cái bắt tay mới diễn ra trong bối cảnh HDBank đã huy động khoản…",
-      "url": "https://cafebiz.vn/ty-phu-nguyen-thi-phuong-thao-lien-tiep-bat-tay-2-dai-gia-nhat-tung-rot-hon-13-ty-usd-vao-vietcombank-va-vietinbank-176261122134725219.chn",
-      "source": "CafeBiz",
-      "date": "2026-11-22 20:40",
-      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795329989034-1795329990054130375859.jpg"
-     },
-     {
-      "title": "Ngày 22/11, gửi dưới 100 triệu đồng kỳ hạn 18 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB nhận được bao nhiêu tiền lãi?",
-      "summary": "Lãi suất tiết kiệm kỳ hạn 18 tháng tại MB, VPBank, Techcombank, Sacombank, SHB, HDBank và ACB có sự chênh lệch đáng kể giữa hình thức gửi tại quầy và trực tuyến. Với khoản tiền gửi dưới 100 triệu đồng, số tiền lãi khách hàng nhận được phụ thuộc vào ngân hàng, sản phẩm tiết kiệm…",
-      "url": "https://cafebiz.vn/ngay-22-11-gui-duoi-100-trieu-dong-ky-han-18-thang-tai-mb-vpbank-techcombank-sacombank-shb-hdbank-va-acb-nhan-duoc-bao-nhieu-tien-lai-176261122134140798.chn",
-      "source": "CafeBiz",
-      "date": "2026-11-22 20:34",
-      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795329599493-17953296004072143780050.jpg"
-     },
-     {
-      "title": "Thị trường trái phiếu toàn cầu chuyển trọng tâm từ giá dầu sang lạm phát",
-      "summary": "(ĐTCK) Mối tương quan chặt chẽ giữa giá dầu và chi phí vay nợ của các chính phủ, vốn là xu hướng nổi bật trên thị trường trái phiếu toàn cầu trong năm nay, đang dần mất đi. Thay vào đó, giới đầu tư tập trung nhiều hơn vào cách các ngân hàng trung ương ứng phó với áp lực lạm phát…",
-      "url": "https://www.tinnhanhchungkhoan.vn/thi-truong-trai-phieu-toan-cau-chuyen-trong-tam-tu-gia-dau-sang-lam-phat-post401843.html",
-      "source": "Tin nhanh chứng khoán",
-      "date": "2026-11-22 19:58",
-      "img": "https://image.tinnhanhchungkhoan.vn/w800/Uploaded/2026/lcgjikao/2026_11_21/picture1-245-9300.jpg"
-     },
-     {
-      "title": "Mã độc tấn công qua iPhone/iPad, chủ tài khoản ngân hàng cần làm gì?",
-      "summary": "Mã độc Coruna, Darksword đánh cắp dữ liệu iPhone chỉ qua một lần truy cập website, hàng loạt ngân hàng lên tiếng cảnh báo người dùng.",
-      "url": "https://vietnamnet.vn/ma-doc-tan-cong-qua-iphone-chu-tai-khoan-ngan-hang-can-lam-gi-2575965.html",
-      "source": "VietNamNet",
-      "date": "2026-11-22 19:58",
-      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/22/ipad-chu-tai-khoan-ngan-hang-can-lam-gi-1732.jpg?width=0&s=JHdpLb6c5goIDQuRexGDfQ"
-     },
-     {
-      "title": "Ngân hàng lớn nhất Việt Nam đặt mục tiêu tăng trưởng tín dụng 16% năm 2027, lên kế hoạch phát hành riêng lẻ 780 triệu cổ phiếu",
-      "summary": "BIDV đặt mục tiêu tăng trưởng tín dụng khoảng 16% trong năm 2027, đồng thời lên kế hoạch phát hành riêng lẻ 780 triệu cổ phiếu và huy động thêm 25.000–28.000 tỷ đồng qua kênh trái phiếu.",
-      "url": "https://cafebiz.vn/ngan-hang-lon-nhat-viet-nam-dat-muc-tieu-tang-truong-tin-dung-16-nam-2027-len-ke-hoach-phat-hanh-rieng-le-780-trieu-co-phieu-176261122195231317.chn",
-      "source": "CafeBiz",
-      "date": "2026-11-22 19:53",
-      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795351906270-17953519066832066657554.jpg"
-     },
-     {
-      "title": "Chứng khoán trước ngưỡng cản 1.700 điểm, cổ phiếu ngân hàng đã đủ hấp dẫn?",
-      "summary": "VN-Index bước vào tuần giao dịch cuối tháng 11 với diễn biến giằng co quanh vùng 1.680-1.700 điểm, các dự báo kỹ thuật vẫn nghiêng về sự thận trọng. Đáng chú ý, nhóm cổ phiếu ngân hàng đang chịu áp lực điều chỉnh, đưa mặt bằng định giá của nhiều nhà băng về mức thấp hơn so với…",
-      "url": "https://cafef.vn/chung-khoan-truoc-nguong-can-1700-diem-co-phieu-ngan-hang-da-du-hap-dan-188261122185950539.chn",
-      "source": "CafeF",
-      "date": "2026-11-22 19:24",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795348717561-17953487180101444495299.webp"
-     },
-     {
-      "title": "Siêu nhà máy điện tại Cần Thơ được Nhật Bản cho vay hơn 4.500 tỷ đồng lãi suất 1,4%: Hé lộ một văn kiện đặc biệt từ 13 năm trước",
-      "summary": "Một văn kiện được ký từ năm 2013 đã giúp siêu dự án điện Ô Môn 3 tại Cần Thơ tiếp cận khoản vay hơn 4.500 tỷ đồng từ Nhật Bản, với lãi suất xây dựng chỉ 1,4%/năm. Điều đặc biệt là Nhật Bản đã hạn chế hỗ trợ công mới cho phần lớn dự án năng lượng hóa thạch ở nước ngoài từ cuối…",
-      "url": "https://cafebiz.vn/sieu-nha-may-dien-tai-can-tho-duoc-nhat-ban-cho-vay-hon-4500-ty-dong-lai-suat-14-he-lo-mot-van-kien-dac-biet-tu-13-nam-truoc-176261122191747949.chn",
-      "source": "CafeBiz",
-      "date": "2026-11-22 19:24",
-      "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795349791115-17953497915001237310158.jpg"
-     },
-     {
-      "title": "Ngân hàng xoay xở nguồn vốn trước áp lực tăng trưởng tín dụng",
-      "summary": "Tuần 16 - 21/11/2026, thị trường ngân hàng ghi nhận nhiều chuyển động trong hoạt động huy động và phân bổ vốn. Lãi suất cho vay tại một số nhà băng giảm, trong khi kế hoạch tăng vốn điều lệ và vay quốc tế được đẩy mạnh. Tuy nhiên, nợ xấu gia tăng cho",
-      "url": "https://thuonghieucongluan.com.vn/ngan-hang-xoay-xo-nguon-von-truoc-ap-luc-tang-truong-tin-dung-a342874.html",
-      "source": "Thuonghieucongluan.com.vn",
-      "date": "2026-11-22 19:11",
-      "g": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOOUVncEN6cjFfendiTEFpbW1qcjRZUGJYa3lzTHU0a2ZzSmNackJydC00NHlHYy1VN0VKUnZ4RUc5Qk12MWMxTTQ3NVhFRGNRTmM5N0tfNUM3TWFVMlpMYmFrZzRISlNhZVJxTHNhTkFYd3JRUmYxQUNXRWEzem9pTkJTX0JHeE00UUNCVTJPMTZMaUUxNm91dkp3SGxjT3Nla1MzMkRyd0paS3Iy?oc=5",
-      "img": "https://media.thuonghieucongluan.vn/resize_1200x630/uploads/2025/09/26/tien-gui-1758882727.jpeg"
      }
     ]
    },
@@ -1479,7 +1487,7 @@
       "url": "https://vnexpress.net/tp-hcm-khanh-thanh-nha-may-thep-6-200-ty-dong-tai-phu-my-5147556.html",
       "source": "VnExpress",
       "date": "2026-11-22 13:16",
-      "img": "https://vcdn1-vnexpress.vnecdn.net/2026/11/22/photo1790134025412179013402565-6006-4211-1795304498.webp?w=1200&h=0&q=100&dpr=1&fit=crop&s=iIbLJJK7hLW4bhkS6FGa6w"
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/22/photo1790134025412179013402565-6006-4211-1795304498.webp?w=1200&h=0&q=100&dpr=1&fit=crop&s=iIbLJJK7hLW4bhkS6FGa6w"
      },
      {
       "title": "NKG đưa nhà máy thép 6,200 tỷ đồng vào hoạt động",
@@ -1492,12 +1500,12 @@
      },
      {
       "title": "Tôn Nam Kim mở rộng năng lực sản xuất với nhà máy thép 6.200 tỷ đồng",
-      "summary": "Ngày 21/11, Công ty Cổ phần Thép Nam Kim khánh thành Nhà máy Tôn Nam Kim Phú Mỹ tại Khu công nghiệp Mỹ Xuân B1 – Đại Dương, TP.HCM.",
-      "url": "https://amp.baodautu.vn/ton-nam-kim-mo-rong-nang-luc-san-xuat-voi-nha-may-thep-6200-ty-dong-d746640.html",
+      "summary": "Nhà máy Tôn Nam Kim Phú Mỹ có diện tích 32,2 ha, công suất thiết kế 1,2 triệu tấn mỗi năm, được đầu tư hệ thống dây chuyền đồng bộ nhằm phát triển các dòng thép có yêu cầu kỹ thuật cao.",
+      "url": "https://baodautu.vn/ton-nam-kim-mo-rong-nang-luc-san-xuat-voi-nha-may-thep-6200-ty-dong-d746640.html",
       "source": "baodautu",
       "date": "2026-11-21 17:14",
-      "g": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPRW16aDZLLXJPQmtTMm5jLXB3VjdNU3NKWXdYbGdBci1VVGQtY3BqWEFqTWl0WEkyX1ZCZ1dxZ29LWDdJSVFQVllKNGV0UHIzWWRLenJLeVdWd3lSeGIzNkd0RTd3MnljaVpnaWdwRHo0bVBwTDlsVGpxQXpIR3VaU0ItdC1nVk9uSmNJcGJfQXdqYlZRNFdmY29yemxJY2h1S09rY2dIUQ?oc=5",
-      "logo": "amp.baodautu.vn"
+      "g": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPTWRWYWNSVnhidWxNblhMMnRTSFgxZUl2dG5ZR0t3LWI0UEhJekZYdmZpTTBKTDVDemF5TnZqNVE2bFdWS3k5VXc3MldMR05Td083RUt5eGcxU0x1NldRVm5OVmNFUkZFdXFOQkNlOVMyNVFjbzZmXzNSa1RXOVJzUDVMN0FtSXpHd2ZkSUNMV2dka3lQQnh0Rm5UdVFVN1pUN2c?oc=5",
+      "img": "https://media.baodautu.vn/thumb_x470x250/Images/vietdung/2026/11/21/ton-nam-kim-mo-rong-nang-luc-san-xuat-voi-nha-may-thep-6200-ty-dong1795249786.jpeg"
      },
      {
       "title": "Khu kinh tế Dung Quất được áp dụng chính sách như khu thương mại tự do Hải Phòng",
@@ -1551,12 +1559,13 @@
       "img": "https://nqs.1cdn.vn/thumbs/540x360/2026/11/20/ktck.1cdn.vn-2026-11-20-_13a2_images-65-.jpg"
      },
      {
-      "title": "Giá thép hôm nay 20/11: Quặng sắt đảo chiều sau 6 phiên giảm liên tiếp",
-      "summary": "Giá thép thanh trên Sàn SHFE tăng trở lại trên mức 3.000 nhân dân tệ/tấn, quặng sắt cũng chấm dứt chuỗi 6 phiên đi xuống nhờ lượng hàng cập cảng giảm.",
-      "url": "https://vietnambiz.vn/gia-thep-hom-nay-2011-quang-sat-dao-chieu-sau-6-phien-giam-lien-tiep-202611207317315.htm",
-      "source": "VietnamBiz",
-      "date": "2026-11-20 17:56",
-      "logo": "vietnambiz.vn"
+      "title": "Tập đoàn Hòa Phát tiếp tục được vinh danh Top 2 doanh nghiệp tư nhân lớn nhất Việt Nam",
+      "summary": "Vietnam Report vừa phối hợp cùng Báo VietNamNet công bố Bảng xếp hạng VNR500 - Top 500 Doanh nghiệp lớn nhất Việt Nam năm 2026. Theo đó, Tập đoàn Hòa Phát được vinh danh doanh nghiệp tư nhân lớn thứ 2 Việt Nam và Top 10 doanh nghiệp lớn nhất cả nước.",
+      "url": "https://thuonghieucongluan.com.vn/tap-doan-hoa-phat-tiep-tuc-duoc-vinh-danh-top-2-doanh-nghiep-tu-nhan-lon-nhat-viet-nam-a342640.html",
+      "source": "Thuonghieucongluan.com.vn",
+      "date": "2026-11-20 16:58",
+      "g": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNczdpZU9ySzhGUlJXX0dONFBQUnN3XzBZWUJmdnR3cTl5dlgzYXhmbzdiS0Z3ajNjNkdJZzJaWEt0RmljU2RobVFQVExPUDMyX1NCa2hENlVKTkhQZ094b0Rnd3RzanU4LUViemJwS2NmQ0JyZ3pxMUNWZHdxbEFzRVQxeEdkdGVxNnF1MVlqWjd5WGRsQWZKcEp6aHhLZTRMWm1DZFRHUlN6RTRqSmpPbzBXUGQxX1U4bE1yNGsxX0dJaEYwUTk5cTlTY3V3Zw?oc=5",
+      "img": "https://media.thuonghieucongluan.vn/resize_1200x630/uploads/2026/11/20/gian-hang-1-1795168499.jpg"
      },
      {
       "title": "Lý do khách hàng Lạng Sơn tiếp tục chọn tủ lạnh Hòa Phát khi đổi tủ mới",
@@ -1576,13 +1585,13 @@
       "img": "https://media.thuonghieucongluan.vn/resize_1200x630/uploads/2026/11/20/gia-thep20230814082405-1733193311-copy-1795149299.jpg"
      },
      {
-      "title": "Tập đoàn Hòa Phát: Top 2 doanh nghiệp tư nhân lớn nhất Việt Nam, theo bảng xếp hạng VNR500",
-      "summary": "Vietnam Report phối hợp cùng Báo VietNamNet công bố Bảng xếp hạng VNR500 - Top 500 Doanh nghiệp lớn nhất Việt Nam năm 2026. Tập đoàn Hòa Phát được vinh danh doanh nghiệp tư nhân lớn thứ 2 Việt Nam và Top 10 doanh nghiệp lớn nhất cả nước. Theo đó, Hòa Phát 5 năm liên tiếp (2022 -…",
-      "url": "https://thoibaotaichinhvietnam.vn/tap-doan-hoa-phat-top-2-doanh-nghiep-tu-nhan-lon-nhat-viet-nam-theo-bang-xep-hang-vnr500-207254.html",
-      "source": "Thời báo Tài chính Việt Nam",
-      "date": "2026-11-20 09:34",
-      "g": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQN25VLXF5ZFE4R1RrQXhyamduUy1JVWRud0JuYkp5RkxLQVVtWms2QWw3bWdCMHgybVJxVmoxX3ZPQkk3Y19MRndkWkpjSEF0WWFURVVjU1dSYVFCeTA4OWVPeUdWUWszWE9NZVhRMUtLejdaNy1jWG9KTjEyUi16QVNOT005d2t1cW92cW9kcUI4OExibmhYVGozWEU1emkzTnRyN0V5cUlTYXdiOFlmb0ZKY3Mzc2V2MGZWdUtjMmJZTlJTY29uc09tY0NmdWs?oc=5",
-      "img": "https://thoibaotaichinhvietnam.vn/stores/news_dataimages/2026/112026/20/08/in_social/hoa-phat-top-2-dn-tu-nhan-lon-nhat-vn20261120083125.png?v=2.720260812095833"
+      "title": "Giá thép hôm nay 20/11: Quặng sắt đảo chiều sau 6 phiên giảm liên tiếp",
+      "summary": "Giá thép thanh trên Sàn SHFE tăng trở lại trên mức 3.000 nhân dân tệ/tấn, quặng sắt cũng chấm dứt chuỗi 6 phiên đi xuống nhờ lượng hàng cập cảng giảm.",
+      "url": "https://vietnambiz.vn/gia-thep-hom-nay-2011-quang-sat-dao-chieu-sau-6-phien-giam-lien-tiep-202611207317315.htm",
+      "source": "VietnamBiz",
+      "date": "2026-11-20 07:45",
+      "g": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeE1xa3BNR2pBTlpBcTV2azBReDRSWVBmM01fNzZmRUhJOUpxWk1TWTdvcWQwRnJfX1IyMW84THJqRG8zX1FNMkNvSE9DQlNKRHRzeU9NdW1SUnhvTk4tajczaDZTdGt3NkRzRmtpbmlpb3ZjUl9YOU5iQjZ1V1JPWXA0XzNSU3B2S1c2QmlVTmpsOHBsak0tN1F3RkJaS1NnMjFaREJYQTlVaV9mck84?oc=5",
+      "logo": "vietnambiz.vn"
      },
      {
       "title": "Nhà ga hình hoa sen sân bay Long Thành trước ngày khai thác",
@@ -1590,7 +1599,7 @@
       "url": "https://vnexpress.net/nha-ga-hinh-hoa-sen-san-bay-long-thanh-truoc-ngay-khai-thac-5146384.html",
       "source": "VnExpress",
       "date": "2026-11-20 06:00",
-      "img": "https://vcdn1-vnexpress.vnecdn.net/2026/11/19/20261117-1795070917.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=3fY3lLqVLldpKIJZGX2TNg"
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/19/20261117-1795070917.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=3fY3lLqVLldpKIJZGX2TNg"
      }
     ]
    },
@@ -1599,134 +1608,131 @@
     "name": "Vàng bạc trang sức",
     "items": [
      {
-      "title": "Tài sản PNJ hơn 20.000 tỷ, vốn hoá còn dưới 7.000 tỷ, một DN tài sản 5.000 tỷ có vốn hoá 600 tỷ, Viettel Post, HAGL chung cảnh ngộ",
-      "summary": "Chốt phiên 20/11/2026, vốn hóa Kosy chỉ còn 619 tỷ đồng dù tổng tài sản vượt 5.000 tỷ đồng. PNJ có hơn 20.000 tỷ đồng tài sản nhưng được thị trường định giá chưa tới 7.000 tỷ đồng. Đằng sau khoảng cách này là những câu chuyện khác nhau về hàng tồn kho, công nợ và kết quả kinh…",
-      "url": "https://cafef.vn/tai-san-pnj-hon-20000-ty-von-hoa-con-duoi-7000-ty-mot-dn-tai-san-5000-ty-co-von-hoa-600-ty-viettel-post-hagl-chung-canh-ngo-188261122215629291.chn",
-      "source": "CafeF",
-      "date": "2026-11-23 00:02",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/anh-chatgpt-215455-22-thg-11-2026-1795359306413824890356-0-0-991-1586-crop-1795359316410527989906.png"
+      "title": "Actualización del precio del oro, mañana del 23 de noviembre de 2026: SJC, anillos de oro de 9999, DOJI BTMC, PNJ, Phu Quy.",
+      "summary": "Hoy, 23 de noviembre de 2026, el precio de venta del oro es de 133,5 millones de VND por tael, lo que supone un descenso de 19,3 millones de VND con respecto a principios de año. A tan solo 38 días de que termine 2026, quien compró un tael de oro a 152,8 millones de VND el 1 de…",
+      "url": "https://www.vietnam.vn/es/cap-nhat-gia-vang-sang-23-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy",
+      "source": "Vietnam.vn",
+      "date": "2026-11-23 06:29",
+      "g": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOd2RUZVBoNEczOXRsN2JRa3RxR3NXNVZwRllJSE9yTnBJOEcxdkNNTWlDLXBnMFE1ZWdoWURvVHdoOUdJdWxYYXZaWThNQnduSzU4WjlYSEtvNFhudEROSktsMUo3aXNWUjZvZW1TZjlTMFEwX1F5aWJJSmNiUjU4S1c0ZmU5Y2VUbFp5dGhFRjY3VnJEa1dnT3BURQ?oc=5",
+      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/23/1795383103245_cap-nhat-gia-vang-sang-23-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy.jpeg"
      },
      {
-      "title": "Jennifer Lopez đeo vòng cổ kim cương 186 carat, cần 4 người bảo vệ",
-      "summary": "VTV.vn - Món trang sức Jennifer Lopez đeo đến từ thương hiệu Dolce & Gabbana này cần đến đội ngũ bảo vệ gồm 4 người.",
-      "url": "https://vtv.vn/jennifer-lopez-deo-vong-co-kim-cuong-186-carat-can-4-nguoi-bao-ve-100261122114407776.htm",
-      "source": "VTV",
-      "date": "2026-11-22 22:53",
-      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/package-media-34543469662398204576674-03514461061856168614826.png"
+      "title": "Cập nhật giá vàng sáng 23.11: Tuần biến động mạnh, vàng chưa mất cơ hội phục hồi",
+      "summary": "",
+      "url": "https://laodong.vn/tien-te-dau-tu/cap-nhat-gia-vang-sang-2311-tuan-bien-dong-manh-vang-chua-mat-co-hoi-phuc-hoi-1804889.ldo",
+      "source": "Lao Động",
+      "date": "2026-11-23 06:26",
+      "g": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWFFKU0ZsczVWV3IzOHBxeTRpNENVd3kyZGJLTERGeTB2SHpRSVRoZlhiVmlOcmxNQ0pxeXhqT21YNTdpcm1zSEJnc2ZJbTRTX3M5SEdqd3VyZ1RFZ2I5dDVDVTdibWpqNTVhSnhtN0hSTnNDQ1RDLTNvTjBSc2Z0em5pa1VDdm5YVmY4dEtNQzdBcFhWam5UeW5WOG0wYS1LVFZ5SEROajZhamtMbU5kQlRyM0tXcnh2a0UwX2Njc0Y?oc=5",
+      "logo": "laodong.vn"
+     },
+     {
+      "title": "Giá vàng hôm nay 23/11: Bật tăng gần 40 USD ngay khi mở cửa tuần mới",
+      "summary": "Giá vàng thế giới mở cửa phiên giao dịch đầu tuần mới (23/11) tăng mạnh, có thời điểm vọt lên 3.582 USD/ounce. Chỉ trong thời gian ngắn, giá vàng tăng gần 40 USD/ounce, tương đương 1,12%.",
+      "url": "https://vietnamnet.vn/gia-vang-hom-nay-23-11-bat-tang-gan-40-usd-ngay-khi-mo-cua-tuan-moi-2577570.html",
+      "source": "VietNamNet",
+      "date": "2026-11-23 06:24",
+      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/23/11-bat-tang-gan-40-usd-ngay-khi-mo-cua-tuan-moi-256.jpg?width=0&s=dFFjlkb5WPL06z40epg4Zw"
+     },
+     {
+      "title": "Giá vàng SJC lao dốc, mất gần 58 triệu đồng/lượng so với đỉnh",
+      "summary": "(Dân trí) - Sau khi lập đỉnh lịch sử 191,3 triệu đồng/lượng, giá vàng miếng SJC liên tục đi xuống, hiện thấp hơn gần 58 triệu đồng/lượng. Riêng tuần qua, mặt hàng này mất tới 6,5 triệu đồng/lượng ở chiều mua vào.",
+      "url": "https://dantri.com.vn/kinh-doanh/gia-vang-sjc-lao-doc-mat-gan-58-trieu-dongluong-so-voi-dinh-20261123011228458.htm",
+      "source": "Dân trí",
+      "date": "2026-11-23 06:13",
+      "img": "https://cdnphoto.dantri.com.vn/Os17hl60FlGFSVe4gRGf6P4TSfI=/2025/08/29/xoa-bo-co-che-doc-quyen-vang-mieng-gia-vang-sap-het-thoi-tau-luon-1756402092710.jpg"
+     },
+     {
+      "title": "Giá bạc hôm nay 23/11: Lao dốc, mất hơn 7 USD/ounce",
+      "summary": "Giá bạc hôm nay 23/11 tại thị trường trong nước duy trì quanh ngưỡng 1,25 – 1,32 triệu đồng/lượng. Trên thị trường quốc tế, giá bạc giảm còn 41,13 USD/ounce, mất 7,46 USD/ounce sau một tuần. Đồng USD mạnh lên và kỳ vọng Fed tiếp tục thắt chặt chính s",
+      "url": "https://thuonghieucongluan.com.vn/gia-bac-hom-nay-23-11-lao-doc-mat-hon-7-usd-ounce-a342901.html",
+      "source": "Thuonghieucongluan.com.vn",
+      "date": "2026-11-23 06:13",
+      "g": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPRVd2OGpUcDFWMU9EX3FsaFNOTHYxa3ZZZm9EOUl0U1RrZWNETGF5b0hUZnhla0lJZGwyRldLYktOQ1ZLc0pkcm9JTHNvR1RLY2ZIYW1kX09ZcUlWSlVZQTdUTDJvY0VWNzJLUmJ4dE9RLUdEOVN2a3htdnhxd0Z4V3Nlc2RmcE9pbU9EM19KZndoQVdHYVRpNWRtbXU?oc=5",
+      "img": "https://media.thuonghieucongluan.vn/resize_1200x630/uploads/2026/07/26/gia-bac-26-1785021581.jpg"
+     },
+     {
+      "title": "Giá vàng hôm nay 23/11: SJC đứng im, thế giới đối mặt áp lực giảm",
+      "summary": "Giá vàng hôm nay 23/11 tại thị trường trong nước tiếp tục đi ngang, với vàng miếng SJC duy trì mức bán ra 133,5 triệu đồng/lượng. Trong khi đó, giá vàng thế giới giao dịch quanh 3.539,9 USD/ounce, đối mặt áp lực điều chỉnh khi nhiều chuyên gia cảnh b",
+      "url": "https://thuonghieucongluan.com.vn/gia-vang-hom-nay-23-11-sjc-dung-im-the-gioi-doi-mat-ap-luc-giam-a342898.html",
+      "source": "Thuonghieucongluan.com.vn",
+      "date": "2026-11-23 06:09",
+      "g": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNXd2TVh1OUdVbXl2UDR1aE80R3RWTDIxbkZoSkRXamZsUm1qcUdCZmUxVzIzMzdWYnF1ZmRWNldxZ1dnLXFHeE4yd01MV0lFQWliTmlSVHU5NlRZQlJKME1lVmFRekdUVmFCT0lpTWhFREUzeURlM1lPWmk0em5DcWF1eFdkTjR3NkV6OF9FTlVlM3ZncFFwUG9TMHU5Sk03WXpWN042b3d5LUhpMnZj?oc=5",
+      "img": "https://media.thuonghieucongluan.vn/resize_1200x630/uploads/2026/10/13/gia-vang-chieu-13-1791879535.jpg"
+     },
+     {
+      "title": "Vì sao mua vàng từ lỗ đến lỗ?",
+      "summary": "Trong ngày, giá vàng có tăng 4 - 5 triệu đồng/lượng, người mua vẫn lỗ. Đó là lý do dù kim loại quý đang ở vùng giá thấp, nhiều người vẫn \"ghẻ lạnh\" với vàng.",
+      "url": "https://thanhnien.vn/vi-sao-mua-vang-tu-lo-den-lo-18526112220471244.htm",
+      "source": "Thanh Niên",
+      "date": "2026-11-23 06:00",
+      "img": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/22/tnw-anh-ngoc-thach-1795355034468503184524-77-0-1677-2560-crop-17953550471631023072475.jpeg"
      },
      {
       "title": "Dịch vụ biến tro cốt của thú cưng thành kim cương để chủ đem theo bên mình",
       "summary": "Tại Trung Quốc, nhiều chủ nuôi thú cưng chọn biến tro cốt thành kim cương nhân tạo để lưu giữ, thậm chí chi khoản tiền lớn với ước mong đem thú cưng theo mình.",
       "url": "https://cafebiz.vn/dich-vu-bien-tro-cot-cua-thu-cung-thanh-kim-cuong-de-chu-dem-theo-ben-minh-176261122215441132.chn",
       "source": "CafeBiz",
-      "date": "2026-11-22 22:29",
+      "date": "2026-11-23 05:29",
       "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795359252799-179535925343483846656.jpeg"
      },
      {
-      "title": "Chốt giá vàng hôm nay ngày 22/11 giảm dữ dội, người mua lỗ đậm",
-      "summary": "Theo cập nhật giá vàng hôm nay, ngày 22/11, thị trường vàng trong nước chốt một tuần giao dịch giảm rất mạnh giá vàng miếng và giá vàng nhẫn.",
-      "url": "https://www.24h.com.vn/kinh-doanh/chot-gia-vang-hom-nay-ngay-22-11-giam-du-doi-nguoi-mua-lo-dam-c161a1813268.html",
-      "source": "Tin tức 24h",
-      "date": "2026-11-22 21:24",
-      "g": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQcEJWeVJ6dlJiMkxjeTlaQjZab181LUpzOVBYUFRnaGZjRmgybUU3N1R2TWFWZnBFeTVWcUpkSGNTdDc3a1VhLXFweFlrS0hxdWhOUmRiWm5ZUm5Ua09OMDRVRHBCNGtUdkVBN1d0akdobUhNZHo5enUzLVo4SFVXb2UwbW9ScFFkaFJjNGt2VW9WUTg4MVkwWEhfazVaN1BpWF9sc09hQThEVDRvRmJTVzFuQQ?oc=5",
-      "img": "https://cdn.24h.com.vn/upload/4-2026/images/2026-11-22/adt1795354676-103c18cd18-gia-vang-hom-nay-ngay-22-__anh_cat_3_2-auto-crop-watermark.png"
+      "title": "Giá vàng hôm nay 23/11/2026: Bảng giá vàng miếng SJC, giá nhẫn 9999 và vàng quốc tế",
+      "summary": "Giá vàng hôm nay 23/11/2026 mở đầu tuần mới với SJC, DOJI, PNJ cùng niêm yết giá bán 133,5 triệu đồng/lượng, sau đợt giảm 700.000 đồng cuối tuần trước. Trái chiều thị trường, Mi Hồng tăng 500.000 đồng/lượng, đưa giá thu mua lên cao nhất trong 7 thương hiệu khảo sát.",
+      "url": "https://baonghean.vn/gia-vang-hom-nay-23-11-2026-bang-gia-vang-mieng-sjc-gia-nhan-9999-va-vang-quoc-te-10356410.html",
+      "source": "Báo Nghệ An",
+      "date": "2026-11-23 05:00",
+      "g": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeS1TVXFITW1RMkx2V29FR1dSb051UzlQbUJQRmdiLXljMjVIVlI2aHA0dWpxeC1Ja1N4Y1pWcnp6OVljZnVGWUs5OV90c3Z3aEhxYm5yWWJBNVJybmRJOEMxWHlUZzl1MDlBd3p0LXlWMDNSbWFaNkFZNlZ1OE5vQ3RVMUNyUkkwUk1ucllXTGZRRDBKYzBoc0pQMGp6bVZDU05EdzZvbGxwRVdHVE5FVGVMclhNbFk?oc=5",
+      "img": "https://bna.1cdn.vn/thumbs/1200x630/2026/11/22/gia-vang-hom-nay-23-11-2026-bang-gia-vang-mieng-sjc-gia-nhan-9999-va-vang-quoc-te.jpeg"
      },
      {
-      "title": "PNJ: Dàn lãnh đạo cấp cao vừa từ nhiệm nắm khối cổ phiếu trị giá hàng chục tỷ đồng",
-      "summary": "Theo hồ sơ công bố thông tin, 4 giám đốc cấp cao PNJ xin từ nhiệm trong tháng 11 đang nắm giữ gần 1 triệu cổ phiếu.",
-      "url": "https://nguoiquansat.vn/pnj-dan-lanh-dao-cap-cao-vua-tu-nhiem-nam-khoi-co-phieu-tri-gia-hang-chuc-ty-dong-329549.html",
-      "source": "nguoiquansat.vn",
-      "date": "2026-11-22 20:55",
-      "g": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQQ2lpSzhUNHM2NE5RUWlQSVZBVUNyWkpyQXNqc1lwdnVDZEtTVDFXenlHay1JVlpJUnVxR25jc0h4OFdlUWMyWllEOHAyZ3lPLWRYZm5MRjVTUGdSd1BsOUxUb3RQWVp6YzZnMmcxeTE0TDFUUExlYVJOa0pXaGpRa1dldGdJem0tdUVVSjRPa0pWcDlDUjdGREFDQkdTREhVQm5RU2N6YVNwaVZRVF9udm5YTFlvVE9q?oc=5",
-      "img": "https://nqs.1cdn.vn/thumbs/540x360/2026/11/22/455F_49eb_pnj.jpg"
+      "title": "Giá vàng nhẫn trơn, vàng miếng sáng 23/11 tại SJC, PNJ, DOJI, Bảo Tín Minh Châu và Bảo Tín Mạnh Hải",
+      "summary": "Giá vàng trong nước mở đầu phiên sáng 23/11 đi ngang, với vàng miếng SJC giữ mức 133,5 triệu đồng/lượng và vàng nhẫn cao nhất 133,3 triệu đồng/lượng. Trên thị trường quốc tế, giá vàng thế giới vừa trải qua một tuần lao dốc gần 9%, xuống còn 3.538 USD/ounce.",
+      "url": "https://cafef.vn/gia-vang-nhan-tron-vang-mieng-sang-23-11-tai-sjc-pnj-doji-bao-tin-minh-chau-va-bao-tin-manh-hai-188261122221338839.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 05:00",
+      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/vang-17766537172842022131511-61-169-431-762-crop-17766537590611338028083-17953601999101503628276-0-0-750-1200-crop-1795360217450455734972.png"
+     },
+     {
+      "title": "Giá bạc hôm nay 23/11/2026: Bạc khó tìm động lực phục hồi",
+      "summary": "Giá bạc hôm nay (23/11/2026), giá bạc tiếp tục giảm trong tuần khi đồng USD tăng giá và lo ngại Fed nâng lãi suất gia tăng.",
+      "url": "https://congthuong.vn/gia-bac-hom-nay-22-11-2026-bac-kho-tim-dong-luc-phuc-hoi-482266.html",
+      "source": "Báo Công Thương",
+      "date": "2026-11-23 05:00",
+      "img": "https://cdn-i2.congthuong.vn/resize/gn/upload/2026/11/22/image-31-19521688.png"
+     },
+     {
+      "title": "Cập nhật giá vàng sáng 23/11/2026: SJC, nhẫn 9999 DOJI BTMC PNJ Phú Quý",
+      "summary": "Giá vàng hôm nay 23/11/2026 bán ra ở mức 133,5 triệu đồng/lượng, giảm 19,3 triệu đồng so với đầu năm. Chỉ còn 38 ngày nữa là hết năm 2026, người mua một lượng vàng với...",
+      "url": "https://baolamdong.vn/cap-nhat-gia-vang-sang-23-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy-475302.html",
+      "source": "Báo Lâm Đồng",
+      "date": "2026-11-23 04:00",
+      "g": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPTVYzZnFheGJYaWRtRlRhNng4TWc1T2VwcHg3UEhRSEtSMGxsd3cwNXVNNjM2YXpCMGxVaDhLUEp1VXZMN1FIOFJNNFZWanotaEJEY2REZHpIU1pfYTdEZVdkdGtITkdrcHcyLVBMUW1CVkkxdWVUN0F6NGNEdVBCeWRnbjN1N1JiSjk0TzZrYTVXQmJycm5CZkF0aWI0RjRoVmFYRGl3?oc=5",
+      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/11/22/cap-nhat-gia-vang-sang-23-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy.jpeg"
+     },
+     {
+      "title": "Giá bạc 1 chỉ hôm nay 23/11/2026: 1 chỉ, 1 cây, 1 lượng bao nhiêu tiền?",
+      "summary": "Giá bạc 1 chỉ hôm nay mua vào, bán ra. Tra cứu 1 cây bạc, 1 lượng bạc, 1kg bạc bao nhiêu tiền và toàn bộ cách quy đổi đơn vị bạc: 1 chỉ = 3,75 gram.",
+      "url": "https://baolamdong.vn/gia-bac-1-chi",
+      "source": "Báo Lâm Đồng",
+      "date": "2026-11-23 02:38",
+      "g": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ESEpBMzBzRHVxakVWYlFBckdtX1dMR050cmNRajU1dGE0US1qd0pPUllKUDlFZ1pIX0Q3TGxmZXNpeHRacW9ObXNJTQ?oc=5",
+      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/04/22/img_f33f9d14.png"
      },
      {
       "title": "Khoan thăm dò 680m vào lòng đất, phát hiện mạch vàng kéo dài 305 mét, nằm trong dự án chứa 1,45 triệu ounce vàng",
       "summary": "Kết quả khoan cho thấy vàng xuất hiện trên chiều dài 305 m, với đoạn cao nhất đạt 60,8 g/t vàng.",
       "url": "https://cafebiz.vn/khoan-tham-do-680m-vao-long-dat-phat-hien-mach-vang-keo-dai-305-met-nam-trong-du-an-chua-145-trieu-ounce-vang-176261122174456896.chn",
       "source": "CafeBiz",
-      "date": "2026-11-22 18:16",
+      "date": "2026-11-23 01:16",
       "img": "https://cafebiz.cafebizcdn.vn/zoom/700_438/162123310254002176/2026/11/22/avatar1795344263834-17953442644452022301356.png"
      },
      {
-      "title": "Giá bạc 1 chỉ hôm nay 22/11/2026: 1 chỉ, 1 cây, 1 lượng bao nhiêu tiền?",
-      "summary": "Giá bạc 1 chỉ hôm nay mua vào, bán ra. Tra cứu 1 cây bạc, 1 lượng bạc, 1kg bạc bao nhiêu tiền và toàn bộ cách quy đổi đơn vị bạc: 1 chỉ = 3,75 gram.",
-      "url": "https://baolamdong.vn/gia-bac-1-chi",
-      "source": "Báo Lâm Đồng",
-      "date": "2026-11-22 17:37",
-      "g": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9ESEpBMzBzRHVxakVWYlFBckdtX1dMR050cmNRajU1dGE0US1qd0pPUllKUDlFZ1pIX0Q3TGxmZXNpeHRacW9ObXNJTQ?oc=5",
-      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/04/22/img_f33f9d14.png"
-     },
-     {
-      "title": "Giá vàng thế giới hôm nay 22.11: Phố Wall dự báo sóng giảm tiếp diễn tuần tới",
-      "summary": "",
-      "url": "https://laodong.vn/ban-tin/gia-vang-the-gioi-hom-nay-2211-pho-wall-du-bao-song-giam-tiep-dien-tuan-toi-1804819.ldo",
-      "source": "Lao Động",
-      "date": "2026-11-22 17:15",
-      "g": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOei01ajhiV1B4RHhaX3VrQjBYTFppM3hBb3lFM09yb0I0cl9BYkYtcndyd3FkaEZ5eTNSYXVMeFNqU0UxWHVMRGpsbjNlREFhMzZ5OXhGMkZCYXBFN1FCWnJnaUpJNXM1SUZvR0g4V0pmYnZpVnljb3pIbGlpbGZFTDBrdFJURklaVHBEdlFOQ05RemRpY0pFNHpOSHNLOVdEZnlWQ0FsdmNMSmY4YnA2dHNIOUQ?oc=5",
-      "logo": "laodong.vn"
-     },
-     {
-      "title": "Dự báo giá vàng ngày mai 23/11/2026: SJC khó phục hồi, áp lực giảm vẫn chiếm ưu thế",
-      "summary": "Dự báo giá vàng 23/11, cú lao dốc 9,5% của vàng thế giới trong tuần qua, cùng sức ép từ đồng USD và kỳ vọng lãi suất duy trì ở mức cao, đang phủ bóng lên triển vọng thị trường. Bước sang phiên ngày mai, giá vàng được dự báo tiếp tục đối mặt với áp lực điều chỉnh, dù khả năng…",
-      "url": "https://doanhnghiephoinhap.vn/du-bao-gia-vang-ngay-mai-23112026-sjc-kho-phuc-hoi-ap-luc-giam-van-chiem-uu-the-154861.html",
-      "source": "Tạp chí Doanh nghiệp và Hội nhập",
-      "date": "2026-11-22 17:00",
-      "g": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQRjRDYVA3aDZxdlR0NXc4bzZKdW13VHFwSXVGT2VSR1JkRWJyamVhTGtRX2FHMUZVMHBERnFicUFweFl0T25rRjhTTVlXWW92S0lMS0hnOFdNbVpQQWRGdlo4VFdUM2tHYkVWMlJwNGR3cmRDYU1JaVpJQW5nNGEySEJEMmlkZnNpNmJHT19yLUdZQ0lVbTNaUmpwdEFvUkFQR0V4QWFXSm4zTllTZTZ3VmtseWpobEQ4Xzhla2hB?oc=5",
-      "img": "https://doanhnghiephoinhap.vn/stores/news_dataimages/2026/112026/22/16/in_social/5820261122162345.jpg?randTime=1795368592"
-     },
-     {
-      "title": "Cập nhật giá vàng chiều 22/11/2026: SJC, nhẫn 9999 DOJI BTMC PNJ Phú Quý Chủ Nhật",
-      "summary": "Giá vàng cuối tuần 22/11/2026 giảm còn 133,5 triệu đồng/lượng, thấp hơn 5,5 triệu đồng so với đầu tháng 11. Người bỏ 139 triệu đồng mua một lượng vàng ngày 1/11, nếu...",
-      "url": "https://baolamdong.vn/cap-nhat-gia-vang-chieu-22-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy-chu-nhat-475222.html",
-      "source": "Báo Lâm Đồng",
-      "date": "2026-11-22 15:30",
-      "g": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPNnllMUY3Rmpzb1c2NXZLUHdyNnEtdGxNMjhkbUFHY3daRmkxazlteG5ydHNCSVJhVHM5N1lqNnN1VWlHU0xYOUVyaVFKcjhLejB6a3BQZVFabzZGT21RYzl0aG1sUDBUZkJVQzAtOHh4Nk5hRHR5Q1J2MlNkQ2dUM0M1Um14RHVnVmZGdDJ6c2VNOEhIZXlDYmx3WXROZ05xOVZkcDAtZzJpVldjbXUtdUtFQQ?oc=5",
-      "img": "https://daknong.1cdn.vn/thumbs/1200x630/2026/11/21/cap-nhat-gia-vang-sang-22-11-2026-sjc-nhan-9999-doji-btmc-pnj-phu-quy.jpeg"
-     },
-     {
-      "title": "Giá bạc tuần qua: Người mua bạc giá đỉnh lỗ gần 100 triệu đồng/kg",
-      "summary": "Giá bạc đang ở mức thấp nhất kể từ đầu năm đến nay. Cộng thêm với chênh lệch mua vào – bán ra, người đu bạc giá đỉnh đang lỗ gần 100 triệu đồng/kg nếu bán ra ở thời điểm hiện tại.",
-      "url": "https://www.24h.com.vn/kinh-doanh/gia-bac-tuan-qua-nguoi-mua-bac-gia-dinh-lo-gan-100-trieu-dong-kg-c161a1813188.html",
-      "source": "Tin tức 24h",
-      "date": "2026-11-22 13:58",
-      "g": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPRWdMYzk4T2d3Y0JPamxYSDY3cDRsSHd4NkVkNWpkWDVrcFp1YUNzZ05XVzNvR0lHUnJNVE9temRfTVFuTUk2clhfNy1kLXB3SnlCdXk2R0RnSHc3UWFERDJLdnZFUmczUlN1aXFablpibnlJeWNtNnBnSkpFVTl0TUJ3UjJ2M1VhM3JKaUM2bWVSYUotZWFBLWtENEN5MTZoeEhqZGhYOFZCb2k2RVpudlg1ZXJ4UUU?oc=5",
-      "img": "https://cdn.24h.com.vn/upload/4-2026/images/2026-11-22/adt1795328796-8d2b7a582b-9-0723__anh_cat_3_2-auto-crop-watermark.webp"
-     },
-     {
-      "title": "Giá vàng hôm nay ngày 22/11: Vàng rớt xuống mức thấp nhất trong 14 tháng",
-      "summary": "(ĐTCK) Vàng đã chứng kiến tuần giao dịch tiêu cực khi chịu áp lực bán tháo mạnh và ghi nhận mức giảm khoảng 9,5%, xuống sát mốc 3.500 USD/ounce, mức thấp nhất trong 14 tháng. Giá vàng hôm nay ngày 20/11: Vàng có thể giảm còn 3.500 USD/ounce Vàng mất sức hấp dẫn đối với các nhà…",
-      "url": "https://www.tinnhanhchungkhoan.vn/gia-vang-hom-nay-ngay-2211-vang-rot-xuong-muc-thap-nhat-trong-14-thang-post401824.html",
-      "source": "Tin nhanh chứng khoán",
-      "date": "2026-11-22 13:27",
-      "img": "https://image.tinnhanhchungkhoan.vn/w800/Uploaded/2026/cqjwqcqdh/2026_11_21/vang-3789-7105.jpg"
-     },
-     {
-      "title": "Giá vàng thấp nhất trong 15 tháng, người dân tranh thủ mua vào",
-      "summary": "",
-      "url": "https://laodong.vn/tien-te-dau-tu/gia-vang-thap-nhat-trong-15-thang-nguoi-dan-tranh-thu-mua-vao-1804628.ldo",
-      "source": "Lao Động",
-      "date": "2026-11-22 12:47",
-      "g": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOQkZhYmpjazBDVGxNeFRwSF9RQkhIakVDc2dzOEZCd2tDajFyQkZZb2FxQkVoVmMyVk5mR0NGNzNBRURLc3NmWHR3M3FmOXBNSGtxUDBTczREeTFOVnE0aEZNcXpEN05YZUZwM042dFlBSHkzQWVGWnRnZ09zdEZvMGtwS1BPMmhnOVVXNVRYOURfZkZQQjQzYzlEbTY0aVNiOUo0LThIeVhHWWc?oc=5",
-      "logo": "laodong.vn"
-     },
-     {
-      "title": "Giá bạc giảm nhanh, người mua chuyển sang tâm lý chờ đợi",
-      "summary": "",
-      "url": "https://laodong.vn/tien-te-dau-tu/gia-bac-giam-nhanh-nguoi-mua-chuyen-sang-tam-ly-cho-doi-1804591.ldo",
-      "source": "Lao Động",
-      "date": "2026-11-22 11:37",
-      "g": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPd0VKSXVGVHF3MDFZVG1kTXZXRkl5NjJQeGlodlZGX1J3MG9maHBfNno1cmlpbzJXNzZuX2psamZQUjRVTDU0cDJ6eEZvZy1zRGlXXzhfWXhBTl9nNzkyZWpWR2dYSldua25TY3ZoYjZqSkl5MG5fWmdzN281NVFRTHhyWE5SbVlIeFZPbXNORjNKVzZKQUh5LWxvVExHcVBuTjBR?oc=5",
-      "logo": "laodong.vn"
-     },
-     {
-      "title": "Giá vàng hôm nay 22/11: Vàng SJC và vàng nhẫn tiếp tục chịu áp lực giảm?",
-      "summary": "Giá vàng hôm nay 22/11/2026: Vàng miếng SJC bán ra 133,5 triệu đồng/lượng, vàng thế giới giữ mốc 3.538 USD/ounce sau tuần giảm mạnh.",
-      "url": "https://www.vietnam.vn/gia-vang-hom-nay-22-11-vang-sjc-va-vang-nhan-tiep-tuc-chiu-ap-luc-giam",
-      "source": "Vietnam.vn",
-      "date": "2026-11-22 11:23",
-      "g": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPLWpiMDRJZWNxVFp3Z1pHYlNNejVvNXRYUkViTkVuZklweS1WbEREelpfdDU5YkRYbXZFb0dmWkpDdFZwaVhaQmhHbVNSWWZ2X1haTWpiWFptRTgyRkpKRzVEWWJzcEkzQXMwa1c3MzV0Mk1Ra0lMa0pjekhnaUdPWlRqSmh4cmVPeS1EbzBjdFdaSWVqNjNmMQ?oc=5",
-      "img": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/22/1795302885828_gia-vang-hom-nay-22-11-jpg.webp"
+      "title": "Tài sản PNJ hơn 20.000 tỷ, vốn hoá còn dưới 7.000 tỷ, một DN tài sản 5.000 tỷ có vốn hoá 600 tỷ, Viettel Post, HAGL chung cảnh ngộ",
+      "summary": "Chốt phiên 20/11/2026, vốn hóa Kosy chỉ còn 619 tỷ đồng dù tổng tài sản vượt 5.000 tỷ đồng. PNJ có hơn 20.000 tỷ đồng tài sản nhưng được thị trường định giá chưa tới 7.000 tỷ đồng. Đằng sau khoảng cách này là những câu chuyện khác nhau về hàng tồn kho, công nợ và kết quả kinh…",
+      "url": "https://cafef.vn/tai-san-pnj-hon-20000-ty-von-hoa-con-duoi-7000-ty-mot-dn-tai-san-5000-ty-co-von-hoa-600-ty-viettel-post-hagl-chung-canh-ngo-188261122215629291.chn",
+      "source": "CafeF",
+      "date": "2026-11-23 00:02",
+      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/anh-chatgpt-215455-22-thg-11-2026-1795359306413824890356-0-0-991-1586-crop-1795359316410527989906.png"
      }
     ]
    }
@@ -1745,20 +1751,28 @@
     "name": "Honda",
     "items": [
      {
-      "title": "Giá xăng dầu tối nay 22/11: E10 RON95 và E5 RON92 cách đỉnh 12.000 đồng, Diesel về bờ, Honda Super Cub C125 2027 cực rẻ",
+      "title": "Giá xăng dầu hôm nay 23/11: Dầu cách đỉnh gần 20.000 đồng, E10 RON 95 và E5 RON 92 chạm đáy mới, giá đầy bình ô tô Honda",
       "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQTEN6Q3NSQVNUYzBLZVNLMnYtS2NyMEpiZnA2Z1UxT1Z1dllTQUx3c0V6dTdySEZLYUxCNkJVNnk1dWVsaWdSdEs3UmRsMWhiNmNrc0tXZjNBZWJQUlJtTnhvNFg1aEtJMnZDSV9abkRuZWV0OW05WGluYjdwcWdzNFM5LUpRdXMtQzcwTmNyM1Nrb3IwVVowX3lZbkRRZXBHSUhwZVJ6cE42Nkdsc2g0eFEyVjlLSTNCdVVGc3JlMGZVTWF0VGtDQjVYOVhYTXZaZkQxOG9RbkdMUGpNZFc1SGU0VVUxMFpTUkdmQU9ibjZWWWoy?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNczd5cVdRcDJiZ3VVVTJUc3o3TFk5ckxOQ29YS2YtQkQwWnBEZ2dPa3NMbzFUT2lPS1ZEc3BCVlZFd0dXc1RnWlJqemJZbEdlQk1JVkhDQll5a0E0dDhiR1doMV9MQlFRVWJxNVhOZWRkM3loaFZfdktOSy1qNTJETXQ1Mnh5OWo4a08zRV93VXpTSklrbm85Sl9xc29zVTRnTV90YjJZNndtQTFBbVFXdzBiNmJ5LUJkM3pBU3hDRlJuWmNXTDhuME5BczJnNGlwaXFZdHRVWWx6TV8ycU5vT0Z6ZHhmaDlSUWpDcG5XLXhGR29uYVE?oc=5",
       "source": "Techz.vn",
-      "date": "2026-11-22 19:45",
+      "date": "2026-11-23 05:39",
       "logo": "techz.vn"
      },
      {
       "title": "Honda đầu tư 462 triệu USD nâng cấp nhà máy tại Mỹ",
       "summary": "(Dân trí) - Honda đầu tư 462 triệu USD vào nhà máy tại Alabama (Mỹ), nhằm mở rộng sản xuất động cơ V6 Hybrid mới, đồng thời tăng năng lực sản xuất các dòng xe có doanh số cao.",
-      "url": "https://dantri.com.vn/o-to-xe-may/honda-dau-tu-462-trieu-usd-nang-cap-nha-may-tai-my-20261122143354635.htm",
-      "source": "Dân trí",
-      "date": "2026-11-22 18:59",
-      "img": "https://cdnphoto.dantri.com.vn/2lHDjLmLpvPgxL700ExUYuCOe8E=/2026/11/22/dantri-honda-nha-may-alabama-cropped-1795332652266.jpg"
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBEY01qdlJsSjV5WTJSXzBfOVF4dDlERDluaDRHNU9uc1JGeWY4SnFlX21oeml2UXJmZEd3dm5jNkZRY0ZEanNWWUV4amtIQ0RoYnI5bnUzQ1doR2lIQnZCYWZjZ3FITFFCT1hka19PMm9sYTlEckNCQjJUZ194Zw?oc=5",
+      "source": "Vietnam.vn",
+      "date": "2026-11-22 21:38",
+      "logo": "vietnam.vn"
+     },
+     {
+      "title": "Honda CR-V thế hệ mới hé lộ - nâng cấp khung gầm và truyền động hybrid mới",
+      "summary": "Honda CR-V thế hệ tiếp theo được dự đoán sẽ ra mắt vào năm 2027 với thiết kế mới, nền tảng khung gầm cải tiến và hệ truyền động hybrid thế hệ tiếp theo.",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOajY4dUlxeFM0VmRMaUZzU0g5b0RJSmxFdXpSWEZqXzFjd1BDYVk2eFlSQmk1TjhYU0wwWGVXc2lMQUlRMGpLRXdKdDZTVDNaXzVJTHl1YXQ3ekJuZDQ1Y0JkdkRSc25IVWpXTVJFWHF5b3RBSmhtRjM0OU8wTGhnemUtT1g3YWtyV0J2MUVkQUhaTW5wRlQyM2MxREEzaWdsc3labmpfelVIS0NlWTRMTF9xVQ?oc=5",
+      "source": "Báo Tri thức và Cuộc sống",
+      "date": "2026-11-22 12:31",
+      "logo": "kienthuc.net.vn"
      },
      {
       "title": "Honda Avancier - SUV ba hàng ghế ra mắt thế giới",
@@ -1826,11 +1840,11 @@
      },
      {
       "title": "SUV 7 chỗ mới của Honda lộ diện",
-      "summary": "Honda vừa giới thiệu mẫu SUV hoàn toàn mới Avancier, sở hữu 3 cấu hình hàng ghế và hệ truyền động hybrid thế hệ mới.",
-      "url": "https://kenh14.vn/suv-7-cho-moi-cua-honda-lo-dien-215261121084516743.chn",
-      "source": "Kenh14.vn",
-      "date": "2026-11-21 07:45",
-      "logo": "kenh14.vn"
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBzNnpfY1hnc0c2MVliSHZhUVdJRnhzWGszc3B3Mk1vQVRtQWRqOGQzazFCTVlpOWVVbW1oRWhTMXJjN2I2X1o0emVuM0VJOVVxaWxiZ1lwY3QwVm9DM2RLc2puNEwxVTIwYnMyNV9KVVRqcW1JVmhOcWd3Zw?oc=5",
+      "source": "CafeF",
+      "date": "2026-11-21 07:34",
+      "logo": "cafef.vn"
      },
      {
       "title": "Honda Avancier 2027 ra mắt: Thiết kế góc cạnh, động cơ hybrid 2 mô-tơ điện, hệ dẫn động AWD kiểu mới, cạnh tranh Santa Fe",
@@ -1855,14 +1869,6 @@
       "source": "nguoiquansat.vn",
       "date": "2026-11-20 17:05",
       "logo": "nguoiquansat.vn"
-     },
-     {
-      "title": "Honda Avancier ra mắt: SUV 7 chỗ cao cấp hơn CR-V, dùng động cơ hybrid 2.0L mới",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOMWJLdmlUUm1TbmJhS3l1SnVTZEpkcV95ZjFyWmFiMnpZa3JwU2NDLURZUjJ0RTh6ZW9uMUV2VEVYbTQtTzBIRklwV3NkeGxSRXRJczh3QTR3UDBPdEVvSm5HdmRkRHp1TnNWb3RtaVJOdFNPa2dsUnF3V0NJUDFMTXU5SjYxMUJzOHFhRVMzc1d2N3JGWmpsakJfbDA2elp0cXdHclJrRlhlQnZUcEg3aHIzX0lRaTNEcDZHTTVCSHJLeGhsQXBVX0FtZGtvRFFjWWxCaFc5dzNZS3lMaTY4b2F4d0dqX1NFekp5MFRCbHhtTHdaLXc?oc=5",
-      "source": "Autopro",
-      "date": "2026-11-20 16:18",
-      "logo": "autopro.com.vn"
      }
     ]
    },
@@ -1879,12 +1885,12 @@
       "logo": "giadinh.suckhoedoisong.vn"
      },
      {
-      "title": "Suzuki Việt Nam tiếp tục vào top “Nơi Làm Việc Tốt Nhất Việt Nam 2026”",
+      "title": "Suzuki Việt Nam tiếp tục vào ‘Top 100 nơi làm việc tốt nhất Việt Nam 2026’",
       "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPNGRHVTI3Tkt0OEk3eXdWeUEwNVk1aUJYVVNGX2N5WEV3djFyejdUSWd5TWx1V2R4cXZFYTdLT05sX1ZzOGczY2Z5aUExUnREUWdKNlBiU1lvU1kwVW5QTFI4SlFyeG40eWxxdkduVUFMNDJSSnZpY0lCX2hzdDF6RjZvWHF6bkNteFljVDNpUlVHeHRTZUdfM0lzd25QZ0prMVU4dU9YTFNEWkgx?oc=5",
-      "source": "CafeF",
-      "date": "2026-11-20 16:00",
-      "logo": "cafef.vn"
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQVnJvQXI0VFpBbWl1TVZmbGF4TFE1bHNmdy02ZkxwY2RrVkZDNlJaNzR3TVNJZnNPRElfaVA0VFUxNUFIWHRaZW9fWWdraW95RDBrajh6SEZNRjJoREZrT1NrNlh1dTMtenlkR0tpazc3MTdTTW01VFFoUi1QUEdCbmNSQWpjRUtWUHFaUXY5WGtrWUlQSmh1M3Y2Mnp3UjJCNFpNMkIydklTMUJwRmdxR2l5MHc?oc=5",
+      "source": "Báo Tuổi Trẻ",
+      "date": "2026-11-21 15:00",
+      "logo": "tuoitre.vn"
      },
      {
       "title": "Vì sao Suzuki XL7 mới là chiếc xe đáng sở hữu trong tầm giá 600 triệu đồng?",
@@ -1903,14 +1909,6 @@
       "logo": "soha.vn"
      },
      {
-      "title": "Hyundai Stargazer X và Suzuki XL7 Hybrid: Lựa chọn nào tốt hơn?",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTnUxUm5CQ29xUzEyRmhKWjJKVVZHdTB1SGFPdUZWeXgweHdHTWVDRkZqNUFPZjBwdzVjS2ZMTTRzWjNKdS1jWW83UjNTaG45clBfWXhVNTZQSVVfNUEzcTBmN1ZmSkRha202LTZSZ3Y4cTUtRVp2ZXZSSlF4QnloRzkyYWhNZE9YdkNTdmpvU1NOZWJWdWRhYU5iYw?oc=5",
-      "source": "VTC News",
-      "date": "2026-11-14 18:28",
-      "logo": "vtcnews.vn"
-     },
-     {
       "title": "Suzuki XL7 hybrid giá từ 570 triệu, gây áp lực lên nhóm xe MPV 7 chỗ",
       "summary": "Bổ sung bản GL giá 569,9 triệu đồng, Suzuki XL7 2026 giảm giá khởi điểm 30 triệu so với trước, đồng thời nâng cấp hệ truyền động hybrid giúp tăng sức cạnh tranh trong phân khúc MPV 7 chỗ cỡ nhỏ.",
       "url": "https://thanhnien.vn/suzuki-xl7-hybrid-gia-tu-570-trieu-gay-ap-luc-len-nhom-xe-mpv-7-cho-185261111110218163.htm",
@@ -1925,6 +1923,14 @@
       "source": "Tin tức 24h",
       "date": "2026-11-08 15:00",
       "logo": "24h.com.vn"
+     },
+     {
+      "title": "Suzuki SV-7S 2027 lộ diện - Naked bike tầm trung trang bị động cơ 645cc",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPc1JwaDk5dlIwT1pZek5RTTNZeWxvYWNvMzBkbkFIdGNmZFB6dU45dGgzdE9HNWRja2lTRWJOZjFkdmNkY3VaT3VGWTJCS3hFYVNCQWlseDlIZGxYb2twWGhvZUFXOGh1MVRTZFRKQV9BaEFxVGVSUThNLTFpUTJta3dyeHNiVjRFV2VFSjFyVXBfMWJfTk1FTnJVcnh3d1M5ZHBYUjQwa3h6UXJlb2lWZlJn?oc=5",
+      "source": "VOV",
+      "date": "2026-11-06 15:00",
+      "logo": "vov.vn"
      },
      {
       "title": "Kính viễn vọng không gian Swift bốc cháy khi rơi trở lại Trái Đất",
@@ -1959,12 +1965,20 @@
       "logo": "autopro.com.vn"
      },
      {
-      "title": "Suzuki XL7 thêm bản giá rẻ, liệu có thoát cảnh ế ẩm trong phân khúc MPV",
+      "title": "Suzuki vượt Honda, là hãng xe Nhật bán chạy thứ hai thế giới",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPT2FQMXpYWkVnUGREWnRfS1lHbHljcEhfWUNpM1ZVQzBpSlpvMjc3QTV0bUxiTl80TDJGdWdGWXJxbHpWQkNfcDBpeXUyQmZUM3EtNnd6SmxUWGRwTHotSmdYYzgxQlMzellOWlhuem8taWVwTlQ5a29LeElPRlVyanlZaWFrcUlMSVh0R2FDeHpQSjFkVUY3YUh3?oc=5",
+      "source": "VnExpress",
+      "date": "2026-11-02 15:00",
+      "logo": "vnexpress.net"
+     },
+     {
+      "title": "Suzuki XL7 thêm bản giá rẻ, liệu có thoát cảnh \"ế ẩm\" trong phân khúc MPV",
       "summary": "Suzuki XL7 2026 được bổ sung phiên bản giá thấp hơn 30 triệu đồng, nhưng những thay đổi hạn chế về trang bị và công nghệ có thể khiến mẫu MPV này tiếp tục chịu sức ép từ các đối thủ.",
-      "url": "https://vietnamnet.vn/suzuki-xl7-them-ban-gia-re-lieu-co-thoat-canh-e-am-trong-phan-khuc-mpv-2570197.html",
-      "source": "VietNamNet",
-      "date": "2026-11-01 07:45",
-      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/1/suzuki-xl7-them-ban-gia-re-lieu-co-thoat-canh-e-am-trong-phan-khuc-mpv-131.jpeg?width=0&s=oiI8CIKTXb3MK8B8bCGLVg"
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU2UyMkFzclpOQzQ0MDV5cEhybHVlOFNOUGZfR0FJdFpnR21YMGxoYlp1S3c4NklSTHY5T1hRcjdyUzJaWDR6Q2YzZnJuOVNIbTVfd2lsUDMteU5tVGQ4ZUw0c1BwX1cxUUdobHlCa1NjdUY4X1JiV2xlc3IxaUhHamlyWU5mWUZwel9KUzNBekpDRnVuUm5zSWtSbHBOVHJUTHAyOWh0LXQ?oc=5",
+      "source": "Báo VietNamNet",
+      "date": "2026-11-01 14:00",
+      "logo": "vietnamnet.vn"
      },
      {
       "title": "Suzuki XL7 mới ra mắt Việt Nam, đổi diện mạo và có hai phiên bản",
@@ -1981,14 +1995,6 @@
       "source": "Tin tức 24h",
       "date": "2026-10-31 14:00",
       "logo": "24h.com.vn"
-     },
-     {
-      "title": "Suzuki XL7 2026 ra mắt, giá từ 570 triệu đồng",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPc2k5U0t2M25LOXNmSHBndmQ3TFFBaUs5eGdURmJYc3FubWM0UUhwVUN4YUs5WXZmaEo0VXdBZTNKRWM2U2ZCOURaQk1vZHh0LWh4MmVwTEU5RzlOdEU4SUNfeF85Z0hzX0FEamdYcFBOTzhYMWQxN2c5MXEtbS1pb1dzSUIxQQ?oc=5",
-      "source": "VnExpress",
-      "date": "2026-10-31 14:00",
-      "logo": "vnexpress.net"
      }
     ]
    },
@@ -2021,14 +2027,6 @@
       "logo": "baoquocte.vn"
      },
      {
-      "title": "Giá xăng dầu tối 21/11: E10 RON 95 và E5 RON 92 cùng giảm gần 8.000 đồng, chạm đáy mới rẻ bèo, giá đầy bình ô tô Toyota",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQNlRTaXFUZDIxRU5rTU5seUZ3UFhlZkpaUnU0VXJvdnp0YXE1cjFUV19ISm5GZTlNazZ2Mkh6MFM2OV9hV3BVa2tneXBxRGpEZmVJNWdJRUk1ODdyWlA3TkhCMTE5NmFxVnd0MFlseVkwbkRraGE1NjR0Sk05R2Raelpxbm9ac0JaRHkyUjJpa0t3Z3RKUzlRd3NEUTFnaDFTUThhYUZ4QXUxOGIwTzJrOF81Nnlkd01VYkVpTE0yV3NDaDBmZFkzQVVtaGZzdzFJLVI4X1VnSmFoQ29UNEN0U1AzVHJzVFZ1bnFJQWJNTjRXZGFW?oc=5",
-      "source": "Techz.vn",
-      "date": "2026-11-21 20:03",
-      "logo": "techz.vn"
-     },
-     {
       "title": "Toyota Yaris Cross khấu hao bao nhiêu tiền sau 3 năm sử dụng?",
       "summary": "Sau hơn 3 năm sử dụng, Toyota Yaris Cross đời 2023 đang được rao bán thấp hơn hàng trăm triệu đồng so với chi phí lăn bánh ban đầu. Đáng chú ý, bản hybrid ghi nhận khoản chênh lệch lớn hơn phiên bản máy xăng.",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOeGFqaEVSOGZTTy1tUEtVOFBUX3lZOWtKeWMxRnB1UUZXLXhMQ1VaT1ZSeXpXWkdGeWViSDR3OXk4ejk5TmNEemhmdjRLWlVScFhRWU1vb1FnU1J4N05IX2FRd00yWks3N05ueVRBb2lyaFNock9HNTVmR0VRN1Eyc2NkZ0xEMGxmYy1pakw2T0ZjU2hSamJmUnVVUXA0N21FWFZ6VXJyZw?oc=5",
@@ -2045,12 +2043,20 @@
       "logo": "24h.com.vn"
      },
      {
+      "title": "Hatchback Hyundai giá 518 triệu đồng kích thước ngang Toyota Yaris Cross, động cơ mild-hybrid, nội thất hiện đại",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPbnZrZ0lBTVhJNVNiWUFkM1ZWTVFRNHNVNE5qRjMwVzV0Z2x6N19jNkVPNWRLeHJLaFh2WEJPTU5BQ0dUZnp6UUZvSDdRR3ppbkR5VzZoTHpNMnlsYktPYTQ3eEM0YXQ0SjVpSEd6YUFodnpjMjZCY1k4Mi04YWx0QjRCTUVoWWxwSVYtTGt4WjhMNTNEQnJkc3VQTXlXb3BXeVFWQjQ4NXpGbm1NdUhFbC1IOGIyN0YzbkZiUGZrbEhUZ2xDUWptckdiUVBjMk5kdkhrcXAxTFd0RmR3TGN4em5kRzhTdU1SVTBieXRLalVnbGE0RUpLcVFuVQ?oc=5",
+      "source": "Gia đình & Xã hội",
+      "date": "2026-11-21 13:28",
+      "logo": "giadinh.suckhoedoisong.vn"
+     },
+     {
       "title": "Toyota giảm giá hàng loạt xe, cao nhất hơn 70 triệu đồng",
       "summary": "Vios, Veloz, Yaris Cross, Innova Cross và nhiều dòng xe khác của Toyota giảm giá bằng khuyến mãi lệ phí trước bạ, áp dụng trong tháng 11.",
       "url": "https://vnexpress.net/toyota-giam-gia-hang-loat-xe-cao-nhat-hon-70-trieu-dong-5147079.html",
       "source": "VnExpress",
       "date": "2026-11-21 05:00",
-      "img": "https://vcdn1-vnexpress.vnecdn.net/2026/11/20/yariscrossvnexpressjpg-1795161-2057-6347-1795162263.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=2klLD5KBIbSE1IxCwrAspA"
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/20/yariscrossvnexpressjpg-1795161-2057-6347-1795162263.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=2klLD5KBIbSE1IxCwrAspA"
      },
      {
       "title": "Ra quyết định khởi tố Nguyễn Phước Hiền SN 1997 liên quan xe ô tô Toyota Avanza 7 chỗ",
@@ -2069,6 +2075,14 @@
       "logo": "bnews.vn"
      },
      {
+      "title": "Ngày 8/12/2026, đấu giá xe ôtô Toyota của VietinBank Chi nhánh 4 TP.HCM",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdnpMVmlzTGdYUnNjZm1UOXEzMEtTQ1VNODlIcmZvRkluUnNmR3JqWlpJaWdCQmkyVTE4NEpqSVViZ1NoODNweS1CTmd4MHF2T0lDSmdMNmN5MURJUG9EUk9NQUE3SHBidVN5THpQaHp4dUFLNnVxeENDUjh1bXVKWExrekluZjNZWVV6dllUVHFMZTlfY2Jsa2t5NVphVmJMd2xNeFBJOEU?oc=5",
+      "source": "Báo Đấu thầu",
+      "date": "2026-11-20 14:39",
+      "logo": "baodauthau.vn"
+     },
+     {
       "title": "Ưu đãi Toyota tháng 11/2026: Người mua chủ động giải bài toán tài chính",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbkZsb3ViOVV5TEtBVWRfSDhnemJsOWZac0lnTkRMY3BORS1VVUF0bndiV2R2LURFY08zTEhCTDJ6SER6akZab3pCem1LWjh6Q2VsWkFxZGc2cUxMS3hZbXpXS09zaHNXR21DcFJENVVQdkVzNU1YaGxEdzI2azN5Z1lSX3FwMEs4MU5Yc1lxLVhFNDNIaElSY01IQ1h4c1B5QXBEcHAzVVgwU0NqUjc1SWR3?oc=5",
@@ -2079,10 +2093,10 @@
      {
       "title": "SUV 7 chỗ: Ford Everest giảm mạnh doanh số, vẫn bán gấp 3 lần Toyota Fortuner",
       "summary": "Việc mẫu xe trụ cột Ford Everest giảm đến hơn 22% doanh số đã kéo sức mua phân khúc SUV 7 chỗ khung gầm rời đi xuống rõ rệt. Dù vậy, mẫu xe Mỹ vẫn bán gấp hơn 3 lần đối thủ Toyota Fortuner, qua đó tiếp tục giữ vị trí dẫn đầu.",
-      "url": "https://thanhnien.vn/suv-7-cho-ford-everest-giam-manh-doanh-so-van-ban-gap-3-lan-toyota-fortuner-185261119222156082.htm",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNEMtbFpzZlIwUXpVUE5wU2dCRnNxampGVHR4Z0ZmSlNRbzBrcnczQ0pZa3JrRzNIeGJfM2VQMTJGcXY4YzA5VkI3MTdSYldiWjlleTF1ZkZJQzRGbG9rcVEybFljd2IwZ3JOUEQ1SllNeDNKdWJ2SXA1SExWTnR3ZUM4Q3pXZjJXaTBCb2RncHdvdDdvaHg1ZTdYNmcydnh5OG9PVWJtQjVSd2J5LTNLX3AxSUtJR3IwVmJV?oc=5",
       "source": "Thanh Niên",
       "date": "2026-11-20 11:08",
-      "img": "https://images2.thanhnien.vn/zoom/600_315/528068263637045248/2026/11/19/suv-7-cho-thang-10-2026-thanhnien-2-17951014984672068327175-0-0-1214-1942-crop-17951015035291517370412.jpg"
+      "logo": "thanhnien.vn"
      },
      {
       "title": "Toyota 'biến hình' Corolla Cross thành bán tải, dùng động cơ hybrid",
@@ -2107,14 +2121,6 @@
       "source": "Báo Gia Lai điện tử",
       "date": "2026-11-20 08:00",
       "logo": "baogialai.com.vn"
-     },
-     {
-      "title": "Toyota Vios hút khách nhờ ưu đãi, Hyundai Accent vẫn bán chậm",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSWJGX3AtSHJqTEEwYWNZLVRCcUtjNGpOczNhNFFEVDFNWHB6UzlfLXhOUVlVWmEwU0t6NUVFMGlfdTlOVWFKTTFXTnNsZGVvUlJ0aXhady1aZU5CSm5oM1NxT3hEdTUxOGRxODhLSFI4TTAweFhhdDAtcGFQSTlCSWZDMHNob3QtZ2t0UTlVdVEyakkxMXEwUl93OFp1Z0JKeW1uZzUwVl9Ldw?oc=5",
-      "source": "Tin tức 24h",
-      "date": "2026-11-20 06:00",
-      "logo": "24h.com.vn"
      }
     ]
    },
@@ -2123,12 +2129,12 @@
     "name": "Hyundai",
     "items": [
      {
-      "title": "Đại lý Hyundai bị tố bỏ qua mã lỗi động cơ, báo giá sửa xe hơn 17.500 USD",
-      "summary": "Một chủ xe Hyundai Sonata Hybrid 2016 cho biết đại lý Hyundai yêu cầu chi hơn 17.500 USD (khoảng 460 triệu đồng) để thay hộp số và bộ điều khiển hybrid, dù xe báo mã lỗi P1326 liên quan đến nguy cơ hư hỏng động cơ.",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVjV6eXA3OHY2MG04Wmc3NGJYNks3Y2xQV3JFdXV6ZWgyaHFWSmNOZ0xTMmFCUUVnQXFfcVZKZU14cXFzWWQwQTdsTi1Ed2UzQkRKMURyTThQcUVHSkdNemVFRmZHTTJ6YmlvYmpoVm1vdmFacVV5WXN0cS1YZVhNcjdXakNjWnM0aFdpbVRyTlp5emYtSlhRMVBVOA?oc=5",
-      "source": "Vietnam.vn",
-      "date": "2026-11-22 18:00",
-      "logo": "vietnam.vn"
+      "title": "Hyundai Elantra 2027 ra mắt thế hệ mới, bổ sung bản Hybrid",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNXzdTYWxCMDdrM0JxOHQtTDRGQVBOS25QeHZlR3ZUdjlyeWgtcV9wVWc2SkRqd21Db3VqYXlPMjZBUXJhM3dsVVE4M0ZkYWVDQVpRZWJqampIY3c0eThXU0ZNaFRiLXduQTZfaWtiLUE3dkYxaUI4dk9iLUFvZ1dsazBvb1BEMlpBSVJjZ0o0Tng4djBwcExweEtOcy1tQUhw?oc=5",
+      "source": "VOV",
+      "date": "2026-11-23 06:00",
+      "logo": "vov.vn"
      },
      {
       "title": "Hyundai Accent Cao cấp 2024 và Đặc biệt 2025 chỉ chênh 4 triệu đồng, chọn xe cũ nào?",
@@ -2137,6 +2143,14 @@
       "source": "Tin tức 24h",
       "date": "2026-11-22 18:00",
       "logo": "24h.com.vn"
+     },
+     {
+      "title": "Đại lý Hyundai bị tố bỏ qua mã lỗi động cơ, báo giá sửa xe hơn 17.500 USD",
+      "summary": "Một chủ xe Hyundai Sonata Hybrid 2016 cho biết đại lý Hyundai yêu cầu chi hơn 17.500 USD (khoảng 460 triệu đồng) để thay hộp số và bộ điều khiển hybrid, dù xe báo mã lỗi P1326 liên quan đến nguy cơ hư hỏng động cơ.",
+      "url": "https://vietnamnet.vn/dai-ly-hyundai-bi-to-bo-qua-ma-loi-dong-co-bao-gia-sua-xe-dat-do-2577576.html",
+      "source": "VietNamNet",
+      "date": "2026-11-22 15:58",
+      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/22/dai-ly-hyundai-bi-to-bo-qua-ma-loi-dong-co-bao-gia-sua-xe-hon-17-1253.jpg?width=0&s=Wz38L0Wv77Hxoj-2Z0I4Vw"
      },
      {
       "title": "Hyundai Elantra 2027 và Elantra Hybrid 2028 chính thức ra mắt tại Triển lãm Ô tô Los Angeles 2026",
@@ -2203,14 +2217,6 @@
       "img": "https://cdnphoto.dantri.com.vn/mWDs5c9YS7LzGVHqV0bgUvLIyTE=/2026/11/21/hyundai-n-vision-74-concept-3-cropped-1795229940843.jpg"
      },
      {
-      "title": "Hyundai ra mắt Elantra thế hệ mới và Genesis G80 Hybrid",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWEV5TjBPdEtxdTZoRDFqQ0FGNHB6cEc0VzFQN2ZHNkxYMDkzeWNweUlINFp6ZlNEbDBZWDBna2JGZ2pSVnc1VVBOTGlwQUI3dUhKQVlTUHNaZEpoam9OOGlBOEc3WkFoWEhHU0s5bXVwOVo5eUpYVU5adV9Ic3gwZFprNjRCZ3hpb1RBRw?oc=5",
-      "source": "Bnews.vn",
-      "date": "2026-11-21 10:31",
-      "logo": "bnews.vn"
-     },
-     {
       "title": "Hyundai tung MPV điện 7 chỗ đầu tiên lắp ráp tại Đông Nam Á, mở đặt cọc từ 20/11",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbG5lVmZ4WUFvcVVNZlBxVUJuVlllOVhaelRqV0xQbGlzWHBiRjRPNFRlZUlLaTYtY1ViYzdFNE5rek5teUR1cDFyNnFvREJPWERWY3dUNXhwa09ocXRMT3Z0ZkI1enExeHNPMXBueGFGVVRKZXlJUE9GTHFhNzFWeTdyb09yeHVLd252NUFCRkcwVkxGSXBaQzBpRDctMFVwU01BVEZXSGZCTzEwbEU1eFlOdGFmUQ?oc=5",
@@ -2235,12 +2241,12 @@
       "logo": "kienthuc.net.vn"
      },
      {
-      "title": "Hyundai Elantra thế hệ mới ra mắt toàn cầu, công bố toàn bộ các bản động cơ",
-      "summary": "Từng được ra mắt thị trường Hàn Quốc vào tháng 6 dưới tên gọi Avante, Hyundai vừa công bố Elantra thế hệ thứ 8 cho toàn thế giới tại Triển lãm Ô tô Los Angeles. Trái ngược với ngoại hình góc cạnh và p ...",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY4bFFxR2syeDljOWlPNk5sQkx3a1ZNWDlQNzZYNzBmMUFmdkF2QzJfcF9EcjdVM29oTkZuejBSbFNhSk1iWlJUUnFHQjBXcEJsQnFoaE9WaFpXZzdnZjNFeG1HZ214RkR3RVBRM05YTHFhamFCN3F1ZGpwd2xYVTdaMFEzbHZpS3JIQ0JNeFVvMU9SLXhKWjBZWQ?oc=5",
-      "source": "Xedoisong.vn",
-      "date": "2026-11-21 05:00",
-      "logo": "xedoisong.vn"
+      "title": "Hyundai Elantra thế hệ mới tăng kích thước, nâng cấp động cơ hybrid",
+      "summary": "(Dân trí) - Hyundai Elantra thế hệ mới gia tăng kích thước, có phiên bản hybrid mạnh hơn, được trang bị một số công nghệ như xe thuần điện, hứa hẹn mức tiêu thụ nhiên liệu chỉ khoảng 4,4 lít/100km.",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNc0VwZlgycjJkZHRhNlZNY05mdFRzTWM3Szh4SXFfQVhkdFgzclpULVV2d0FjaXZOaUlhREh2cGgyZjI1dmwyZ3ZGaWwxZXl0OURpZ01hRENUZG9GQV8tOEhSbW14YUQwOHpsUERaV2VfQUVCdW43MUlTb2RvQnV1ZVNJUmtSdjJqd2NfT3VrZkVkbnNiUWt2UEtQNGZQWmpzdDJFQUU1d0thMFNZVUhwX3JMQ1M0ZHgwU2VBZ0p4TQ?oc=5",
+      "source": "Báo Dân trí",
+      "date": "2026-11-20 14:46",
+      "logo": "dantri.com.vn"
      }
     ]
    },
@@ -2248,6 +2254,22 @@
     "key": "xe_kia",
     "name": "Kia",
     "items": [
+     {
+      "title": "Giá lăn bánh xe KIA Sonet tháng 11/2026: Ưu đãi ra sao?",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQU1RLUlBlM1QzblZOMExZU1NQc2l5eTAtR1NMZ3RmUV9vaUJ0aVg3M1M5OTUxdlNqcGtYS19EZlZuZEJNUnNzTTR3Ny1BV3BsNWxuTXk0RGJvYVdhbTdXT1hXMGpnd2tuWmJsOEZ4WExjWUVVcWw4bUxXZ25Xb2I4UTNja1hlSlBFY08tam9fMA?oc=5",
+      "source": "Báo Dân Việt",
+      "date": "2026-11-23 06:00",
+      "logo": "danviet.vn"
+     },
+     {
+      "title": "Kia Telluride Hybrid tới LA Auto Show 2026: 329 mã lực, đi được 1.025 km mỗi bình xăng",
+      "summary": "Kia mang Telluride Hybrid, bản hybrid đầu tiên của mẫu SUV 3 hàng ghế này, tới LA Auto Show 2026 tại Los Angeles (Mỹ). Xe dùng máy xăng 2.5L tăng áp kết hợp mô-tơ điện, tổng công suất 329 mã lực...",
+      "url": "https://tinhte.vn/thread/kia-telluride-hybrid-toi-la-auto-show-2026-329-ma-luc-di-duoc-1-025-km-moi-binh-xang.4194219/",
+      "source": "Tinh tế",
+      "date": "2026-11-23 00:55",
+      "img": "https://photo2.tinhte.vn/data/attachment-files/2026/11/9138791_cover.jpg"
+     },
      {
       "title": "Điểm tin ô tô 22/11: Kia Carens bản thuần điện ra mắt, cập nhật giá xe Lexus tháng 11 này",
       "summary": "",
@@ -2289,22 +2311,6 @@
       "img": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/11/22/avatar1795314633882-17953146344601272615274.png"
      },
      {
-      "title": "Giá xe KIA Sonet lăn bánh kèm ưu đãi tháng 11/2026",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNZnQ3SGR5Y3VEdXcyaGQ0dW1ZSE42Yk1lVXlTUkVSQWpiQ19NM3FrQzRWYm1GTC1oSXVWRGZ2UzVvNURxbTd6Rng0OVRqSUszUmg2WHNyYm9kR0F0UlVYQ2gta2M1RmUzVjRoQmxaV2YtRVZha002WGFtNmpsU1NONXFpSzRBZWpQb3o0NDBITGhGTUhWU28wMFZkUEc?oc=5",
-      "source": "Tin tức 24h",
-      "date": "2026-11-21 15:00",
-      "logo": "24h.com.vn"
-     },
-     {
-      "title": "Kia Telluride Hybrid tới LA Auto Show 2026: 329 mã lực, đi được 1.025 km mỗi bình xăng",
-      "summary": "Kia mang Telluride Hybrid, bản hybrid đầu tiên của mẫu SUV 3 hàng ghế này, tới LA Auto Show 2026 tại Los Angeles (Mỹ). Xe dùng máy xăng 2.5L tăng áp kết hợp mô-tơ điện, tổng công suất 329 mã lực...",
-      "url": "https://tinhte.vn/thread/kia-telluride-hybrid-toi-la-auto-show-2026-329-ma-luc-di-duoc-1-025-km-moi-binh-xang.4194219/",
-      "source": "Tinh tế",
-      "date": "2026-11-21 02:59",
-      "img": "https://photo2.tinhte.vn/data/attachment-files/2026/11/9138791_cover.jpg"
-     },
-     {
       "title": "Ngày 25/11/2026, đấu giá 01 xe ô tô nhãn hiệu Kia Carnival tại TP. Bắc Ninh",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQODQzNm5MY3dHeHJxdXkzWTRvYXdGWTZwUVgtY0p2T3ZaZnpxM2Z5WVI0REtwcThES0lYX24yY20tcnl6VU9fdDA4QWxNajRJeGhKTzhhc2dfV0RPdDRrdHQwRlMzYkxoX3F2cTFTcVVtRWswbUg2X1FYZU1TbjA4aWY2OXVMdF9TSGladDlnTVJDM0w4ZmZXWWpfWXRkRkpIb3hrSFR5OXRzNUpFN2c?oc=5",
@@ -2329,12 +2335,12 @@
       "img": "https://autopro8.mediacdn.vn/zoom/600_315/134505113543774208/2026/11/19/avatar1795048510113-17950485125821440473825.png"
      },
      {
-      "title": "VinFast lần đầu hé lộ MPV cỡ nhỏ mới, thiết kế cửa lùa như Kia Carnival",
-      "summary": "MPV mới của VinFast lần đầu lộ diện; Toyota Raize 2027 được nâng cấp, tiết kiệm xăng hơn; Mitsubishi Outlander đời mới lộ thông số tại Việt Nam, có động cơ hybrid và dẫn động 4 bánh.",
-      "url": "https://soha.vn/vinfast-lan-dau-he-lo-mpv-co-nho-moi-thiet-ke-cua-lua-nhu-kia-carnival-198261119113446107.htm",
-      "source": "SOHA",
-      "date": "2026-11-19 14:28",
-      "img": "https://sohanews.sohacdn.com/thumb_w/1200/160588918557773824/2026/11/19/hot-2026-11-17-at-222816-1794956410895-17949564117171639391844-1794969987934-17949699882911834226830-17950567792091331484642-403-0-920-987-crop-1795062740291373244138.png"
+      "title": "Kia Carnival chạy hydro: Sản xuất từ 2029, 'mượn' công nghệ từ xe Hyundai",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPa0gtQ1EyQU9EUmNGMXVMeHB2T3RYZERQM1ZzRDJVMGVtT1hsaWtZYlNOaC1hYkhSSWw5d05hTFV3X25yczJGdkctUmg1S2pTamFlcUlNNlVEa3J5WWJOaXlDUHFCcEZJdVdhS2dscVNrRm1XLVlTcXRfOUtjU1BSZVpHcURWYk5fMlBlYUFlSlpTMnB4X0lBRXZCQlZvWFBuZFJNNzE5SHcyMG1Fd2tYREhrZHplQQ?oc=5",
+      "source": "Autopro",
+      "date": "2026-11-19 07:30",
+      "logo": "autopro.com.vn"
      },
      {
       "title": "Kia thêm màu nội thất mới cho Carens, khuyến mại mừng tháng văn hoá Việt Nam",
@@ -2374,6 +2380,14 @@
     "key": "xe_vinfast",
     "name": "VinFast",
     "items": [
+     {
+      "title": "Lộ diện MPV mới cỡ nhỏ của VinFast: Đầu ngắn, cửa thiết kế đặc biệt trong dải sản phẩm, ‘cha đẻ’ có 2 cái tên quen",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxONElsR0tucWNWWjh6NlBNVkM5bmFmaEg2ZUtiWVBLYk9FSE5NdlQyeHRkY3N1NzhSOFFyTGgtMl9tZkViUEFwWHY1X1JQbW1zem9KV3d5R2RvbG9iNDBxdHF3Nk5fOU9ack14RHA2djhRbW1kcjRqaktWel9sMDZJTjNuNndCU1dFRWRSbHNzc0prYklqdW5UNDZHM0xveTYyV1MtMnFaZHlldVBLSzlseUIwRFVTWXJjNWRKR3dlRUUzNi1ZeGxzVHRUcWNPbE1pN3Q1ZjVvOUYweVFVOGc?oc=5",
+      "source": "nguoiquansat.vn",
+      "date": "2026-11-23 05:00",
+      "logo": "nguoiquansat.vn"
+     },
      {
       "title": "Ảnh thực tế VinFast VF 6 hai đời đứng cạnh nhau: Dáng quen thuộc, bộ mâm tạo khác biệt lớn",
       "summary": "Nếu chỉ nhìn thoáng, thiết kế ngoại thất của VinFast VF 6 không khác biệt quá nhiều so với bản cũ đang mở bán.",
@@ -2455,14 +2469,6 @@
       "logo": "nguoiquansat.vn"
      },
      {
-      "title": "VinFast mời lãnh đạo Qualcomm và giáo sư AI Australia trao đổi về xe tự lái",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNkgydGJyZjBIZzlDT3Vpb0FVTEpsWjVOS2ZQdG1oSmJBaEZKTVFnd1QzczR1b211RVBRUWwzVDJ2cVRtUkdpTnk3cjExcmRpTWdGZ0ZxaUVMUzR4TjBJT2F4akotMV9xRy1KdGFQYUVTSXg3cUppMmlEOHcwalpnRS1KVF9aVUhJY2lyRlBMX2ZGSmxNcUZKVWh3MXE3Y1ZEc0I4bWg3SnI3WHZpS2pUdw?oc=5",
-      "source": "nguoiquansat.vn",
-      "date": "2026-11-21 11:00",
-      "logo": "nguoiquansat.vn"
-     },
-     {
       "title": "Cận cảnh VinFast Sadie - xe điện giá gần 60 triệu mới ra mắt",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxORm15RHgta0gyV2p2ZnlubXJJOFB2MDY3N2U0VmZLRGVfVkVwbkxLYkd1VVE5NElQWmg2WGJhcDhyS0k4TGhCTFlWajVLcU5QTmRPdzc5Y2huNXF6YnJfemx1SjA4bG81RlZLcVlKUTNWTWdZVDNTbmlDbWZaQVlhTU5rVUdqSWlROVp4NHFsQXNseFFscXlBVWJUdXptZ1BqMWc?oc=5",
@@ -2517,12 +2523,12 @@
       "img": "https://photo2.tinhte.vn/data/attachment-files/2026/11/9140225_cover-porsche-cayenne-ev-vietnam.jpg"
      },
      {
-      "title": "Trực tiếp Liverpool vs MU 2-0 (Hiệp 2): Quá khó cho Pochettino",
-      "summary": "MU vừa bị dẫn sâu vừa thiếu người. Họ phải làm thế nào để vượt qua thách thức khổng lồ ngay trong trận ra mắt huấn luyện viên mới? Nhận định bóng đá Liverpool vs MU, 23h30 ngày 22/11: Mauricio Pochettino và màn ra mắt ở Anfield Pochettino nhắn nhủ MU trước trận ra mắt: ‘Đừng sợ…",
-      "url": "https://tienphong.vn/truc-tiep-liverpool-vs-mu-2-0-hiep-2-qua-kho-cho-pochettino-post1896637.tpo",
+      "title": "MU thua tan tác trong ngày HLV Pochettino ra mắt",
+      "summary": "Một lần nữa, hàng phòng ngự chểnh mảng của MU đã dẫn đến thất bại nặng nề. Lần này là tỷ số đậm đà 0-4 trên sân Livepool. Với NHM Quỷ đỏ, cảm giác thất vọng càng lớn hơn khi đó là trận ra mắt của huấn luyện viên Pochettino. Nhận định bóng đá Liverpool vs MU, 23h30 ngày 22/11:…",
+      "url": "https://tienphong.vn/mu-thua-tan-tac-trong-ngay-hlv-pochettino-ra-mat-post1896637.tpo",
       "source": "Tiền Phong",
       "date": "2026-11-22 22:14",
-      "img": "https://cdn.tienphong.vn/images/m7iDO-r_SA2h4AIHpjt-6JfqIlvEyoLgxmIjRFRz1m231EKYucNRkQeLVUWzlQTt448zdTRYLu96c7byXSfzYQ/gettyimages-2305888004-2048x2048.jpg.avif"
+      "img": "https://cdn.tienphong.vn/images/pqg2xYYtnXFvSPN14yEKvI-vlAeP46slIuOxWnMcxTlc0OnQxZHReyfzTPPvy1Eu/liver-3766.jpg.avif"
      },
      {
       "title": "Ferrari 296 Challenge Stradale ra mắt: Xe đua được chạy trên đường, không chạy theo ‘trend’ điện hóa",
@@ -2591,18 +2597,18 @@
      {
       "title": "Ô tô điện thiết kế xinh xắn, đi xa 410km, giá 382 triệu đồng phù hợp đi lại trong đô thị có dễ cạnh tranh nếu về Việt Nam?",
       "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPUlBpNkE4RDNmc3hJMHZxUXg0ZFNfZ0xndjNSVnF2dER5MXZpNFhzakhlUXVQNldXNkZyNElUMUVhUk1BRWJmUWt5RVVBWDlFZGg2bTVsWDVzQmlabGl0aE0yalp1d1BRanVpdW5sMTZIdFp2Vll4WEk3Wi1pR01fbjVFV2ltX3FnbTN6S2JwalpMcklCS25HdG5Zd2lKYVJrM3N0XzY1VUR1Ujh3VTF2clBlS01yVnQyb0hJelZqbFp4QkFHWmFnZUY3MUZzdXI0T3F4Q0JkQXZhM1BqcHFsbzVLZ1pjb3RIZmdkSUJ5dXZCQVpNNXNjWnBQZ1BUY3YtT1ZtRUln?oc=5",
-      "source": "Gia đình & Xã hội",
-      "date": "2026-11-22 07:00",
-      "logo": "giadinh.suckhoedoisong.vn"
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNTUU4SVo0a0RLR2VFaWhKUklIOENrdVpZRE9tb2s3eTZRNF9qUTFLVWxlWE9nb292UTEwUVdpc2tSLUpXODBPeVdpRWVJY3lXSlJnMERTUWpqcFRxNkUwaUJTVmVNcHQ2LUhEYUVhLU95NTZrT2FjM2JVbXg5ME1VZjZEMW1jbFlwa0dIa2RyTTBzaHBkcWdDN3RoVk9zaXZ2TTZXNEpxWVdOVTlMZEdvcklqYzhkcUhtY0kxU1JIc2VNNWRSSjNkVEFnSmVnTWx3THRLNjhiU05tZw?oc=5",
+      "source": "Vietnam.vn",
+      "date": "2026-11-22 08:10",
+      "logo": "vietnam.vn"
      },
      {
       "title": "Cuộc đua sôi động phân khúc CUV cỡ C cuối 2026",
       "summary": "Sau Forester, Sealion 5, Tucson, thế hệ mới của Mazda CX-5, Mitsubishi Outlander, Volkswagen Tiguan đồng loạt ra mắt thị trường vào cuối 2026.",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWm1fTjdWRS1DZnV5RUtaS2N1dzN1SDdvNjBwYVFfSVFfenN3YXNNeklZRm5KcW9NTFd5TktYYVhUMl83V1h2WGJ1NHZ6MXJ3cXFuaVpaVktMd3Z2T2tWUHhNLXFSNW43TzZBVVE3cXhSMVlNWGdHMHVObGJBdndTWnUzUjY3SDBS?oc=5",
+      "url": "https://vnexpress.net/cuoc-dua-soi-dong-phan-khuc-cuv-co-c-cuoi-2026-5146888.html",
       "source": "VnExpress",
       "date": "2026-11-21 15:01",
-      "logo": "vnexpress.net"
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/20/SubaruForesterhybridvnexpress1-2918-5008-1795154037.webp?w=1200&h=0&q=100&dpr=1&fit=crop&s=XwZKD1iBKmITEeVHdvzReA"
      },
      {
       "title": "Bán rẻ quen, đắt không chịu được - Rào cản của Mazda CX-5 mới tại Việt Nam",
@@ -2627,20 +2633,36 @@
     "name": "Công nghệ AI",
     "items": [
      {
+      "title": "Google triển khai tính năng tạo ảnh GIF miễn phí trên Gemini tại 8 quốc gia",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQM3JxbG1tN1lXRW41em1nNjNNbkpSUVc2by1yVVY0RnpLYlhtTXdOQTFtMmVtVlNVLU1abmp5aDRMZmR3OVJtem1lMjFCMFZvcTZfSjFWYzZiNVNwb2FsYXNXbVJOb0FhblpYZ25qLXN5aGFXTFMyNnlYbjJpLUd0TEpYbTRVZUdPazhfdHNpd3NYVHVkekRCZDdJQkZxNHNhZG51ckV0UUVWLVUycW5WMVM2VUpVMGM?oc=5",
+      "source": "Báo Gia Lai điện tử",
+      "date": "2026-11-23 05:30",
+      "logo": "baogialai.com.vn"
+     },
+     {
+      "title": "Nữ kỹ sư đứng sau mô hình AI làm phim gây sốt ở Trung Quốc",
+      "summary": "Zeng Yan, 29 tuổi, là một trong những kỹ sư chủ chốt phát triển Seedance, mô hình tạo video của ByteDance được giới làm phim ngắn AI Trung Quốc ưa chuộng.",
+      "url": "https://vnexpress.net/nu-ky-su-dung-sau-mo-hinh-ai-lam-phim-gay-sot-o-trung-quoc-5146432.html",
+      "source": "VnExpress",
+      "date": "2026-11-23 05:00",
+      "img": "https://i1-vnexpress.vnecdn.net/2026/11/19/nu-cu-o-i-be-n-tha-p-do-ng-ho-5897-4664-1795065103.png?w=1200&h=0&q=100&dpr=1&fit=crop&s=0-SY2CqyPOYFtDZomf2EPw"
+     },
+     {
+      "title": "Quảng cáo Việt giữa cơn lốc AI: Bản sắc văn hóa là thứ không thể sao chép",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPTmlZMEJtVklNbGdPN2Q5dTFlbXF1dkhuR2o5ZG4waTJ2VGlCMFBVcy1HbWtlQW5tSE9NTTFuUmtfN2I2WlRmQ2kyamhvc2V5TzR6LUV6elhPdGdiOHdPT2J4anBqXzM0TVZzZGR0UENnTDVWeDVYa1M0bHhsZ19NbDVnSk5EbkdFUmhVSXBQdC1oZm9OZUwzQnpnYw?oc=5",
+      "source": "Vietnam.vn",
+      "date": "2026-11-23 01:02",
+      "logo": "vietnam.vn"
+     },
+     {
       "title": "Google bắt tay với ông chủ của Amazon để \"phóng\" các cụm máy chủ AI lên vũ trụ, đối đầu trực tiếp với tham vọng của Elon Musk",
       "summary": "Trong bối cảnh các trung tâm dữ liệu trên mặt đất ngày càng \"ngốn\" điện và cạn kiệt quỹ đất, Google đã chính thức ký thỏa thuận với công ty hàng không vũ trụ Blue Origin để phóng các cụm máy chủ AI lên không gian vào đầu năm 2029.",
       "url": "https://genk.vn/google-bat-tay-voi-ong-chu-cua-amazon-de-phong-cac-cum-may-chu-ai-len-vu-tru-doi-dau-truc-tiep-voi-tham-vong-cua-elon-musk-165261122165711041.chn",
       "source": "GenK",
       "date": "2026-11-23 00:49",
       "img": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/11/22/avatar1795341365393-17953413675172111611370.jpg"
-     },
-     {
-      "title": "Việt Nam và cơ hội định hình an toàn AI",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1MbElZa1pSTWgyYkNhLTlPOXJkV2VsMXRJTmNfNGZZUlZ4U2tDMWVOVHRsMXZnWElSZnBrSkxxNDRCUmpzeHg0RG5vZzRhc3RZSDNFQnVtcG9GZnc0V1J3WXdzeU5oNUFvN0JjVzNPcl9reVRsbWtGNVIxNXlTOFk?oc=5",
-      "source": "VnExpress",
-      "date": "2026-11-23 00:00",
-      "logo": "vnexpress.net"
      },
      {
       "title": "Startup AI Việt: Phải lớn mới gọi được vốn, hay cần vốn để lớn?",
@@ -2675,14 +2697,6 @@
       "img": "https://genk.mediacdn.vn/zoom/700_438/139269124445442048/2026/11/22/avatar1795334329228-1795334329824604615335.png"
      },
      {
-      "title": "‘Hội chứng cai AI’ trong các khuôn viên đại học",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQQ3R2ellSZVFES201WUJhWUNWLUp5ZGh3TDVieW5qakVKWFpCSTZlV2dvdXRLSDB6dmNaM0VOZ2tCbnB4NWEySkp2XzZ0Skc1UTdUSkVQT0FpaGlCQ1NVUC1OSURYcll6aHVBT3RyalRNUkRlN29BaElPUXhrcG9yYkNRbGZPb2hJX2Q5OHFHNWI?oc=5",
-      "source": "Sinh viên Việt Nam",
-      "date": "2026-11-22 21:48",
-      "logo": "svvn.tienphong.vn"
-     },
-     {
       "title": "Nhật Bản: AI hỗ trợ trả lời chất vấn tại Quốc hội",
       "summary": "Nhằm rút ngắn thời gian chuẩn bị tài liệu và giảm tình trạng làm việc ngoài giờ, Nhật Bản dự kiến triển khai ứng dụng AI hỗ trợ soạn thảo nội dung trả lời chất vấn tại Quốc hội từ tháng 1/2027. Quốc hội Nhật Bản kéo dài kỳ họp đặc biệt để thông qua các dự luật quan trọng Nhật…",
       "url": "https://www.vietnamplus.vn/nhat-ban-ai-ho-tro-tra-loi-chat-van-tai-quoc-hoi-post1150009.vnp",
@@ -2715,20 +2729,20 @@
       "logo": "baotintuc.vn"
      },
      {
-      "title": "AI chọn cổ phiếu, ai chịu lỗ?",
+      "title": "Giảng viên Jinan University Program ứng dụng AI số hóa học liệu tiếng Trung",
       "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBhbURWOTE5VmlwWFZFQnNfd2lWWTNpbnpoLWt0NGE0OFY1alpjc05FU21uSk9QODU5QVpOXzBtcEdabnk0bm5EQU55MFphNi1wX1ZTU0VQSF9CMXZ3cmFYSjBxemRBUl8tX2pGeF9Hamo4elBLc2VV?oc=5",
-      "source": "24HMoney",
-      "date": "2026-11-22 19:37",
-      "logo": "24hmoney.vn"
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbWNHZnBIME14a2xEbWZ2d3BNMnB4SERNZ0p1N0hRTV9RR3Rhem5BUjZxMW45SkFWckN1UjVoWnQwY3NNREp5RThoMlE5c3lXSGw5b0llbURnNUtaalQzbW9sZDVZMjNIOUZkYW83ak9WYUdfbVV3XzdtMzNDWmpnNUQ2YV9RMW43SEJIaEpVNmdwSjltN3BMUjBna1FLcE1EeVV6c2tmVnhkZFlXVUhJZmxTbENNQQ?oc=5",
+      "source": "CafeF",
+      "date": "2026-11-22 19:30",
+      "logo": "cafef.vn"
      },
      {
       "title": "Gần 1.000 tác nhân AI cùng tham gia nghiên cứu khoa học",
       "summary": "Một thử nghiệm với 936 tác nhân trí tuệ nhân tạo (AI) thuộc 35 phòng nghiên cứu cho thấy các hệ thống này có thể phối hợp thực hiện nhiều công đoạn nghiên cứu khoa học, từ xây dựng giả thuyết, tiến hành thí nghiệm đến công bố và phản biện công trình. 'Cơn khát' mua sắm của các…",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPLUtXNE9JcWdrajJwVWZNV1JfNEJoQzRCQURHMTJzUk5uWGdEVXBEakR2UVNncFJVQzlOMWxaY2xEUlNjd3IxMlREZjdwNXRtZm51bWcxWURPd01WR2FrbDY4LWE5bTVGTFhrazNBSTRsUDduM1dzRF8zUXVGRkxCWjBfajY0M0dIMlUweXNEYl9WNXd2YWJZ?oc=5",
-      "source": "Báo Tin tức và Dân tộc - TTXVN",
+      "url": "https://baotintuc.vn/gan-1000-tac-nhan-ai-cung-tham-gia-nghien-cuu-khoa-hoc-post1405158.html",
+      "source": "Báo Tin tức (TTXVN)",
       "date": "2026-11-22 19:04",
-      "logo": "baotintuc.vn"
+      "img": "https://media3.baotintuc.vn/images/TRUYNfbQjREuh7U7WHBHPbxW2s0_5ZtT6QuFzANPl-k/ttnt.jpg.avif"
      },
      {
       "title": "Google tung tính năng mới cho người dùng Gemini miễn phí",
@@ -2737,14 +2751,6 @@
       "source": "Thanh Niên",
       "date": "2026-11-22 18:22",
       "logo": "thanhnien.vn"
-     },
-     {
-      "title": "Cơn địa chấn lịch sử ngành toán học: Nhà nghiên cứu Anthropic tuyên bố đã cùng AI Claude giải mã thành công \"bài toán thế kỷ\" tồn tại suốt 167 năm",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQcGxnVm9jUU52N3g1WHNmdENFZmRqS0RxU05LSG1BWUI4S3l0YnFBRFJPNlA1NHVMRFZzT09QNk9zQ0k3bW1ZMDU5aHVQMUFfZ0E3VTdZWHZUXzZacVplMFREeWVnMllqVVZocFN3YlhRczREcDk4R3hhbS1ldU04MGZhd1FlQlRmV0Nvc3B2MTVDZl8yamZZdm1JN0k3MHdKWHgxTDdNQnpldFQ1VGNBTk81eEdaYWczYUFlQTZmZWJGRUh0dmp1ZFhPRk5wVzJHYUE1eFRkdXE3R1pSbzdlcUNuek04dzZ4a0JCYU1NWWdsVUpEV3BxaFVvd1FfYnBhbHltOEY0c3lZcFJGVmhrQndFWQ?oc=5",
-      "source": "CafeBiz",
-      "date": "2026-11-22 18:00",
-      "logo": "cafebiz.vn"
      }
     ]
    }
@@ -2782,7 +2788,7 @@
       "logo": "techz.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Honda|City": {
@@ -2812,7 +2818,7 @@
       "logo": "vietnamfinance.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Honda|HR-V": {
@@ -2842,7 +2848,7 @@
       "logo": "xedoisong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Toyota|Land Cruiser Prado": {
@@ -2872,7 +2878,7 @@
       "logo": "xedoisong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Toyota|Land Cruiser 300": {
@@ -2902,7 +2908,7 @@
       "logo": "tuoitre.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Toyota|Veloz Cross": {
@@ -2932,7 +2938,7 @@
       "logo": "vietnam.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Toyota|Innova Cross": {
@@ -2962,7 +2968,7 @@
       "logo": "dantri.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Grand i10": {
@@ -2992,7 +2998,7 @@
       "logo": "oto.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Venue": {
@@ -3022,7 +3028,7 @@
       "logo": "techz.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Stargazer": {
@@ -3052,7 +3058,7 @@
       "logo": "oto.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Tucson": {
@@ -3082,7 +3088,7 @@
       "img": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/11/14/12-1794669866851322587748.jpg"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Custin": {
@@ -3112,11 +3118,19 @@
       "logo": "baolamdong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|Palisade": {
     "items": [
+     {
+      "title": "Giá xe Hyundai Palisade tháng 11/2026: Bảng giá và lăn bánh",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5VY1l5UnZJWHJVSGM3V2dRdUtLSm1LckF1VmpZeWxSSV9iUVMwU1hOWHhja3h4S1ZiQTJEZFI5cl9ZajczNXZTN2tLazhBdW1XcGJkdHVjdDg?oc=5",
+      "source": "Báo Hà Tĩnh",
+      "date": "2026-11-22 07:31",
+      "logo": "baohatinh.vn"
+     },
      {
       "title": "Palisade Hybrid - cuộc chơi mới của Hyundai ở phân khúc cao cấp",
       "summary": "",
@@ -3132,17 +3146,9 @@
       "source": "VnExpress",
       "date": "2026-11-18 15:00",
       "logo": "vnexpress.net"
-     },
-     {
-      "title": "Hyundai Palisade 2027 ra mắt: Giá quy đổi từ hơn 1 tỷ đồng, thêm bản hybrid cao cấp hơn",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPeVIzNTUtaElzeXVXMnZPd3VqT3g1TWVaeEhQLTlleGRpek82bklldVpwVTN1VU5nNk9Lc0ZlNXktNHcwelZKUVVRMTRXSDNReVhhVXNjb3pSTjlXejljX3N2TnB3bG8xbmY5c1I4Y0tuNUZGWjJQR0dHMVlBSjJQanQ5N2hjZllKV2xUTHBFWDRWZGVYOXR2eFhaakY0cVRVdWk1NDdRZEFIdEZDblBleEVFZzhFMHVNdXhVeTRYc213bjd4WE03VjRTdw?oc=5",
-      "source": "Autopro",
-      "date": "2026-11-14 11:00",
-      "logo": "autopro.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Hyundai|IONIQ 5": {
@@ -3172,7 +3178,7 @@
       "img": "https://img1.oto.com.vn/2024/01/19/ioniq-4484-a166_wm.webp"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Kia|Seltos": {
@@ -3202,7 +3208,7 @@
       "logo": "baodanang.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Kia|K3": {
@@ -3232,7 +3238,7 @@
       "logo": "oto.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Kia|Sportage": {
@@ -3262,12 +3268,12 @@
       "logo": "vnexpress.net"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Suzuki|EECO": {
     "items": [],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Suzuki|Carry Pro": {
@@ -3281,7 +3287,7 @@
       "logo": "xedoisong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "Suzuki|Fronx": {
@@ -3311,7 +3317,7 @@
       "logo": "soha.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "VinFast|Minio Green": {
@@ -3341,7 +3347,7 @@
       "logo": "xedoisong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "VinFast|EC Van": {
@@ -3371,7 +3377,7 @@
       "logo": "oto.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "VinFast|Herio Green": {
@@ -3393,7 +3399,7 @@
       "logo": "baolamdong.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "VinFast|Limo Green": {
@@ -3423,7 +3429,7 @@
       "logo": "autopro.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    },
    "VinFast|VF MPV 7": {
@@ -3453,7 +3459,7 @@
       "logo": "oto.com.vn"
      }
     ],
-    "cap_nhat": "2026-11-23 00:48",
+    "cap_nhat": "2026-11-23 06:36",
     "so_ngay": 90
    }
   },
@@ -4009,10 +4015,10 @@
     "img": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Hyundai_Palisade_2.5T_Calligraphy_LX3_Creamy_White_Pearl_%2846%29_%28cropped%29.jpg/960px-Hyundai_Palisade_2.5T_Calligraphy_LX3_Creamy_White_Pearl_%2846%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "img_nguon": "Wikipedia",
     "img_link": "https://en.wikipedia.org/wiki/Hyundai_Palisade",
-    "tom_tat": "Bài mới nhất: Palisade Hybrid - cuộc chơi mới của Hyundai ở phân khúc cao cấp",
-    "tom_tat_nguon": "VnExpress",
-    "tom_tat_link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdnZjN0hOM2J5ZWlDelJLdnZKRDlPelNNZFFOdFVLQUVXSml0ZVY5SnFBaVg3VmRLVmN1UHpzQTdfVTVnSmFnNnJ5Z0wtYXZvU01JeHg0SGRGd2lBN0Z1cjdkNlBOSV9VMl9xck11V2taaVozT3NOcjJoczdVRlljbWJoSElSQjJoMFdLc3h6dGVTVTd4akJjYjFtb2o?oc=5",
-    "tom_tat_ngay": "2026-11-19 12:00"
+    "tom_tat": "Bài mới nhất: Giá xe Hyundai Palisade tháng 11/2026: Bảng giá và lăn bánh",
+    "tom_tat_nguon": "Báo Hà Tĩnh",
+    "tom_tat_link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5VY1l5UnZJWHJVSGM3V2dRdUtLSm1LckF1VmpZeWxSSV9iUVMwU1hOWHhja3h4S1ZiQTJEZFI5cl9ZajczNXZTN2tLazhBdW1XcGJkdHVjdDg?oc=5",
+    "tom_tat_ngay": "2026-11-22 07:31"
    },
    "Hyundai|IONIQ 5": {
     "wiki_kiem": "2026-11-20",
@@ -4596,20 +4602,20 @@
     "name": "Kinh tế – thương mại – lãi suất",
     "items": [
      {
+      "title": "Đầu tư 220 triệu euro cho Ukraina, ông Merz vấp tranh cãi giữa lúc kinh tế Đức chật vật",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQSE1ZZEVvSXZITEowYWFPR3gwLVJwOC1kVVo0cmhJMW9Lc0p2MnlHR3lycVNOV2VnclEzTEZYZl9neEgzUEtrc2Q0X1FKaG9PVGZzdWkwOHEwWGNpM0tpR2hOejZNNGY3dWpHSzFUMGpDT2ZCZFUza0xkVl9QMXM0bGIzY1l1NUoweTFmMTNua1VYR1dua0VVQUlJYXV3OV9pdnZzc2ROYlFxZm1wSTV6UFdEalFVbmVKVFRPR2tjOVQwMmZF?oc=5",
+      "source": "Lao Động",
+      "date": "2026-11-22 17:33",
+      "logo": "laodong.vn"
+     },
+     {
       "title": "Kế hoạch quản trị xuất siêu, phòng tránh các rủi ro trong hoạt động thương mại quốc tế",
       "summary": "Quản trị xuất siêu bền vững giai đoạn 2026-2030 giúp hài hòa xuất nhập khẩu, nâng cao giá trị gia tăng, củng cố chuỗi cung ứng. Định hướng chiến lược nhằm phòng tránh dư thừa công suất, gian lận xuất ...",
       "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOd2dFSm81QXJPUWs4aGpQQzZPZFRvMDd0SklZQURCeU5pODVjbWVHOW16aUd3bmhaMGV2Y29HUFVnOGpSVVQ5YWdRZVpfaElrMHh2Sm1TSjJuZll6UEZHeWV6Qk9kM3N6V1NtelRzeW9WNDlEWk10NVJ3M04tTzFDTUh1YWgxMUx6MFVJZWp1eVhqVGI5d1FpeER1U05MSWIwS014NVdhTlRhSWdJRS1WYUVWa0VXNlJzY1E?oc=5",
       "source": "baodautu",
       "date": "2026-11-22 09:22",
       "logo": "baodautu.vn"
-     },
-     {
-      "title": "Liên minh châu Âu và Indonesia ký thỏa thuận thương mại lịch sử sau gần 10 năm đàm phán",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPeFBhaDFYNDJwYzRrR0VwV1VBTzcxd0F2ZUVTRmo4OWlmTGZ5M2VETE1yMlZ2ZFRlNUxHNWhUZURlV05tOW91VWxYYkpGSFJQcWJVU3NJaVlqbVpxbHJZSjV3X1B1Wkx2eVRBd0hhNGg0eHVwSzc1b2hFMmF4Q3BBVHktREFfVWlZek9WOUdqMWgxN3ZBSmNxSTdmb2UtRUQ1dThxaVNwbVpNRUpJM3pJ?oc=5",
-      "source": "Vietnam.vn",
-      "date": "2026-11-22 09:04",
-      "logo": "vietnam.vn"
      },
      {
       "title": "Bong bóng nhà đất được nuôi lớn bằng tiền rẻ",
@@ -4660,14 +4666,6 @@
       "img": "https://media.vietnamplus.vn/images/IQdJ9t68n_Fc4c6ldNrZ7YhEnECqHsrFus8huSPcBVYo8M6A5J3zstwwBDU5BYi4/ttxvn_tre-em-4780.jpg.avif"
      },
      {
-      "title": "Fed bất đồng nội bộ xung quanh chính sách lãi suất",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4ydjF2Qjk1TFFadDk4Q2M0d3NneTZINTVmYVdGMHhsZE5BZHhjR2hrSWMxUlRWaUZ2R0E5d3lsaXFzUmx1b19DZ2JTWHhlWDRteThwWENPMk5tUDNkUDd4N3h2ZGE2T3A4YjVxOWwySExHaDVsQ2pmTVZrc0FoQQ?oc=5",
-      "source": "Vietnam.vn",
-      "date": "2026-11-21 13:22",
-      "logo": "vietnam.vn"
-     },
-     {
       "title": "Giá nông sản hôm nay 21/11/2026: Giá cà phê trong nước mất mốc 72.000 đồng, chạm đáy?; Brazil đưa tranh chấp thuế với Mỹ lên WTO, muốn đáp trả",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxNai05NzZvQmowVGtyVlBCZGZRV1hEQnphakR6dUh2NDl3Y1dsSUhRYmJ1ZElaZFBTSEM2ZnBnQ2RBa3FtVjU0VmtpTlJPSUJUOTdjZVE5NGdSeXcyTFZoUkNmbVFlT3BUUU5ZNUJIbkNmV1pJbXpOU01McFZjUllMOWpVcFVYTEpSb2ZQa2c2Z0c3SU5ZQllkeXptT2huTjN4cktJbGRTVXRMcWtLRlc2Ulg0NmRINTFKaWJPdWhyTVBJWEpzMFNvT3ZuNUFNemFBVjdmTGg1a2ZXb0J5dzRUM2FJVy1ZNzhwWVpIRmVUNk5GQXRvaW1qUGNRd3pON28?oc=5",
@@ -4684,12 +4682,12 @@
       "logo": "nguoiquansat.vn"
      },
      {
-      "title": "Nợ của Ukraina với EU và IMF vượt 101 tỉ USD",
+      "title": "Fed bất đồng nội bộ xung quanh chính sách lãi suất",
       "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOSTlIdzNTRll0cFIxYUxrX1NDWnVFUFhjRk9nX3BKUXI3MnZfQTlsVzhCSmg5YmpaOFdjRzBZaTVVZ3BPcF9RY3l5aDUtYmxEOGtCWXJtMlJYcmJLNzBIcTZteG9STFRSOE5vd1hHcWdTcGk1UHNLajBuTHRoUUtEeTFhQVJzZm84ZzN6Qw?oc=5",
-      "source": "Lao Động",
-      "date": "2026-11-21 11:37",
-      "logo": "laodong.vn"
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQdGdQYWxGdlZ4Mm9LZ0dZX293S0RQaDVJQ2ZYeXQ3cjdhb3dkXzZiQWFxNnZ1ZndEU29waU1UVy1CajZVek9ucnpXZ3EtQ1hnOUtGeUc4czRSR1YtdGJtSVo0YllNTUJDN0YwS1RkbUNGTjZRa21FRjhZaGVMRTZ3NTBlcEFNZw?oc=5",
+      "source": "Bnews.vn",
+      "date": "2026-11-21 08:37",
+      "logo": "bnews.vn"
      },
      {
       "title": "ECB kêu gọi châu Âu đẩy nhanh cải cách và hành động",
@@ -4714,6 +4712,14 @@
       "source": "Vietnam+",
       "date": "2026-11-21 05:50",
       "img": "https://media.vietnamplus.vn/images/VDu2ayPW9xEUQJPBOsBm6gh5c0Qu5lhMYCEyLbQRouhIDnIdmzvpMQlUNd119ttTSDPqTRVINHBzuLRdRgf4tOfw2Zx27K6VaqleFwrLzF0G7rVoj9_g7qTnujC0cfivfefemjFKLxqurM-EMjhSN7UyKnDEvbhYv3AxltxGUio/ttxvn-ecb-khang-dinh-khong-te-liet-truoc-cu-soc-nang-luong-tu-xung-dot-trung-dong-8662902.jpg.avif"
+     },
+     {
+      "title": "Fed cảnh báo làn sóng đầu tư AI có thể làm gia tăng lạm phát Mỹ",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPd0x5bVl1cklsR0lXUzNJSDVnLWN5X21KWExwS1Y3dDFEZzVtNVJhRm1XY0VxWjVWVTg2OTl1d3hkNTdtTm1ObkNHT1R0RXFwWkM5cUE5NVJvVFpXbmZLeDZ3Y2MxUHh4Q0VyMi1vN1BvMEJNenlJanhDQ0otY3lQYXVBRmt0Ym4tRFdYYUVzY1FtVzV4ZFBZ?oc=5",
+      "source": "Bnews.vn",
+      "date": "2026-11-20 11:10",
+      "logo": "bnews.vn"
      }
     ]
    },
@@ -4721,6 +4727,102 @@
     "key": "chinh_tri",
     "name": "Chính trị – địa chính trị – quan hệ quốc tế",
     "items": [
+     {
+      "title": "Ấn Độ và Trung Quốc đàm phán giảm căng thẳng biên giới",
+      "summary": "Nguồn tin từ Bộ Quốc phòng Ấn Độ xác nhận nước này và Trung Quốc đã kết thúc vòng đàm phán cấp Tư lệnh quân đoàn thứ hai nhằm làm giảm căng thẳng ở khu vực biên giới dọc Đường kiểm soát thực tế (LAC) ở Arunachal Pradesh, đồng thời đưa ra các biện pháp nhằm ngăn ngừa xung đột…",
+      "url": "https://baotintuc.vn/an-do-va-trung-quoc-dam-phan-giam-cang-thang-bien-gioi-post1405211.html",
+      "source": "Báo Tin tức (TTXVN)",
+      "date": "2026-11-23 06:26",
+      "img": "https://media3.baotintuc.vn/images/opCEY1ehWVHk5SVNQjodA3CYMcvloDljDeba9Aqr2bPuHOkEZBnAntnoat9zttiFbBzKU6YTMUz4pbXVstZzoD9-wPfTqytsTENEGAgw-xg/india-galway.jpg.avif"
+     },
+     {
+      "title": "Mỹ mở khả năng bảo đảm an ninh cho Ukraine theo mô hình Điều 5 NATO",
+      "summary": "Đặc phái viên Mỹ Jared Kushner cho biết Tổng thống Donald Trump sẵn sàng xem xét cung cấp cho Ukraine các bảo đảm an ninh dựa trên mô hình Điều 5 của Hiệp ước Bắc Đại Tây Dương (NATO). Đàm phán Ukraine: Nga nêu điều kiện NATO lùi về đường biên giới 1997 Tư lệnh NATO thừa nhận…",
+      "url": "https://baotintuc.vn/my-mo-kha-nang-bao-dam-an-ninh-cho-ukraine-theo-mo-hinh-dieu-5-nato-post1405207.html",
+      "source": "Báo Tin tức (TTXVN)",
+      "date": "2026-11-23 06:20",
+      "img": "https://media3.baotintuc.vn/images/zCY8vQ2KFXNpStK02pUfv45bW2MkPn9vx0KLGTC89Mc9lIe09wtGqe5vnKWLHAuU/binhsi.jpg.avif"
+     },
+     {
+      "title": "Mỹ nêu yếu tố then chốt chấm dứt xung đột Ukraine, hé lộ điều kiện của Nga",
+      "summary": "(Dân trí) - Đặc phái viên Mỹ cho biết Tổng thống Donald Trump sẵn sàng cân nhắc các bảo đảm an ninh cho Ukraine theo mô hình Điều 5 của Hiệp ước NATO.",
+      "url": "https://dantri.com.vn/the-gioi/my-neu-yeu-to-then-chot-cham-dut-xung-dot-ukraine-he-lo-dieu-kien-cua-nga-20261123060332948.htm",
+      "source": "Dân trí",
+      "date": "2026-11-23 06:13",
+      "img": "https://cdnphoto.dantri.com.vn/EsVtjksUzkjvwGZtaXNGzpKNHBE=/2026/11/23/putin-reuters012-edited-1794489674469-1795388415851.jpg"
+     },
+     {
+      "title": "IDF cảnh báo Israel tấn công Iran có thể kích hoạt xung đột trên nhiều mặt trận",
+      "summary": "Trong cuộc họp kín tuần trước, tình báo quân đội Israel cảnh báo các cuộc không kích Iran có thể kích hoạt xung đột khu vực rộng lớn hơn, liên quan đến Lebanon, Syria và Gaza.",
+      "url": "https://vietnamnet.vn/israel-tan-cong-iran-se-kich-hoat-xung-dot-tren-nhieu-mat-tran-2577710.html",
+      "source": "VietNamNet",
+      "date": "2026-11-23 06:12",
+      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/23/idf-canh-bao-israel-tan-cong-iran-co-the-kich-hoat-xung-dot-tren-nhieu-mat-tran-253.jpg?width=0&s=B0TU2mdjYM80AVI1xWwddw"
+     },
+     {
+      "title": "Chuyên gia Mỹ gợi ý thời điểm châu Âu có thể tham gia đàm phán về Ukraina",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQkk3VE1udHZnS0otcS1vOG9KcEJaS1R0ZVFYeGxvUGlhNXQtMmVteUxVamFUeTQ5NjQ1bzJZYWRIRWFxQmdDalJoVW14c0YyTlVvRnFwdkpISHRjUmdlX1RsX1hkTWVXdEVFZ3BwSU81QzFidkp3QllSM01YbHdsRHlvVUV3MDA3cGhIVlZaOUE0bzlDQW5jNTBXd1dCVGlEbENnbG1YbWJWaHlPSEhMUFVNcw?oc=5",
+      "source": "Lao Động",
+      "date": "2026-11-23 06:00",
+      "logo": "laodong.vn"
+     },
+     {
+      "title": "Tổng thống Mỹ phát tín hiệu về thời điểm có thể nối lại tấn công Iran",
+      "summary": "(Dân trí) - Tổng thống Mỹ Donald Trump cảnh báo, ông có thể ra lệnh nối lại các cuộc không kích nhằm vào Iran sau dịp năm mới nếu hai nước không đạt được thỏa thuận.",
+      "url": "https://dantri.com.vn/the-gioi/tong-thong-my-phat-tin-hieu-ve-thoi-diem-co-the-noi-lai-tan-cong-iran-20261123054421213.htm",
+      "source": "Dân trí",
+      "date": "2026-11-23 05:58",
+      "img": "https://cdnphoto.dantri.com.vn/DnJNL7WIP6o4uPpKILDeQCzuJUA=/2026/11/23/trump-reuters011zon-1-edited-1795387386343.jpg"
+     },
+     {
+      "title": "Kaliningrad đối mặt UAV, nguy cơ xung đột lan tới Baltic",
+      "summary": "Vụ máy bay không người lái (UAV) ngày 21/11 tấn công tàu hàng Nga trên vịnh Phần Lan đang trên đường tới Kaliningrad, cùng báo động an ninh tại vùng lãnh thổ cực Tây của Nga, làm dấy lên lo ngại về khả năng Ukraine mở rộng chiến dịch UAV tới khu vực Baltic, báo chí Nga nhận…",
+      "url": "https://tienphong.vn/kaliningrad-doi-mat-uav-nguy-co-xung-dot-lan-toi-baltic-post1896610.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-11-23 05:51",
+      "img": "https://cdn.tienphong.vn/images/s6gT1YS1JSoky24pT-83_QY-uUK6OT_Pi9_SzzV9R3-4E9z3Yz535G-H1ZoHfsWi/12a.png.avif"
+     },
+     {
+      "title": "Đàm phán khí hậu của Liên Hợp Quốc nguy cơ thất bại",
+      "summary": "Các cuộc đàm phán khí hậu của Liên Hợp Quốc có nguy cơ kết thúc trong thất bại, khi Liên minh châu Âu (EU) và một số quốc gia khác bác bỏ dự thảo thỏa thuận cuối cùng do Thổ Nhĩ Kỳ và Úc - Chủ tịch COP31 đưa ra. Ứng phó đợt cháy rừng nghiêm trọng nhất trong hơn 1 thập kỷ,…",
+      "url": "https://tienphong.vn/dam-phan-khi-hau-cua-lien-hop-quoc-nguy-co-that-bai-post1896639.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-11-23 05:47",
+      "img": "https://cdn.tienphong.vn/images/9wCudkk_XA7vXYsYqoTVKGFH-16jR5N31PRufPj43yjJdMd3HsoUK9OB-PgJbcwO/img-3578.jpg.avif"
+     },
+     {
+      "title": "Cuộc gặp thượng đỉnh Mỹ - Triều bất thành vì điều kiện từ Bình Nhưỡng?",
+      "summary": "Theo tờ Wall Street Journal (WSJ), Tổng thống Mỹ Donald Trump muốn gặp Chủ tịch Triều Tiên Kim Jong Un trong chuyến công du châu Á gần đây, nhưng cuộc gặp này đã không thể diễn ra sau khi Bình Nhưỡng được cho là đã đưa ra các điều kiện mà phía Washington không thể chấp nhận.…",
+      "url": "https://tienphong.vn/cuoc-gap-thuong-dinh-my-trieu-bat-thanh-vi-dieu-kien-tu-binh-nhuong-post1896620.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-11-23 05:45",
+      "img": "https://cdn.tienphong.vn/images/57I2HW5rUHByU_MpSVgzhw0DIxx_H6GM9LgQxcmE9Fxc2ZhEOMrlRfI1AOyzlYQ5bUrZt3_p1hzRiXge_gT_f7i_MHPVqgcT8Eut14COpkO6Y7KXhjbUNUijI3P1YILSGvcdTLupnMxSzbX_QznYSLh9yuYdaBxxjAEagqY62Hi5NOnCwDggJYeiCpiGXh5xifKS53Frt47Ls5vGSq-H_-3gtygDG3nhra_qqGQcnUM/https-archive-imagesprodglobala201836reutersmedianet-2019-06-30-2019-06-30t161512z-12156-mrprc1ac6cc9190-rtrmadp-0-northkorea-usa-southkorea.jpg.avif"
+     },
+     {
+      "title": "Ukraine đối mặt khủng hoảng dân số, hàng triệu người có thể không trở về",
+      "summary": "Chuyên gia nhân khẩu học Ukraine cảnh báo dân số tại các vùng do Kiev kiểm soát có thể giảm còn khoảng 26 triệu người vào năm 2030. Trong khi số người tử vong vượt số trẻ chào đời, hàng triệu người Ukraine ra nước ngoài có thể không trở về, khiến khủng hoảng nhân khẩu học thêm…",
+      "url": "https://baotintuc.vn/ukraine-doi-mat-khung-hoang-dan-so-hang-trieu-nguoi-co-the-khong-tro-ve-post1405201.html",
+      "source": "Báo Tin tức (TTXVN)",
+      "date": "2026-11-23 05:26",
+      "img": "https://media3.baotintuc.vn/images/KlzJyO2dCEaAUOf93ivlgDhymGTajL4Z8dwf4Gzt7g1qI73B4F6rvgSa-QSuVHin7-ME_MCRHYIMJT3uhQomLtYFGndDhVJl6QOey1QXDp4/so-tan-190422.jpg.avif"
+     },
+     {
+      "title": "Iran tấn công căn cứ quân sự Mỹ tại Bahrain",
+      "summary": "VTV.vn - Iran hôm 21/11 tuyên bố đã tiến hành cuộc tấn công phối hợp bằng tên lửa và thiết bị bay không người lái nhằm vào hai căn cứ quân sự Mỹ tại Bahrain.",
+      "url": "https://vtv.vn/iran-tan-cong-can-cu-quan-su-my-tai-bahrain-100261122195640611.htm",
+      "source": "VTV",
+      "date": "2026-11-23 05:16",
+      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/bahrain-3-99901969899948219542413-68180158700208422633276.png"
+     },
+     {
+      "title": "Tàu chiến Nga trị giá tới 350 triệu USD bị đánh chìm ở Libya, nghi do Ukraine tấn công",
+      "summary": "Tàu hộ tống Merkury của Hải quân Nga được cho là đã bị tấn công bằng xuồng không người lái (USV) tại cảng Benghazi, Libya. Hình ảnh vệ tinh cho thấy con tàu gần như chìm hoàn toàn, trong khi các nguồn tin đề cập thương vong và thiệt hại hàng trăm triệu USD. Phó Thủ tướng Nga…",
+      "url": "https://baotintuc.vn/tau-chien-nga-tri-gia-toi-350-trieu-usd-bi-danh-chim-o-libya-nghi-do-ukraine-tan-cong-post1405198.html",
+      "source": "Báo Tin tức (TTXVN)",
+      "date": "2026-11-23 04:39",
+      "img": "https://media3.baotintuc.vn/images/pzanhpJz_UEZRZGvbQmjjlreRcCxqPK3uxxcucFXQDLgI-aWBcRE-DBlYHicFXkk/23112026tau.png.avif"
+     },
      {
       "title": "Bơi qua eo biển Hormuz đang bị tàn phá bởi chiến tranh",
       "summary": "VTV.vn - Giữa eo biển Hormuz, một vận động viên bơi người Anh đã thực hiện một hành trình đặc biệt nhằm phát đi thông điệp bảo vệ đại dương.",
@@ -4738,108 +4840,12 @@
       "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795366453634-1795366454664535869006.jpg"
      },
      {
-      "title": "Iran tấn công căn cứ quân sự Mỹ tại Bahrain",
-      "summary": "VTV.vn - Iran hôm 21/11 tuyên bố đã tiến hành cuộc tấn công phối hợp bằng tên lửa và thiết bị bay không người lái nhằm vào hai căn cứ quân sự Mỹ tại Bahrain.",
-      "url": "https://vtv.vn/iran-tan-cong-can-cu-quan-su-my-tai-bahrain-100261122195640611.htm",
-      "source": "VTV",
-      "date": "2026-11-22 22:16",
-      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/bahrain-3-99901969899948219542413-68180158700208422633276.png"
-     },
-     {
       "title": "COP31 không đạt được thỏa thuận cuối cùng",
       "summary": "Các cuộc đàm phán tại Hội nghị lần thứ 31 Các bên tham gia Công ước khung của Liên hợp quốc về biến đổi khí hậu (COP31) ngày 22/11 đã thất bại, sau khi EU bác bỏ dự thảo thỏa thuận cuối cùng. COP31: Bất đồng về tiền hỗ trợ khí hậu đe dọa nỗ lực đạt thỏa thuận toàn cầu Standard…",
       "url": "https://www.vietnamplus.vn/cop31-khong-dat-duoc-thoa-thuan-cuoi-cung-post1150018.vnp",
       "source": "Vietnam+",
       "date": "2026-11-22 22:01",
       "img": "https://media.vietnamplus.vn/images/0f-btEj60lGt0BFs9lOY18i3fD5o3scPVfKQHk4M7X2Utq7BWBfar5vgmPF-g2HF51QzVUMm7w3xIukD5AxdvTLIOnP1Bep__n5U1v7aWA0VcYwo2fV7NZSSKNPQCcyG3bQxVnGE7zVv5Y_XbUmG5A/ttxvn_cop31-dung-truoc-nguy-co-be-tac-do-bat-dong-ve-nhien-lieu-hoa-thach.jpg.avif"
-     },
-     {
-      "title": "Slovakia từ chối góp tiền vào khoản vay mới của EU dành cho Ukraine",
-      "summary": "Thủ tướng Slovakia Robert Fico tuyên bố nước này sẽ không tham gia khoản vay mới của Liên minh châu Âu (EU) dành cho Ukraine.",
-      "url": "https://vietnamnet.vn/slovakia-tu-choi-tham-gia-khoan-vay-moi-cua-eu-danh-cho-ukraine-2577684.html",
-      "source": "VietNamNet",
-      "date": "2026-11-22 21:16",
-      "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/22/thu-tuong-slovakia-robert-fico-1934.jpg?width=0&s=Z3W-1OOzPbXf7jn88469cA"
-     },
-     {
-      "title": "Mâu thuẫn Mỹ - Trung nảy sinh ngay sau khi Tổng thống Trump tới Thâm Quyến",
-      "summary": "Bộ Thương mại Trung Quốc vừa yêu cầu Ủy ban Truyền thông Liên bang Mỹ (FCC) rút lại lệnh cấm các nhà mạng Trung Quốc tiếp cận trực tiếp số điện thoại của Mỹ, đồng thời tuyên bố sẽ triển khai biện pháp bảo vệ lợi ích của mình.",
-      "url": "https://cafef.vn/mau-thuan-my-trung-nay-sinh-ngay-sau-khi-tong-thong-trump-toi-tham-quyen-188261122185337491.chn",
-      "source": "CafeF",
-      "date": "2026-11-22 21:00",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795348349246-1795348350027204592542.webp"
-     },
-     {
-      "title": "Bánh mì nặng 10 kg hút người dân tại Liên hoan Văn hóa Ẩm thực Quốc tế",
-      "summary": "Sáng 22/11, tại Khu Ngoại giao đoàn Vạn Phúc, Hà Nội, Bộ Ngoại giao chủ trì tổ chức Lễ khai mạc Liên hoan Văn hóa Ẩm thực Quốc tế lần thứ 14 với chủ đề “Beyond Flavors - Vượt trên cả hương vị”. Bánh mì là một trong những món ăn thu hút hàng trăm thực khách thưởng thức. Kiếm…",
-      "url": "https://tienphong.vn/banh-mi-nang-10-kg-hut-nguoi-dan-tai-lien-hoan-van-hoa-am-thuc-quoc-te-post1896608.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-11-22 20:02",
-      "img": "https://cdn.tienphong.vn/images/tRirGXlrAVoSw_7e8Y4K4HqJT4YDVasX-COBmFgKOJ297611mhA894FWKCujRwz8/banh-mi.jpg.avif"
-     },
-     {
-      "title": "Ông Zelensky: Tổng thống Mỹ nói châu Âu đang chi quá nhiều tiền cho Ukraine",
-      "summary": "(Dân trí) - Tổng thống Mỹ Donald Trump nói với các nhà lãnh đạo châu Âu rằng họ đang chi rất nhiều tiền cho cuộc chiến ở Ukraine, ông Volodymyr Zelensky cho biết ngày 21/11.",
-      "url": "https://dantri.com.vn/the-gioi/ong-zelensky-tong-thong-my-noi-chau-au-dang-chi-qua-nhieu-tien-cho-ukraine-20261122192522706.htm",
-      "source": "Dân trí",
-      "date": "2026-11-22 19:33",
-      "img": "https://cdnphoto.dantri.com.vn/szqyfDuJa50rPvpnPrlMOXVkI2I=/2026/10/17/image-1792209909354.jpg"
-     },
-     {
-      "title": "Iran phát thông điệp cứng rắn giữa lúc căng thẳng với Mỹ gia tăng",
-      "summary": "Chủ tịch Quốc hội Iran Mohammad Bagher Ghalibaf cho biết xây dựng năng lực răn đe bền vững là cách duy nhất để loại bỏ nguy cơ chiến tranh và chấm dứt tình trạng “không chiến tranh nhưng cũng chưa có hòa bình” hiện nay. Mỹ - Iran giằng co, nguy cơ xung đột tái bùng phát Mỹ ồ ạt…",
-      "url": "https://baotintuc.vn/iran-phat-thong-diep-cung-ran-giua-luc-cang-thang-voi-my-gia-tang-post1405164.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 19:32",
-      "img": "https://media3.baotintuc.vn/images/9ob4ZYYaL7higG_fi_vXXoMzBccOY8NXbpufpl1FOX8NE5VgN_USKIBSY-HhGrpAi8RZOOA8BXqQTkAu58VI_VBz2YxBlO1udxxlvfVLIFA9lIe09wtGqe5vnKWLHAuU/potal-iran-cao-buoc-my-khong-muon-giam-cang-thang-stand.jpg.avif"
-     },
-     {
-      "title": "Iran sẵn sàng đàm phán có điều kiện với Mỹ",
-      "summary": "VTV.vn - Iran tuyên bố sẵn sàng đàm phán với Mỹ nhằm chấm dứt tình trạng đối đầu hiện nay, nhưng yêu cầu Washington phải thực hiện các biện pháp xây dựng lòng tin trước tiên.",
-      "url": "https://vtv.vn/iran-san-sang-dam-phan-co-dieu-kien-voi-my-100261122084116227.htm",
-      "source": "VTV",
-      "date": "2026-11-22 19:07",
-      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/ap26320429061252-44096854695456227580354-19732579178793440713355.jpg"
-     },
-     {
-      "title": "Nga tuyên bố là nước đầu tiên trên thế giới làm được điều này bất chấp lệnh trừng phạt",
-      "summary": "Tập đoàn Máy bay Thống nhất (UAC) vừa kỷ niệm 20 năm thành lập công ty.",
-      "url": "https://cafef.vn/nga-tuyen-bo-la-nuoc-dau-tien-tren-the-gioi-lam-duoc-dieu-nay-bat-chap-lenh-trung-phat-188261122172935482.chn",
-      "source": "CafeF",
-      "date": "2026-11-22 19:00",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/img8631-1795338595960471128832-0-13-720-1165-crop-17953431814211327227847.jpeg"
-     },
-     {
-      "title": "Bí quyết đưa Ấn Độ nổi lên thành cường quốc cờ vua",
-      "summary": "Từ những lò đào tạo chuyên biệt, chiến lược phát hiện tài năng sớm đến sự đồng hành của gia đình, Ấn Độ đang xây dựng một thế hệ kỳ thủ trẻ đủ sức cạnh tranh những đỉnh cao nhất của làng cờ vua thế giới. Cờ vua Việt Nam tạo dấu ấn tại FIDE Chess Olympiad 2026 Cùng kỳ thủ Lê…",
-      "url": "https://baotintuc.vn/bi-quyet-dua-an-do-noi-len-thanh-cuong-quoc-co-vua-post1405151.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 18:45",
-      "img": "https://media3.baotintuc.vn/images/7nrOn6rziKNXu0xaZEPtKZbSg5hZ3mnxBDCwrkgcFutsmZ55tJ8pf_FSw1o1qvKa/co-vua.png.avif"
-     },
-     {
-      "title": "COP31 bên bờ bế tắc do bất đồng về nhiên liệu hóa thạch",
-      "summary": "Hội nghị lần thứ 31 các bên tham gia Công ước khung của Liên hợp quốc (LHQ) về biến đổi khí hậu (COP31) tại thành phố Antalya của Thổ Nhĩ Kỳ đang đứng trước nguy cơ không đạt được thỏa thuận cuối cùng, sau khi dự thảo mới nhất không đề cập trực tiếp đến nhiên liệu hóa thạch, kéo…",
-      "url": "https://baotintuc.vn/cop31-ben-bo-be-tac-do-bat-dong-ve-nhien-lieu-hoa-thach-post1405148.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 18:31",
-      "img": "https://media3.baotintuc.vn/images/nkzQUzBbeSrCM2Ea6fuatHRIc7Eag6t9gDEc3KyRkZ_RcQI75bczR6LIez4BHmoZPVPLxBNb0R7MgkpQcVtlooLVcLvJvsoNQHcaz23lTK5sN_AcLSqOIToXHP_WusPt/potal-ba-uu-tien-lon-dat-ra-thach-thuc-cho-dam-phan-cop31-stand.jpg.avif"
-     },
-     {
-      "title": "Ukraine tập kích trụ sở Vệ binh Quốc gia Nga",
-      "summary": "UAV tầm xa của Ukraine được cho là đã đánh trúng trụ sở Vệ binh Quốc gia Nga tại Krasnodar, miền Nam Liên bang Nga, trong đêm 21/11, giữa lúc còi báo động phòng không vang lên và sân bay thành phố phải tạm dừng hoạt động. Tổng thống Trump hé lộ thỏa thuận ngừng bắn quy mô lớn…",
-      "url": "https://baotintuc.vn/ukraine-tap-kich-tru-so-ve-binh-quoc-gia-nga-post1405140.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 18:13",
-      "img": "https://media3.baotintuc.vn/images/7nrOn6rziKNXu0xaZEPtKSR2Og8Rlv5_FKQoe8-xp2fWBRp3Q4VSZekDnstUFw6e/79342038.jpg.avif"
-     },
-     {
-      "title": "Liên minh châu Âu tăng tốc viện trợ cho Ukraine sau thượng đỉnh Mỹ - Trung - Nga",
-      "summary": "Liên minh châu Âu (EU) vừa thông qua 2 quyết định cho phép cung cấp thêm 1 tỷ euro viện trợ quân sự cho Ukraine, thông qua Cơ chế Hòa bình châu Âu (EPF).",
-      "url": "https://cafef.vn/lien-minh-chau-au-tang-toc-vien-tro-cho-ukraine-sau-thuong-dinh-my-trung-nga-188261122154111736.chn",
-      "source": "CafeF",
-      "date": "2026-11-22 18:00",
-      "img": "https://cafefcdn.com/zoom/600_315/203337114487263232/2026/11/22/avatar1795336820559-17953368210672012261407.webp"
      }
     ]
    },
@@ -4848,20 +4854,20 @@
     "name": "Tài chính – năng lượng – vàng – hàng hóa",
     "items": [
      {
+      "title": "Đối mặt những thách thức lớn",
+      "summary": "Bất ổn địa chính trị và yêu cầu bảo đảm nhiên liệu cho cả dân sự lẫn quân sự đang buộc Liên minh châu Âu (EU) phải xem xét lại chiến lược dự trữ dầu mỏ. Từ bảo đảm nguồn cung đến nâng cao hiệu quả hoạt động: Dấu ấn NSRP sau 9 tháng năm 2026 Châu Âu giải bài toán thiếu hụt năng…",
+      "url": "https://nhandan.vn/doi-mat-nhung-thach-thuc-lon-post1004768.html",
+      "source": "Báo Nhân Dân",
+      "date": "2026-11-23 06:33",
+      "img": "https://cdn.nhandan.vn/images/XPCjZPF-5Dy2gsZoLd93HwvDrA4z4UtCR8Y5dm0XVnA4ddt1mIXaMTCTNjkEwf9o67h6_gj2omvZP4QlvTlD62sDdAIWZNvjOn5OiXHDvLwiNpcqhDYnnWsvPMqWqGKgdt6tnh0jkshNhVJd0kaj0-Zn03a_hplwuDvSqeoS4Oo/20221203465d6d6f586640978bfe70cd5a5cb610-79c17b8f-54c0-4fb2-a99b-39b74ce1898f-1.jpg.avif"
+     },
+     {
       "title": "Nga kỳ vọng đưa năng lượng nhiệt hạch vào ứng dụng từ những năm 2050",
       "summary": "Tổng giám đốc Tập đoàn Năng lượng Nguyên tử Quốc gia Nga (Rosatom) Alexey Likhachev nhận định năng lượng nhiệt hạch có thể được đưa vào ứng dụng trong công nghiệp như một nguồn năng lượng từ giữa thế kỷ XXI. Iran phát triển lò phản ứng nhiệt hạch Tokamak hoàn toàn bằng công nghệ…",
       "url": "https://baotintuc.vn/nga-ky-vong-dua-nang-luong-nhiet-hach-vao-ung-dung-tu-nhung-nam-2050-post1405165.html",
       "source": "Báo Tin tức (TTXVN)",
       "date": "2026-11-22 19:56",
       "img": "https://media3.baotintuc.vn/images/9ob4ZYYaL7higG_fi_vXXoIKgUQ9aq_6Jt7nukwZUDUhz3e7rM-kDRkhyFoZDwHxwL1YYA8hfDbF4xgDRMxsOEYuxVLTYVq-TkmI3G-RGTZqG7fj2iHvyZp3eDPuT3SGFyHqs3vfNHUWFjX5SuuTWQ/1124624058-016030721888-1920x0-80-0-0-ba12b238ea666bbca9133426dddfb536.jpg.avif"
-     },
-     {
-      "title": "Thực nghiệm hiện trường vụ giết chủ quán cà phê, cướp tài sản ở Vĩnh Long",
-      "summary": "Công an tỉnh Vĩnh Long đã khởi tố vụ án, khởi tố bị can, thi hành lệnh bắt tạm giam Đặng Chấn Huy điều tra về hành vi giết nữ chủ quán cà phê để cướp tài sản. Sang Campuchia làm phun xăm lại rơi vào ‘ổ’ lừa đảo Thông tin mới vụ phóng hoả, đâm chết người tình tại nhà trọ ở Vĩnh…",
-      "url": "https://tienphong.vn/thuc-nghiem-hien-truong-vu-giet-chu-quan-ca-phe-cuop-tai-san-o-vinh-long-post1896572.tpo",
-      "source": "Tiền Phong",
-      "date": "2026-11-22 16:15",
-      "img": "https://cdn.tienphong.vn/images/nsgp9dvlAamgUjJTw8t8VZuzcJ5bVzTrSdULLhZELlnh6kvTnGlXM7UTo5hd_rY_/huy.jpg.avif"
      },
      {
       "title": "Giới phân tích cảnh báo giá vàng còn giảm sâu",
@@ -4888,12 +4894,12 @@
       "logo": "voh.com.vn"
      },
      {
-      "title": "Lời giải mới cho cơn khát năng lượng của các trung tâm dữ liệu",
-      "summary": "Các công ty khởi nghiệp trong lĩnh vực địa nhiệt đang chạy đua để khai thác những tầng đá sâu nhất và nóng nhất. Sau màn chào sàn lịch sử của Anthropic, triển vọng tiếp theo của ngành AI như thế nào? Chip bán dẫn đưa xuất khẩu Hàn Quốc lần đầu vượt mốc 1.000 tỷ USD IEA: Xung đột…",
-      "url": "https://baotintuc.vn/loi-giai-moi-cho-con-khat-nang-luong-cua-cac-trung-tam-du-lieu-post1405012.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 06:21",
-      "img": "https://media3.baotintuc.vn/images/Kq8qNiWnYuUiRWMRp_KRosNdVQMn5cFUOywoQACBmi7F6ZB3v6wSIiUVL8MGBKnViciHqjHi6_mnxwP9uUXskZq0FCuWRLaNCTqI-CkHgKsSYarc1wi12rQ-krRuZ_c9C_Vvcs-IWpiEy1h7fLgur7UV3inc1dsOj8b0az_hIWs/potal-kinh-te-my-tang-truong-vuot-ky-vong-nho-lan-song-dau-tu-ha-tang-ai-bung-no-stand.jpg.avif"
+      "title": "Một tuần, giá vàng thế giới mất đến 350 USD/ounce",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1ZY2Q4eGRNcGo4aUhpRDJybnV0N0RLOUMya3Y2bjFrTG1lVFhYNWhCb3FNaThhLU9oYVVKNmZpNzhaZThKM19SSWZ3OEZpaENPckhuNDYzVXFlR25NSFZVVTUxc1hiNG05MWktMG9OS1JNTVk1aVJJOHZHRQ?oc=5",
+      "source": "Vietnam.vn",
+      "date": "2026-11-22 00:53",
+      "logo": "vietnam.vn"
      },
      {
       "title": "Mỹ triệt phá đường dây trộm hàng hóa trên tàu hỏa",
@@ -4902,14 +4908,6 @@
       "source": "VTV",
       "date": "2026-11-21 21:56",
       "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/21/screenshot-2026-11-21-133935-19455428432003020500123-28057204548603350041876.png"
-     },
-     {
-      "title": "Cập nhật giá xăng dầu ngày 21.11: Giá dầu thế giới giảm tuần thứ ba liên tiếp",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQT1B3a3VxYXcwVDZqeXl5TVc1LXktakhJczhROU5lNk5iSnVmaDFzQWdVa2k1OEdUdDlUbDV0MW1SdS1LX0pLTldqdl84NGVzV0tLQXVHb1h5cnp2aEJGelExZGEyOTNOYV9xRXNCYWExS285WUFuZ0FnZ0RDeE50em9Bcmg3TTRmS3Y1ZlM1VzFvcUZhQWRWYU5BbkpDcTU2OFZIZlZkMHRFSmdOUy1PemJLc210V1lC?oc=5",
-      "source": "Lao Động",
-      "date": "2026-11-21 19:10",
-      "logo": "laodong.vn"
      },
      {
       "title": "5 \"thế lực\" phía sau cú bán tháo trên thị trường chứng khoán: Cọng rơm đè gãy lưng con lạc đà",
@@ -4966,6 +4964,14 @@
       "source": "VnEconomy",
       "date": "2026-11-20 15:29",
       "img": "https://premedia.vneconomy.vn/files/uploads/2026/11/20/96a5b42555af4cdcb75d7b4beaefb32a-137279.jpg?w=1200&h=630&mode=crop"
+     },
+     {
+      "title": "Chứng khoán Mỹ bán tháo dù cổ phiếu Anthropic tăng 17% trong phiên chào sàn, giá dầu đi lên",
+      "summary": "Thị trường chứng khoán Mỹ giảm điểm mạnh trong phiên giao dịch ngày thứ Năm (19/11), đóng cửa ở mức thấp nhất trong phiên, dù cổ phiếu của công ty trí tuệ nhân tạo (AI) tăng mạnh trong phiên giao dịch đầu tiên trên sàn Nasdaq...",
+      "url": "https://vneconomy.vn/chung-khoan-my-ban-thao-du-co-phieu-anthropic-tang-17-trong-phien-chao-san-gia-dau-di-len.htm",
+      "source": "VnEconomy",
+      "date": "2026-11-20 08:34",
+      "img": "https://premedia.vneconomy.vn/files/uploads/2026/11/20/2e6429f025f54a039518ffdcbbafde47-137261.webp?w=1200&h=630&mode=crop"
      }
     ]
    },
@@ -4973,6 +4979,30 @@
     "key": "tac_dong_vn",
     "name": "Tác động tới Việt Nam",
     "items": [
+     {
+      "title": "Ấn tượng Ngày Văn hóa Việt tại Malaysia",
+      "summary": "Ngày 22/11, Đại sứ quán Việt Nam tại Malaysia đã trang trọng tổ chức Ngày Văn hóa Việt Nam 2026 tại thủ đô Kuala Lumpur, thu hút sự tham dự đông đảo của các Đại sứ, đại diện các cơ quan ngoại giao, bạn bè địa phương và quốc tế cùng cộng đồng người Việt Nam đang sinh sống, học…",
+      "url": "https://baotintuc.vn/an-tuong-ngay-van-hoa-viet-tai-malaysia-post1405204.html",
+      "source": "Báo Tin tức (TTXVN)",
+      "date": "2026-11-23 06:08",
+      "img": "https://media3.baotintuc.vn/images/Ksxl7ZKliD9rtunTs81u-MuB94UmhffbPuGETTGnpsTpqIRcl2tVL0mMiEa7QWSuntqkh-goRh3z12O3ZEE13_OMlUWmdY8fKNJYt_cNijQGtQ0u6M51dwsOSi8BBlEa/potal-dac-sac-ngay-van-hoa-viet-nam-tai-malaysia-stand-7124.jpg.avif"
+     },
+     {
+      "title": "Hé lộ sân khấu Mỹ Đình rộng 3.000 m2 chào mừng Ngày Văn hóa Việt Nam",
+      "summary": "Tối 22/11, buổi tổng duyệt concert \"Muôn sắc Việt Nam\" diễn ra tại sân vận động quốc gia Mỹ Đình. Chương trình kết nối những giá trị di sản với sức sáng tạo đương đại, hướng tới đáp ứng nhu cầu thưởng thức của đông đảo nhân dân và lan tỏa tinh thần “Văn hóa soi đường cho quốc…",
+      "url": "https://tienphong.vn/he-lo-san-khau-my-dinh-rong-3000-m2-chao-mung-ngay-van-hoa-viet-nam-post1896647.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-11-23 06:07",
+      "img": "https://cdn.tienphong.vn/images/yiF5aqEs4qIAf3lw8X6i3uWjin43TCv6f9_oYaOyTQn-h8Dj6CNH3cLzUhDFsysmHK-2uAKMgshFcRtxUaTMGENe8lpSG7Esmboubr_AxGD2TM8JdhbGA744rU8bbPFEWZUUa1DfmW6eAGQ0ew_0uHFO-FoVmG4S7IZsU2YaCT0/1795361132980-677197016557611491-g7289121229410322606-63022b176dd4443e62b3fc01c19edb4f.jpg.avif"
+     },
+     {
+      "title": "Tổ chức Ngày Văn hóa Việt Nam 2026 tại Thái Lan",
+      "summary": "VTV.vn - Tại Udon Thani, Thái Lan, Ngày Văn hóa Việt Nam đã mang đến không gian giao lưu, quảng bá những nét đẹp văn hóa Việt tới kiều bào và người dân địa phương.",
+      "url": "https://vtv.vn/to-chuc-ngay-van-hoa-viet-nam-2026-tai-thai-lan-100261122165518258.htm",
+      "source": "VTV",
+      "date": "2026-11-23 05:28",
+      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/vh-3-52844530418121509169965-71403395526716237850882.png"
+     },
      {
       "title": "Lan tỏa sắc màu văn hóa Việt Nam tại Nam Sudan",
       "summary": "Bệnh viện dã chiến cấp 2 số 8 của Việt Nam tổ chức Ngày Văn hóa Việt Nam tại Bentiu (Nam Sudan), kết nối tình hữu nghị, lan tỏa bản sắc dân tộc và thắt chặt tình đoàn kết quốc tế trong Phái bộ Gìn giữ hòa bình Liên hợp quốc tại Nam Sudan. Việt Nam tiếp tục hợp tác với LHQ và các…",
@@ -5012,6 +5042,14 @@
       "source": "Vietnam+",
       "date": "2026-11-22 22:00",
       "img": "https://media.vietnamplus.vn/images/O5HOz7kQdXhh7X2Iy0psPgLoxH272hIvn2JnEIzyaD7n66rpTUzd1pB6p1l4LTJw/ttxvn-nhat-ban.jpg.avif"
+     },
+     {
+      "title": "Việt Nam không chỉ bán lúa gạo mà còn xuất khẩu công nghệ nông nghiệp ra thế giới",
+      "summary": "Theo Chủ tịch Quốc hội Trần Thanh Mẫn, ngành lúa gạo Việt Nam sẽ hướng đến sự chuyển đổi từ xuất khẩu nông sản sang xuất khẩu công nghệ nông nghiệp để mang lại giá trị cao hơn và khẳng định vị thế quố ...",
+      "url": "https://thanhnien.vn/viet-nam-khong-chi-ban-lua-gao-ma-con-xuat-khau-cong-nghe-nong-nghiep-ra-the-gioi-185261122221705507.htm",
+      "source": "Báo Thanh Niên",
+      "date": "2026-11-22 21:55",
+      "img": "https://images2.thanhnien.vn/zoom/1200_630/528068263637045248/2026/11/22/1k81o09bc-3pe9ia-17953597162971361329393-84-0-1334-2000-crop-17953597278371058595970.jpeg"
      },
      {
       "title": "Dấu ấn đại đoàn kết và bản sắc Việt Nam tại Hàn Quốc",
@@ -5060,38 +5098,6 @@
       "source": "Tiền Phong",
       "date": "2026-11-22 18:07",
       "img": "https://cdn.tienphong.vn/images/QHNJywCO6gZag9TC0jx2pFSv8YSU02ETTafeDbzqi7X4Wh-I1YXS4ixSeBD08kO3I5iRCOzTga1mA45PljwVEg/c074500-16-33-04still004.jpg.avif"
-     },
-     {
-      "title": "[Ảnh] Những thầy thuốc Quân y trong vùng tâm chấn Myanmar",
-      "summary": "Tháng 4/2025, trước thảm họa động đất kinh hoàng tại Myanmar, Quân đội nhân dân Việt Nam đã cử lực lượng sang nước bạn khắc phục hậu quả thiên tai, cùng nhìn lại những khoảnh khắc ấn tượng của lực lượng Quân y Việt Nam. Quân y Việt Nam khẳng định được năng lực, uy tín tại Phái…",
-      "url": "https://nhandan.vn/anh-nhung-thay-thuoc-quan-y-trong-vung-tam-chan-myanmar-post1004653.html",
-      "source": "Báo Nhân Dân",
-      "date": "2026-11-22 17:26",
-      "img": "https://cdn.nhandan.vn/images/PeiW1NIfyq5HneoGHB4ujg46RqleeVxRVl8rJf9g99u3rhPNozOxplikqgnb2FR3/bia.jpg.avif"
-     },
-     {
-      "title": "Doanh nghiệp Việt Nam và Trung Quốc kỳ vọng mở rộng hợp tác sau diễn đàn tại Vân Nam",
-      "summary": "Diễn đàn Kết nối chiến lược phát triển Việt Nam và khu vực Tây Nam Trung Quốc mở thêm cơ hội cho doanh nghiệp hai nước hợp tác lĩnh vực thương mại, nông sản, năng lượng, logistics và công nghệ.",
-      "url": "https://congthuong.vn/doanh-nghiep-viet-nam-va-trung-quoc-ky-vong-mo-rong-hop-tac-sau-dien-dan-tai-van-nam-482235.html",
-      "source": "Báo Công Thương",
-      "date": "2026-11-22 16:36",
-      "img": "https://cdn-i2.congthuong.vn/resize/gn/upload/2026/11/22/dscf8040-12311912.jpg"
-     },
-     {
-      "title": "APEC 2027: Cơ hội để Việt Nam khẳng định vai trò kết nối và kiến tạo đồng thuận",
-      "summary": "Việt Nam đã chính thức tiếp nhận vai trò chủ nhà Diễn đàn Hợp tác kinh tế châu Á - Thái Bình Dương (APEC) năm 2027 với chủ đề “Cùng kiến tạo một kỷ nguyên mới tự cường, đổi mới sáng tạo và thịnh vượng chung”. APEC 2027: Khẳng định vai trò và vị thế của Việt Nam APEC 2027: Việt…",
-      "url": "https://baotintuc.vn/apec-2027-co-hoi-de-viet-nam-khang-dinh-vai-tro-ket-noi-va-kien-tao-dong-thuan-post1405097.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-22 13:51",
-      "img": "https://media3.baotintuc.vn/images/vjKLemGTQ4O9j8oRJqNpot2JnufAyeI0_1DeiVy2Utgd3MqcNn3J1lEYpYFqRlFsYDOEE8KnttXguNLDT1srL1H5ptZD8qFS7azh_s0lu673aXwvSVu_-FaL5be0bh3cJPldDfLrOLyDRqxp7gx_xvZCWa-Gvv3vs_Ck4oPySP8/potal-chuyen-tham-cua-tbt-ctn-to-lam-tao-xung-luc-moi-cho-hop-tac-chien-luoc-viet-an-stand.jpg.avif"
-     },
-     {
-      "title": "Từ giao lưu văn hóa Việt Nam - Hoa Kỳ đến hành trình đưa IP giải trí Việt ra thế giới",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNQWRucUVKUnhYRDVVVTB4cHdidUpTdjU3ci1ocWtSSmZPM1BCTWM4dm9CWnBja2JaQWZzd0hocS0xMTVST0VOZkF5Vko3enQ0c21Ld1lyRlhGaGNXanVkYUR3MG5fZUdXQlNHZWk3ZFhKYmpxOVZXZmhRT1hac05yR1dzOGtFRV9TdG5HdTZCZ1BRODNqRWRFSmM4QVFOSXI2anpzS09lSUllX25RSTJJM1lrLUlNNm1pbTVwLW94UTA?oc=5",
-      "source": "Lao Động",
-      "date": "2026-11-22 13:45",
-      "logo": "laodong.vn"
      }
     ]
    }
@@ -5106,6 +5112,14 @@
     "key": "ct_nhan_su",
     "name": "Nhân sự – bầu cử – bổ nhiệm",
     "items": [
+     {
+      "title": "Ấn tượng tạo hình APEC 2027 Phú Quốc trên bầu trời",
+      "summary": "Tối 22/11, bầu trời Rạch Giá, An Giang rực sáng với màn trình diễn ánh sáng bằng thiết bị bay không người lái (drone light), công nghệ Laser Mapping và pháo hoa tầm cao tại Lễ khai mạc Festival “Dòng Xanh An Giang” lần thứ I - năm 2026. TPHCM khai hội Tuần Văn hóa - Đại đoàn kết…",
+      "url": "https://tienphong.vn/an-tuong-tao-hinh-apec-2027-phu-quoc-tren-bau-troi-post1896643.tpo",
+      "source": "Tiền Phong",
+      "date": "2026-11-23 05:30",
+      "img": "https://cdn.tienphong.vn/images/fkFLQe7x6NXR-htqIBPBag1BujmnzOHeP9UXcLDOEpRgtYFSmYBHVbVPo18Vc16Eb9C71Y51NfHFt-auxNNxuo0rUst0Qo_2mwEX2K3bJyOeXpkBK_lSzQeVs-0HWsZ5g0ftGHcF4XDwcMwMdXMpefvwJRu0Lo8kjLofoxr3jIs/1795359247994-2099838752004042906-2099838752004042906-9958ab3325b840d7f4f2ef3872724e3e.jpg.avif"
+     },
      {
       "title": "Kiện toàn Hội đồng quản lý Quỹ Hỗ trợ đầu tư",
       "summary": "Phó Thủ tướng Nguyễn Văn Thắng vừa ký Quyết định số 2291/QĐ-TTg ngày 20/11/2026 về việc kiện toàn Hội đồng quản lý Quỹ Hỗ trợ đầu tư (Hội đồng). Kiện toàn Ban Chỉ đạo 389 Bộ Công Thương Kiện toàn Tổ công tác triển khai Đề án Hệ sinh thái tận dụng FTA Kiện toàn thành viên Ủy ban…",
@@ -5147,12 +5161,20 @@
       "img": "https://static-images.vnncdn.net/vps_images_publish/000001/000003/2026/11/18/bai-nhiem-mot-chu-tich-xa-o-thanh-hoa-vi-tham-gia-danh-bac-370.jpg?width=0&s=j4WIHlO7fyHEcAwQwfMDiQ"
      },
      {
+      "title": "Giới thiệu nhân sự kiện toàn Ủy viên Ủy ban Kiểm tra Tỉnh ủy",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPSnBuUUVveUxjbHM5c3RJLVJ3QmplWFpRb1hBLWFrNWRWTF9QV1hOWlJBYWx6UEdhZkowanZFdkhDdGpxTGR5SEhQMHBEdkl2Z0Ywc3JQMUpVdEJIYV9XMDltNFdnblFteVRBNEM4bGt5WUVCbDBjaDVFSnhyRENjOHlQaGJTZTA3R1cw?oc=5",
+      "source": "Vietnam.vn",
+      "date": "2026-11-17 15:33",
+      "logo": "vietnam.vn"
+     },
+     {
       "title": "Ông Triệu Ngọc Lâm giữ chức Tổng Giám đốc Nhà xuất bản Giáo dục Việt Nam",
       "summary": "Bộ trưởng Bộ GD-ĐT Hoàng Minh Sơn vừa ký quyết định điều động ông Triệu Ngọc Lâm, Tổng Biên tập Báo Giáo dục và Thời đại, đến công tác tại Công ty TNHH MTV Nhà xuất bản Giáo dục Việt Nam và bổ nhiệm giữ chức vụ Chủ tịch Hội đồng thành viên đồng thời là Tổng Giám đốc. Bộ trưởng…",
-      "url": "https://www.sggp.org.vn/ong-trieu-ngoc-lam-giu-chuc-tong-giam-doc-nha-xuat-ban-giao-duc-viet-nam-post882218.html",
-      "source": "Sài Gòn Giải Phóng",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQVU8wVnVNYlJOS1Z2MXdqT05pZTg3ZHdSbUV5OVpNalBzRUE2b3RPZ00yaVdIMlptWlhlcFRJb0poTEJGWkhWWTdBa1lKci1NS3lNTElUWVZyRlI3ZS10NGpFOHFsVFgwQy1SX0ZPR19FOVVxX3hETDJ1X2dDeFlsNE9lRGtNUmFieWFPUTAzeFd3bUlPdW5RRURmVTNhUUx0QV9hWWloOUdDT2JZR2tIa2dR?oc=5",
+      "source": "BÁO SÀI GÒN GIẢI PHÓNG",
       "date": "2026-11-17 13:16",
-      "img": "https://image.sggp.org.vn/w800/Uploaded/2026/aopaohv/2026_11_17/1-4776-9920.jpg.webp"
+      "logo": "sggp.org.vn"
      },
      {
       "title": "Đồng chí Nguyễn Trần Dương được phê chuẩn giữ chức Phó Chủ tịch UBND phường Hải An, nhiệm kỳ 2026 - 2031",
@@ -5161,6 +5183,22 @@
       "source": "dangcongsan.vn",
       "date": "2026-11-17 11:56",
       "logo": "dangcongsan.vn"
+     },
+     {
+      "title": "Thanh Hóa phê chuẩn Chủ tịch UBND phường Hàm Rồng",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObnBkS2tfNlhycTNKc01fN1pkTUpoYW5naEVoVXB6LUJVazM4T0k0cm1vTmszcFVacUtrYnlNRi1tOGhRYnVQbXMzcm5rbV9OOUYwa2ZJb3NVaWZ1V2k2VklFZ1VhYzBabTdBYkJKcWEwQ1pfSFB0a2hYT0tHTUxKLWNvYnJ3Q1V0a19jazJXQ0c?oc=5",
+      "source": "Lao Động",
+      "date": "2026-11-17 11:12",
+      "logo": "laodong.vn"
+     },
+     {
+      "title": "Ninh Bình công bố 46 quyết định nhân sự, Thái Nguyên có Chánh Văn phòng Tỉnh ủy mới",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNd0MyWmJ1bFc3VGFRQUw4QkFuM1J6Q3J6cUVuZWZVbGdTeXpoc0VUWVhuX2VZZHJ6bm9rSmdDeDcta2t1Z3RBaDBwX0haMGdfbkZnVTJmV3BKNk5ZdE41R3VEU3g4bUN5SVBNMGNnemlnXzZsQnZZNWhpVjVkd05CZVhtLXZCdFluZUxIOXpEQUNGWFpzSTJXaVV4WmpMbUYzQTZnOE84R0dhTEg4aHVoTm5hV1p5QnVIQlRwbWVlVmE?oc=5",
+      "source": "Báo Gia Lai điện tử",
+      "date": "2026-11-17 10:30",
+      "logo": "baogialai.com.vn"
      },
      {
       "title": "Đồng chí Đinh Thị Mai giữ chức Phó Bí thư Đảng ủy các cơ quan Đảng Trung ương",
@@ -5179,52 +5217,20 @@
       "logo": "laodong.vn"
      },
      {
+      "title": "Thủ tướng Chính phủ phê chuẩn kết quả bầu Chủ tịch UBND TPHCM nhiệm kỳ 2026-2031",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNd3RBQ0VfcktkeWxjNWlHOUtYTVp0aGFZb2JjM0JoNlpiNGNuaVNnUmc5b0lsTVlHYzZRRjdBS0pLXzAwTkh6WjExb2FIRmdHYnNkZkUzd1o5TU45aC1TYlY0cFBNT1pvVWFNODNpNnB6SUM1Zjh3VlBsYXJsYkRHdzRDNVVUS2FrTGVQNFJXczc3NXk0MnlObmRvVFQzaFNXZGNCUHFNU01HOU00aHB5MXAtcFc3Q3VpYU93MFJDcDI2QQ?oc=5",
+      "source": "Báo Công an Thành Phố Hồ Chí Minh",
+      "date": "2026-11-15 08:27",
+      "logo": "congan.com.vn"
+     },
+     {
       "title": "Thủ tướng phê chuẩn kết quả bầu Chủ tịch UBND TP.HCM với ông Lê Quốc Phong",
       "summary": "",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOX1NBeGxrV3NqTTkySVVLRGJuRVFiV0trS2pjcDktazZRMzFmLXBiMk0xY0h3aTdSbGZJbzdja2ZXUjVlYS1TSWtBcmwtbTFPUnZ1NzZvOWhtb005MGZxNGNXX2V2XzRyeHI4UGZDSzJ2UHVneHlhVGhIVjdXd3Z2bm9NUW14OVhCdDdyYVZmdE9yc3RySFRrUDdJRDJFY3k3eEo3U0V3VExBSFRtY2tEN1lUUVM?oc=5",
       "source": "VOV",
       "date": "2026-11-14 21:57",
       "logo": "vov.vn"
-     },
-     {
-      "title": "Tiêu chuẩn bổ nhiệm Giám đốc, Phó Giám đốc Trung tâm trợ giúp pháp lý nhà nước",
-      "summary": "Thay mặt Chính phủ, Phó Thủ tướng Lê Tiến Châu ký Nghị định số 409/2026/NĐ-CP ngày 12/11/2026 quy định chi tiết một số điều và biện pháp thi hành Luật Trợ giúp pháp lý. Bổ nhiệm lại 2 Phó Thống đốc Ngân hàng Nhà nước Việt Nam Bổ nhiệm GS, PGS: Trao quyền tự chủ phải đi cùng chất…",
-      "url": "https://baotintuc.vn/tieu-chuan-bo-nhiem-giam-doc-pho-giam-doc-trung-tam-tro-giup-phap-ly-nha-nuoc-post1402849.html",
-      "source": "Báo Tin tức (TTXVN)",
-      "date": "2026-11-14 21:17",
-      "img": "https://media3.baotintuc.vn/images/vjKLemGTQ4O9j8oRJqNpolzr8MB7FkqNAnToZxwIGywVtIA05OyW7_H2bC1KQa4Y/trogiupphaply.jpg.avif"
-     },
-     {
-      "title": "Quốc hội họp riêng xem xét, quyết định công tác nhân sự",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQSm5OUW9BX1ZLZjJFRDFtTVhZWDhlc3c3RVgwVEdFNWZLUU1oNzdqRmtzemVwMUd6YUZVVnRCS2VEZ2VqdTZyZHJ3RFBrYWdQUEpscFJCTlVyOXJ1LWhYSVo4NjJuNTBrbndmU2poMEQyOUVKeTNkeGo4Z3NMODlGdXl5MDlKZmlfbTYtbGZJMWlodGp6anBsbg?oc=5",
-      "source": "Lao Động",
-      "date": "2026-11-13 15:00",
-      "logo": "laodong.vn"
-     },
-     {
-      "title": "Đồng chí Lê Quốc Phong được bầu giữ chức Chủ tịch UBND TPHCM",
-      "summary": "112 phiếu tán thành trên tổng số 112 đại biểu có mặt tại thời điểm bỏ phiếu, đạt tỷ lệ 100%, đồng chí Lê Quốc Phong đã trúng cử chức danh Chủ tịch UBND TPHCM khóa XI, nhiệm kỳ 2026-2031. Miễn nhiệm chức danh Chủ tịch UBND TPHCM với đồng chí Nguyễn Văn Được để nhận nhiệm vụ Phó…",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOcjlMbWg4ZmpNeC1nbEF5RDVKUEFUbnYydWdBQmhJdGF4RklzNC1ORXJYUElOaGtHSDRCTG5SU3N3ME5RMWE2NDRrSWZBUVphcU5kNm5tTWRvSmlDUWMxLUJ1dmtXR2E1ZXFtQXN2MWJNTjFhSVQ2NEQ4VlQ3dDNMYzhvdWVQX09NVVI3bTBjaGVjRm9scVQ0MG84Y041R3pyUGVRUTZCQ2hNajFHYkpad3RTNE12SGQxMnc?oc=5",
-      "source": "dangcongsan.vn",
-      "date": "2026-11-12 15:00",
-      "logo": "dangcongsan.vn"
-     },
-     {
-      "title": "TP. Hồ Chí Minh thay đổi nhân sự lãnh đạo chủ chốt, ai giữ chức Chủ tịch UBND thành phố?",
-      "summary": "(GLO)- TP. Hồ Chí Minh vừa kiện toàn các vị trí lãnh đạo chủ chốt. Ông Nguyễn Văn Được nhận nhiệm vụ Phó Bí thư Thường trực Thành ủy, trong khi ông Lê Quốc Phong được bầu giữ chức Chủ tịch UBND thành ...",
-      "url": "https://dangcongsan.vn/gialai/xay-dung-dang/tp.-ho-chi-minh-thay-doi-nhan-su-lanh-dao-chu-chot-ai-giu-chuc-chu-tich-ubnd-thanh-pho-.html",
-      "source": "Đảng Cộng sản Việt Nam",
-      "date": "2026-11-12 14:11",
-      "logo": "dangcongsan.vn"
-     },
-     {
-      "title": "Kỳ họp thứ 7 HĐND TPHCM khóa XI, nhiệm kỳ 2026-2031 thực hiện công tác nhân sự",
-      "summary": "Các đại biểu tham dự kỳ họp thứ 7 HĐND TPHCM khóa XI. Ảnh: VIỆT DŨNGTrưa 12/11, HĐND TPHCM khóa XI, nhiệm kỳ 2026-2031 tổ chức kỳ họp thứ 7 (kỳ họp chuyên đề) để xem xét, quyết định công tác nhân sự t ...",
-      "url": "https://dangcongsan.vn/tphochiminh/tin-tuc-hoat-dong/ky-hop-thu-7-hdnd-tphcm-khoa-xi-nhiem-ky-2026-2031-thuc-hien-cong-tac-nhan-su.html",
-      "source": "Đảng Cộng sản Việt Nam",
-      "date": "2026-11-12 11:20",
-      "logo": "dangcongsan.vn"
      }
     ]
    },
@@ -5363,8 +5369,32 @@
       "summary": "VTV.vn - Tối 22/11, tại thành phố Cần Thơ, Chủ tịch Quốc hội Trần Thanh Mẫn đã dự Lễ Khai mạc Festival quốc tế ngành hàng Lúa gạo Việt Nam, lần thứ hai – Cần Thơ 2026.",
       "url": "https://vtv.vn/chu-tich-quoc-hoi-thuc-day-qua-trinh-doi-moi-nang-cao-nang-luc-canh-tranh-cua-nganh-lua-gao-viet-nam-100261122225259401.htm",
       "source": "VTV",
-      "date": "2026-11-22 22:53",
+      "date": "2026-11-23 05:53",
       "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/2211-khai-mac-festival-2598-71309839838006216178599-64668400844850453117494.jpg"
+     },
+     {
+      "title": "Kỳ họp thứ hai, Quốc hội khóa XVI: Làm luật sát thực tiễn, bảo đảm tính khả thi: Bài 1: Tích cực đổi mới tư duy lập pháp",
+      "summary": "",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQUzhzRllDdWdDc0p1SDBFNVVidF9GUmFkZ1lGT0c3T0JQNy0zbUlDT0dmZ2JPb0tuNWR0OFdxNDlZTUdVTEFRRzl5UXczaDQ5aUJWM3BqcjQyNVBoTFdKc1RpWWQyN0s1QUljUFJ5ZDc4SXliSVlJSXU3YUtSV2N5ZHJmMHB0OTJLcE1sZVZ6UUo0UzAzakZmSUhVYTBNRkhkNXhkTUtnOUNXN2EtX1NxQnlPS0FkYkRCVGxERG8tRnY1QkJoWFFPalN2ZmxCXy04QXVsT2FoclpfX2Q0Nkh1WUt1djREZTJrbVR5UHVZWG1tNV9ENlRJ?oc=5",
+      "source": "Báo Quân đội nhân dân",
+      "date": "2026-11-23 05:26",
+      "logo": "qdnd.vn"
+     },
+     {
+      "title": "Kỳ họp thứ hai, Quốc hội khóa XVI: Dấu ấn lập pháp và tinh thần hành động",
+      "summary": "VTV.vn - Sau khi thông qua nhiều quyết sách quan trọng, Quốc hội yêu cầu khẩn trương triển khai thực hiện, đưa các luật, nghị quyết sớm đi vào cuộc sống.",
+      "url": "https://vtv.vn/ky-hop-thu-hai-quoc-hoi-khoa-xvi-dau-an-lap-phap-va-tinh-than-hanh-dong-100261122185415938.htm",
+      "source": "VTV",
+      "date": "2026-11-23 05:19",
+      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/screenshot-2026-11-22-201545-67742738663280446762834-16930038154608299438658.png"
+     },
+     {
+      "title": "Phó Thủ tướng Thường trực Phạm Gia Túc dự Ngày hội Đại đoàn kết toàn dân tộc tại Cần Thơ",
+      "summary": "Phó Thủ tướng Thường trực Phạm Gia Túc đề nghị TP Cần Thơ tiếp tục phát huy sức mạnh đại đoàn kết toàn dân tộc, lấy nhân dân làm trung tâm, chủ thể, mục tiêu của sự phát triển.",
+      "url": "https://vtv.vn/pho-thu-tuong-thuong-truc-pham-gia-tuc-du-ngay-hoi-dai-doan-ket-toan-dan-toc-tai-can-tho-100261122202630977.htm",
+      "source": "VTV",
+      "date": "2026-11-23 03:54",
+      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/vna-potal-pho-thu-tuong-thuong-truc-du-ngay-hoi-dai-doan-ket-toan-dan-toc-tai-can-tho-stand--1--82374220164442184922794-53997752455232235521187.jpg"
      },
      {
       "title": "Phó Chủ tịch Quốc hội Đỗ Văn Chiến đề nghị phát triển các mô hình trợ giúp nhân đạo bền vững",
@@ -5373,14 +5403,6 @@
       "source": "Vietnam+",
       "date": "2026-11-22 22:38",
       "img": "https://media.vietnamplus.vn/images/0f-btEj60lGt0BFs9lOY196MKhvb_i2iBmzXiI-tW51ErrMEq9LhsQyMGHkvQA0D/hoi-ctd-ha-noi.jpg.avif"
-     },
-     {
-      "title": "Kỳ họp thứ hai, Quốc hội khóa XVI: Dấu ấn lập pháp và tinh thần hành động",
-      "summary": "VTV.vn - Sau khi thông qua nhiều quyết sách quan trọng, Quốc hội yêu cầu khẩn trương triển khai thực hiện, đưa các luật, nghị quyết sớm đi vào cuộc sống.",
-      "url": "https://vtv.vn/ky-hop-thu-hai-quoc-hoi-khoa-xvi-dau-an-lap-phap-va-tinh-than-hanh-dong-100261122185415938.htm",
-      "source": "VTV",
-      "date": "2026-11-22 22:19",
-      "img": "https://cdn-images.vtv.vn/zoom/600_315/66349b6076cb4dee98746cf1/2026/11/22/screenshot-2026-11-22-201545-67742738663280446762834-16930038154608299438658.png"
      },
      {
       "title": "Phó Thủ tướng Hồ Quốc Dũng dự Lễ phát động Ngày hội Văn hóa công nhân 2026",
@@ -5439,14 +5461,6 @@
       "img": "https://cdn.nhandan.vn/images/Qzt8PkcYkAq2lHqQ9bQkKw53b8fl-Z4e3_P6H930avc-6v0ouUZYRMAhRVT3pDkM/ndo_br_t1-7866.jpg.avif"
      },
      {
-      "title": "Phó Thủ tướng Thường trực Phạm Gia Túc dự Ngày hội Đại đoàn kết tại Cần Thơ",
-      "summary": "Cần Thơ tổ chức Ngày hội Đại đoàn kết toàn dân tộc gắn với Ngày Văn hóa Việt Nam và Tuần lễ Văn hóa – Đại đoàn kết năm 2026, lan tỏa tinh thần đoàn kết, chăm lo đời sống nhân dân.",
-      "url": "https://congthuong.vn/pho-thu-tuong-thuong-truc-pham-gia-tuc-du-ngay-hoi-dai-doan-ket-tai-can-tho-482256.html",
-      "source": "Báo Công Thương",
-      "date": "2026-11-22 18:01",
-      "img": "https://cdn-i2.congthuong.vn/resize/gn/upload/2026/11/22/7-7-17251204.jpg"
-     },
-     {
       "title": "Phó Chủ tịch Quốc hội Nguyễn Thị Hồng tiếp xúc cử tri tại Sơn La",
       "summary": "Quốc hội giao Sơn La mục tiêu tăng trưởng GRDP 9,3% trong năm 2027, đặt ra yêu cầu đẩy nhanh tiến độ các dự án hạ tầng, khai thác tiềm năng và tạo động lực phát triển kinh tế địa phương. Phó Chủ tịch Quốc hội Nguyễn Hồng Diên tiếp xúc cử tri tại Gia Lai Thường trực Ban Bí thư…",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNV3Q4WVl3MjM2aDJMb1ZZWXlYVThLakE5RWVxWkk3cFV3QkJOeU03cUtyNVB1WGxlUWV6ZjRHRldOWjd2SlVJaHctZ1pFMXJKRlhvLW9LeVRhWFF6NkY2cm5NelFyRVpCTGtmWkQtOHdSNjdPdVB1eUQ3MXdZdWNoeVBxYW9uY2lJN0dDY05nMjE4MVhvWHRkQ25TYml3Z0k3LVFJR0tTbFBieGc?oc=5",
@@ -5469,14 +5483,6 @@
       "source": "Báo Công Thương",
       "date": "2026-11-22 16:55",
       "img": "https://cdn-i2.congthuong.vn/resize/gn/upload/2026/11/22/thu-tuong-le-minh-hung-cung-truong-doan-cac-nuoc-tham-du-le-khai-mac-hoi-nghi-cap-cao-asean-lan-thu-49-17953252320301902979106-15383223.png"
-     },
-     {
-      "title": "Những con số ấn tượng của Kỳ họp thứ 2, Quốc hội khóa XVI",
-      "summary": "",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNaWREaUxsZTJsWWFCYVN6UzVOVDg1ZW1ySGg2VUlOa19Id1ptZHdNWnRSdUJMRVB6elJQYWtoeWNxZXpjZDdBbENZYkxWRkd0TWNoNVJxSWhHeGc0SWlUNjNHR0FMUUZPUVNuTHhqLWNlc3JibEVOQl9UeUlYNnc4cDM4cG1XZjNXUkpkV1BVUlg3SWVEbHVrbmw1SHVuZlU?oc=5",
-      "source": "Báo Tuổi Trẻ",
-      "date": "2026-11-22 16:45",
-      "logo": "tuoitre.vn"
      }
     ]
    }
